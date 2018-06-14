@@ -4,15 +4,14 @@
 # Kiko-plus https://aweekj.github.io/Kiko-plus/ and Minima https://github.com/jekyll/minima
 
 # basic
-title: _drafts
-description: a blog of notes, solutions, and mini-workshops to get things started.
-keywords: digital humanities, tutorial, workshops, code, linux
-author: EvanWill
-github_username: evanwill
-twitter_username: EvanPeterWill
+title: sveska
+description: a blog of learning things.
+keywords: cerificate
+author: acailic
+github_username: acailic
 
-url: https://evanwill.github.io
-baseurl: /_drafts
+url: https://acailic.github.io
+baseurl: /sveska
 
 # build
 collections:
