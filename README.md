@@ -6,6 +6,8 @@ Learning blog.
 
 https://acailic.github.io/sveska/
 
+![alt text](https://github.com/acailic/sveska/blob/master/assets/logo.jpg)
+
 
 Foundation:
 
