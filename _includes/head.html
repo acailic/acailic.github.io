@@ -9,10 +9,10 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{ "/favicon.ico" | absolute_url }}">
 
   <meta property="og:title" content="{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}" />
-  <meta property="og:description" content="{% if page.tags %}Note about {{ page.tags | join: ", " | escape }}{% endif %} from _drafts, {{ site.description }}" />
+  <meta property="og:description" content="{% if page.tags %}Note about {{ page.tags | join: ", " | escape }}{% endif %} from sveska, {{ site.description }}" />
   <meta property="og:type" content="article" />
   <meta property="article:author" content="Aca Ilic" />
-  <meta property="og:image" content="{{ "assets/logo.jpg" | absolute_url }}" />
+  <meta property="og:image" content="{{ "/assets/logo.jpg" | absolute_url }}" />
   {% if page.tags %}{% for t in page.tags %}<meta property="article:tag" content="{{ t | escape }}" />{% endfor %}{% endif %}
   {% if page.date %}<meta property="article:published_time" content="{{ page.date | date: "%Y-%m-%d" }}" />{% endif %}
   <meta property="og:site_name" content="{{ site.title }}" />
