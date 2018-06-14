@@ -5,14 +5,14 @@ layout: page
 
 
 
-`_sveska` is learning blog.
+`sveska` is learning blog.
  
 >evanwill
 >I write notes to remind myself about tips and tricks.
 >This site gathers them together so I can find them.
 >It's a memory tool. 
 
-`_sveska` is built using [Jekyll](https://jekyllrb.com/), 
+`sveska` is built using [Jekyll](https://jekyllrb.com/), 
 on [GitHub Pages](https://pages.github.com/) 
 on foundation of [_drafts](https://github.com/evanwill/_drafts) .
 
