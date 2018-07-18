@@ -41,7 +41,9 @@ date: 2018-07-18
         }
     }
 ```
+
     Output:
+    
  ```
      int method invoked
 	 long method invoked
@@ -57,6 +59,7 @@ date: 2018-07-18
 	* class java.io.IOException
 	* IOException
 ```
+
 5. Tricky switch
 ```
 	int count = 0;
@@ -101,7 +104,9 @@ date: 2018-07-18
     out.println(Arrays.toString(e)); // Way to convert to String for arrays
     out.println(l); // List has its own way to convert a String
 ```
+
     Output:
+    
 ```
     5
 	[[I@1b6d3586
@@ -129,7 +134,10 @@ date: 2018-07-18
 	public abstract class Otter implements Animal, Mammal{}
 	public class ImplOtter extends Otter { public static void main(String ... args) { ImplOtter o = new ImplOtter(); out.println(o.getName());}}
 ```
+
 	Output:
+
+
 ```
 	// Child
 ```
