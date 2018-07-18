@@ -129,9 +129,11 @@ date: 2018-07-18
 11. If you implements two parent-child interfaces on a class, the class only will implements the child.
 	Ex:
 ```
+
 	public interface Animal {  
-	  public default String getName () { return "parent";} 
-	  }
+	  public default String getName () 
+	  { return "parent";} 
+	 }
 	  
 	public interface Mammal extends Animal{   
 	  public default String getName () { return "child";}
@@ -143,6 +145,7 @@ date: 2018-07-18
 	public static void main(String ... args)
 	 { ImplOtter o = new ImplOtter(); out.println(o.getName());}
 	 }
+	 
 	 
 ```
 
