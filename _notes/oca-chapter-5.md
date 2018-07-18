@@ -88,7 +88,7 @@ Test Cases Facts
 	- All objects extend java.lang.Object, so if a method takes that
 	type, any valid object, including null, may be passed.
 
-6. Interfaces and Abastract classes
+6. Interfaces and Abstract classes
 
 	- Only interfaces can contain default methods
 	- Both abstract classes and interfaces can contain static methods
