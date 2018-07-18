@@ -81,8 +81,7 @@ date: 2018-07-23
   even if there's only one statement inside.
 - If there're duplicate constant values in a `switch` statements, all the
   duplicate cases will raise a compile error.
-- The `default` case executes only of no matching values are found. In this
-  case.
+- The `default` case executes only of no matching values are found.  
 
 
 ## QUESTIONS
@@ -138,7 +137,7 @@ order.
 	or in the same declaration of a variable member.
 
 14. When java is choosing the most specify method by a call, java prefers autoboxing to varargs. For example:
-
+```
 	public class Create {
 		Create(Integer num) {
 			System.out.print("3 ");
@@ -154,7 +153,7 @@ order.
 			new Create(1000L);
 		}
 	}
-
+```
 	For this the output would be: 3 4
 
 15. Lambda expressions

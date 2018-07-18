@@ -48,12 +48,13 @@ Test Cases Facts
 
 
 4. You cannot declare an Exception which is never thrown in that context.
-    try {
+``` 
+   try {
         out.print(test());
     } catch (IOException io) {
 
     }
-
+```
 5. Exceptions:
 
 	- Checked exceptions are required to be handled or declared.
