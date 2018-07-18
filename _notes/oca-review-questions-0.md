@@ -11,8 +11,8 @@ date: 2018-07-18
 
 2. Overrided method cannot be more restrictive. For example:
 
-	interface Hastail { int getTailLength()}
-	abstract class Puma implements Hastail {
+	* interface Hastail { int getTailLength()}
+	* abstract class Puma implements Hastail {
 		protected int getTailLength() { return 4; }
 	}
 
@@ -22,7 +22,7 @@ date: 2018-07-18
 	
 	static void sum(int a,int b){System.out.println("int method invoked");}
     static void sum(long a,long b){System.out.println("long method invoked");}
-    
+ ```   
     public static void main( String[] args )
     {
         sum(1,1);
@@ -38,12 +38,12 @@ date: 2018-07-18
             e.printStackTrace();
         }
     }
-
+```
     Output:
 
-    int method invoked
-	long method invoked
-	java.io.IOException
+     int method invoked
+	 long method invoked
+	 java.io.IOException
 		at com.java.courses.oca.inheritance.children.Child.checkedException(Child.java:43)
 		at com.java.courses.oca.App.main(App.java:31)
 		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -52,11 +52,11 @@ date: 2018-07-18
 		at java.lang.reflect.Method.invoke(Method.java:498)
 		at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
 
-	class java.io.IOException
-	IOException
-
+	* class java.io.IOException
+	* IOException
+```
 5. Tricky switch
-
+```
 	int count = 0;
     int x = 3;
     while (count++ < 3){
@@ -71,9 +71,11 @@ date: 2018-07-18
         out.println(x);
     }
     out.println(x);
+``` 
 
     Output:
-
+    
+```
     Loop: 1, Y: 0
 	reached 0
 	2
@@ -84,9 +86,9 @@ date: 2018-07-18
 	Loop: 3, Y: 1
 	reached 5
 	6
-
+```
 6. Arrays
-
+```
 	List<Integer> l = new ArrayList<>(5);
     int [] i = new int[3];
     int [] b [] = new int[3][];
@@ -96,14 +98,14 @@ date: 2018-07-18
     out.println(e); // Print the position in stack with the prefix of type. Ex: [[I@1b6d3586
     out.println(Arrays.toString(e)); // Way to convert to String for arrays
     out.println(l); // List has its own way to convert a String
-
+```
     Output:
-
+```
     5
 	[[I@1b6d3586
 	[null, null, null, null]
 	[]
-
+```
 7. When a method is declared private it cannot be override, it can be hidden... 
    So if you use this method from the same class it would use the type method.
 
@@ -119,16 +121,16 @@ date: 2018-07-18
 
 11. If you implements two parent-child interfaces on a class, the class only will implements the child.
 	Ex:
-
+```
 	public interface Animal {    public default String getName () { return "parent";} }
 	public interface Mammal extends Animal{     public default String getName () { return "child";} }
 	public abstract class Otter implements Animal, Mammal{}
 	public class ImplOtter extends Otter { public static void main(String ... args) { ImplOtter o = new ImplOtter(); out.println(o.getName());}}
-
+```
 	Output:
-
+```
 	// Child
-
+```
 12. Interface
 
 	- You cannot have "package private", "private", "protected" modifier.
