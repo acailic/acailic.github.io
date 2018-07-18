@@ -240,29 +240,29 @@ Test Cases Facts
 
 8. "For Loop" statement
 
-	The structure of a basic for statement
-	Parentheses (required)
-	Semicolons (required)
-	for(initialization; booleanExpression; updateStatement) {
+	1. The structure of a basic for statement
+	1. Parentheses (required)
+	1. Semicolons (required)
+	1. for(initialization; booleanExpression; updateStatement) {
 	// Body
 	} Curly braces required for block of multiple statements, optional for single statement
 
-	1 Initialization statement executes
-	2 If booleanExpression is true continue, else exit loop
-	3 Body executes
-	4 Execute updateStatements
-	5 Return to Step 2
+	1.  Initialization statement executes
+	2. 2 If booleanExpression is true continue, else exit loop
+	3. Body executes
+	4. Execute updateStatements
+	5. Return to Step 2
 
 9. Data types supported by switch statements include the following:
-	 int and Integer
-	 byte and Byte
-	 short and Short
-	 char and Character
-	 int and Integer
-	 String
-	 enum values
+	 * int and Integer
+	 * byte and Byte
+	 * short and Short
+	 * char and Character
+	 * int and Integer
+	 * String
+	 * enum values
 
-	 Note that boolean and long, and their associated wrapper classes, are not supported by switch statements
+	 ** Note that boolean and long, and their associated wrapper classes, are not supported by switch statements
 
 	 The values in each case statement must be compile-time constant values of the same data type as the switch value. 
 	 This means you can use only literals, enum constants, or final constant variables of the same data type. By final constant
