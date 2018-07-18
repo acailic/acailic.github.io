@@ -128,6 +128,7 @@ date: 2018-07-18
 
 11. If you implements two parent-child interfaces on a class, the class only will implements the child.
 	Ex:
+	
 ```
 
 	public interface Animal {  
