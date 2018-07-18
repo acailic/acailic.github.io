@@ -164,3 +164,13 @@ Order:
 
 Importing with Wildcards do not look at subdirectories. Class names imports take prededence. 
 
+Keyword | Type
+------------ | -------------
+boolean | true or false
+byte | 8-bit integral
+short | 16-bit integral
+int | 32-bit integral
+long | 64-bit integral
+float | 32-bit floating point 123.45f
+double | 64-bit floating point
+char | 16-bit unicode value
