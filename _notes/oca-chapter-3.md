@@ -131,10 +131,9 @@ Test Cases Facts
      * Thus the length of the substring is {@code endIndex-beginIndex}.
      * <p>
      * Examples:
-     * <blockquote><pre>
      * "hamburger".substring(4, 8) returns "urge"
      * "smiles".substring(1, 5) returns "mile"
-     * </pre></blockquote>
+ 
      *
      * @param      beginIndex   the beginning index, inclusive.
      * @param      endIndex     the ending index, exclusive.
