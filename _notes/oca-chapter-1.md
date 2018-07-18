@@ -124,6 +124,7 @@ precedence over wildcards__, these compile.
 
 
 ## QUESTIONS
+
 Local variables don't get assigned default values. 
 	The code fails to compile if a local variable is not explicity initialized and it's trying to use.
 
@@ -150,3 +151,15 @@ All of the arithmetic operators may be applied to any Java primitives, except bo
 Valid Java identifier can contain "$","[A-Za-z]","_" and [0-9]. But not begin with [0-9].
 
 	Also you can have identifier like this "Public" because Java is case sensitive. You can have wathever reserved word you want using case sensitive.
+	
+
+public
+static void main(String[] args). Arguments are referenced starting with args[0]. Accessing
+an argument that wasn’t passed in will cause the code to throw an exception.
+
+* PACKAGE 
+* IMPORT
+* CLASS
+
+Importing with Wildcards do not look at subdirectories. Class names imports take prededence. 
+
