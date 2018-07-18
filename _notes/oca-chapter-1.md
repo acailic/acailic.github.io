@@ -1,7 +1,7 @@
 ---
-title: Disable Autoplay
+title: OCA Review 1 - Java Basics
 layout: post
-tags: [java][oca]
+tags: [java, oca]
 date: 2018-07-18
 ---
 
