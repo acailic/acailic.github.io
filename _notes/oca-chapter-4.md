@@ -4,6 +4,86 @@ layout: post
 tags: [java, oca]
 date: 2018-07-23
 ---
+## METHODS 
+
+**Method**
+
+- The access modifier of an inherited method cannot be more restrictive than
+  its parent.
+  
+- Overloaded method means the method name is the same and the method parameter
+  list is different. Anything else is allowed to vary. Remember that Java is
+  case sensitive.
+- Overloaded methods may or may not define a different return type.
+- Overloaded methods may or may not define different access levels.
+- Return type is not part of a method signature.
+- If you try to execute a method using values that can be passed to multiple
+  overloaded methods, in this case, the code will fail to compile.
+- Java prefers the most specific overloaded signature it can find.
+- Java prefers a single object over a vararg parameter.
+- Java prefers an autoboxed parameter over a vararg parameter.
+- The `return` statement need not be the last statement in a method, but it
+  must be the last statement to execute in a method.
+- If the compiler determines that a `return` statement isn't the last
+  statement to _execute_ in a method, the method will fail to compile.
+- If the return type of a method is `int`, the method can return a value of
+  type `byte`.
+- If a `char` variable gets expanded among a list of overloaded methods, it
+  will be expanded to its nearest type, e.g. `int` instead of `long`.
+- If the return type of a method is `int`, the method can return a value of
+  type `byte`.
+ 
+ **Method overriding and virtual method invocation:**
+ 
+ - Whenever you intend to override methods in a derived class, use the
+   annotation `@Override`. It will warn you if a method cannot be overridden or
+   if you're actually overloading a method rather than overriding it.
+ - Overridden methods can define the same or covariant return types.
+   <sup>[1.2]</sup>
+ - A derived class cannot override a base class method to make it _less
+   accessible_.
+ - Static methods cannot be overridden. They're not polymorphic and they are
+   bound at compile time.
+ - The `instanceof` operator must be followed by the name of an interface,
+   class, or enum.
+ - In a derived class, a static method with the same signature as that of a
+   static method in its base class hides the base class method.
+ - _Constructor cannot be overridden_ because a base class constructor is not
+   inherited by a derived class.
+ - A method that can be overridden by a derived class is call a _virtual method_.
+
+ 
+**Lambda Expression**
+
+- Parentheses can be omitted ONLY if there's one parameter and the parameter
+  type is not declared. So, `(String s) -> ...` or `s -> ...`.
+- When braces are used around the body, the `return` keyword and the semicolon
+  are required. For example, `p -> { return p.getAge() < 5; }`
+- Lambdas work only with functional interfaces—interfaces that define exactly
+  one `abstract` method.
+- Each lambda expression has multiple optional and mandatory sections:
+  - Parameter type (optional)
+  - Parameter name (mandatory)
+  - Arrow (mandatory)
+  - Curly braces (optional)
+  - Keyword `return` (optional)
+  - Lambda body (mandatory)
+- The return type of the functional method `test` in the functional interface
+  `Predicate` is `boolean`. If you try to return another type, the code fails to
+  compile. So `Predicate<String> p = (s) -> s == null ? "A" : "B";` is
+  incorrect.
+- A simple lambda expression could be written in one line:
+  `Validate v = p -> p.getAge() <= 26;`
+
+## Flow control
+
+- The braces `{}` are required for methods, `try` blocks, and `catch` blocks
+  even if there's only one statement inside.
+- If there're duplicate constant values in a `switch` statements, all the
+  duplicate cases will raise a compile error.
+- The `default` case executes only of no matching values are found. In this
+  case.
+
 
 ## QUESTIONS
 

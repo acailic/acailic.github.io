@@ -5,6 +5,32 @@ tags: [java, oca]
 date: 2018-07-24
 ---
 
+
+## Inheritance
+
+**Interface**
+
+- All interface variables are implicitly assumed `public static final`. For
+  these variables, they mush declare a value when they are initialized.
+  Otherwise, the compilation fails.
+
+- Interface methods are assumed to be `public` and `abstract` even if they're
+  not written as modifier. Therefore, a class implementing the methods of an
+  interface must follow the same accessibility: `public`.
+- Interface method cannot be marked `static` or `default` if it is already
+  marked `abstract`.
+- A `static` method in an interface can't be called using a reference variable.
+  It must be called using the interface name.
+- Unlike an interface, if you define a `static` method in a base class, it can
+  be accessed using either a reference variable or the class name.
+
+ 
+Interfaces
+
+The methods of an interface are implicitly abstract and public.
+The vairables of an interface are implicitly public, static, and final.
+Because the methods in an interface are implicitly public, if you try to assign a weaker access to the implemented method in a class, it won't compile.
+
 ## QUESTIONS
 
 Test Cases Facts

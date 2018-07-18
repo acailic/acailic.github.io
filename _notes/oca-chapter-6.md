@@ -5,6 +5,28 @@ tags: [java, oca]
 date: 2018-07-25
 ---
 
+## Exception Handling
+
+- Exceptions are divided into three categories: checked exceptions, runtime
+  (unchecked) exceptions, and errors.
+- You should not handle errors.
+- If a method throws a checked exception, it must be either handled by the
+  method or specified in its `throws` clause.
+- If a method throws a runtime exception, it may include the exception in its
+  `throws` clause.
+- An exception is an object of the class `java.lang.Throwable`.
+- When calling a method having checked exception(s), you must handle them
+  properly, e.g. `throws` from method or adding a `try ... catch` block.
+- If a method declares to throw a checked exception, its body can't throw a more
+  general exception.
+- Error is not a checked or unchecked exception.
+- If the creation of an object calls itself recursively without an exit
+  condition, it will result a `java.lang.StackOverflowError`. For example:
+  `class MyClass { MyClass my = new MyClass(); }`.
+- `ExceptionInInitializerError` may be thrown by the JVM when a `static`
+  initializer in your code throws a `NullPointerException`.
+
+
 ## QUESTIONS
 
 Test Cases Facts

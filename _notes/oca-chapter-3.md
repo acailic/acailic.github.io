@@ -5,6 +5,86 @@ tags: [java, oca]
 date: 2018-07-20
 ---
 
+
+## Java Core APIs
+
+**String**
+
+- All the string literals are automatically instantiated into a `String`
+  object.
+- Whenever the JRE receives a new request to initialize a `String` variable
+  using the assignment operator, it checks whether a `String` object with the
+  same value already exists in the string pool.
+- `String` objects created using the operator `new` are never placed in the
+  string pool.
+- The method `substring` does not include the character at the end position.
+
+**String Builder**
+
+- `StringBuilder` and `StringBuffer` have the same methods.
+- `StringBuilder` has a constructor without any parameter.
+- `StringBuilder` has a constructor with a customized capacity as `int`.
+- `StringBuilder` has a constructor with a default capacity and an initial word
+  as `String`.
+- `StringBuilder` does not have method `trim`.
+- `StringBuilder` does not have method `concat`.
+- `StringBuilder#subSequence(int, int)` does not modify the content of builder,
+  a new string is returned.
+
+**Arrays**
+
+- An array itself is an object.
+- The creation of an array involves three steps: declaration of an array,
+  allocation of an array, and initialization of array elements.
+- An array is an object, so it's allocated using the keyword `new`.
+- Elements of an array that store primitive data types store `0` for integer
+  types (`byte`, `short`, `int`, `long`).
+- Elements of an array that store primitive data types store `0.0` for decimal
+  types (`float`, `double`).
+- Elements of an array that store primitive data types store `false` for
+  `boolean`.
+- Elements of an array that store primitive data types store `/u0000` for
+  `char` data.
+- A multidimensional array can be asymmetrical. it may or may not define the
+  same number of columns for each of its rows.
+- Array anonymous initializer is only allowed in the declaration.
+
+{% highlight java %}
+String[] arr = { "A", "B", "C" }; // OK
+arr = { "C", "B", "A" }; // Does not compile!
+{% endhighlight %}
+
+**ArrayList**
+
+- `ArrayList#remove(Object o)` removes the first occurrence of the specified
+  element from this list, if it is present.
+- Using generics only on one side in a declaration is allowed, so
+  `List<Integer> nums = new ArrayList();` compiles. However, this is not
+  suggested. An unchecked warning will be issued by the compiler.
+- It's not possible to remove elements from an `ArrayList` while iterating
+  through it using a `for` loop.
+- `indexOf(Object o)` returns the index of the first occurrence of the specified
+  element in the list, or `-1` if the list doesn't contain the element.
+- An `ArrayList` can store any type of object.
+- `ArrayList#contains(Object)` compares value and not reference.
+- `ArrayList` has overridden the default `toString` method, so an empty array
+  list prints `[]`.
+
+**Date**
+
+- `LocalDate` instances are immutable.
+- All the methods that seem to manipulate `LocalDate`'s value return a copy of
+  the `LocalDate` instance on which it's called.
+- The `withXX` methods return a copy of `LocalDate`'s value replacing the
+  specified day, month, or year in it.
+- `LocalTime` stores time to nanosecond precision.
+- `LocalDate` doesn't define a `plus()` method, which accepts an integer value
+  to be added to it. You should use `plusXXX` where the expression can be days,
+  weeks, months, years.
+- Cannot use a `DateTimeFormatter` to format a date object, because it has no
+  time.
+
+
 ## QUESTIONS
 
 Test Cases Facts

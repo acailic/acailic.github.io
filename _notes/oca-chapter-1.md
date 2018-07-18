@@ -5,6 +5,42 @@ tags: [java, oca]
 date: 2018-07-18
 ---
 
+## Java Basics
+
+- Check access modifier
+- Check non-access modifier
+- Check return type
+- Check method type (constructor, getter / setter)
+- Check parameter types
+
+{% highlight java %}
+public static void main(String[] args) { ... }
+// ^   ^      ^    ^    ^
+// |   |      |    |    +- parameter type(s)
+// |   |      |    +- method type
+// |   |      +- return type
+// |   +- non-access modifier
+// +- access modifier
+{% endhighlight %}
+
+**Java Packages**
+
+- An `import` statement allows to import a class or interface.
+- An `import` statement allows to import a package using wildcard `*`.
+- An `import static` statement allows to import a static method.
+- An `import static` statement allows to import all the static methods of the
+target class using wildcard `*`.
+- If a `package` statement is present, it must be the first non-commented line
+  of code in the file.
+
+**Compilation**
+
+- If a variable declaration fails to compile, then all the following lines
+  which use this variable will fail to compile, because variable is undefined.
+- A local variable must be initialized before being used. Otherwise, Java fails
+  to compile at those lines where this variable is used.
+- A local variable is not required to be initialized if it is not used.
+
 ## Numeric Literals
 
 Numeric literals is a feature added in Java 7. You can have underscores in

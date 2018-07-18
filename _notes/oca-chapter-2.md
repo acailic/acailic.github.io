@@ -148,6 +148,39 @@ Class | Date | Time | Time Zone
 `LocalDateTime` | Yes | Yes | No
 `ZonedDateTime` | Yes | Yes | Yes
 
+
+## Java Data Types
+
+**Primitives**
+
+- Characters `char` can be concatenated, such as `'a' + 'b'`. When doing so,
+  they are considered as integer using their corresponding value in ASCII
+  table.
+- Binary number starts with the prefix `0b` or `0B`, e.g. `0b1101`.
+- Octal number starts with the prefix `0`, e.g. `011`.
+- Decimal number does not start with `0`, e.g. `11`.
+- Hexadecimal number starts with the prefix `0x`, e.g. `0xAAA`.
+- A literal ends with a character could be a `float`, a `double`, a `long`, or
+  a hexadecimal number.
+- A `long` can be assigned using an integer `int`, because Java knows how to
+  widen the type.
+- An integer cannot be assigned as a decimal number automatically.
+- Wrapper classes `Byte`, `Short`, `Integer`, and `Long` cache objects with
+  values in the range of `-128` to `127`.
+- Wrapper class `Character` caches objects with values `0` to `127`.
+- Wrapper class `Boolean` has 2 cached instances, `Boolean.TRUE` and
+  `Boolean.FALSE`. They're accessible directly because only two exist.
+- `Int` is not defined in the Java API, the correct wrapper class for `int` is
+  `Integer`.
+- `Bool` is not defined in the Java API, the correct wrapper class for `boolean`
+  is `Boolean`.
+
+**Operators**
+
+- The logical operator AND `&&` has a higher operator precedence than the
+  operator `||`.
+
+
 ## Exam Essentials
 
 In this post, I reviewed the most difficult / tricky part of Java Core APIs,
@@ -159,8 +192,6 @@ Time in Java 8. As for the exam essentials, you need to know about:
 - Understand the difference between `==` and `equals`.
 - Be able to determine the output of code using `ArrayList`.
 - Recognize invalid uses of dates and times.
-
-
 
 ## QUESTIONS
 
