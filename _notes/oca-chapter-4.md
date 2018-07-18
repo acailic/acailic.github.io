@@ -92,7 +92,7 @@ Test Cases Facts
 order.
 
 vararg can be send like one parametar and have to be last.
-(otherway it cant be understand).
+(otherway it cant be clear).
 
 2. Array initializer isn't allowed passing to methods. For example(search another in question ch 4 no 5):
 	....
