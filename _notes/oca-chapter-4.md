@@ -94,6 +94,8 @@ order.
 vararg can be send like one parametar and have to be last.
 (otherway it cant be clear).
 
+There is no null pointer on calling static methods.
+
 2. Array initializer isn't allowed passing to methods. For example(search another in question ch 4 no 5):
 	....
 	howMany(true, {true, true});
