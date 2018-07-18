@@ -1,5 +1,5 @@
 ---
-title: OCA Review 2 - Operator and statements
+title: OCA Review 2 - Operators and statements
 layout: post
 tags: [java, oca]
 date: 2018-07-19

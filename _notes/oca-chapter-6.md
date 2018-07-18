@@ -1,7 +1,7 @@
 ---
-title: OCA Review 6 - exceptions
+title: OCA Review 6 - Exceptions
 layout: post
-tags: [java, oca]
+tags: [java, oca, exceptions]
 date: 2018-07-25
 ---
 

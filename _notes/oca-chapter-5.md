@@ -1,7 +1,7 @@
 ---
-title: OCA Review 5 - class design
+title: OCA Review 5 - Class design
 layout: post
-tags: [java, oca]
+tags: [java, oca, class]
 date: 2018-07-24
 ---
 
