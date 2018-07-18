@@ -88,8 +88,11 @@ date: 2018-07-23
 
 Test Cases Facts
 
-Only the access modifier or optional specifiers are allowed before the return type. But optional specifiers are allowed in any
+1. Only the access modifier or optional specifiers are allowed before the return type. But optional specifiers are allowed in any
 order.
+
+vararg can be send like one parametar and have to be last.
+(otherway it cant be understand).
 
 2. Array initializer isn't allowed passing to methods. For example(search another in question ch 4 no 5):
 	....
