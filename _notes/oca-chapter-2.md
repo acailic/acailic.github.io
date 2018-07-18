@@ -164,8 +164,8 @@ Time in Java 8. As for the exam essentials, you need to know about:
 
 ## QUESTIONS
 
-// Test Cases Facts
-/*
+Test Cases Facts
+
 
 1. Operators
 
@@ -241,7 +241,3 @@ Time in Java 8. As for the exam essentials, you need to know about:
 	 There is no requirement that the case or default statements be in a particular
 	order.
 
-
-
-
-*/
