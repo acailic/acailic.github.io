@@ -31,6 +31,22 @@ The methods of an interface are implicitly abstract and public.
 The vairables of an interface are implicitly public, static, and final.
 Because the methods in an interface are implicitly public, if you try to assign a weaker access to the implemented method in a class, it won't compile.
 
+
+# Casting class
+
+AA extends A 
+A a; AA aa; 
+a = (AA)aa;
+aa = (AA) a; //potential classcastexception
+a = new AA();
+((AA)a).doStuff(); //potential classcastexception
+
+a is declared as a reference of class A and therefore, at run time, it is possible for a to point to an object of class AA (because A is a super class of AA). Hence, the compiler will not complain. Although if a does not point to an object of class AA at run time, a ClassCastException will be thrown.
+
+((AA)a).doStuff();
+Once you cast a to AA, you can call methods defined in AA. Of course, if a does not point to an object of class AA at runtime, a ClassCastException will be thrown. In this particular case, a NullPointerException will be thrown because a points to null and a null can be cast to any class.
+
+
 ## QUESTIONS
 
 Test Cases Facts
