@@ -2,10 +2,10 @@
 title: OCA Review 6 - exceptions
 layout: post
 tags: [java, oca]
-date: 2018-07-18
+date: 2018-07-25
 ---
 
-# QUESTIONS
+## QUESTIONS
 
 Test Cases Facts
 
