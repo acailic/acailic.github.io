@@ -175,3 +175,5 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 	TODO: Review topics.
 	3. Remember the one method in the interface called test()? It takes any one reference type parameter and returns a boolean.
  
+ 17. StringBuilder:
+ append() changes by reference value of string.
