@@ -36,12 +36,12 @@ Test Cases Facts
      * substring begins with the character at the specified index and
      * extends to the end of this string. <p>
      * Examples:
-     * <blockquote><pre>
+     
      * "unhappy".substring(2) returns "happy"
      * "Harbison".substring(3) returns "bison"
         012345678
      * "emptiness".substring(9) returns "" (an empty string)
-     * </pre></blockquote>
+   
      *
      * @param      beginIndex   the beginning index, inclusive.
 
