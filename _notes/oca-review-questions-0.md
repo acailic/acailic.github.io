@@ -19,9 +19,11 @@ date: 2018-07-18
 3. Parent constructor which throw an exception subclass must be declare their constructor and throws a covariant exception.
 
 4. Printstacktrace
-	
+ ```	
 	static void sum(int a,int b){System.out.println("int method invoked");}
     static void sum(long a,long b){System.out.println("long method invoked");}
+```
+
  ```   
     public static void main( String[] args )
     {
@@ -40,7 +42,7 @@ date: 2018-07-18
     }
 ```
     Output:
-
+ ```
      int method invoked
 	 long method invoked
 	 java.io.IOException
