@@ -129,10 +129,21 @@ date: 2018-07-18
 11. If you implements two parent-child interfaces on a class, the class only will implements the child.
 	Ex:
 ```
-	public interface Animal {    public default String getName () { return "parent";} }
-	public interface Mammal extends Animal{     public default String getName () { return "child";} }
+	public interface Animal {  
+	  public default String getName () { return "parent";} 
+	  }
+	  
+	public interface Mammal extends Animal{   
+	  public default String getName () { return "child";}
+	}
+	
 	public abstract class Otter implements Animal, Mammal{}
-	public class ImplOtter extends Otter { public static void main(String ... args) { ImplOtter o = new ImplOtter(); out.println(o.getName());}}
+	
+	public class ImplOtter extends Otter { 
+	public static void main(String ... args)
+	 { ImplOtter o = new ImplOtter(); out.println(o.getName());}
+	 }
+	 
 ```
 
 	Output:
