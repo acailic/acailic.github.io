@@ -157,6 +157,7 @@ public
 static void main(String[] args). Arguments are referenced starting with args[0]. Accessing
 an argument that wasn’t passed in will cause the code to throw an exception.
 
+Order:
 * PACKAGE 
 * IMPORT
 * CLASS
