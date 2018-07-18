@@ -160,9 +160,13 @@ order.
 	
 	1. The parentheses are only optional when there is one parameter and it doesn’t have a type declared.
 	For example:
-					print(a, b -> a.startsWith("test")); // DOES NOT COMPILE
-					print((a, b) -> a.startsWith("test")); // COMPILE
-	2. Lambdas work with interfaces that have only one method. 
-	TODO: Review topics.
+	
+print(a, b -> a.startsWith("test")); // DOES NOT COMPILE 
 
+print((a, b) -> a.startsWith("test")); // COMPILE
+
+   
+    2. Lambdas work with interfaces that have only one method. 
+	TODO: Review topics.
 	3. Remember the one method in the interface called test()? It takes any one reference type parameter and returns a boolean.
+ 
