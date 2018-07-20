@@ -91,3 +91,5 @@ Test Cases Facts
 
 
 System.exit(0) kills JVM, after that is not executed.
+
+There is no multiple catch exception executed.
