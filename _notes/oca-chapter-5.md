@@ -78,7 +78,9 @@ Test Cases Facts
 	- private variables
 
 	Variables may only be hidden, regardless of the access modifier.
-
+    
+    With hidden methods, the specific method used depends on where is it referenced.
+    
 5. Polymorphic
 
 	- A reference to an object requires an explicit cast if referenced with a subclass.
