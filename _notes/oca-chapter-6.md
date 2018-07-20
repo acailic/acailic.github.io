@@ -88,3 +88,6 @@ Test Cases Facts
 		- ExceptionInInitializerError
 		- StackOverflowError
 		- NoClassDefFoundError
+
+
+System.exit(0) kills JVM, after that is not executed.
