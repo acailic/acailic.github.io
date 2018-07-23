@@ -200,6 +200,8 @@ Time in Java 8. As for the exam essentials, you need to know about:
 
 Test Cases Facts
 
+Scope variable.
+Cant compare different type variables.
 
 1. Operators
 
