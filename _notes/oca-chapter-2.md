@@ -274,4 +274,20 @@ Test Cases Facts
 
 	 There is no requirement that the case or default statements be in a particular
 	order.
+	
+# Bad coding practice forward : )
+ 	
+9. Break - Optional label parameter allow to break out of higher level outer loop. Break inside while, do-while, for loops ends the loop early.
 
+ Continue - optional label gets flow to finish te execution of current loop and  goes to boolean expresion. 
+
+break leaves a loop, continue jumps to the next iteration
+
+
+Flow | Break | Continue
+--------|------ | ------ 
+if | No | No
+while | Yes | Yes
+do while | Yes | Yes
+for | Yes | Yes
+switch | Yes | No
