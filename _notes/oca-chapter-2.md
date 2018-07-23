@@ -204,6 +204,8 @@ Test Cases Facts
 1. Operators
 
 	TODO: Study precendece operators
+	
+	% and * are same precendece.
 
 2. Modulus operations results between 0 and (y  - 1).
 
