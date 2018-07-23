@@ -277,7 +277,7 @@ Test Cases Facts
 	
 # Bad coding practice forward : )
  	
-9. Break - Optional label parameter allow to break out of higher level outer loop. Break inside while, do-while, for loops ends the loop early.
+10. Break - Optional label parameter allow to break out of higher level outer loop. Break inside while, do-while, for loops ends the loop early.
 
  Continue - optional label gets flow to finish te execution of current loop and  goes to boolean expresion. 
 
