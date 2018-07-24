@@ -142,11 +142,12 @@ Test Cases Facts
 
 4. A String concatenated with any other type gives a String.d
 	For example
-
+```
 	String a = "a";
 	a += false; // afalse
 	a += 0L; // afalse0
 	a += 0d; // afalse00
+```
 
 5. Strings from the pool are different the string build with String from the pool.
 	One comes directly from the string pool and the other comes from building using String operations.
