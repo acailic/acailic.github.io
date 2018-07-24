@@ -198,7 +198,14 @@ Order:
 * IMPORT
 * CLASS
 
-Importing with Wildcards do not look at subdirectories. Class names imports take prededence. 
+package and import are optional.
+
+Import by name has precedence.
+
+Importing with Wildcards do not look at subdirectories. Class names imports take prededence.
+ 
+ Object is eligible for garbage collection when is all references are nulled.
+ 
 
 Keyword | Type
 ------------ | -------------
