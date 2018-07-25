@@ -18,6 +18,7 @@ date: 2018-07-20
 - `String` objects created using the operator `new` are never placed in the
   string pool.
 - The method `substring` does not include the character at the end position.
+- String is immutable. StringBuilder and StringBuffer are not immutable.
 
 **String Builder**
 
