@@ -19,7 +19,8 @@ date: 2018-07-20
   string pool.
 - The method `substring` does not include the character at the end position.
 - String is immutable. StringBuilder and StringBuffer are not immutable.
-
+- String: concat() creates a new string; append changes current;
+- if index is not okay : StringIndexOutOfBoundsException.
 **String Builder**
 
 - `StringBuilder` and `StringBuffer` have the same methods.
