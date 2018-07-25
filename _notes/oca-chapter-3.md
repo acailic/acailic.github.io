@@ -158,6 +158,7 @@ Test Cases Facts
 
 	- Array is an ordered list
 	- Arrays is an object.
+	- has length
 	- int[] numbers1 = new int[3] When using this form to instantiate an array, set all the elements to the default value for
 	  that type. 
 	- You can initialize an array like this "int[] numbers2 = new int[] {42, 55, 99}" for this case you don't need to
@@ -181,6 +182,7 @@ Test Cases Facts
 
 7. An array is not able to change its size. Both an Array and an ArrayList are ordered and have indexes. 
 	Neither is immutable because their elements can change.
+	ArrayList has size();
 
 8. An array does not override equals() and so uses object equality. ArrayList does
 	override equals() and defines it as the same elements in the same order.
