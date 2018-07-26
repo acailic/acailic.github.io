@@ -207,9 +207,16 @@ Test Cases Facts
 		For this: List<String> hex = new Arrays.asList({"30", "8", "3A", "FF"});
 		The output would be = {"30", "3A", "8", "FF"}
 
+Arrays.asList(String names[])
+
+
+
 11. ArraysList class:
 
 	- ArrayList implements equality to mean the same elements in the same order are equals.
+	
+	Using generics instatiate you have add elements which are in  diamond operator <>.
+	
 
 12. LocalDate API
 
@@ -217,6 +224,8 @@ Test Cases Facts
 	- Month stars counting with 1 rather than 0(The old way using Calendar.FIELD used to start with 0).
 	- A LocalDate does not have a time element. Therefore, it has no method to add hours and the code does not compile.
 	- Dates are immutable. Therefore plus methods have to assign their return values or will be ignored. 
+	- Different result of input on different format styles.
+ 
 	
 13. LocalDateTime API (TODO: For study it)
 
