@@ -249,7 +249,8 @@ Arrays.asList(String names[])
 
 - boolean equals(Object o); So it can take any object. The equals methods of all wrapper classes first check if the two object are of same class or not. If not, they immediately return false.
 
-- 
+
+
 ```
 String substring(int beginIndex) 
           Returns a new string that is a substring of this string. 

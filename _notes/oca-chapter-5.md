@@ -115,6 +115,6 @@ Test Cases Facts
 	call to a parent constructor in each child constructor.
 
 
--When class A extends or implements B directly or indirectly, you can say that A is-a B. Here, Car directly extends Vehicle and directly implements Drivable. Therefore, a Car is-a Vehicle and a Car is-a Drivable.
+- When class A extends or implements B directly or indirectly, you can say that A is-a B. Here, Car directly extends Vehicle and directly implements Drivable. Therefore, a Car is-a Vehicle and a Car is-a Drivable.
  Similarly, an SUV is-a Car and since Car is-a Vehicle and is-a Drivable, SUV is also a Vehicle and a Drivable.
  -if you have a container that is meant to contain A, then you can add anything that is-a A. Cant put parent on place of child.
