@@ -206,6 +206,29 @@ Importing with Wildcards do not look at subdirectories. Class names imports take
  
  Object is eligible for garbage collection when is all references are nulled.
  
+-Access to static and instance fields and static methods depends on the class of reference variable and not the actual object to which the variable points to. Observe that this is opposite of what happens in the case of instance methods.  In case of instance methods the method of the actual class of the object is called.
+```
+MNOP extends ABCD
+ABCD a = new MNOP();  
+  System.out.println(a.x);  
+  System.out.println(a.y);
+accessed because a is of type ABCD
+```
+
+
+- variables are SHADOWED and methods are OVERRIDDEN. Which variable will be used depends on the class that the variable is declared of. Which method will be used depends on the actual class of the object that is referenced by the variable.
+
+- boolean operators have more precedence than =.
+
+```
+(b2 != b1 = !b2)  
+first b2 != b1 is evaluated which returns a value 'false'.
+ So the expression becomes false = !b2. And this is illegal because false is a value and not a variable!
+```
+
+-JVM looks for a method named main() which takes an array of Strings as input and returns nothing (i.e. the return type is void).  it doesn't find such a method java.lang.NoSuchMethodError.
+
+-java.lang.Error does not extend Exception class. It  extends java.lang.Throwable and so it can be "thrown".
 
 Keyword | Type
 ------------ | -------------

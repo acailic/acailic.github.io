@@ -295,3 +295,7 @@ while | Yes | Yes
 do while | Yes | Yes
 for | Yes | Yes
 switch | Yes | No
+
+- Math.round: Observe that rounding is a standard mathematical procedure where the number that lies exactly between two numbers always rounds up to the higher one. So .5 rounds to 1 and -.5 rounds to 0.
+
+-enhanced for loop needs either an array or an object of a class that implements java.lang.Iterable. Map does not implement Iterable, though you can use keySet() or values() methods to get a Collection (which extends Iterable) and then iterate over that Collection.

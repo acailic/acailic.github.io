@@ -29,8 +29,9 @@ Interfaces
 
 The methods of an interface are implicitly abstract and public.
 The vairables of an interface are implicitly public, static, and final.
-Because the methods in an interface are implicitly public, if you try to assign a weaker access to the implemented method in a class, it won't compile.
+Because the methods in an interface are implicitly public, if you try to assign a weaker access to the implemented method in a class, it won't compile. Interface can have a static method but the method must have a body.
 
+- Inherited interface  can redeclare a default method and also make it abstract. Also can redeclare a default method and provide a different implementation.  static methods can never be abstract (neither in an interface not in a class).
 
 # Casting class
 ```
@@ -112,3 +113,8 @@ Test Cases Facts
 	constructor into the child class.
 	5. If the parent doesn’t have a no-argument constructor, the compiler requires an explicit
 	call to a parent constructor in each child constructor.
+
+
+-When class A extends or implements B directly or indirectly, you can say that A is-a B. Here, Car directly extends Vehicle and directly implements Drivable. Therefore, a Car is-a Vehicle and a Car is-a Drivable.
+ Similarly, an SUV is-a Car and since Car is-a Vehicle and is-a Drivable, SUV is also a Vehicle and a Drivable.
+ -if you have a container that is meant to contain A, then you can add anything that is-a A. Cant put parent on place of child.

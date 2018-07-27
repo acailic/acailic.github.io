@@ -21,6 +21,9 @@ date: 2018-07-20
 - String is immutable. StringBuilder and StringBuffer are not immutable.
 - String: concat() creates a new string; append changes current;
 - if index is not okay : StringIndexOutOfBoundsException.
+- has toString() method implemented.
+
+
 **String Builder**
 
 - `StringBuilder` and `StringBuffer` have the same methods.
@@ -32,7 +35,10 @@ date: 2018-07-20
 - `StringBuilder` does not have method `concat`.
 - `StringBuilder#subSequence(int, int)` does not modify the content of builder,
   a new string is returned.
+- StringWrapper class does not implement toString method.
 
+- String, StringBuilder, and StringBuffer - all are final classes.
+-String class itself is final and so all of its methods are implicitly final.
 **Arrays**
 
 - An array itself is an object.
@@ -237,3 +243,26 @@ Arrays.asList(String names[])
 	Will just stay with: 5 years. Because the method works in this way
 
 		return create(years, 0, 0);:
+
+
+- new String[2], you create a String array of two elements. arr is therefore not nul. concat(str+" "+ind); ), it will generate a NullPointerException, which is a RuntimeException.
+
+- boolean equals(Object o); So it can take any object. The equals methods of all wrapper classes first check if the two object are of same class or not. If not, they immediately return false.
+
+- 
+```
+String substring(int beginIndex) 
+          Returns a new string that is a substring of this string. 
+String substring(int beginIndex, int endIndex) 
+          Returns a new string that is a substring of this string. 
+
+
+int indexOf(int ch) 
+          Returns the index within this string of the first occurrence of the specified character. 
+ int indexOf(int ch, int fromIndex) 
+          Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index. 
+ int indexOf(String str) 
+          Returns the index within this string of the first occurrence of the specified substring. 
+ int indexOf(String str, int fromIndex) 
+          Returns the index within this string of the first occurrence of the specified substring, starting at the specified index. 
+```

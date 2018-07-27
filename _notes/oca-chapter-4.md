@@ -74,6 +74,17 @@ date: 2018-07-23
   incorrect.
 - A simple lambda expression could be written in one line:
   `Validate v = p -> p.getAge() <= 26;`
+- Predicate returns a boolean. 
+specifying the parameter type is optional  because the compiler can figure out the parameter types by looking at the signature of the abstract method of any functional interface (here, Predicate's test method).
+ does not create a new scope for variables
+ 
+`checkList(List list, Predicate<List> p)`
+
+- write a lambda expression for a functional interface, you are essentially providing an implementation of the method declared in that interface but in a very concise manner.  Therefore, the lambda expression code that you write must contain all the pieces of the regular method code except the ones that the compiler can easily figure out on its own such as the parameter types, return keyword, and brackets. 
+`
+(parameter list) OR single_variable_without_type -> { regular lines of code } OR just_an_expression_without_semicolon`
+
+
 
 ## Flow control
 
@@ -177,3 +188,12 @@ print((a, b) -> a.startsWith("test")); // COMPILE
  
  17. StringBuilder:
  append() changes by reference value of string.
+
+
+- method is said to be overloaded when the other method's name is same and parameters ( either the number or their order) are different.
+
+# Override covariant types
+-Covariant returns are allowed since Java 1.5, which means that an overriding method can change the return type to a subclass of the return type declared in the overridden method. But remember than covarient returns does not apply to primitives.
+
+-In case of overriding, the return type of the overriding method must match exactly to the return type of the overridden method if the return type is a primitive.
+(In case of objects, the return type of the overriding method may be a subclass of the return type of the overridden method.)
