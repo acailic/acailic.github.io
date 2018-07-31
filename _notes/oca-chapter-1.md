@@ -23,6 +23,9 @@ public static void main(String[] args) { ... }
 // +- access modifier
 {% endhighlight %}
 
+
+- to run a class from the command line, you need a main(String[] ) method that takes an array of Strings array not just a String( Also String ... can be sent).
+
 **Java Packages**
 
 - An `import` statement allows to import a class or interface.
@@ -240,3 +243,5 @@ long | 64-bit integral
 float | 32-bit floating point 123.45f
 double | 64-bit floating point
 char | 16-bit unicode value
+
+- implicit narrowing does not happen because implicit narrowing is permitted only among byte, char, short, and int.

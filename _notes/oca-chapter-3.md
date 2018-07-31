@@ -38,7 +38,16 @@ date: 2018-07-20
 - StringWrapper class does not implement toString method.
 
 - String, StringBuilder, and StringBuffer - all are final classes.
--String class itself is final and so all of its methods are implicitly final.
+- String class itself is final and so all of its methods are implicitly final.
+- `public void ensureCapacity(int minimumCapacity)` - Ensures that the capacity is at least equal to the specified minimum. If the current capacity is less than the argument, then a new internal array is allocated with greater capacity. The new capacity is the larger of: 
+ The minimumCapacity argument. 
+ Twice the old capacity, plus 2. 
+ If the minimumCapacity argument is nonpositive, this method takes no action and simply returns.
+ 
+ - `public StringBuilder(int capacity)`
+   Constructs a string builder with no characters in it and an initial capacity specified by the capacity argument.
+
+ 
 **Arrays**
 
 - An array itself is an object.
@@ -267,3 +276,7 @@ int indexOf(int ch)
  int indexOf(String str, int fromIndex) 
           Returns the index within this string of the first occurrence of the specified substring, starting at the specified index. 
 ```
+
+
+
+-

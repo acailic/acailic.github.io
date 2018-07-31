@@ -208,6 +208,7 @@ Cant compare different type variables.
 	TODO: Study precendece operators
 	
 	% and * are same precendece.
+	'=' lowest precendece.
 
 2. Modulus operations results between 0 and (y  - 1).
 
@@ -220,6 +221,16 @@ Cant compare different type variables.
 	3. Smaller data types, namely byte, short, and char, are first promoted to int any time
 	they’re used with a Java binary arithmetic operator, even if neither of the operands is	int.
 	4. After all promotion has occurred and the operands have the same data type, the resulting value will have the same data type as its promoted operands.
+
+
+
+- A narrowing primitive conversion may be used if all of the following conditions are satisfied: 
+ 1. The expression is a constant expression of type int. 
+ 2. The type of the variable is byte, short, or char. 
+ 3. The value of the expression (which is known at compile time, because it is a constant expression) is representable in the type of the variable. 
+ 
+Note that float d = 0 * 1.5f; and float d = 0 * (float)1.5 ; are OK
+Note that narrowing conversion does not apply to long or double. So, char ch = 30L; will fail even though 30 is representable in char. NOT OK
 
 4. For ternary operator parentheses are not required. That means that you can have a expression like this:
 
@@ -235,6 +246,11 @@ Cant compare different type variables.
 
 	i++ increments de i bu then asign the old value to i again what means i still with the same value in that case it is 0.
 
+        
+    if(k) compiles.
+    while(k) doesnt compile.
+    
+    
 6.  You cannot campare different data types using relational operators(==, >=, <=, ect).
 
 7. Advise: Be careful with variables out of scope like the question number 16 of Reviews Cuestion of chapter 2:
@@ -298,4 +314,26 @@ switch | Yes | No
 
 - Math.round: Observe that rounding is a standard mathematical procedure where the number that lies exactly between two numbers always rounds up to the higher one. So .5 rounds to 1 and -.5 rounds to 0.
 
--enhanced for loop needs either an array or an object of a class that implements java.lang.Iterable. Map does not implement Iterable, though you can use keySet() or values() methods to get a Collection (which extends Iterable) and then iterate over that Collection.
+- enhanced for loop needs either an array or an object of a class that implements java.lang.Iterable. Map does not implement Iterable, though you can use keySet() or values() methods to get a Collection (which extends Iterable) and then iterate over that Collection.
+
+- Ex : 
+```
+What will the following code print?
+void crazyLoop(){
+   int c = 0;
+   JACK: while (c < 8){
+       JILL: System.out.println(c);
+       if (c > 3) break JILL; else c++;
+   }
+}
+```
+break JILL; would be valid only when it is within the block of code under the scope of the label JILL. In this case, the scope of JILL extends only up till System.out.println(c); and break JILL; is out of the scope of the label. 
+
+
+- switch statement:
+1. Only String, byte, char, short, int, (and their wrapper classes Byte, Character, Short, and Integer), and enums can be used as types of a switch variable. (String is allowed only since Java 7). 
+2. The case constants must be assignable to the switch variable. For example, if your switch variable is of class String, your case labels must use Strings as well.
+3. The switch variable must be big enough to hold all the case constants. For example, if the switch variable is of type char, then none of the case constants can be greater than 65535 because a char's range is from 0 to 65535.
+4.  All case labels should be COMPILE TIME CONSTANTS. 
+5. No two of the case constant expressions associated with a switch statement may have the same value.
+6. At most one default label may be associated with the same switch statement.

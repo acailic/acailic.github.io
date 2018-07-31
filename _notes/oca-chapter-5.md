@@ -47,6 +47,7 @@ a is declared as a reference of class A and therefore, at run time, it is possib
 ((AA)a).doStuff();
 Once you cast a to AA, you can call methods defined in AA. Of course, if a does not point to an object of class AA at runtime, a ClassCastException will be thrown. In this particular case, a NullPointerException will be thrown because a points to null and a null can be cast to any class.
 
+- superclass reference cannot be assigned to subclass reference without explicit cast.
 
 ## QUESTIONS
 

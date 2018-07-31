@@ -93,7 +93,7 @@ specifying the parameter type is optional  because the compiler can figure out t
 - If there're duplicate constant values in a `switch` statements, all the
   duplicate cases will raise a compile error.
 - The `default` case executes only of no matching values are found.  
-
+- an unreachable statement causes a compilation error.
 
 ## QUESTIONS
 
@@ -197,3 +197,5 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 
 -In case of overriding, the return type of the overriding method must match exactly to the return type of the overridden method if the return type is a primitive.
 (In case of objects, the return type of the overriding method may be a subclass of the return type of the overridden method.)
+
+-variables and static methods are not overridden and so access to variables and static methods is determined at compile time based on the type of the variable (instead of type of the object referred to by the variable, as is the case with instance methods.)
