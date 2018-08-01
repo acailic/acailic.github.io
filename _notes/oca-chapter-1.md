@@ -26,6 +26,10 @@ public static void main(String[] args) { ... }
 
 - to run a class from the command line, you need a main(String[] ) method that takes an array of Strings array not just a String( Also String ... can be sent).
 
+- args array is never null. Run without any arguments, args points to a String array of length 0. 
+
+
+
 **Java Packages**
 
 - An `import` statement allows to import a class or interface.

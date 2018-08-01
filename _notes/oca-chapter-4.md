@@ -51,7 +51,7 @@ date: 2018-07-23
  - _Constructor cannot be overridden_ because a base class constructor is not
    inherited by a derived class.
  - A method that can be overridden by a derived class is call a _virtual method_.
-
+ - static methods are never overridden. They are HIDDEN or SHADOWED just like static or non-static fields
  
 **Lambda Expression**
 
@@ -198,4 +198,4 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 -In case of overriding, the return type of the overriding method must match exactly to the return type of the overridden method if the return type is a primitive.
 (In case of objects, the return type of the overriding method may be a subclass of the return type of the overridden method.)
 
--variables and static methods are not overridden and so access to variables and static methods is determined at compile time based on the type of the variable (instead of type of the object referred to by the variable, as is the case with instance methods.)
+-variables and static methods are not overridden and so access to variables and static methods is determined at compile time based on the type of the variable (instead of type of the object referred to by the variable, as is the case with instance methods.) static methods are never overridden. They are HIDDEN or SHADOWED just like static or non-static fields.

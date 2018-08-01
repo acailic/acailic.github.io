@@ -22,7 +22,7 @@ date: 2018-07-20
 - String: concat() creates a new string; append changes current;
 - if index is not okay : StringIndexOutOfBoundsException.
 - has toString() method implemented.
-
+- charAt() returns char value. 
 
 **String Builder**
 
