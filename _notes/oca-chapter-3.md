@@ -47,6 +47,7 @@ date: 2018-07-20
  - `public StringBuilder(int capacity)`
    Constructs a string builder with no characters in it and an initial capacity specified by the capacity argument.
 
+ - append() method does not exist in String class. It exits only in StringBuffer and StringBuilder.
  
 **Arrays**
 
@@ -86,6 +87,8 @@ arr = { "C", "B", "A" }; // Does not compile!
 - `ArrayList#contains(Object)` compares value and not reference.
 - `ArrayList` has overridden the default `toString` method, so an empty array
   list prints `[]`.
+- no length method (there is size ());
+  
 
 **Date**
 
@@ -230,8 +233,9 @@ Arrays.asList(String names[])
 
 	- ArrayList implements equality to mean the same elements in the same order are equals.
 	
-	Using generics instatiate you have add elements which are in  diamond operator <>.
-	
+- Using generics instatiate you have add elements which are in  diamond operator <>.
+
+-  al.indexOf(Object object);
 
 12. LocalDate API
 
@@ -284,5 +288,4 @@ int indexOf(int ch)
 ```
 
 
-
--
+-Empty string builder: myStringBuilder.delete(0, myStringBuilder.length()); (sb.setLength(0); ) 

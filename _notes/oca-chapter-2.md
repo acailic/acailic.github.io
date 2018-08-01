@@ -152,6 +152,17 @@ Class | Date | Time | Time Zone
 `ZonedDateTime` | Yes | Yes | Yes
 
 
+- 
+
+Given:
+        LocalDate d1 = LocalDate.parse("2015-02-05", DateTimeFormatter.ISO_DATE);
+ ~LocalDate.of(2015, 2, 5)
+ ~ LocalDate.now()
+
+will produce 2015-02-05.
+
+
+
 ## Java Data Types
 
 **Primitives**

@@ -104,3 +104,5 @@ There is no multiple catch exceptions executed( catch->finally).
 SecurityException extends RuntimeException: It is thrown by the security manager upon security violation. For example, when a java program runs in a sandbox (such as an applet) and it tries to use prohibited APIs such as File I/O, the security manager throws this exception. Since this exception is explicitly thrown using the new keyword by a security manager class, it can be considered to be thrown by the application programmer.
 
 -Exception are not imported automatically. IOException, the java.io package (or just java.io.IOException class) must be imported.
+
+- java.lang.OutOfMemoryError. Note that this is not a subclass of RuntimeException or even Exception. It is a subclass of java.lang.Error. 
