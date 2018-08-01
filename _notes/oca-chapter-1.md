@@ -40,6 +40,9 @@ target class using wildcard `*`.
 - If a `package` statement is present, it must be the first non-commented line
   of code in the file.
 
+- If there is no package, default package will be created.   java.lang is default import(inside String and System).
+
+
 **Compilation**
 
 - If a variable declaration fails to compile, then all the following lines
