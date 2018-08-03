@@ -88,7 +88,22 @@ arr = { "C", "B", "A" }; // Does not compile!
 - `ArrayList` has overridden the default `toString` method, so an empty array
   list prints `[]`.
 - no length method (there is size ());
+
+-   
   
+```  
+  ArrayList is a subclass of AbstractList.
+  java.lang.Object
+   -  java.util.AbstractCollection<E>
+     -    java.util.AbstractList<E>
+       -      java.util.ArrayList<E>
+  All Implemented Interfaces:
+  Serializable, Cloneable, Iterable<E>, Collection<E>, List<E>, RandomAccess
+```
+  
+- ArrayList is a List so you can use it where ever a List is required. This include Collections methods such as sort, reverse, and shuffle. 
+ 
+- It allows you to access its elements in random order. Because you can directly access any element using get(index) method. (This is unlike a LinkedList).
 
 **Date**
 
