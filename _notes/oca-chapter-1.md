@@ -257,3 +257,5 @@ char | 16-bit unicode value
 
 
 - int [].getClass().isArray() will return true. 
+
+- new int[2][4];  it will instantiate both the dimensions of the array and not throw null pointer exception accessing each value;

@@ -95,6 +95,9 @@ specifying the parameter type is optional  because the compiler can figure out t
 - The `default` case executes only of no matching values are found.  
 - an unreachable statement causes a compilation error.
 
+
+- double/float/long/boolean cannot be used in a switch statement.
+
 ## QUESTIONS
 
 Test Cases Facts
@@ -201,3 +204,6 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 - Cant override with superclass.
 
 -variables and static methods are not overridden and so access to variables and static methods is determined at compile time based on the type of the variable (instead of type of the object referred to by the variable, as is the case with instance methods.) static methods are never overridden. They are HIDDEN or SHADOWED just like static or non-static fields.
+
+
+- override a method in the subclass, the overriding method (i.e. the one in the subclass) MUST HAVE: .same name .same return type in case of primitives (a subclass is allowed for classes, this is also known as covariant return types). .same type and order of parameters .it may throw only those exceptions that are declared in the throws clause of the superclass's method or exceptions that are subclasses of the declared exceptions. It may also choose NOT to throw any exception. method can throw any RuntimeException (such as a NullPointerException) even without declaring it in its throws clause.you can make it abstract!! You would have to make the class as abstract as well though.

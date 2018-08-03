@@ -89,8 +89,7 @@ arr = { "C", "B", "A" }; // Does not compile!
   list prints `[]`.
 - no length method (there is size ());
 
--   
-  
+- ArrayList
 ```  
   ArrayList is a subclass of AbstractList.
   java.lang.Object
@@ -251,6 +250,8 @@ Arrays.asList(String names[])
 - Using generics instatiate you have add elements which are in  diamond operator <>.
 
 -  al.indexOf(Object object);
+
+- al.get(al.size()) - throw an IndexOutOfBoundsException at run time;
 
 12. LocalDate API
 

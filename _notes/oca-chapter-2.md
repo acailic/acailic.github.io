@@ -349,6 +349,8 @@ break JILL; would be valid only when it is within the block of code under the sc
 5. No two of the case constant expressions associated with a switch statement may have the same value.
 6. At most one default label may be associated with the same switch statement.
 
+ 
+ 
 -   rest of the statements after are unreachable :
 ```
 if(index == 3){       
@@ -359,4 +361,4 @@ if(index == 3){       
 ```
 
 
-- 
+- In Java, a while or do/while construct takes an expression that returns a boolean. But unlike a for loop, you cannot put instantiation and increment sections in the while condition.
