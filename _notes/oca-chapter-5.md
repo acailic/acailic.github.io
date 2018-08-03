@@ -49,6 +49,9 @@ Once you cast a to AA, you can call methods defined in AA. Of course, if a does 
 
 - superclass reference cannot be assigned to subclass reference without explicit cast.
 
+- For example, consider two classes: Automobile and Car, where Car extends Automobile Now, Automobile a = new Car(); is valid because a car is definitely an Automobile. So it does not need an explicit cast.
+
+
 ## QUESTIONS
 
 Test Cases Facts
