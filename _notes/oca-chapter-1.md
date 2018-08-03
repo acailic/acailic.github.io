@@ -228,7 +228,7 @@ accessed because a is of type ABCD
 
 - variables are SHADOWED and methods are OVERRIDDEN. Which variable will be used depends on the class that the variable is declared of. Which method will be used depends on the actual class of the object that is referenced by the variable.
 
--The local 'x' simply shadows the member variable 'x'.
+- The local 'x' simply shadows the member variable 'x'.
 
 ```
  static int x = 5; 
@@ -236,7 +236,6 @@ accessed because a is of type ABCD
       int x  = ( x=3 ) * 4;  // 1  
            System.out.println(x);   
      }
-
 ```
 
 - boolean operators have more precedence than =.
