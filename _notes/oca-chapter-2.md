@@ -348,3 +348,15 @@ break JILL; would be valid only when it is within the block of code under the sc
 4.  All case labels should be COMPILE TIME CONSTANTS. 
 5. No two of the case constant expressions associated with a switch statement may have the same value.
 6. At most one default label may be associated with the same switch statement.
+
+-   rest of the statements after are unreachable :
+```
+if(index == 3){       
+   break;   
+  }else {  
+   continue; 
+   }
+```
+
+
+- 

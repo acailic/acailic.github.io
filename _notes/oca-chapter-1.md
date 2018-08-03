@@ -252,3 +252,8 @@ double | 64-bit floating point
 char | 16-bit unicode value
 
 - implicit narrowing does not happen because implicit narrowing is permitted only among byte, char, short, and int.
+
+- Java does not allow chained initialization in declaration.  Chaining to use a value of a variable at the time of declaration is not allowed. If already declared, it would have been valid.  
+
+
+- int [].getClass().isArray() will return true. 
