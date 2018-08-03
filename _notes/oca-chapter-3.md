@@ -117,7 +117,7 @@ arr = { "C", "B", "A" }; // Does not compile!
   weeks, months, years.
 - Cannot use a `DateTimeFormatter` to format a date object, because it has no
   time.
-
+- DateTimeException because it doesn't have time component will throw an exception at run time. `"main" java.time.format.DateTimeParseException: Text '2015-01-01`
 
 ## QUESTIONS
 
