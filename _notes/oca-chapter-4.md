@@ -53,6 +53,8 @@ date: 2018-07-23
  - A method that can be overridden by a derived class is call a _virtual method_.
  - static methods are never overridden. They are HIDDEN or SHADOWED just like static or non-static fields
  
+ 
+ 
 **Lambda Expression**
 
 - Parentheses can be omitted ONLY if there's one parameter and the parameter

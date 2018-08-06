@@ -24,6 +24,10 @@ date: 2018-07-24
 - Unlike an interface, if you define a `static` method in a base class, it can
   be accessed using either a reference variable or the class name.
 
+
+-Although you know that o will refer to an object that is a Runnable at runtime, the compiler doesn't know about it. That is why, you have to do: Runnable r = (Runnable) o; You can assign a subclass object reference to superclass reference without a cast but to assign a super class object reference to a subclass (or interface) reference you need an explicit cast as in option 2
+
+
  
 Interfaces
 
