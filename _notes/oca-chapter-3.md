@@ -309,4 +309,20 @@ int indexOf(int ch)
 - Empty string builder: myStringBuilder.delete(0, myStringBuilder.length()); (sb.setLength(0); ) 
 
 
--
+-  JavaDoc description of java.time.temporal.TemporalAdjusters is very helpful: 
+
+ Adjusters are a key tool for modifying temporal objects. They exist to externalize the process of adjustment, permitting different approaches, as per the strategy design pattern.
+  Examples might be an adjuster that sets the date avoiding weekends, or one that sets the date to the last day of the month. There are two equivalent ways of using a TemporalAdjuster. 
+  
+  ```
+  
+  The first is to invoke the method on the interface directly. 
+  The second is to use Temporal.with(TemporalAdjuster):    // these two lines are equivalent, but the second approach is recommended   
+   temporal = thisAdjuster.adjustInto(temporal);
+   temporal = temporal.with(thisAdjuster);
+   
+ 1) System.out.println(LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.TUESDAY)));
+ 
+  2) System.out.println(TemporalAdjusters.next(DayOfWeek.TUESDAY).adjustInto(LocalDate.now()));
+  
+```
