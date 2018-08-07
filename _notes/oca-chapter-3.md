@@ -23,6 +23,8 @@ date: 2018-07-20
 - if index is not okay : StringIndexOutOfBoundsException.
 - has toString() method implemented.
 - charAt() returns char value. 
+-  have method `trim`. (Builder don't have.)
+
 
 **String Builder**
 
@@ -304,4 +306,7 @@ int indexOf(int ch)
 ```
 
 
--Empty string builder: myStringBuilder.delete(0, myStringBuilder.length()); (sb.setLength(0); ) 
+- Empty string builder: myStringBuilder.delete(0, myStringBuilder.length()); (sb.setLength(0); ) 
+
+
+-
