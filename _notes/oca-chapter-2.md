@@ -299,7 +299,7 @@ conversion does not apply to long or double.
 	 * String
 	 * enum values
 
-	 ** Note that boolean and long, and their associated wrapper classes, are not supported by switch statements
+- Note that boolean and long, and their associated wrapper classes, are not supported by switch statements
 
 	 The values in each case statement must be compile-time constant values of the same data type as the switch value. 
 	 This means you can use only literals, enum constants, or final constant variables of the same data type. By final constant
