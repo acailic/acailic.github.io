@@ -315,10 +315,10 @@ conversion does not apply to long or double.
 
  Continue - optional label gets flow to finish te execution of current loop and  goes to boolean expresion. 
  
- -break breaks the nearest outer loop. Once a break is encountered, no further iterations of that loop will execute.
+ - break breaks the nearest outer loop. Once a break is encountered, no further iterations of that loop will execute.
  continue simply starts the next iteration of the loop. Once a continue is encountered, rest of the statements within that loop are ignored (not executed ) and the next iteration is started.
 
-break leaves a loop, continue jumps to the next iteration
+- break leaves a loop, continue jumps to the next iteration
 
 
 Flow | Break | Continue
