@@ -241,8 +241,10 @@ Cant compare different type variables.
  2. The type of the variable is byte, short, or char. 
  3. The value of the expression (which is known at compile time, because it is a constant expression) is representable in the type of the variable. 
  
-Note that float d = 0 * 1.5f; and float d = 0 * (float)1.5 ; are OK
-Note that narrowing conversion does not apply to long or double. So, char ch = 30L; will fail even though 30 is representable in char. NOT OK
+Note that float: `d = 0 * 1.5f;`  and `float d = 0 * (float)1.5 ;` are OK
+Note that narrowing 
+conversion does not apply to long or double.
+ So, `char ch = 30L;` will fail even though 30 is representable in char. NOT OK
 
 4. For ternary operator parentheses are not required. That means that you can have a expression like this:
 
