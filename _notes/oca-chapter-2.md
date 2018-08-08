@@ -155,9 +155,10 @@ Class | Date | Time | Time Zone
 - 
 
 Given:
+
         LocalDate d1 = LocalDate.parse("2015-02-05", DateTimeFormatter.ISO_DATE);
- ~LocalDate.of(2015, 2, 5)
- ~ LocalDate.now()
+         ~LocalDate.of(2015, 2, 5)
+        ~ LocalDate.now()
 
 will produce 2015-02-05.
 
