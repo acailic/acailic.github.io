@@ -106,3 +106,48 @@ SecurityException extends RuntimeException: It is thrown by the security manager
 -Exception are not imported automatically. IOException, the java.io package (or just java.io.IOException class) must be imported.
 
 - java.lang.OutOfMemoryError. Note that this is not a subclass of RuntimeException or even Exception. It is a subclass of java.lang.Error. 
+
+
+
+-  try block generates NullPointerException which will be caught by the catch block.
+
+``` 
+public class TestClass{
+   public static void main(String args[]){
+      try{
+         RuntimeException re = null;
+         throw re;
+      }
+      catch(Exception e){
+         System.out.println(e);
+      }
+   }
+}
+``` 
+
+# override methods with exceptions
+
+``` 
+import java.io.*;
+class Great {
+    public void doStuff() throws FileNotFoundException{
+    }    
+}
+
+class Amazing extends Great { 
+  public void doStuff() throws IOException, IllegalArgumentException{
+  }    
+}
+
+public class TestClass {
+    public static void main(String[] args) throws IOException{
+        Great g = new Amazing();
+        g.doStuff();
+    }
+}
+``` 
+
+- The rule is that an overriding method cannot throw an exception that is a super class of the exception thrown by the overridden method.  Now, FileNotFoundException is a subclass of IOException. Therefore, Amazing's doStuff() cannot throw IOException if the base class's doStuff throws only FileNotFoundException. 
+ Think of it this way:  FileNotFoundException fne = new IOException(); // Will this work? No, because an IOException is NOT a FileNotFoundException. 
+ IOException ioe = new FileNotFoundException(); // Will this work? Yes, because a FileNotFoundException is an IOException. 
+  Therefore, overriding method must not throw an exception that cannot be assigned to a variable whose class is the class of the overridden method's exception.

@@ -25,7 +25,7 @@ date: 2018-07-24
   be accessed using either a reference variable or the class name.
 
 
--Although you know that o will refer to an object that is a Runnable at runtime, the compiler doesn't know about it. That is why, you have to do: Runnable r = (Runnable) o; You can assign a subclass object reference to superclass reference without a cast but to assign a super class object reference to a subclass (or interface) reference you need an explicit cast as in option 2
+- Although you know that o will refer to an object that is a Runnable at runtime, the compiler doesn't know about it. That is why, you have to do: Runnable r = (Runnable) o; You can assign a subclass object reference to superclass reference without a cast but to assign a super class object reference to a subclass (or interface) reference you need an explicit cast as in option 2
 
 
  
@@ -73,7 +73,27 @@ Test Cases Facts
 	 (hide) or neither should use static (override).
 	-  If instance variable is hide depends where the methods belongs which class it will be use the his own instance variable
 	from its class.
+	
+```	
+class Game{
+  public void play() throws Exception{
+    System.out.println("Playing...");
+  }
+}
 
+public class Soccer extends Game{
+   public void play(){
+      System.out.println("Playing Soccer...");      
+   }
+   public static void main(String[] args){
+       Game g = new Soccer();
+       g.play();
+   }
+}	
+
+```
+- It will not compile. overrides the play() method without any throws clause. This is valid because a list of no exception is a valid subset of a list of exceptions thrown by the superclass method. even though the actual object referred to by 'g' is of class Soccer, the class of the variable g is of class Game. Therefore, at compile time, compiler assumes that g.play() might throw an exception, because Game's play method declares it.
+  
 3. Covariant Return Type
 	
 	Since Java5, it is possible to override method by changing the return type if subclass overrides any method 

@@ -266,6 +266,15 @@ Arrays.asList(String names[])
 	
 13. LocalDateTime API (TODO: For study it)
 
+
+- Note that LocalDateTime class does not contain Zone information but ISO_ZONED_DATE_TIME requires it. Thus, it will throw the following exception:
+
+``` 
+public String getDateString(LocalDateTime ldt){    return DateTimeFormatter.ISO_ZONED_DATE_TIME.format(ldt); }
+``` 
+The code will compile but will always throw a DateTimeException (or its subclass) at run time.
+
+
 14. Period
 
 	- Doesn't Allow method chaining. Because it always create a new object in its way. 
@@ -303,6 +312,10 @@ int indexOf(int ch)
  int indexOf(String str, int fromIndex) 
           Returns the index within this string of the first occurrence of the specified substring,
            starting at the specified index. 
+           
+           
+           
+  public StringBuilder delete(int start, int end)   Removes the characters in a substring of this sequence. The substring begins at the specified start and extends to the character at index end - 1 or to the end of the sequence if no such character exists. If start is equal to end, no changes are made.
 ```
 
 

@@ -83,6 +83,15 @@ int[] numbers = {1, 2, 3};  // object
 There're still many things to explore about array, but I can't explain more
 here because of the time limit.
 
+
+- Equals method of a primitive wrapper class ( e.g. java.lang.Integer, Double, Float etc) are
+ 1. symmetric => a.equals(b) returns same as b.equals(a) 
+ 2. transitive => if a.equals(b) and b.equals(c) return true, then a.equals(c) returns true.
+  3. reflexive => a.equals(a) return true.  For example, the following code for the equals method on Integer explains how it works: 
+  
+  public boolean equals(Object obj) {    if (obj instanceof Integer) {        return value == ((Integer)obj).intValue();    }   
+   return false; }
+
 ## Converting Between Array and List
 
 There're several ways to convert between an array and an `ArrayList`. Now, let's
