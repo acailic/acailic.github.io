@@ -110,6 +110,13 @@ public class Soccer extends Game{
     
     With hidden methods, the specific method used depends on where is it referenced.
     
+    
+    
+ - An overriding method can be made less restrictive than the overridden method. The restrictiveness of access modifiers is as follows:
+     private>default>protected>public (where private is most restrictive and public is least restrictive).
+ there is no modifier named default. The absence of any access modifiers implies default access.
+ 
+ 
 5. Polymorphic
 
 	- A reference to an object requires an explicit cast if referenced with a subclass.
