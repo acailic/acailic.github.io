@@ -267,10 +267,13 @@ Arrays.asList(String names[])
 13. LocalDateTime API (TODO: For study it)
 
 
-- Note that LocalDateTime class does not contain Zone information but ISO_ZONED_DATE_TIME requires it. Thus, it will throw the following exception:
+- Note that LocalDateTime class does not contain Zone information but ISO_ZONED_DATE_TIME requires it.
+   Thus, it will throw the following exception:
 
 ``` 
-public String getDateString(LocalDateTime ldt){    return DateTimeFormatter.ISO_ZONED_DATE_TIME.format(ldt); }
+public String getDateString(LocalDateTime ldt){
+    return DateTimeFormatter.ISO_ZONED_DATE_TIME.format(ldt); 
+}
 ``` 
 The code will compile but will always throw a DateTimeException (or its subclass) at run time.
 
