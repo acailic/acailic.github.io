@@ -272,4 +272,5 @@ char | 16-bit unicode value
 
 - two integral primitives can be compared using == operator.
 
-- s instanceof Short : left operand of instanceof MUST be an object and not a primitive.
+- s instanceof Short : left operand of instanceof MUST be an object and not a primitive.  can NEVER refer to an object of class java.util.Date. So, it will not accept this code.
+ --At run time, f points to an object of class Eagle. Now, Eagle extends Bird so f instanceof Bird returns true. e points to an object of class Eagle. Eagle extends Bird, which in turn implements Flyer. So an Eagle is a Flyer. Therefore, e instanceof Flyer will also return true.  b points to an object of class Bat, which does not extend from Bird. Therefore, b instanceof Flyer returns false.
