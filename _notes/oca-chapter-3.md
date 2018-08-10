@@ -318,7 +318,11 @@ int indexOf(int ch)
            
            
            
-  public StringBuilder delete(int start, int end)   Removes the characters in a substring of this sequence. The substring begins at the specified start and extends to the character at index end - 1 or to the end of the sequence if no such character exists. If start is equal to end, no changes are made.
+  public StringBuilder delete(int start, int end)   
+  Removes the characters in a substring of this sequence. 
+  The substring begins at the specified start and extends to the character at index end - 1 
+  or to the end of the sequence if no such character exists. 
+  If start is equal to end, no changes are made.
 ```
 
 
