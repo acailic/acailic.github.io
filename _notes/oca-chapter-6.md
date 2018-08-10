@@ -151,3 +151,12 @@ public class TestClass {
  Think of it this way:  FileNotFoundException fne = new IOException(); // Will this work? No, because an IOException is NOT a FileNotFoundException. 
  IOException ioe = new FileNotFoundException(); // Will this work? Yes, because a FileNotFoundException is an IOException. 
   Therefore, overriding method must not throw an exception that cannot be assigned to a variable whose class is the class of the overridden method's exception.
+  
+- A try MUST be followed by at least one catch or finally.  (a catch block cannot follow a finally block!.)
+
+- ( }catch(IndexOutOfBoundsException e){ throw new NullPointerException()})
+ Inside this block, a new NullPointerException is thrown. As this exception is not thrown inside the try block, it will not be caught by any of the remaining catch blocks.
+ 
+- java.io.IOException extends Exception. It cannot be caught by a catch block that catches RuntimeException.
+
+- The finally block is always executed, no matter how control leaves the try block. Only if, in a try or catch block, System.exit() is called then finally will not be executed.
