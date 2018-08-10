@@ -216,7 +216,7 @@ Importing with Wildcards do not look at subdirectories. Class names imports take
  
  Object is eligible for garbage collection when is all references are nulled.
  
--Access to static and instance fields and static methods depends on the class of reference variable and not the actual object to which the variable points to. Observe that this is opposite of what happens in the case of instance methods.  In case of instance methods the method of the actual class of the object is called.
+- Access to static and instance fields and static methods depends on the class of reference variable and not the actual object to which the variable points to. Observe that this is opposite of what happens in the case of instance methods.  In case of instance methods the method of the actual class of the object is called.
 ```
 MNOP extends ABCD
 ABCD a = new MNOP();  
