@@ -170,3 +170,7 @@ date: 2018-07-18
 	- You can have one parameter inside parentheses without specify the type.
 	- You cannot use autoboxing for primitive type.
 	- The parentheses are only optional when there is one parameter and it doesn’t have a type declared. 
+	
+	
+
+- Encapsulation is the technique used to package the information in such a way as to hide what should be hidden, and make visible what is intended to be visible. In simple terms, encapsulation generally means making the data variables private and providing public accessors. It helps make sure that clients have no accidental dependence on the choice of representation. It helps avoiding name clashes as internal variables are not visible outside. 
