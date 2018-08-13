@@ -382,7 +382,9 @@ if(index == 3){       
 ```
 
 
-- EX:
+- Example:
+
+
 ```
 public class ForSwitch{
     public static void main(String args[]){
@@ -401,6 +403,8 @@ public class ForSwitch{
 }
 
 ```
+
+
 Defining i as char doesn't mean that it can only hold characters (a, b, c etc). It is an integral data type which can take any +ive integer value from 0 to 2^16 -1.
 Integer 0 or 1, 2 etc. is not same as char '0', '1' or '2' etc.
 so when i is equal to 0, nothing gets printed and i is incremented to 1 (due to i++ in the switch).
@@ -421,7 +425,5 @@ float f = 5.5f;
 ```
 
 
-- Since both the operands of / are ints, it is a integer division. This means the resulting value is truncated (and not rounded). 
-```
-int k = ((Integer) t).intValue()/10;
-```
+
+- `int k = ((Integer) t).intValue()/10;` Since both the operands of / are ints, it is a integer division. This means the resulting value is truncated (and not rounded). 
