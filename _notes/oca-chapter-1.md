@@ -270,6 +270,20 @@ char | 16-bit unicode value
 
 - new int[2][4];  it will instantiate both the dimensions of the array and not throw null pointer exception accessing each value;
 
+- Java does not allow chained initialization in declaration 
+```
+Chaining to use a value of a variable at the time of declaration is not allowed. 
+Had b and c been already declared, it would have been valid.
+ For example, the following is valid: 
+   int  b = 0, c = 0;  
+  int a = b = c = 100; 
+ Even the following is valid:  
+  int  b , c;  //Not initializing b and c here.  
+  int a = b = c = 100; //declaring a and initializing c, b, and a at the same time.
+ 
+  Notice the order of initialization of the variables - c is initialized first, b is initialized next by assigning to it the value of c. Finally, a is initialized.
+```
+
 - two integral primitives can be compared using == operator.
 
 - s instanceof Short : left operand of instanceof MUST be an object and not a primitive.  can NEVER refer to an object of class java.util.Date. So, it will not accept this code.
@@ -279,4 +293,4 @@ char | 16-bit unicode value
  - When the program is run, the JVM looks for a method named main() which takes an array of Strings as input and returns nothing (i.e. the return type is void). But in this case, it doesn't find such a method ( the given main() method is returning long!) so it throws a java.lang.NoSuchMethodError. Note that java.lang.Error does not extend Exception class. It  extends java.lang.Throwable and so it can be "thrown"
  
  
- - defaulte imported package : java.lang.(System and String class in this package.). If there is no package statement in the source file, the class is assumed to be created in a default package that has no name. In this case, all the types created in this default package will be available to this class without any import statement.  However, note that this default package cannot be imported in classes that belong to any other package at all, not even with any sort of import statement. So for example, if you have a class named SomeClass in package test, you cannot access TestClass defined in the problem statement (as it is defined in the default package) at all because there is no way to import it.
+ - defaulted imported package : java.lang.(System and String class in this package.). If there is no package statement in the source file, the class is assumed to be created in a default package that has no name. In this case, all the types created in this default package will be available to this class without any import statement.  However, note that this default package cannot be imported in classes that belong to any other package at all, not even with any sort of import statement. So for example, if you have a class named SomeClass in package test, you cannot access TestClass defined in the problem statement (as it is defined in the default package) at all because there is no way to import it.

@@ -24,7 +24,7 @@ date: 2018-07-20
 - has toString() method implemented.
 - charAt() returns char value. 
 -  have method `trim`. (Builder don't have.)
-
+- A string must be enclosed in double quotes ".
 
 **String Builder**
 
@@ -69,6 +69,8 @@ date: 2018-07-20
   same number of columns for each of its rows.
 - Array anonymous initializer is only allowed in the declaration.
 
+
+- if  al is declared as ArrayList<Double>, therefore the add method is typed to accept only a Double. 
 {% highlight java %}
 String[] arr = { "A", "B", "C" }; // OK
 arr = { "C", "B", "A" }; // Does not compile!

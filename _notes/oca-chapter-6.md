@@ -160,3 +160,6 @@ public class TestClass {
 - java.io.IOException extends Exception. It cannot be caught by a catch block that catches RuntimeException.
 
 - The finally block is always executed, no matter how control leaves the try block. Only if, in a try or catch block, System.exit() is called then finally will not be executed.
+
+
+- How many objects have been created by the time the main method reaches its end in the following code? Look for exceptions also.
