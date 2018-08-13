@@ -370,8 +370,7 @@ break JILL; would be valid only when it is within the block of code under the sc
 4.  All case labels should be COMPILE TIME CONSTANTS. 
 5. No two of the case constant expressions associated with a switch statement may have the same value.
 6. At most one default label may be associated with the same switch statement.
-
- 
+ 7. Note that long, float, double, and boolean are not allowed.
  
 -   rest of the statements after are unreachable :
 ```
@@ -383,4 +382,46 @@ if(index == 3){       
 ```
 
 
+- EX:
+```
+public class ForSwitch{
+    public static void main(String args[]){
+        char i;
+        LOOP: for (i=0;i<5;i++){
+            switch(i++){
+                case '0': System.out.println("A");
+                case 1: System.out.println("B"); break LOOP;
+                case 2: System.out.println("C"); break;
+                case 3: System.out.println("D"); break;
+                case 4: System.out.println("E");
+                case 'E' : System.out.println("F");
+            }
+        }
+    }
+}
+
+```
+Defining i as char doesn't mean that it can only hold characters (a, b, c etc). It is an integral data type which can take any +ive integer value from 0 to 2^16 -1.
+Integer 0 or 1, 2 etc. is not same as char '0', '1' or '2' etc.
+so when i is equal to 0, nothing gets printed and i is incremented to 1 (due to i++ in the switch).
+ i is then incremented again by the for loop for next iteration. so i becomes 2.
+when i = 2, "C" is printed and i is incremented to 3 (due to i++ in the switch) and then i is incremented to 4 by the for loop so i becomes 4.
+when i = 4, "E" is printed and since there is no break, it falls through to case 'E' and "F" is printed.
+i is incremented to 5  (due to i++ in the switch) and then it is again incremented to 6 by the for loop. Since i < 5 is now false, the for loop ends.
+
+
 - In Java, a while or do/while construct takes an expression that returns a boolean. But unlike a for loop, you cannot put instantiation and increment sections in the while condition.
+
+-  The Java language, like C and C++ and many languages before them, arbitrarily decree that an else clause belongs to the innermost.
+
+```
+int i = 5; 
+float f = 5.5f;
+ if (i == f)  //  value of i will be promoted to a float i.e. 5.0, and so it returns false.
+```
+
+
+- Since both the operands of / are ints, it is a integer division. This means the resulting value is truncated (and not rounded). 
+```
+int k = ((Integer) t).intValue()/10;
+```
