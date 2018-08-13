@@ -274,3 +274,9 @@ char | 16-bit unicode value
 
 - s instanceof Short : left operand of instanceof MUST be an object and not a primitive.  can NEVER refer to an object of class java.util.Date. So, it will not accept this code.
  --At run time, f points to an object of class Eagle. Now, Eagle extends Bird so f instanceof Bird returns true. e points to an object of class Eagle. Eagle extends Bird, which in turn implements Flyer. So an Eagle is a Flyer. Therefore, e instanceof Flyer will also return true.  b points to an object of class Bat, which does not extend from Bird. Therefore, b instanceof Flyer returns false.
+ 
+ 
+ - When the program is run, the JVM looks for a method named main() which takes an array of Strings as input and returns nothing (i.e. the return type is void). But in this case, it doesn't find such a method ( the given main() method is returning long!) so it throws a java.lang.NoSuchMethodError. Note that java.lang.Error does not extend Exception class. It  extends java.lang.Throwable and so it can be "thrown"
+ 
+ 
+ - defaulte imported package : java.lang.(System and String class in this package.). If there is no package statement in the source file, the class is assumed to be created in a default package that has no name. In this case, all the types created in this default package will be available to this class without any import statement.  However, note that this default package cannot be imported in classes that belong to any other package at all, not even with any sort of import statement. So for example, if you have a class named SomeClass in package test, you cannot access TestClass defined in the problem statement (as it is defined in the default package) at all because there is no way to import it.
