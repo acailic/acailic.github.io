@@ -209,3 +209,6 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 
 
 - override a method in the subclass, the overriding method (i.e. the one in the subclass) MUST HAVE: .same name .same return type in case of primitives (a subclass is allowed for classes, this is also known as covariant return types). .same type and order of parameters .it may throw only those exceptions that are declared in the throws clause of the superclass's method or exceptions that are subclasses of the declared exceptions. It may also choose NOT to throw any exception. method can throw any RuntimeException (such as a NullPointerException) even without declaring it in its throws clause.you can make it abstract!! You would have to make the class as abstract as well though.
+
+
+- static method cannot be overridden by a non-static method and vice versa.
