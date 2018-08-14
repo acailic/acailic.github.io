@@ -294,3 +294,11 @@ Had b and c been already declared, it would have been valid.
  
  
  - defaulted imported package : java.lang.(System and String class in this package.). If there is no package statement in the source file, the class is assumed to be created in a default package that has no name. In this case, all the types created in this default package will be available to this class without any import statement.  However, note that this default package cannot be imported in classes that belong to any other package at all, not even with any sort of import statement. So for example, if you have a class named SomeClass in package test, you cannot access TestClass defined in the problem statement (as it is defined in the default package) at all because there is no way to import it.
+ 
+ 
+ -  1.0 and 43e1 can fit into a float, implicit narrowing does not happen because implicit narrowing is permitted only among byte, char, short, and int.
+ 
+ ```
+ float f1 = 1.0; X 
+ float f = 43e1; X
+ ```
