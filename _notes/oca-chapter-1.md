@@ -312,6 +312,8 @@ Had b and c been already declared, it would have been valid.
  float f = 43e1; X
  ```
  
+ - integral types means byte, short, int, long, and char. The integral types are byte, short, int, and long, whose values are 8-bit, 16-bit, 32-bit and 64-bit signed two's-complement integers, respectively,
+  and char, whose values are 16-bit unsigned integers representing UTF-16 code units. unlike &&, & will not "short circuit" the expression if used on boolean parameters.  
  
  - points about Boolean: 
  
@@ -320,4 +322,5 @@ Had b and c been already declared, it would have been valid.
    3. When you use the equality operator ( == ) with booleans, if exactly one of the operands is a Boolean wrapper, it is first unboxed into a boolean primitive and then the two are compared (JLS 15.21.2). If both are Boolean wrappers, then their references are compared just like in the case of other objects. Thus, new Boolean("true") == new Boolean("true") is false, but new Boolean("true") == Boolean.parseBoolean("true") is true.
    
    
-- boolean operators have more precedence than =.
+- boolean operators have more precedence than =.  
+- The arithmetic operators *, / and % have the same level of precedence.
