@@ -155,3 +155,8 @@ public class Soccer extends Game{
  -if you have a container that is meant to contain A, then you can add anything that is-a A. Cant put parent on place of child.
  
  - A class is uninstantiable if the class is declared abstract. If a method has been declared as abstract, it cannot provide an implementation (i.e. it cannot have a method body ) and the class containing that method must be declared abstract). If a method is not declared abstract, it must provide a method body (the class can be abstract but not necessarily so). If any method in a class is declared abstract, then the whole class must be declared abstract. An class can still be made abstract even if it has no abstract method.
+ 
+ 
+ - If a subclass does not have any declared constructors, the implicit default constructor of the subclass will have a call to super( ). You can either call super(<appropriate list of arguments>) or this(<appropriate list of arguments>) but not both from a constructor.
+ 
+ - calling super(); will not always work because if the super class has defined a constructor with arguments and has not defined a no args constructor then no args constructor will not be provided by the compiler. It is provided only to the class that does not define ANY constructor explicitly.
