@@ -164,3 +164,5 @@ public class TestClass {
 
 
 - How many objects have been created by the time the main method reaches its end in the following code? Look for exceptions also.
+
+- Both - ArrayIndexOutOfBoundsException and StringIndexOutOfBoundsException, extend IndexOutOfBoundsException
