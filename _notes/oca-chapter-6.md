@@ -26,6 +26,7 @@ date: 2018-07-25
 - `ExceptionInInitializerError` may be thrown by the JVM when a `static`
   initializer in your code throws a `NullPointerException`.
 
+- When you use System.out.println(exception), a stack trace is not printed. Just the name of the exception class and the message is printed. When you use exception.printStackTrace(), a complete chain of the names of the methods called, along with the line numbers, is printed. It contains the names of the methods in the chain of method calls that led to the place where the exception was created going back up to the point where the thread, in which the exception was created, was started.
 
 ## QUESTIONS
 
