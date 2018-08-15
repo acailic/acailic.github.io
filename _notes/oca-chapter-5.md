@@ -160,3 +160,10 @@ public class Soccer extends Game{
  - If a subclass does not have any declared constructors, the implicit default constructor of the subclass will have a call to super( ). You can either call super(<appropriate list of arguments>) or this(<appropriate list of arguments>) but not both from a constructor.
  
  - calling super(); will not always work because if the super class has defined a constructor with arguments and has not defined a no args constructor then no args constructor will not be provided by the compiler. It is provided only to the class that does not define ANY constructor explicitly.
+ 
+ 
+ 
+ - Note that method print() is overridden in class B. Due to polymorphism, the method to be executed is selected depending on the class of the actual object. Here, when an object of class B is created, first A's constructor is called, which in turn calls print(). Now, since the class of actual object is B, B's print() is selected. At this point of time, variable i has not been initialized (because we are still initializing A at this point), so its default value i.e. 0 is printed. This happens because the method print() is non-private, hence polymorphic. 
+ 
+ 
+ - variables and static methods are not overridden and so access to variables and static methods is determined at compile time based on the type of the variable (instead of type of the object referred to by the variable, as is the case with instance methods.) In the given code, if you declare b to be of type B i.e. B b = new B();, you can access b.i.
