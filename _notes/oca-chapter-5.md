@@ -169,3 +169,7 @@ public class Soccer extends Game{
  - variables and static methods are not overridden and so access to variables and static methods is determined at compile time based on the type of the variable (instead of type of the object referred to by the variable, as is the case with instance methods.) In the given code, if you declare b to be of type B i.e. B b = new B();, you can access b.i.
  
  - override a static method with a non-static method (and vice-versa) in a class will result in a compilation error. Even in case of interfaces, a subinterface not override a default method with a static method.
+ 
+ - If interface A has default method, and other interface  B extends it, it will must provide an implementation of this method or be marked as abstract. Interfaces are always abstract. Cannot provide a method body in an interface method unless you mark it as default (or static). Cannot use super keyword in an interface's method to invoke a method defined in its super interface.
+ 
+ - A class (or an interface) can invoke a default method of an interface that is explicitly mentioned in the class's implements clause (or the interface's extends clause) by using the same syntax i.e. <InterfaceName>.super.<methodName>.
