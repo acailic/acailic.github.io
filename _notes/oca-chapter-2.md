@@ -427,3 +427,7 @@ float f = 5.5f;
 
 
 - `int k = ((Integer) t).intValue()/10;` Since both the operands of / are ints, it is a integer division. This means the resulting value is truncated (and not rounded). 
+
+
+
+-  `k += (k = 4) * (k + 2);` -1 of k is saved by the compound assignment operator += before its right-hand operand (k = 4) * (k + 2) is evaluated. Evaluation of this right-hand operand then assigns 4 to k, calculates the value 6 for k + 2, and then multiplies 4 by 6 to get 24. This is added to the saved value 1 to get 25, which is then stored into k by the += operator
