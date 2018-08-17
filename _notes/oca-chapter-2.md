@@ -209,6 +209,8 @@ will produce 2015-02-05.
 - Java has only the following primitive data types:
   boolean, byte, short, char, int, long, float and double.
   
+- transferring contents of one bucket into another. You can always transfer the contents of a smaller bucket to a bigger one. But the opposite is not always possible. You can transfer the contents of the bigger bucket into the smaller bucket only if the actual content in the bigger bucket can fit into the smaller one. Otherwise, it will spill.
+
 **Operators**
 
 - The logical operator AND `&&` has a higher operator precedence than the

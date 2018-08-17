@@ -235,6 +235,8 @@ accessed because a is of type ABCD
 ```
 
 
+- instance member can be a variable, a constant or a method. It belongs to an instance of the class.  All non-static members are instance members.
+
 - variables are SHADOWED and methods are OVERRIDDEN. Which variable will be used depends on the class that the variable is declared of. Which method will be used depends on the actual class of the object that is referenced by the variable.
 
 - The local 'x' simply shadows the member variable 'x'.
