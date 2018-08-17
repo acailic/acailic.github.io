@@ -314,8 +314,21 @@ Had b and c been already declared, it would have been valid.
  float f = 43e1; X
  ```
  
+ 
+ - Implicit narrowing occurs only for byte, char, short, and int. Short cant be assigned to char without a cast.
+ 
+  ```
+ short s = Short.MAX_VALUE; 
+ char c = s;
+  ```
+ 
  - integral types means byte, short, int, long, and char. The integral types are byte, short, int, and long, whose values are 8-bit, 16-bit, 32-bit and 64-bit signed two's-complement integers, respectively,
   and char, whose values are 16-bit unsigned integers representing UTF-16 code units. unlike &&, & will not "short circuit" the expression if used on boolean parameters.  
+ 
+ - & can have integral as well as boolean operands. unlike &&, & will not "short circuit" the expression if used on boolean parameters.
+ 
+ 
+- The modulus operator % can  be used with integer of float operands. 
  
  - points about Boolean: 
  

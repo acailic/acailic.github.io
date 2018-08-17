@@ -48,12 +48,14 @@ date: 2018-07-23
    class, or enum.
  - In a derived class, a static method with the same signature as that of a
    static method in its base class hides the base class method.
+   
  - _Constructor cannot be overridden_ because a base class constructor is not
    inherited by a derived class.
  - A method that can be overridden by a derived class is call a _virtual method_.
  - static methods are never overridden. They are HIDDEN or SHADOWED just like static or non-static fields
+ `A class cannot override the super class's constructor.`
  
- 
+- An Overriding method is allowed to make the overridden method more accessible, and since protected is more accessible than default (package), this is allowed. Note that protected access will allow access to the subclass even if the subclass is in a different package but package access will not. 
  
 **Lambda Expression**
 

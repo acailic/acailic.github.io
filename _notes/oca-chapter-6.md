@@ -170,3 +170,5 @@ public class TestClass {
 - Both - ArrayIndexOutOfBoundsException and StringIndexOutOfBoundsException, extend IndexOutOfBoundsException
 
 - ia[-1]- ArrayIndexOutOfBoundsException
+
+- A try without resources must have either a catch or a finally. It may have both as well.

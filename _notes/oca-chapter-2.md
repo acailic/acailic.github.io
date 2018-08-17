@@ -168,9 +168,9 @@ Class | Date | Time | Time Zone
 `ZonedDateTime` | Yes | Yes | Yes
 
 
-- 
+- Most of the actual date related classes in the Date-Time API such as LocalDate, LocalTime, and LocalDateTime are immutable.
 
-Given:
+- Given:
 
         LocalDate d1 = LocalDate.parse("2015-02-05", DateTimeFormatter.ISO_DATE);
          ~LocalDate.of(2015, 2, 5)
