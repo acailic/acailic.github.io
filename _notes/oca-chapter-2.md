@@ -206,6 +206,9 @@ will produce 2015-02-05.
 - `Bool` is not defined in the Java API, the correct wrapper class for `boolean`
   is `Boolean`.
 
+- Java has only the following primitive data types:
+  boolean, byte, short, char, int, long, float and double.
+  
 **Operators**
 
 - The logical operator AND `&&` has a higher operator precedence than the
