@@ -164,7 +164,8 @@ There is no null pointer on calling static methods.
 
 12. You cannot call the default constructor created by the compiler if you have created one before. 
 	Because the compiler won't add the default constructor since you have added your properly contrusctor o constructors.
-
+	
+ Note that calling super(); will not always work because if the super class has defined a constructor with arguments and has not defined a no args constructor then no args constructor will not be provided by the compiler. It is provided only to the class that does not define ANY constructor explicitly.
 13. You can call a private constructor from inside the same class using a static method 
 	or in the same declaration of a variable member.
 
