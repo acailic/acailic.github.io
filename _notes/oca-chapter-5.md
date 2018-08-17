@@ -150,6 +150,21 @@ public class Soccer extends Game{
 	call to a parent constructor in each child constructor.
 
 
+- The default constructor is provided by the compiler only when a class does not define ANY constructor explicitly. For example,
+  public class A{
+    public A()  //This constructor is automatically inserted by the compiler because there is no other constructor defined by the programmer explicitly.
+    {
+      super();  //Note that it calls the super class's default no-args constructor.
+    }
+  }
+  public class A{
+    //Compiler will not generate any constructor because the programmer has defined a constructor.
+    public A(int i){
+       //do something
+    }
+  }
+
+
 - When class A extends or implements B directly or indirectly, you can say that A is-a B. Here, Car directly extends Vehicle and directly implements Drivable. Therefore, a Car is-a Vehicle and a Car is-a Drivable.
  Similarly, an SUV is-a Car and since Car is-a Vehicle and is-a Drivable, SUV is also a Vehicle and a Drivable.
  -if you have a container that is meant to contain A, then you can add anything that is-a A. Cant put parent on place of child.

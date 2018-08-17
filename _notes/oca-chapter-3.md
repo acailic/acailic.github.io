@@ -25,6 +25,7 @@ date: 2018-07-20
 - charAt() returns char value. 
 -  have method `trim`. (Builder don't have.)
 - A string must be enclosed in double quotes ".
+- The String class has no reverse( ) .
 
 **String Builder**
 
