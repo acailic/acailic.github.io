@@ -5,6 +5,19 @@ tags: [java, oca]
 date: 2018-07-18
 ---
 
+- Encapsulation - The key is that your data variable should be private and the functionality that is to be exposed outside should be public. Further, your setter methods should be coded such that they don't leave the data members inconsistent with each other.
+
+- default values of uninitialized primitives and object references. booleans are initialized to false, numeric types to 0 and object references to null. Elements of arrays are initialized to the default values of their types. So, elements of a boolean array are initialized to false. int, char, float to 0 and Objects to null.
+- field a is static and there will be only one copy of a no matter how many instances of Test you create. Changes made to it by one instance will be reflected in the other instance as well.
+
+- valid identifier name because an identifier must not start with a digit (although it can contain a digit.) An identifier may start with and contain the underscore character _.
+- Comparison operators have lower precedence than mathematical operators.
+- == has less precedence than > .
+
+- Java byte code is basically just a set of instructions that are intepreted by a virtual machine and is independent of the actual machine and OS i.e. the platform. JRE (Java Runtime Environment) is the virtual machine that interprets the given byte code and converts it into the acutal platform understandable instructions. Therefore, all you need to run the byte code is the virtual machine (JRE) for that specific platform on which you want to run it. 
+  
+  Since the byte code itself is platform independent, you can compile your java code on any platform because no matter where you compile your code, the same byte code will be produced. Therefore, you don't need a java compiler for a particular platform. You just need the JRE for that platform. Oracle provides JRE for several platforms inluding Windows and Unix.
+
 # Test Cases Facts
  
 1. Local variables must be initialized before use. If you don't will get a compiler Error.

@@ -89,6 +89,8 @@ specifying the parameter type is optional  because the compiler can figure out t
 (parameter list) OR single_variable_without_type -> { regular lines of code } OR just_an_expression_without_semicolon`
 
 - A functional interface is an interface that contains exactly one abstract method. It may contain zero or more default methods and/or static methods. Because a functional interface contains exactly one abstract method, you can omit the name of that method when you implement it using a lambda expression. 
+- The implementation of Predicate interface must have a method that takes exactly one parameter. You cannot reuse the local variable names that have already been used in the enclosing method to declare the variables in you lambda expression. It would be like declaring the same variable twice.
+
 
 ## Flow control
 
