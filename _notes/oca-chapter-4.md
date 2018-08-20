@@ -227,7 +227,7 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 
 - static method cannot be overridden by a non-static method and vice versa.
 
-- As a rule, fields defined in an interface are public, static, and final. The methods are public. Here, the interface IInt defines thevalue and thus any class that implements this interface gets this field. Therefore, it can be accessed using s.thevalue or just thevalue inside the class. Also, since it is static, it can also be accessed using IInt.thevalue or Sample.thevalue.
+- As a rule, fields defined in an interface are PUBLIC, STATIC, and FINAL. The methods are public. Here, the interface IInt defines thevalue and thus any class that implements this interface gets this field. Therefore, it can be accessed using s.thevalue or just thevalue inside the class. Also, since it is static, it can also be accessed using IInt.thevalue or Sample.thevalue.
 
 
 - An interface can have a static method but the method must have a body in that case because a static method cannot be abstract. 

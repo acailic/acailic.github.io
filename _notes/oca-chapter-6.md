@@ -92,6 +92,8 @@ Test Cases Facts
 		- NoClassDefFoundError
 
 
+- CloneNotSupportedException extends Exception Thrown to indicate that the clone method in class Object has been called to clone an object, but that the object's class does not implement the Cloneable interface. (NOT RUNTIME)
+
 - System.exit(0) kills JVM, after that is not executed.
 
 - Finally is ALWAYS executed. (Only exception is System.exit() ).
