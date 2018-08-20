@@ -339,3 +339,9 @@ Had b and c been already declared, it would have been valid.
    
 - boolean operators have more precedence than =.  
 - The arithmetic operators *, / and % have the same level of precedence.
+
+- byte and int both hold signed values. So when b is assigned to i, the sign is preserved. A byte can ALWAYS be assigned to an int. Range of byte is -128 to 127
+  ```
+   byte b = -128 ;
+   int i = b ;  
+  ```

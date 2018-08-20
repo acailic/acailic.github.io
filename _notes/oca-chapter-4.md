@@ -229,6 +229,9 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 
 - As a rule, fields defined in an interface are PUBLIC, STATIC, and FINAL. The methods are public. Here, the interface IInt defines thevalue and thus any class that implements this interface gets this field. Therefore, it can be accessed using s.thevalue or just thevalue inside the class. Also, since it is static, it can also be accessed using IInt.thevalue or Sample.thevalue.
 
+- An interface an redeclare a default method and also make it abstract.
 
-- An interface can have a static method but the method must have a body in that case because a static method cannot be abstract. 
+- An interface can redeclare a default method and provide a different implementation.
+
+- An interface can have a static method but the method must have a body in that case because a static method cannot be abstract.  static methods can never be abstract (neither in an interface not in a class). A default method must have a body.
 

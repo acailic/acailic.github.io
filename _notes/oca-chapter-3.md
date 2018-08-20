@@ -27,6 +27,15 @@ date: 2018-07-20
 - A string must be enclosed in double quotes ".
 - The String class has no reverse( ) .
 
+
+- `append()` - method is in StringBuffer and StringBuilder but not in String.
+
+-  `public String intern()`
+   Returns a canonical representation for the string object.
+   A pool of strings, initially empty, is maintained privately by the class String.
+   When the intern method is invoked, if the pool already contains a string equal to this String object as determined by the equals(Object) method, then the string from the pool is returned. s and t, s.intern() == t.intern() is true if and only if s.equals(t) is true.
+
+
 **String Builder**
 
 - `StringBuilder` and `StringBuffer` have the same methods.
