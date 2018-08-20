@@ -212,7 +212,7 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 - method is said to be overloaded when the other method's name is same and parameters ( either the number or their order) are different.
 
 # Override covariant types
--Covariant returns are allowed since Java 1.5, which means that an overriding method can change the return type to a subclass of the return type declared in the overridden method. But remember than covarient returns does not apply to primitives.
+- Covariant returns are allowed since Java 1.5, which means that an overriding method can change the return type to a subclass of the return type declared in the overridden method. But remember than covarient returns does not apply to primitives.
 
 -In case of overriding, the return type of the overriding method must match exactly to the return type of the overridden method if the return type is a primitive.
 (In case of objects, the return type of the overriding method may be a subclass of the return type of the overridden method.)
@@ -222,8 +222,9 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 - variables and static methods are not overridden and so access to variables and static methods is determined at compile time based on the type of the variable (instead of type of the object referred to by the variable, as is the case with instance methods.) static methods are never overridden. They are HIDDEN or SHADOWED just like static or non-static fields.
 
 
-- override a method in the subclass, the overriding method (i.e. the one in the subclass) MUST HAVE: .same name .same return type in case of primitives (a subclass is allowed for classes, this is also known as covariant return types). .same type and order of parameters .it may throw only those exceptions that are declared in the throws clause of the superclass's method or exceptions that are subclasses of the declared exceptions. It may also choose NOT to throw any exception. method can throw any RuntimeException (such as a NullPointerException) even without declaring it in its throws clause.you can make it abstract!! You would have to make the class as abstract as well though.
+- override a method in the subclass, the overriding method (i.e. the one in the subclass) MUST HAVE: .same name .same return type in case of primitives (a subclass is allowed for classes, this is also known as covariant return types). .same type and order of parameters .it may throw only those exceptions that are declared in the throws clause of the superclass's method or exceptions that are subclasses of the declared exceptions. It may also choose NOT to throw any exception. method can throw any RuntimeException (such as a NullPointerException) even without declaring it in its throws clause. you can make it abstract - You would have to make the class as abstract as well though.
 
+-  The overriding method can have more visibility. (It cannot have less.) Note that 'protected' is less restrictive than default 'no modifier'. 
 
 - static method cannot be overridden by a non-static method and vice versa.
 

@@ -117,6 +117,7 @@ arr = { "C", "B", "A" }; // Does not compile!
 - ArrayList is a List so you can use it where ever a List is required. This include Collections methods such as sort, reverse, and shuffle. 
 - ArrayList only Objects can be stored in it.
 - It allows you to access its elements in random order. Because you can directly access any element using get(index) method. (This is unlike a LinkedList).
+- ambiguous option because in certain situation an ArrayList may consume a little bit more memory than an array (because of additional internal data structure and pointers), while in some other situation it may consume less (when your array is only half full).
 
 **Date**
 
