@@ -4,6 +4,8 @@ layout: post
 tags: [java, oca]
 date: 2018-07-18
 ---
+- You cannot have two methods with the same signature (name and parameter types) in one class. Also, even if you put one method() method in other class which is a subclass of this class, it won't compile because you cannot override/hide a static method with a non static method and vice versa.
+
 
 - Encapsulation - The key is that your data variable should be private and the functionality that is to be exposed outside should be public. Further, your setter methods should be coded such that they don't leave the data members inconsistent with each other.
 
