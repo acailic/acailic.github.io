@@ -4,6 +4,11 @@ layout: post
 tags: [java, oca]
 date: 2018-07-18
 ---
+
+- catch block cannot follow a finally block!
+
+- Interfaces are always abstract. You cannot provide a method body in an interface method unless you mark it as default (or static). You cannot use super keyword in an interface's method to invoke a method defined in its super interface.
+
 - You cannot have two methods with the same signature (name and parameter types) in one class. Also, even if you put one method() method in other class which is a subclass of this class, it won't compile because you cannot override/hide a static method with a non static method and vice versa.
 
 
