@@ -26,7 +26,7 @@ date: 2018-07-20
 -  have method `trim`. (Builder don't have.)
 - A string must be enclosed in double quotes ".
 - The String class has no reverse( ) .
-
+- replace creates a new string object. replace returns the same object if there is no change.
 
 - `append()` - method is in StringBuffer and StringBuilder but not in String.
 

@@ -5,6 +5,8 @@ tags: [java, oca]
 date: 2018-07-18
 ---
 
+- It is not possible to access x from main without making it static. Because main is a static method and only static members are accessible from static methods. There is no 'this' available in main so none of the this.x are valid.
+
 - catch block cannot follow a finally block!
 
 - Interfaces are always abstract. You cannot provide a method body in an interface method unless you mark it as default (or static). You cannot use super keyword in an interface's method to invoke a method defined in its super interface.
