@@ -328,7 +328,7 @@ Had b and c been already declared, it would have been valid.
   ```
  
  - integral types means byte, short, int, long, and char. The integral types are byte, short, int, and long, whose values are 8-bit, 16-bit, 32-bit and 64-bit signed two's-complement integers, respectively,
-  and char, whose values are 16-bit unsigned integers representing UTF-16 code units. unlike &&, & will not "short circuit" the expression if used on boolean parameters.  
+  and char, whose values are 16-bit unsigned integers representing UTF-16 code units.  
  
  - & can have integral as well as boolean operands. unlike &&, & will not "short circuit" the expression if used on boolean parameters.
  
