@@ -262,9 +262,9 @@ first b2 != b1 is evaluated which returns a value 'false'.
  So the expression becomes false = !b2. And this is illegal because false is a value and not a variable!
 ```
 
--JVM looks for a method named main() which takes an array of Strings as input and returns nothing (i.e. the return type is void).  it doesn't find such a method java.lang.NoSuchMethodError.
+- JVM looks for a method named main() which takes an array of Strings as input and returns nothing (i.e. the return type is void).  it doesn't find such a method java.lang.NoSuchMethodError.
 
--java.lang.Error does not extend Exception class. It  extends java.lang.Throwable and so it can be "thrown".
+- java.lang.Error does not extend Exception class. It  extends java.lang.Throwable and so it can be "thrown".
 
 Keyword | Type
 ------------ | -------------
