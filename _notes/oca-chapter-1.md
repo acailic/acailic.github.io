@@ -88,7 +88,7 @@ int z = x * y;    // ok: x and y are promoted to int
 
 	Numeric Literals:
 
-	- all floating point are a doble	
+	- all floating point are a double	
 	- all integer number are int.
 
 	double d = 0D; or double d = 0d; 
