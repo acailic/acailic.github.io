@@ -153,6 +153,8 @@ List<String> wordList3 = Stream.of(wordArray).collect(Collectors.toList());
 * boolean remove ArrayList:  
  *The JavaDoc API description of this method is important for the exam -  public boolean remove(Object o) Removes the first occurrence of the specified element from this list, if it is present (optional operation). If this list does not contain the element, it is unchanged. More formally, removes the element with the lowest index i such that (o==null ? get(i)==null : o.equals(get(i))) (if such an element exists). Returns true if this list contained the specified element (or equivalently, if this list changed as a result of the call).
 
+- An ArrayList is backed by an array. It allows constant time access to all its elements. You cannot store primitives in an ArrayList.
+
 ## Working with Dates and Times
 
 In Java 8, a famous Java Date library—Joda Time—has been integrated into the

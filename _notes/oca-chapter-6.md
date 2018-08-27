@@ -174,3 +174,13 @@ public class TestClass {
 - ia[-1]- ArrayIndexOutOfBoundsException
 
 - A try without resources must have either a catch or a finally. It may have both as well.
+
+
+ # override Constructor with exceptions
+ 
+-  Constructor must declare all the checked exceptions declared in the base constructor (or the super classes of the checked exceptions). They may add other exceptions as well. This behavior is exactly opposite from that of methods. The overriding method cannot throw any checked exception other than what the overridden method throws. It may throw subclasses of those exceptions as well.
+
+``` 
+public CleanConnector(){  
+  try{ super(); }catch(Exception e){} //WRONG : call to super must be first statement in constructor }
+``` 

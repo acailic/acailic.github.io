@@ -136,7 +136,9 @@ There is no null pointer on calling static methods.
 	■ protected: default access and child classes
 	■ public: protected and classes in the other packages
 
-4. You cannot create Cyrcle inheritance, two classes inherit each other.
+4. You cannot create Cyrcle inheritance, two classes inherit each other. 
+
+- There is no way to go more than one level up for methods. variables because variable are never overridden. They are shadowed. So to access any of the super class's variable, you can unshadow it using a cast. For example, ((A) c).data; 
 
 5. You cannot asign "void" like a type to any variable or field state of a class.
 
@@ -202,9 +204,15 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 
    
     2. Lambdas work with interfaces that have only one method. 
-	TODO: Review topics.
+	   TODO: Review topics.
+	   
 	3. Remember the one method in the interface called test()? It takes any one reference type parameter and returns a boolean.
- 
+	
+    4. a lambda expression does not create a new scope for variables. Therefore, you cannot reuse the local variable names that have already been used in the enclosing method to declare the variables in you lambda expression.
+      
+    5. The implementation of Predicate interface must have a method that takes exactly one parameter.
+    
+     
  17. StringBuilder:
  append() changes by reference value of string.
 
