@@ -189,3 +189,36 @@ public class Soccer extends Game{
  - If interface A has default method, and other interface  B extends it, it will must provide an implementation of this method or be marked as abstract. Interfaces are always abstract. Cannot provide a method body in an interface method unless you mark it as default (or static). Cannot use super keyword in an interface's method to invoke a method defined in its super interface.
  
  - A class (or an interface) can invoke a default method of an interface that is explicitly mentioned in the class's implements clause (or the interface's extends clause) by using the same syntax i.e. <InterfaceName>.super.<methodName>.
+ 
+ 
+ # Interface multiple implementation
+ 
+ 
+ 
+ You cannot have a class that implements two interfaces where both the interfaces contain a default method with the same signature unless the class provides an implementation for that method itself. For example, in the following code, class C will not compile: 
+ ```
+ interface I1{  
+  public default void m1(){    
+   System.out.println("in I1.m1");   }
+  } 
+  interface I2{ 
+    public default void m1(){   
+     System.out.println("in I2.m1");   
+  } 
+  }
+  
+    class CI implements I1, I2{ //This class will not compile. } 
+    
+    class C2 implements I1, I2{ //This class will compile because it provides its own implementation of m1. 
+    
+    public void m1(){ 
+         System.out.println("in C2.m1"); 
+      } 
+    }  
+```    
+    
+  You can have a class inherit a method with the same signature from an interface and a superclass though. This is  allowed because the superclass's version always overrides the interface's version. 
+  The class doesn't get two implementations. It gets only the version from super class.
+ 
+ 
+ 
