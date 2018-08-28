@@ -5,6 +5,11 @@ tags: [java, oca]
 date: 2018-07-18
 ---
 
+- An abstract class can be extended by an abstract or a concrete class.
+- Any class, whether abstract or concrete, can implement any interface.
+- subclass of an abstract class can be declared abstract.
+-  String is a final class and final classes cannot be extended.
+- continue  cannot occur in a switch.
 - All member fields (static and non-static) are initialized to their default values. Objects are initialized to null (String is also an object), numeric types to 0 (or 0.0 ) and boolean to false.
 
 - It is not possible to access x from main without making it static. Because main is a static method and only static members are accessible from static methods. There is no 'this' available in main so none of the this.x are valid.
