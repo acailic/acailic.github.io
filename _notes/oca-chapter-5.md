@@ -2,7 +2,7 @@
 title: OCA Review 5 - Class design
 layout: post
 tags: [java, oca, class]
-date: 2018-07-24
+date: 2018-08-26
 ---
 
 

@@ -2,7 +2,7 @@
 title: OCA Review 4 - Methods and encapsulation
 layout: post
 tags: [java, oca]
-date: 2018-07-23
+date: 2018-08-26
 ---
 ## METHODS 
 
