@@ -97,7 +97,7 @@ specifying the parameter type is optional  because the compiler can figure out t
 - The braces `{}` are required for methods, `try` blocks, and `catch` blocks
   even if there's only one statement inside.
 - If there're duplicate constant values in a `switch` statements, all the
-  duplicate cases will raise a compile error.
+  duplicate cases will raise a compile error.  a switch statement must have a body.
 - The `default` case executes only of no matching values are found.  
 - an unreachable statement causes a compilation error.
 

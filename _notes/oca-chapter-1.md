@@ -42,6 +42,8 @@ target class using wildcard `*`.
 
 - If there is no package, default package will be created.   java.lang is default import(inside String and System).
 
+- `import static x.y.SM.foo;` - This is valid because this statement is importing the static member foo of class x.y.SM.
+
 
 **Compilation**
 

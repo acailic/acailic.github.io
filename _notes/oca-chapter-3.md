@@ -61,6 +61,10 @@ date: 2018-07-20
 
  - append() method does not exist in String class. It exits only in StringBuffer and StringBuilder.
  
+ 
+ - The reverse() method of the StringBuilder class  modify the object on which they are called.
+ 
+ 
 **Arrays**
 
 - An array itself is an object.
@@ -79,6 +83,7 @@ date: 2018-07-20
   same number of columns for each of its rows.
 - Array anonymous initializer is only allowed in the declaration.
 
+- Each array object has a member variable named public final length of type 'int' that contains the size of the array.  `intArr.length` 
 
 - if  al is declared as ArrayList<Double>, therefore the add method is typed to accept only a Double. 
 {% highlight java %}

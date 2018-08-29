@@ -189,10 +189,13 @@ will produce 2015-02-05.
 - Characters `char` can be concatenated, such as `'a' + 'b'`. When doing so,
   they are considered as integer using their corresponding value in ASCII
   table.
+  
 - Binary number starts with the prefix `0b` or `0B`, e.g. `0b1101`.
 - Octal number starts with the prefix `0`, e.g. `011`.
 - Decimal number does not start with `0`, e.g. `11`.
 - Hexadecimal number starts with the prefix `0x`, e.g. `0xAAA`.
+
+
 - A literal ends with a character could be a `float`, a `double`, a `long`, or
   a hexadecimal number.
 - A `long` can be assigned using an integer `int`, because Java knows how to
@@ -450,3 +453,20 @@ float f = 5.5f;
 
 
 -  `k += (k = 4) * (k + 2);` -1 of k is saved by the compound assignment operator += before its right-hand operand (k = 4) * (k + 2) is evaluated. Evaluation of this right-hand operand then assigns 4 to k, calculates the value 6 for k + 2, and then multiplies 4 by 6 to get 24. This is added to the saved value 1 to get 25, which is then stored into k by the += operator
+
+
+- VALID:
+```
+  double x = 0xb10_000;
+  float x = 0b10_000;
+  long x = 0b10000L;
+```  
+  INVALID:
+  
+```
+  float x = 0b10_000f;
+  float x = 0b20_000;
+  double d = 0b10_000D;
+```
+
+Thus, float x = 0x10_000f; and float x = 10_000f; are valid because they are written in hex and decimal respectively but float x = 0b10_000f;  is invalid because is written in binary.

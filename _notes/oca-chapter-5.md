@@ -195,7 +195,8 @@ public class Soccer extends Game{
  
  ## Interface multiple implementation
  
- 
+
+ In Java 8, interfaces don't allow multiple implementation inheritance through default methods.
  
  You cannot have a class that implements two interfaces where both the interfaces contain a default method with the same signature unless the class provides an implementation for that method itself. For example, in the following code, class C will not compile: 
  ```

@@ -18,6 +18,8 @@ date: 2018-07-18
 
 - Interfaces are always abstract. You cannot provide a method body in an interface method unless you mark it as default (or static). You cannot use super keyword in an interface's method to invoke a method defined in its super interface.
 
+- Interfaces cannot be final. An interface may have default methods. A method marked default is considered a non-abstract instance method. A non-abstract class that implements this interface doesn't necessarily have to implement a default method. 
+
 - You cannot have two methods with the same signature (name and parameter types) in one class. Also, even if you put one method() method in other class which is a subclass of this class, it won't compile because you cannot override/hide a static method with a non static method and vice versa.
 
 
@@ -34,6 +36,12 @@ date: 2018-07-18
   
   Since the byte code itself is platform independent, you can compile your java code on any platform because no matter where you compile your code, the same byte code will be produced. Therefore, you don't need a java compiler for a particular platform. You just need the JRE for that platform. Oracle provides JRE for several platforms inluding Windows and Unix.
 
+
+- Comparison operators have lower precedence than mathematical operators.
+ Therefore, 1 + 5 < 3 + 7 is evaluated as (1 + 5) < (3 + 7) i.e. 6<10, which prints true.
+  Similarly,  (2 + 2) >= 2 + 3 is evaluated as  (2 + 2) >= (2 + 3) i.e. 4>=5, which prints false.
+  
+  If you have an expression,  2 + (2 >= 2) + 3, it would be tempting to answer 2true3, but actually, it would not compile because it would resolve to 2 + true + 3 and + operator is not overloaded for anything except String. Here, neither of the operands of + operator is a String. 
 # Test Cases Facts
  
 1. Local variables must be initialized before use. If you don't will get a compiler Error.

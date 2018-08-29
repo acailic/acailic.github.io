@@ -184,3 +184,19 @@ public class TestClass {
 public CleanConnector(){  
   try{ super(); }catch(Exception e){} //WRONG : call to super must be first statement in constructor }
 ``` 
+
+
+- Observe that the rule for overriding a method is opposite to the rule for constructors. 
+An overriding method cannot throw a superclass exception, while a constructor of a subclass cannot throw subclass exception (Assuming that the same exception or its super class is not present in the subclass constructor's throws clause). For example:  
+``` 
+  class A{   
+  public A() throws IOException{ }   
+    void m() throws IOException{ }  
+ }  
+  class B extends A{
+     //IOException is valid here, but FileNotFoundException is invalid  
+   public B() throws IOException{ }      //FileNotFoundException is valid here, but Exception is invalid   
+  void m() throws FileNotFoundException{ } 
+} 
+``` 
+(Note: FileNotFoundException is a subclass of IOException, which is a subclass of Exception) If the subclass constructor's throws clause includes the same exception or its superclass, then it can throw any other exception as well.
