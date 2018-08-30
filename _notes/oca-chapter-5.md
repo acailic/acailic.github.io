@@ -37,6 +37,9 @@ Because the methods in an interface are implicitly public, if you try to assign 
 
 - Inherited interface  can redeclare a default method and also make it abstract. Also can redeclare a default method and provide a different implementation.  static methods can never be abstract (neither in an interface not in a class).
 
+
+- Trying to override a static method with a non-static method (and vice-versa) in a class will result in a compilation error. Even in case of interfaces, a subinterface not override a default method with a static method. An interface can redeclare a default method and provide a different implementation.
+
 # Casting class
 ```
 AA extends A 
