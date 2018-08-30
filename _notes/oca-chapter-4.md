@@ -78,17 +78,21 @@ date: 2018-08-26
   incorrect.
 - A simple lambda expression could be written in one line:
   `Validate v = p -> p.getAge() <= 26;`
+  
 - Predicate returns a boolean. 
 specifying the parameter type is optional  because the compiler can figure out the parameter types by looking at the signature of the abstract method of any functional interface (here, Predicate's test method).
  does not create a new scope for variables
  
 `checkList(List list, Predicate<List> p)`
 
+- Ex. Predicate is typed to List (not ArrayList) in the checkList method, therefore, the parameter type in the lambda expression must also be List. It cannot be ArrayList.
+
 - write a lambda expression for a functional interface, you are essentially providing an implementation of the method declared in that interface but in a very concise manner.  Therefore, the lambda expression code that you write must contain all the pieces of the regular method code except the ones that the compiler can easily figure out on its own such as the parameter types, return keyword, and brackets. 
 `
 (parameter list) OR single_variable_without_type -> { regular lines of code } OR just_an_expression_without_semicolon`
 
 - A functional interface is an interface that contains exactly one abstract method. It may contain zero or more default methods and/or static methods. Because a functional interface contains exactly one abstract method, you can omit the name of that method when you implement it using a lambda expression. 
+
 - The implementation of Predicate interface must have a method that takes exactly one parameter. You cannot reuse the local variable names that have already been used in the enclosing method to declare the variables in you lambda expression. It would be like declaring the same variable twice.
 
 
