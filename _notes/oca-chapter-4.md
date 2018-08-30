@@ -117,6 +117,17 @@ specifying the parameter type is optional  because the compiler can figure out t
   A continue statement with label Identifier attempts to transfer control to the enclosing labelled statement that has the same Identifier as its label; that statement, which is called the continue target, then immediately ends the current iteration and begins a new one. The continue target must be a while, do, or for statement or a compile-time error occurs. If no labelled statement with Identifier as its label contains the continue statement, a compile-time error occurs.
 
 
+- You cannot have break or continue in an 'if' or 'else' block without being inside a loop. Note that the problem statement mentions, "...occuring by themselves". This implies that the given statement is not wrapped within any other block. 
+
+
+Note: break with a label is possible in an if/else statement without a loop:     
+ label: if(true){          
+      System.out.println("break label");    
+      break label; //this is valid    
+   }
+
+
+
 ## QUESTIONS
 
 Test Cases Facts

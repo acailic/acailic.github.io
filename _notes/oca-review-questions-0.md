@@ -4,6 +4,7 @@ layout: post
 tags: [java, oca]
 date: 2018-07-18
 ---
+-return type (i.e. void) and method name (i.e. main) are NEVER separated. They are always together.
 
 - An abstract class can be extended by an abstract or a concrete class.
 - Any class, whether abstract or concrete, can implement any interface.
@@ -35,6 +36,9 @@ date: 2018-07-18
 - Java byte code is basically just a set of instructions that are intepreted by a virtual machine and is independent of the actual machine and OS i.e. the platform. JRE (Java Runtime Environment) is the virtual machine that interprets the given byte code and converts it into the acutal platform understandable instructions. Therefore, all you need to run the byte code is the virtual machine (JRE) for that specific platform on which you want to run it. 
   
   Since the byte code itself is platform independent, you can compile your java code on any platform because no matter where you compile your code, the same byte code will be produced. Therefore, you don't need a java compiler for a particular platform. You just need the JRE for that platform. Oracle provides JRE for several platforms inluding Windows and Unix.
+
+- Object class's equals() method just checks whether the two references are pointing to the same location or not. In this case they really are pointing to the same location because of obj2 = obj1; so it returns true.
+
 
 
 - Comparison operators have lower precedence than mathematical operators.
