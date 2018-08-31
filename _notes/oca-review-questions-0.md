@@ -4,6 +4,9 @@ layout: post
 tags: [java, oca]
 date: 2018-07-18
 ---
+
+- Java parses the expression from left to right. Once it realizes that the left operand of a conditional "or" operator has evaluated to true, it does not even try to evaluate the right side expression.
+
 - return type (i.e. void) and method name (i.e. main) are NEVER separated. They are always together.
 
 - An abstract class can be extended by an abstract or a concrete class.
@@ -218,6 +221,15 @@ date: 2018-07-18
 
 - Encapsulation is the technique used to package the information in such a way as to hide what should be hidden, and make visible what is intended to be visible. In simple terms, encapsulation generally means making the data variables private and providing public accessors. It helps make sure that clients have no accidental dependence on the choice of representation. It helps avoiding name clashes as internal variables are not visible outside. 
 
+
+- The point to understand here is, b is declared to be a reference of class Base and methodB() is not defined in Base. So the compiler cannot accept the statement b.methodB() because it only verifies the validity of a call by looking at the declared class of the reference. For example, the compiler is able to verify that b.methodA() is a valid call because class Base has method methodA. But it does not "bind" the call. Call binding is done at runtime by the jvm and the jvm looks for the actual class of object referenced by the variable before invoking the method.
+
+
+
+- `Object t ; (Integer) t.intValue();`
+ Compiler will complain that the method intValue() is not available in Object. This is because the . operator has more precedence than the cast operator. So you have to write it like this:     
+`int k = ((Integer) t).intValue()/9;`
+
 # When you do i++, what actually happens
 
 `i = Integer.valueOf( i.intValue()  + 1);  `
@@ -247,4 +259,6 @@ However, to save on memory, Java 'reuses' all the wrapper objects whose values f
   Note that the following will not compile though: 
   
   Byte b = 1; Integer i = 1; b == i; //Invalid because both operands are of different class.
+
+
 

@@ -261,3 +261,21 @@ print((a, b) -> a.startsWith("test")); // COMPILE
 
 - An interface can have a static method but the method must have a body in that case because a static method cannot be abstract.  static methods can never be abstract (neither in an interface not in a class). A default method must have a body.
 
+
+- If a static field of class is  printed out (System.out.println(Sub.ID)), it will just print out the value of the field without initializing class. 
+
+# When the class in initalized
+
+A class or interface type T will be initialized immediately before the first occurrence of any one of the following:
+
+T is a class and an instance of T is created.
+
+T is a class and a static method declared by T is invoked.
+
+A static field declared by T is assigned.
+
+A static field declared by T is used and the field is not a constant variable (§4.12.4).
+
+T is a top level class (§7.6), and an assert statement (§14.10) lexically nested within T (§8.1.3) is executed.
+
+A reference to a static field (§8.3.1.1) causes initialization of only the class or interface that actually declares it, even though it might be referred to through the name of a subclass, a subinterface, or a class that implements an interface.

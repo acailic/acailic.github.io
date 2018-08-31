@@ -175,6 +175,9 @@ public class TestClass {
 
 - A try without resources must have either a catch or a finally. It may have both as well.
 
+-  `tc.method(null);` The reason is quite simple, the most specific method depending upon the argument is called. Here, null can be passed to all the 3 methods but FileNotFoundException class is the subclass of IOException which in turn is the subclass of Object. So, FileNotFoundException class is the most specific class. So, this method is called.
+
+
 
  # override Constructor with exceptions
  
