@@ -4,7 +4,7 @@ layout: post
 tags: [java, oca]
 date: 2018-07-18
 ---
--return type (i.e. void) and method name (i.e. main) are NEVER separated. They are always together.
+- return type (i.e. void) and method name (i.e. main) are NEVER separated. They are always together.
 
 - An abstract class can be extended by an abstract or a concrete class.
 - Any class, whether abstract or concrete, can implement any interface.
