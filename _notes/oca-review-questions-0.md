@@ -39,13 +39,15 @@ date: 2018-07-18
 
 - Object class's equals() method just checks whether the two references are pointing to the same location or not. In this case they really are pointing to the same location because of obj2 = obj1; so it returns true.
 
-
+- superclass reference cannot be assigned to subclass reference without explicit cast.
 
 - Comparison operators have lower precedence than mathematical operators.
  Therefore, 1 + 5 < 3 + 7 is evaluated as (1 + 5) < (3 + 7) i.e. 6<10, which prints true.
   Similarly,  (2 + 2) >= 2 + 3 is evaluated as  (2 + 2) >= (2 + 3) i.e. 4>=5, which prints false.
   
   If you have an expression,  2 + (2 >= 2) + 3, it would be tempting to answer 2true3, but actually, it would not compile because it would resolve to 2 + true + 3 and + operator is not overloaded for anything except String. Here, neither of the operands of + operator is a String. 
+  
+  
 # Test Cases Facts
  
 1. Local variables must be initialized before use. If you don't will get a compiler Error.
