@@ -4,6 +4,7 @@ layout: post
 tags: [java, oca]
 date: 2018-07-18
 ---
+- In an array access, the expression to the left of the brackets appears to be fully evaluated before any part of the expression within the brackets is evaluated. Note that if evaluation of the expression to the left of the brackets completes abruptly, no part of the expression within the brackets will appear to have been evaluated.
 
 - Java parses the expression from left to right. Once it realizes that the left operand of a conditional "or" operator has evaluated to true, it does not even try to evaluate the right side expression.
 
