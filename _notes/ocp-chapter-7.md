@@ -1,7 +1,7 @@
 ---
 title: OCP Review 7 - Concurrency
 layout: post
-tags: [java, ocp]
+tags: [java, ocp, threads]
 date: 2018-09-06
 ---
 
@@ -25,9 +25,7 @@ date: 2018-09-06
 
 
 
-# Links
-
-### Concurrency
+# Links 
 
 - [Creating Threads with the ExecutorService](https://github.com/acailic/java8-learning/blob/master/Java-8/src/concurrency/CreatingThreadsWithTheExecutorService.java) <br />
 - [Identifying Threading Problems](https://github.com/acailic/java8-learning/blob/master/Java-8/src/concurrency/IdentifyingThreadingProblems.java) <br />
