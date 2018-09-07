@@ -11,6 +11,14 @@ date: 2018-09-07
 - Can be a _marker_ interface (empty)
 - Can _extend_ another interface
 
+
+
+- The methods of an interface are implicitly abstract and public.
+- The vairables of an interface are implicitly public, static, and final.
+- Because the methods in an interface are implicitly public, if you try to assign a weaker access to the implemented method in a class, it won’t compile.
+
+
+
 ```java
 
 interface Marker {
