@@ -1,7 +1,7 @@
 ---
-title: OCP Review 2.2 - Design patterns and principles: Functional Programming intro
+title: OCP Review 2.2 - Functional Programming intro
 layout: post
-tags: [java, ocp, functional]
+tags: [java, ocp, functional, design]
 date: 2018-09-07
 ---
 

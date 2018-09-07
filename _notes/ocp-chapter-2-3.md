@@ -1,7 +1,7 @@
 ---
-title: OCP Review 2.3 - Design patterns and principles: Polymorphism and Design
+title: OCP Review 2.3 - Polymorphism and Design
 layout: post
-tags: [java, ocp, functional]
+tags: [java, ocp, polymorphism, design]
 date: 2018-09-07
 ---
 

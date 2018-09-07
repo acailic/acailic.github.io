@@ -1,7 +1,7 @@
 ---
-title: OCP Review 2.1 - Design patterns and principles: Interfaces
+title: OCP Review 2.1 - Interfaces
 layout: post
-tags: [java, ocp, interface]
+tags: [java, ocp, interface, design]
 date: 2018-09-07
 ---
 
