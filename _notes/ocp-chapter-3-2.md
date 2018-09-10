@@ -1,5 +1,5 @@
 ---
-title: OCP Review 3 - Generics 
+title: OCP Review 3.2 - Generics 
 layout: post
 tags: [java, ocp, generics]
 date: 2018-09-07

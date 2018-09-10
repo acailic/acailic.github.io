@@ -1,5 +1,5 @@
 ---
-title: OCP Review 3 - Collections 
+title: OCP Review 3.1 - Collections 
 layout: post
 tags: [java, ocp, collections]
 date: 2018-09-07
