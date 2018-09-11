@@ -256,3 +256,12 @@ Init block
 Constructor
 Static init
 ```
+
+### Advanced Class Design
+
+- [Anonymous Inner Class](https://github.com/acailic/java8-learning/blob/master/Java-8/src/advancedClassDesign/AnonymousInnerClass.java) <br />
+- [Hash Code](https://github.com/acailic/java8-learning/blob/master/Java-8/src/advancedClassDesign/HashCode.java) <br />
+- [Local Inner Class](https://github.com/acailic/java8-learning/blob/master/Java-8/src/advancedClassDesign/LocalInnerClass.java) <br />
+- [Member Inner Class](https://github.com/acailic/java8-learning/blob/master/Java-8/src/advancedClassDesign/MemberInnerClass.java) <br />
+- [Polymorphism](https://github.com/acailic/java8-learning/blob/master/Java-8/src/advancedClassDesign/Polymorphism.java) <br />
+- [Static Nested Class](https://github.com/acailic/java8-learning/blob/master/Java-8/src/advancedClassDesign/StaticNestedClass.java)

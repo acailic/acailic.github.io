@@ -238,3 +238,11 @@ System.out.println(time.plusHours(1));  // 2018-03-25T03:30+02:00[Europe/Madrid]
 ---
 
 ## Localisation
+
+
+### Links Dates, Strings, and Localization
+
+- [Dates and Times](https://github.com/acailic/java8-learning/blob/master/Java-8/src/datesStringsLocalization/DatesAndTimes.java) <br />
+- [Formatting Dates and Times](https://github.com/acailic/java8-learning/blob/master/Java-8/src/datesStringsLocalization/FormattingDatesAndTimes.java) <br />
+- [Formatting Numbers](https://github.com/acailic/java8-learning/blob/master/Java-8/src/datesStringsLocalization/FormattingNumbers.java) <br />
+- [Internationalization and Localization](https://github.com/acailic/java8-learning/blob/master/Java-8/src/datesStringsLocalization/InternationalizationLocalization.java) <br />

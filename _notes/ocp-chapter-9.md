@@ -265,3 +265,12 @@ try {
 foundJavas.forEach(System.out::println);
 
 ```
+
+
+
+### NIO.2
+
+- [Creating Paths](https://github.com/acailic/java8-learning/blob/master/Java-8/src/nio2/CreatingPaths.java) <br />
+- [Interacting with Paths and Files](https://github.com/acailic/java8-learning/blob/master/Java-8/src/nio2/InteractingWithPathsAndFiles.java) <br />
+- [New Stream Methods](https://github.com/acailic/java8-learning/blob/master/Java-8/src/nio2/NewStreamMethods.java) <br />
+- [Understanding File Attributes](https://github.com/acailic/java8-learning/blob/master/Java-8/src/nio2/UnderstandingFileAttributes.java) <br />

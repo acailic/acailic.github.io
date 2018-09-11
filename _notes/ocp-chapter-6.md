@@ -562,3 +562,17 @@ try (AutoCloseable c = () -> {
 
 assert (Thread.currentThread().getName().equals("main"));
 ```
+
+
+
+### Links Exceptions and Assertions
+
+- [Assertions](https://github.com/acailic/java8-learning/blob/master/Java-8/src/exceptionsAndAssertions/Assertions.java) <br />
+- [Calling Methods that Throw Exceptions](https://github.com/acailic/java8-learning/blob/master/Java-8/src/exceptionsAndAssertions/CallingMethodsThatThrowExceptions.java) <br />
+- [Catching Various Types of Exceptions](https://github.com/acailic/java8-learning/blob/master/Java-8/src/exceptionsAndAssertions/CatchingVariousTypesOfExceptions.java) <br />
+- [Common Exception Types](https://github.com/acailic/java8-learning/blob/master/Java-8/src/exceptionsAndAssertions/CommonExceptionTypes.java) <br />
+- [Creating Custom Exceptions](https://github.com/acailic/java8-learning/blob/master/Java-8/src/exceptionsAndAssertions/CreatingCustomExceptions.java) <br />
+- [Exception Intro](https://github.com/acailic/java8-learning/blob/master/Java-8/src/exceptionsAndAssertions/ExceptionIntro.java) <br />
+- [Nested Exception](https://github.com/acailic/java8-learning/blob/master/Java-8/src/exceptionsAndAssertions/NestedException.java) <br />
+- [Try with Resources](https://github.com/acailic/java8-learning/blob/master/Java-8/src/exceptionsAndAssertions/TryWithResources.java) <br />
+- [Using Multi-Catch](https://github.com/acailic/java8-learning/blob/master/Java-8/src/exceptionsAndAssertions/UsingMultiCatch.java) <br />

@@ -447,3 +447,7 @@ while (rs.next()) {
 
 boolean isResultSet = statement.execute("SELECT * FROM PERSON");    // closes here
 ```
+
+### JDBC
+
+- [Connecting a DataBase](https://github.com/acailic/java8-learning/blob/master/Java-8/src/jdbc/ConnectingADataBase.java) <br />

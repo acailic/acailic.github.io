@@ -847,3 +847,16 @@ ls.forEach(System.out::println);
 IntStream is = IntStream.of(1, 2, 3, 4);
 is.summaryStatistics().getMax();
 ```
+
+
+
+### Links Functional Programming
+
+- [Built-in Functional Interfaces](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/BuiltInFunctionalInterfaces.java) <br />
+- [Returning an Optional](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/ReturningAnOptional.java) <br />
+- [Stream Common Intermediate Oprations](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/StreamCommonIntermediateOprations.java) <br />
+- [Stream Common Terminal Operations](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/StreamCommonTerminalOperations.java) <br />
+- [Stream Sources](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/StreamSources.java) <br />
+- [Stream Working with Primitives](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/StreamWorkingWithPrimitives.java) <br />
+- [Using Variables in Lambdas](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/UsingVariablesInLambdas.java) <br />
+- [Working with Advanced Stream Pipeline Concepts](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/WorkingWithAdvancedStreamPipelineConcepts.java) <br />
