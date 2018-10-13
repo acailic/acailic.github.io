@@ -855,7 +855,49 @@ Retrieval operations (including get) generally do not block, so may overlap with
 For aggregate operations such as putAll and clear, concurrent retrievals may reflect insertion or removal of only some entries. Similarly, Iterators and Enumerations return elements reflecting the state of the hash table at some point at or since the creation of the iterator/enumeration. They do not throw ConcurrentModificationException.
 However, iterators are designed to be used by only one thread at a time.  and the following is the behaviour description of the EntrySet retrieved from a ConcurrentHashMap instance using the entrySet() method:  entrySet() returns a Set view of the mappings contained in this map. The set is backed by the map, so changes to the map are reflected in the set, and vice-versa. The set supports element removal, which removes the corresponding mapping from the map, via the Iterator.remove, Set.remove, removeAll, retainAll, and clear operations. It does not support the add or addAll operations. iterator that will never throw ConcurrentModificationException, and guarantees to traverse elements as they existed upon construction of the iterator, and may (but is not guaranteed to) reflect any modifications subsequent to construction.
 
+- a synchronized method ends up throwing an exception to the caller, the locks acquired by the method due to the usage of synchronized keyword is released automatically. The Java exception mechanism is integrated with the Java synchronization model. this does not apply to java.util.concurrent.locks.Lock. These locks must be released by the programmer explicitly.
+
+-It has two different Thread instances (thus two distinct threads) and both are started. The fact that the same Runnable instance is used by both the threads is immaterial. Both the threads will run independently and thus the the run method of the Runnable will be invoked twice.
+
+- THREAD: The Thread class implements the Runnable interface and is not abstract. 
+          A Thread is created by doing new ClassThatExtendsThread()  OR by doing  new Thread( classImplementingRunnable); The newly created Thread is started by calling start().
+          All the code that does the work in a separate thread goes in the run() method. 
+          Method signature :  public void run()
+          Note that this method is not Abstract in the Thread Class. So you need not necessarily override it. But the Thread class version doesn't do anything. It is just empty implementation.
+           A call to start() returns immediately but before returning, it internally causes a call to the run method of either the Thread class( if the thread was created by doing new ClassThatExtendsThread() ) or of the  Runnable class ( if the thread was created by doing  new Thread( classImplementingRunnable);
+           General Information:
+          suspend(), resume() and stop() are deprecated methods because they don't give the Thread a chance to release shared resources, which may cause deadlocks. We do not expect any questions on these methods in the exam but it is good to know about them for interview purpose.
 
 
+- Consider this situation:
+  1. OS schedules thread 1. It executes m1() and then enters m2(). Now here, it acquires the lock for obj2 (first sync. stmt of m2()) and before it could get a lock for obj1, the OS preempts it.
+  2. Now, OS schedules thread 2. It enters m1() and gets the lock for obj1 (first sync. stmt of m1()) . But when it tries to get the lock for obj2, it will be stuck as it is already acquired by thread 1.
+  Now both the threads are waiting for locks acquired by each other. So nobody can run. So the program gets stuck. Note that the threads are not dead. They just keep waiting. So the program never ends in such a case.
+  
+-  deadlock might occur when multiple threads try to acquire locks on multiple objects in different sequence. Consider the following situation - 
+  Thread1 tries to execute the first transfer and acquires the lock for account a1. It updates the balance of a1 but before it could acquire the lock for a2, thread2 executes and acquires the lock for account a2. Thread2 updates the balance and tries to acquire the lock of a1. It will now be stuck because a1's lock is already acquired by thread1. It will not proceed until thread1 releases a1's lock. At the same time, it will keep its own lock for a2 because it has not released it.
+  Now, thread1 executes and tries to acquire the lock for a2, which is with thread2. So it cannot proceed further either.
+  
+- two new threads are created but none of them is started.(Remember run() does not start a thread. start() does.)
+  Here, run is called but NOT of MyThread class but of Thread class. Thread class's run() is an interesting method. If the thread object was constructed using a separate Runnable object, then that Runnable object's run method is called otherwise, this method does nothing and returns. Here, Thread's run calls MyThread's run() which prints the string and returns. Everything is done in one thread (the main thread) and so the order is known.
+  
+  
+- straight forward implementation on an thread unsafe class. Observe that count is a shared resource that is accessed by multiple threads and there are multiple issues in this code:
+  
+  1. Since access to count is not synchronized, there is no guarantee that changes made by thread 1 will even be visible to thread 2. Thus, both the threads may print 0 and increment it to 1 even if they run one after the other. To understand this point, you need to read about topic of visibility guarantee provided by the Java memory model.
+  
+  2. count++ is not an atomic operation, which means that it can be broken up into three separate steps - 1. get the current value of count in cache 2. increment the cache value and 3. update the count with updated cache value. Now, for example, while thread 1 is about to execute step 3, thread 2 may come in and execute steps 1, 2, and 3. Thread 1 then executes the remaining step 3. The result is that value of count will be 1 after both the threads are done, while it should have been 2, and thus one increment operation is lost.
 
+- static variable and there are 2 threads that are accessing it. None of the threads has synchronized access to the variable. So there is no guarantee which thread will access it when. Further, one thread might increment i while another is executing i<5. So it is possible that more than 5 words may be printed. For example, lets say i is 0 and thread1 starts first loop. It will print Hello. Now, before thread1 could do i++, thread2 might run and it will print "World" while i is still 0. 
+
+- threads, current thread, runnable:
+ 1. The statement : Thread.currentThread().setName("MainThread"); in the main() method sets the name of the current thread. This is the thread that is running the main method. 
+ 2. The statement: MyRunnable mr = new MyRunnable("MyRunnable"); creates a new MyRunnable object. In its constructor, it creates a new threads with the name "MyRunnable" and also starts this thread. 
+ 3. Now there are two threads running: The main thread (having the name "MainThread") and the MyRunnable thread (having the name "MyRunnable").
+ 4. The myrunnable thread executes the run method and prints "MyRunnable" because that is the name of the thread that called the run() method. On the other hand when the main method calls mr.run(), it prints "MainThread" because that is the name of the thread that has called the run method(). Therefore, both, Main and MyRunnable will be printed. Note that the order cannot be determined because the OS decides which thread to schedule when.
+
+- synchronized keyword can be applied only to non-abstract methods that are defined in a class or a block of code appearing in a method or static or instance initialization blocks. It cannot be applied to methods in an interface.
+
+- both the threads are trying to use the same fields of the same object. The order of execution of thread can never be told so we cannot tell which variable be used by which thread at what time. So the output cannot be determined. 
+Further, since the variables x and y are not declared as volatile, the updates made by one thread may not be visible to another thread at all. It is, therefore, possible that both the threads will find x and y to be 0, 0 at the beginning and update them by 1 in each iteration.
 
