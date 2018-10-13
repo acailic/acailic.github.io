@@ -857,7 +857,7 @@ However, iterators are designed to be used by only one thread at a time.  and th
 
 - a synchronized method ends up throwing an exception to the caller, the locks acquired by the method due to the usage of synchronized keyword is released automatically. The Java exception mechanism is integrated with the Java synchronization model. this does not apply to java.util.concurrent.locks.Lock. These locks must be released by the programmer explicitly.
 
--It has two different Thread instances (thus two distinct threads) and both are started. The fact that the same Runnable instance is used by both the threads is immaterial. Both the threads will run independently and thus the the run method of the Runnable will be invoked twice.
+- It has two different Thread instances (thus two distinct threads) and both are started. The fact that the same Runnable instance is used by both the threads is immaterial. Both the threads will run independently and thus the the run method of the Runnable will be invoked twice.
 
 - THREAD: The Thread class implements the Runnable interface and is not abstract. 
           A Thread is created by doing new ClassThatExtendsThread()  OR by doing  new Thread( classImplementingRunnable); The newly created Thread is started by calling start().
