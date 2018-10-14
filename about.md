@@ -3,7 +3,7 @@ title: About
 layout: page
 ---
  
-`sveska` is learning blog.
+`sveska` is learning blog by Aleksandar Ilic.
  
 >evanwill : 
 
@@ -25,5 +25,6 @@ Some of my other projects:
 - [LeagueReporter](https://github.com/acailic/LeagueReporter)
 - [readingmeter](https://github.com/acailic/readingmeter)
 - [uns-nutch-elastic-search](https://github.com/acailic/uns-nutch-elastic-search)
+- [solr-dataimport-scheduler](https://github.com/acailic/solr-dataimport-scheduler)
 
 > Last build date: {{ site.time | date: "%Y-%m-%d" }}
