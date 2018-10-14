@@ -860,3 +860,36 @@ is.summaryStatistics().getMax();
 - [Stream Working with Primitives](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/StreamWorkingWithPrimitives.java) <br />
 - [Using Variables in Lambdas](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/UsingVariablesInLambdas.java) <br />
 - [Working with Advanced Stream Pipeline Concepts](https://github.com/acailic/java8-learning/blob/master/Java-8/src/functionalProgramming/WorkingWithAdvancedStreamPipelineConcepts.java) <br />
+
+
+
+### Questions
+
+- A lambda expression in a method can make use of a local variable if it is declared as final or if it is effectively final. JLS 8 describes "effectively final" as follows:
+ A local variable or a method, constructor, lambda, or exception parameter is effectively final if it is not declared final but it never occurs as the left hand operand of an assignment operator or as the operand of a prefix or postfix increment or decrement operator.
+ In addition, a local variable whose declaration lacks an initializer is effectively final if all of the following are true:
+   • It is not declared final.
+   • Whenever it occurs as the left-hand operand of an assignment operator, it is definitely unassigned and not definitely assigned before the assignment; that is, it is definitely unassigned and not definitely assigned after the right-hand operand of the assignment.
+   • It never occurs as the operand of a prefix or postfix increment or decrement operator.
+If a variable is effectively final, adding the final modifier to its declaration will not introduce any compile-time errors. Conversely, a local variable or parameter that is declared final in a valid program becomes effectively final if the final modifier is removed.
+
+
+
+- The flatMap method expects a Function that will take an element and create a Stream out of it. It then joins each of those streams (one stream for each element in the original stream) to return a big combined stream of elements.
+ bs->bs.stream() correctly captures such a Function.  
+The mapToDouble method expects a ToDoubleFunction object that will take an argument and return a double. It then returns a DoubleStream containing double primitives. 
+ DoubleStream has method sum that simply returns the sum of all the elements.
+ 
+- java.util.BiFunction - 
+ 1. It is a function that accepts two arguments and produces a result.
+ 2. The types of the arguments and the return value can all be different. 
+ 3. public V compute(K key, BiFunction<? super K,? super V,? extends V> remappingFunction)
+ 4. public V computeIfAbsent(K key, Function<? super K,? extends V> mappingFunction)
+ 5. public V computeIfPresent(K key, BiFunction<? super K,? super V,? extends V> remappingFunction)
+ 
+ 
+-  IntFunction - regular functional interfaces by parameterizing them to Integer is inefficient as compared to using specially designed interfaces for primitives because they avoid the cost of boxing and unboxing the primitives. 
+   Now, since the problem statement requires something to be returned after processing each int, you need to use a Function instead of a Consumer or a Predicate.
+ 
+- java.util.function.Supplier is a functional interface and has only one method named get. It doesn't have getAsDouble. Therefore, this code will not compile.  
+ 
