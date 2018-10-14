@@ -203,3 +203,55 @@ An overriding method cannot throw a superclass exception, while a constructor of
 } 
 ``` 
 (Note: FileNotFoundException is a subclass of IOException, which is a subclass of Exception) If the subclass constructor's throws clause includes the same exception or its superclass, then it can throw any other exception as well.
+
+# Questions
+
+- try-with-resources statement :
+  1. The resource class must implement java.lang.AutoCloseable interface. Many standard JDK classes such as BufferedReader, BufferedWriter) implement java.io.Closeable interface, which extends java.lang.AutoCloseable.
+  2. Resources are closed at the end of the try block and before any catch or finally block. 
+  3. Resources are not even accessible in the catch or finally block. For example: ` try(Device d = new Device()){             d.read();         }finally{             d.close(); //This will not compile because d is not accessible here.         } `
+  4. Resources are closed in the reverse order of their creation.  
+  5. Resources are closed even if the code in the try block throws an exception.  
+  6. java.lang.AutoCloseable's close() throws Exception but java.io.Closeable's close() throws IOException.  
+  7. If code in try block throws exception and an exception also thrown while closing is resource, the exception thrown while closing the resource is suppressed. The caller gets the exception thrown in the try block.
+
+
+- Assertions can be enabled or disabled for specific packages or classes. To specify a class, use the class name. 
+  To specify a package, use the package name followed by "..." (three dots):
+  java -ea:<class> myPackage.MyProgram
+  java -da:<package>... myPackage.MyProgram 
+  Each enable or disable modifies the one before it. This allows you to enable assertions in general, but disable them in a package and its subpackages:
+  java -ea -da:<package>... myPackage.myProgram
+  To enable assertion for one package and disable for other you can use: 
+  java -ea:<package1>... -da:<package2>... myPackage.MyProgram 
+  You can enable or disable assertions in the unnamed root (default)package (the one in the current directory) using the following commands: 
+  java -ea:... myPackage.myProgram java -da:... myPackage.myProgram
+   when you use a package name in the ea or da flag, the flag applies to that package as well as its subpackages.
+
+
+-  two valid ways of writing assertions:
+  1. assert <boolean_expression>;
+  In this style, the boolean expression must evaluate to true or false. If it evaluates to true, everything is fine. If it evaluates to false, a new AssertionError is thrown. Note that <boolean_expression> can also be a method call that returns a boolean. The above line is thus equivalent to the following code:
+  if( !<boolean_expression>  ) throw new AssertionError();
+  2. assert <boolean_expression> : <any_expression_but_void>;
+  This is same as the above except that if <boolean_expression> evaluates to false, <any_expression_but_void> is evaluated and its value is passed to the constructor of the AssertionError object. <any_expression_but_void> should evaluate to any object or a primitive. Thus, it cannot be a method call that returns void. Note that, if <boolean_expression> evaluates to true, <any_expression_but_void> is not evaluated. The above line is thus equivalent to the following code:
+  if( !<boolean_expression>  ) throw new AssertionError(<any_expression_but_void>);
+  
+- Assertions should be used for: 
+  1. Validating input parameters of a private method.[But NOT for public methods. public methods should throw regular exceptions when passed bad parameters.)
+  2. Anywhere in the program to ensure the validity of a fact which is almost certainly true.
+  3. Validating post conditions at the end of any method. This means, after executing the business logic, you can use assertions to ensure that the internal state of your variables or results is consistent with what you expect. For example, a method that opens a socket or a file can use an assertion at the end to ensure that the socket or the file is indeed opened.
+  
+  
+- Assertions should not be used for:
+ 1. Validating input parameters of a public method. Since assertions may not always be executed, the regular exception mechanism should be used. 
+ 2. Validating constraints on something that is input by the user. Same as above. 
+ 3. Should not be used for side effects. 
+ 
+- If an exception is thrown within the try-with-resources block, then that is the exception that the caller gets. But before the try block returns, the resource's close() method is called and if the close() method throws an exception as well, then this exception is added to the original exception as a supressed exception. 
+
+- An assertion signifies a basic assumption made by the programmer that he/she believes to be true at all times. It is never a wise idea to try to recover when an assertion fails because that is the whole purpose of assertions: that the program should fail if that assumption fails.
+- controlling the execution of assertions at run time: -da, -enableassertions
+
+ - Here assert is being used as an identifier (a method name is an identifier). However, beginning Java 1.4, assert has become a keyword. You cannot use a keyword as an identifier. Therefore, to use 'assert'  as an identifier instead of a keyword, you have to tell the compiler that your code is 1.3 compliant. It will generate a warning but it will compile. To do so just use the -source option like this:  javac -source 1.3 Assertion.java 
+  Remember that you CANNOT use 'assert' as a keyword as well as an identifier at the same time.
