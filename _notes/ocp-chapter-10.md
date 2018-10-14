@@ -451,3 +451,22 @@ boolean isResultSet = statement.execute("SELECT * FROM PERSON");    // closes he
 ### JDBC
 
 - [Connecting a DataBase](https://github.com/acailic/java8-learning/blob/master/Java-8/src/jdbc/ConnectingADataBase.java) <br />
+
+### Questions
+
+- java.sql.Savepoint interface of JDBC is tailor made for this purpose. At the end of each step, the process can create a save point. Later on, when the process encounters the special condition, it can roll back the transaction up to any of the previous save point and continue from there, instead of rolling back the whole transaction and losing all the values.
+
+- A PreparedStatement is used for SQL statements that are executed multiple times with different values. For example, if you want to insert several values into a table, one after another, it is a lot easier with PreparedStatement
+-  A CallableStatement is meant for executing a stored procedure, which has already been created in the database.
+
+- Applications with JDBC 4.0, no longer need to explicitly load JDBC drivers using Class.forName().  The DriverManager methods getConnection and getDrivers have been enhanced to support the Java Standard Edition Service Provider mechanism. JDBC 4.0 Drivers must include the file META-INF/services/java.sql.Driver. This file contains the name of the JDBC drivers implementation of java.sql.Driver. For example, to load the my.sql.Driver class, the META-INF/services/java.sql.Driver file.
+
+
+-  PreparedStatement offers better performance when the same query is to be run multiple times with different parameter values. If you are going to run a query only once, it may not offer better performance because it requires multiple trips to the database (one to get it pre compiled, and one to execute with the parameters) and also requires multiple method calls to set the parameters. reparedStatement has specific methods for additional SQL column type such as setBlob(int parameterIndex, Blob x) and setClob(int parameterIndex, Clob x).
+
+
+- ne advantage of CallableStatement is that it allows IN/OUT parameters.  CallableStatement is the only way for a JDBC program to execute stored procedures in the database if the procedure has in and out parameters. 
+
+
+
+
