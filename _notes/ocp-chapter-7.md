@@ -902,3 +902,9 @@ However, iterators are designed to be used by only one thread at a time.  and th
 Further, since the variables x and y are not declared as volatile, the updates made by one thread may not be visible to another thread at all. It is, therefore, possible that both the threads will find x and y to be 0, 0 at the beginning and update them by 1 in each iteration.
 
 -  there are two threads running. (The main() thread and the thread that you just started!). Both the threads are trying to use the same variable. Now, which thread will run first cannot be determined so whether the main() thread reads 'x' first or the new thread changes 'x' first is not known. So the output of the program cannot be determined.
+
+
+- fork/join framework : suited for computation intensive tasks that can be broken into smaller pieces recursively.
+
+
+- A ForkJoinPool differs from other kinds of ExecutorService mainly by virtue of employing work-stealing.
