@@ -890,6 +890,30 @@ The mapToDouble method expects a ToDoubleFunction object that will take an argum
  
 -  IntFunction - regular functional interfaces by parameterizing them to Integer is inefficient as compared to using specially designed interfaces for primitives because they avoid the cost of boxing and unboxing the primitives. 
    Now, since the problem statement requires something to be returned after processing each int, you need to use a Function instead of a Consumer or a Predicate.
- 
+- primitive specialized versions of streams such as IntStream, DoubleStream, and LongStream.
 - java.util.function.Supplier is a functional interface and has only one method named get. It doesn't have getAsDouble. Therefore, this code will not compile.  
  
+- function.DoubleSupplier (and other similar Suppliers such as IntSupplier and LongSupplier) is a functional interface with the functional method named getAsDouble. The return type of this method is a primitive double (not Double). Therefore, if your lambda expression for this function returns a Double, it will automatically be converted into a double because of auto-unboxing. However, if your expression returns a null, a NullPointerException will be thrown. 
+
+
+
+- distinction between "intermediate" and "terminal" operations and which operations of Stream are "intermediate" operations.
+  
+  A Stream supports several operations and these operations are divided into intermediate and terminal operations. The distinction between an intermediate operation and a termination operation is that an intermediate operation is lazy while a terminal operation is not. When you invoke an intermediate operation on a stream, the operation is not executed immediately. It is executed only when a terminal operation is invoked on that stream. In a way, an intermediate operation is memorized and is recalled as soon as a terminal operation is invoked. You can chain multiple intermediate operations and none of them will do anything until you invoke a terminal operation, at which time, all of the intermediate operations that you invoked earlier will be invoked along with the terminal operation.
+  
+  You should read more about this here: http://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html#StreamOps
+  
+  It is easy to identify which operations are intermediate and which are terminal. All intermediate operations return Stream (that means, they can be chained), while terminal operations don't.
+  
+  filter, peek, and map are intermediate operations. Since the code does not invoke any terminal operation on the stream, the calls to these intermediate method do nothing. Therefore, no output is produced by the given code. 
+  
+  count, forEach, sum, allMatch, noneMatch, anyMatch, findFirst, and findAny are terminal operations.
+  
+- public interface UnaryOperator<T> extends Function<T,T> Represents an operation on a single operand that produces a result of the same type as its operand. This is a specialization of Function for the case where the operand and result are of the same type.
+
+- most one terminal operation on a stream and that too at the end.
+
+
+
+
+
