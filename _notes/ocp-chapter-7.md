@@ -903,8 +903,10 @@ Further, since the variables x and y are not declared as volatile, the updates m
 
 -  there are two threads running. (The main() thread and the thread that you just started!). Both the threads are trying to use the same variable. Now, which thread will run first cannot be determined so whether the main() thread reads 'x' first or the new thread changes 'x' first is not known. So the output of the program cannot be determined.
 
-
 - fork/join framework : suited for computation intensive tasks that can be broken into smaller pieces recursively.
 
-
 - A ForkJoinPool differs from other kinds of ExecutorService mainly by virtue of employing work-stealing.
+
+- public final boolean compareAndSet(int expect, int update) Atomically sets the value to the given updated value if the current value == the expected value. Parameters: expect - the expected value update - the new value Returns: true if successful. False return indicates that the actual value was not equal to the expected value.
+
+- synchronized keyword can be applied only to non-abstract methods that are defined in a class or a block of code appearing in a method or static or instance initialization blocks. It cannot be applied to methods in an interface.
