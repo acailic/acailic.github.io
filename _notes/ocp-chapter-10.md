@@ -468,5 +468,7 @@ boolean isResultSet = statement.execute("SELECT * FROM PERSON");    // closes he
 - ne advantage of CallableStatement is that it allows IN/OUT parameters.  CallableStatement is the only way for a JDBC program to execute stored procedures in the database if the procedure has in and out parameters. 
 
 
+- "enabling the transactions". In JDBC, transactions are always enabled. Every statement is a part of a transaction. If auto-commit is set to true, the transaction is committed after every statement (and a new transaction is started with the next query), if it is set to false, the transaction is committed when connection.commit() is called explicitly. That is why there is no begin() method in Connection.
+
 
 
