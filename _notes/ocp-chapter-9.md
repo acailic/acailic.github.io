@@ -337,3 +337,13 @@ public static Path get(URI uri) Converts the given URI to a Path object. This me
 - public static Path copy ; CopyOptions:
 The options parameter may include any of the following:  
 REPLACE_EXISTING     If the target file exists, then the target file is replaced if it is not a non-empty directory. If the target file exists and is a symbolic link, then the symbolic link itself, not the target of the link, is replaced.  COPY_ATTRIBUTES     Attempts to copy the file attributes associated with this file to the target file. The exact file attributes that are copied is platform and file system dependent and therefore unspecified. Minimally, the last-modified-time is copied to the target file if supported by both the source and target file store. Copying of file timestamps may result in precision loss.  NOFOLLOW_LINKS     Symbolic links are not followed. If the file is a symbolic link, then the symbolic link itself, not the target of the link, is copied. It is implementation specific if file attributes can be copied to the new link. In other words, the COPY_ATTRIBUTES option may be ignored when copying a symbolic link. An implementation of this interface may support additional implementation specific options
+
+
+
+- 1. By default, Files.move method attempts to move the file to the target file, failing if the target file exists except if the source and target are the same file, in which case this method has no effect. Therefore, this code should throw an exception because a.java exists in the target directory.
+
+2. However, when the CopyOption argument of the move method is StandardCopyOption.ATOMIC_MOVE, the operation is implementation dependent if the target file exists. The existing file could be replaced or an IOException could be thrown. If the exiting file at p2 is replaced, Files.delete(p1) will throw java.nio.file.NoSuchFileException.
+
+Therefore, in this case, the given code on the whole will end up with an exception.
+
+NOTE: Some candidates have reported being tested on StandardCopyOption.ATOMIC_MOVE.
