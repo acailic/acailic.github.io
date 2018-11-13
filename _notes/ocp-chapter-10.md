@@ -470,5 +470,5 @@ boolean isResultSet = statement.execute("SELECT * FROM PERSON");    // closes he
 
 - "enabling the transactions". In JDBC, transactions are always enabled. Every statement is a part of a transaction. If auto-commit is set to true, the transaction is committed after every statement (and a new transaction is started with the next query), if it is set to false, the transaction is committed when connection.commit() is called explicitly. That is why there is no begin() method in Connection.
 
-
+- First, the connection's auto commit mode is set to false and then two rows are inserted. However, since autocommit is false, they are not committed yet. Now, c.rollback() is called. This will cause the whole transaction to rollback. Although we created a Savepoint, we did not pass it to rollback and so the save point will have not be respected and both the rows will be lost. This transaction ends here.  Next, row 3 is inserted in a new transaction and since autocommit is still false at this point, it is not commited yet. The transaction is still running. Now, when c.setAutoCommit(true) is called, the auto-commit status changes from false to true and this causes the existing transaction to commit thereby committing row 3.  Finally, row 4 is inserted and committed immediately because autocommit is true.
 
