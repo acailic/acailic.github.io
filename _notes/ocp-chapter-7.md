@@ -908,3 +908,21 @@ Further, since the variables x and y are not declared as volatile, the updates m
 
 
 - A ForkJoinPool differs from other kinds of ExecutorService mainly by virtue of employing work-stealing.
+
+- public final boolean compareAndSet(int expect, int update) Atomically sets the value to the given updated value if the current value == the expected value. Parameters: expect - the expected value update - the new value Returns: true if successful. False return indicates that the actual value was not equal to the expected value.
+
+-  ReadWriteLock, you can get one read lock (by calling lock.readLock() ) and one write lock (by calling lock.writeLock() ). Even if you call these methods multiple times, the same lock is returned. A read lock can be locked by multiple threads simultaneously (by calling lock.readLock().lock() ), if the write lock is free. If the write lock is not free, a read lock cannot be locked. The write lock can be locked (by calling lock.writeLock().lock() ) only by only one thread and only when no thread already has a read lock or the write lock. In other words, if one thread is reading, other threads can read, but no thread can write. If one thread is writing, no other thread can read or write.  Methods that do not modify the collection (i.e. the threads that just "read" a collection) should acquire a read lock and threads that modify a collection should acquire a write lock.  The benefit of this approach is that multiple reader threads can run without blocking if the write lock is free. This increases performance for read only operations. The following is the complete code that you should try to run:
+
+- java.util.Random instance across threads may encounter contention and consequent poor performance. Consider instead using ThreadLocalRandom in multithreaded designs,
+  public class ThreadLocalRandom extends Random A random number generator isolated to the current thread. Like the global Random generator used by the Math class, a ThreadLocalRandom is initialized with an internally generated seed that may not otherwise be modified. When applicable, use of ThreadLocalRandom rather than shared Random objects in concurrent programs will typically encounter much less overhead and contention. Use of ThreadLocalRandom is particularly appropriate when multiple tasks
+  
+- Future as the return type of the call method, it would be technically a valid implementation. But it would not be appropriate. A Callable should return actual data object instead of wrapping the data into a Future. It is the job of ExecutorService.submit() method to return a Future that wraps the data returned by Callable.call(). For example: Future result = Executors.newSingleThreadExecutor().submit(new MyTask()); Further, since Future is an interface, new Future ("Data from callable") will not compile either.
+
+- ReentrantLock implements Lock. Lock.lock() returns void. Lock.tryLock() returns boolean.
+  
+  
+  
+
+
+
+
