@@ -903,9 +903,7 @@ Further, since the variables x and y are not declared as volatile, the updates m
 
 -  there are two threads running. (The main() thread and the thread that you just started!). Both the threads are trying to use the same variable. Now, which thread will run first cannot be determined so whether the main() thread reads 'x' first or the new thread changes 'x' first is not known. So the output of the program cannot be determined.
 
-
 - fork/join framework : suited for computation intensive tasks that can be broken into smaller pieces recursively.
-
 
 - A ForkJoinPool differs from other kinds of ExecutorService mainly by virtue of employing work-stealing.
 
@@ -919,10 +917,17 @@ Further, since the variables x and y are not declared as volatile, the updates m
 - Future as the return type of the call method, it would be technically a valid implementation. But it would not be appropriate. A Callable should return actual data object instead of wrapping the data into a Future. It is the job of ExecutorService.submit() method to return a Future that wraps the data returned by Callable.call(). For example: Future result = Executors.newSingleThreadExecutor().submit(new MyTask()); Further, since Future is an interface, new Future ("Data from callable") will not compile either.
 
 - ReentrantLock implements Lock. Lock.lock() returns void. Lock.tryLock() returns boolean.
-  
-  
-  
+
+- public final boolean compareAndSet(int expect, int update) Atomically sets the value to the given updated value if the current value == the expected value. Parameters: expect - the expected value update - the new value Returns: true if successful. False return indicates that the actual value was not equal to the expected value.
+
+- synchronized keyword can be applied only to non-abstract methods that are defined in a class or a block of code appearing in a method or static or instance initialization blocks. It cannot be applied to methods in an interface.
+
+-  A Thread is created by doing new ClassThatExtendsThread() OR by doing  new Thread(classImplementingRunnable); The newly created Thread is started by calling start().  All the code that does the work in a separate thread goes in the run() method. Method signature: public void run() Note that this method is not abstract in the Thread Class. So you do not have to necessarily override it. However, if you want to do anything useful, you should override it. The Thread class's version of run() method doesn't do anything other than to call the run method of the Runnable instance (if it is passed while instantiating the class).  A call to start() returns immediately but before returning, it internally causes a call to the run method of either the Thread instance (if the thread was created by doing new ClassThatExtendsThread()) or of the Runnable instance (if the thread was created by doing  new Thread( classImplementingRunnable);)
+
+- 1. The forEachOrdered method processes the elements of the stream in the order they are present in the underlying source. In this case, the underlying source of the first stream is the "source" ArrayList. In this ArrayList, the elements are in the required order already and that is the order in which they will be printed even if the stream is a parallel stream because of forEachOrdered.
+
+2. Parallel streams allow operations such as peek and map to execute on the elements of the stream from multiple threads. This means they can be executed in any order. Therefore, in this case, the code that adds the elements to the destination (that is, the call to peek at //2) can add elements to destination list in any order. This means that, effectively, the order of elements in destination is unknown. This is the problem that really needs to be fixed here. Changing parallelStream to stream on the source will rectify this problem because then the elements will be added to destination in the same order.
 
 
-
+- 
 

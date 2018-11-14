@@ -914,6 +914,29 @@ The mapToDouble method expects a ToDoubleFunction object that will take an argum
 - most one terminal operation on a stream and that too at the end.
 
 
+- java.util.function.Supplier is a functional interface and has only one method named get. It doesn't have getAsDouble. Therefore, this code will not compile.
+
+- A reduction operation (also called a fold) takes a sequence of input elements and combines them into a single summary result by repeated application of a combining operation, such as finding the sum or maximum of a set of numbers, or accumulating elements into a list. The streams classes have multiple forms of general reduction operations, called reduce() and collect(), as well as multiple specialized reduction forms such as sum(), max(), or count(). 
 
 
+- allMatch is a terminal operation that returns a boolean. You cannot chain any operation after that. If you had just this :
 
+-  Collectors.partitioningBy method. This method takes a Predicate and returns Collector that distributes the elements of the stream into two groups - one containing elements for which the Predicate returns true, and another containing elements for which the Predicate returns false. The return type is a Map containing two keys - true and false and the values are Lists of the elements.  IntStream.rangeClosed(10, 15) creates an IntStream of int primitives containing elements 10, 11, 12, 13, 14, and 15 (Observe that 15 is included). IntStream does not support the various collect methods supported by a regular Stream of objects. But it does support a boxed() method that returns a Stream<Integer> containing Integer objects.
+	
+- 'Stream.of(l1, l2).flatMap((x)->x.stream()).forEach((x)->System.out.println(x));' The objective of flatMap is to take each element of the current stream and replace that element with elements contained in the stream returned by the Function that is passed as an argument to flatMap. It is perfect for the requirement of this question. You have a stream that contains Lists.  So you need a Function object that converts a List into a Stream of elements. Now, List does have a method named stream() that does just that. It generates a stream of its elements. Therefore, the lambda expression x->x.stream() can be used here to create the Function object.	
+
+- Stream pipelines may execute either sequentially or in parallel. This execution mode is a property of the stream. 
+
+Streams are created with an initial choice of sequential or parallel execution. (For example, Collection.stream() creates a sequential stream, and Collection.parallelStream() creates a parallel one.)  This choice of execution mode may be modified by the BaseStream.sequential() or BaseStream.parallel() methods. 
+
+It is not documented by Oracle exactly what happens when you change the stream execution mode multiple times in a pipeline. It is not clear whether it is the last change that matters or whether operations invoked after calling () parallel can be executed in parallel and operations invoked after calling sequential() will be executed sequentially.
+
+
+- Optional class: 
+1. Optional has a static method named of(T t) that returns an Optional object containing the value passed as argument. It will throw NullPointerException if you pass null. If you want to avoid NullPointerException, you should use Optional.ofNullable(T t) method. This will return Optional.empty if you pass null.
+2. You cannot change the contents of Optional object after creation. Optional does not have a set method. Therefore, grade.of, although technically correct, will not actually change the Optional object referred to by grade. It will return a new Optional object containing the passed argument. 
+3. The orElse method returns the actual object contained inside the Optional or the argument passed to this method if the Optional is empty. It does not return an Optional object. Therefore, print(grade1.orElse("UNKNOWN")) will print UNKNOWN and not Optional[UNKNOWN].  4. isPresent() returns true if the Optional contains a value, false otherwise. 
+5. ifPresent(Consumer ) executes the Consumer object with the value if the Optional contains a value. Not that it is the value contained in the Optional that is passed to the Consumer and not the Optional itself.
+
+
+- forEach is a terminal operation. It returns void. This means that you cannot chain methods after calling forEach. 

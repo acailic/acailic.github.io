@@ -528,3 +528,11 @@ cf.calculate(1.4f, 4.3f, (n1, n2) -> n1 - n2);
 
 - Angelika Langer 
 http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeArguments.html#FAQ203
+
+## Questions
+
+- List<? extends Number> -  A List containing instances of Number or its subclass(es). This will allow you to retrieve Number objects because the compiler knows that this list contains objects that can be assigned to a variable of class Number. However, you cannot add any object to the list because the compiler doesn't know the exact class of objects contained by the list so it cannot check whether whatever you are adding is eligible to be added to the list or not.
+
+- Map<String , List<? extends CharSequence>> stateCitiesMap = new HashMap<>(); use the diamond operators correctly to indicate the type of objects stored in the HashMap to the compiler. The compiler inferences the type of the objects stored in the map using this information and uses it to prevent the code from adding objects of another type.
+
+- 

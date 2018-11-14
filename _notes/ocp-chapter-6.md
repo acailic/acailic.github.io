@@ -629,3 +629,8 @@ assert (Thread.currentThread().getName().equals("main"));
 
  - Here assert is being used as an identifier (a method name is an identifier). However, beginning Java 1.4, assert has become a keyword. You cannot use a keyword as an identifier. Therefore, to use 'assert'  as an identifier instead of a keyword, you have to tell the compiler that your code is 1.3 compliant. It will generate a warning but it will compile. To do so just use the -source option like this:  javac -source 1.3 Assertion.java 
   Remember that you CANNOT use 'assert' as a keyword as well as an identifier at the same time.
+
+- 1. An overriding method must not throw any new or broader checked exceptions than the ones declared in the overridden method. This means, the overriding method can only throw the exceptions or the subclasses of the exceptions declared in the overridden method. It can throw any subclass of Error or RuntimeException as well because it is not mandatory to declare Errors and RuntimeExceptions in the throws clause. An overriding method may also choose not to throw any exception at all.
+2. AssertionError is a subclass of Error.
+
+
