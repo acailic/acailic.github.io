@@ -294,8 +294,12 @@ foundJavas.forEach(System.out::println);
 
 public static Path copy(Path source, Path target, CopyOption... options)                  throws IOException Copy a file to a target file. This method copies a file to the target file with the options parameter specifying how the copy is performed. By default, the copy fails if the target file already exists or is a symbolic link, except if the source and target are the same file, in which case the method completes without copying the file. File attributes are not required to be copied to the target file. If symbolic links are supported, and the file is a symbolic link, then the final target of the link is copied. If the file is a directory then it creates an empty directory in the target location (entries in the directory are not copied).  The options parameter may include any of the following:  REPLACE_EXISTING     If the target file exists, then the target file is replaced if it is not a non-empty directory. If the target file exists and is a symbolic link, then the symbolic link itself, not the target of the link, is replaced.  COPY_ATTRIBUTES     Attempts to copy the file attributes associated with this file to the target file. The exact file attributes that are copied is platform and file system dependent and therefore unspecified. Minimally, the last-modified-time is copied to the target file if supported by both the source and target file store. Copying of file timestamps may result in precision loss.  NOFOLLOW_LINKS     Symbolic links are not followed. If the file is a symbolic link, then the symbolic link itself, not the target of the link, is copied. It is implementation specific if file attributes can be copied to the new link. In other words, the COPY_ATTRIBUTES option may be ignored when copying a symbolic link. An implementation of this interface may support additional implementation specific options.  Copying a file is not an atomic operation. If an IOException is thrown then it possible that the target file is incomplete or some of its file attributes have not been copied from the source file. When the REPLACE_EXISTING option is specified and the target file exists, then the target file is replaced. The check for the existence of the file and the creation of the new file may not be atomic with respect to other file system activities.
 
-- Path getRoot() Returns the root component of this path as a Path object, or null if this path does not have a root component.  Path getName(int index) Returns a name element of this path as a Path object. The index parameter is the index of the name element to return. The element that is closest to the root in the directory hierarchy has index 0. The element that is farthest from the root has index count-1.
-
+- Path getRoot()
+ Returns the root component of this path as a Path object, or null if this path does not have a root component. 
+ Path getName(int index) Returns a name element of this path as a Path object.
+ The index parameter is the index of the name element to return.
+ The element that is closest to the root in the directory hierarchy has index 0. The element that is farthest from the root has index count-1.
+- ath.getName() method :  1. Indices for path names start from 0. 2. Root (i.e. c:\) is not included in path names. 3. \ is NOT a part of a path name. 4. If you pass a negative index or a value greater than or equal to the number of elements, or this path has zero name elements, java.lang.IllegalArgumentException is thrown. It DOES NOT return null. 
 
 
 - Constraints: 
@@ -329,14 +333,16 @@ public static Path copy(Path source, Path target, CopyOption... options)    �
   
 - API Docs Paths.get(URI)
 
-public static Path get(URI uri) Converts the given URI to a Path object. This method iterates over the installed providers to locate the provider that is identified by the URI scheme of the given URI. URI schemes are compared without regard to case. If the provider is found then its getPath method is invoked to convert the URI. In the case of the default provider, identified by the URI scheme "file", the given URI has a non-empty path component, and undefined query and fragment components. Whether the authority component may be present is platform specific. The returned Path is associated with the default file system. The default provider provides a similar round-trip guarantee to the File class. For a given Path p it is guaranteed that Paths.get(p.toUri()).equals( p.toAbsolutePath()) so long as the original Path, the URI, and the new Path are all created in (possibly different invocations of) the same Java virtual machine. Whether other providers make any guarantees is provider specific and therefore unspecified.  Parameters: uri - the URI to convert  Returns: the resulting Path  Throws: IllegalArgumentException - if preconditions on the uri parameter do not hold. The format of the URI is provider specific. FileSystemNotFoundException - The file system, identified by the URI, does not exist and cannot be created automatically, or the provider identified by the URI's scheme component is not installed SecurityException - if a security manager is installed and it denies an unspecified permission to access the file system
+`public static Path get(URI uri)` 
+Converts the given URI to a Path object. This method iterates over the installed providers to locate the provider that is identified by the URI scheme of the given URI. URI schemes are compared without regard to case. If the provider is found then its getPath method is invoked to convert the URI. In the case of the default provider, identified by the URI scheme "file", the given URI has a non-empty path component, and undefined query and fragment components. Whether the authority component may be present is platform specific. The returned Path is associated with the default file system. The default provider provides a similar round-trip guarantee to the File class. For a given Path p it is guaranteed that Paths.get(p.toUri()).equals( p.toAbsolutePath()) so long as the original Path, the URI, and the new Path are all created in (possibly different invocations of) the same Java virtual machine. Whether other providers make any guarantees is provider specific and therefore unspecified.  Parameters: uri - the URI to convert  Returns: the resulting Path  Throws: IllegalArgumentException - if preconditions on the uri parameter do not hold. The format of the URI is provider specific. FileSystemNotFoundException - The file system, identified by the URI, does not exist and cannot be created automatically, or the provider identified by the URI's scheme component is not installed SecurityException - if a security manager is installed and it denies an unspecified permission to access the file system
 
 - public static Stream<Path> find(Path start, int maxDepth, BiPredicate<Path,BasicFileAttributes> matcher, FileVisitOption... options) throws IOException Return a Stream that is lazily populated with Path by searching for files in a file tree rooted at a given starting file.
 
 
-- public static Path copy ; CopyOptions:
+- `public static Path copy ; CopyOptions:`
 The options parameter may include any of the following:  
-REPLACE_EXISTING     If the target file exists, then the target file is replaced if it is not a non-empty directory. If the target file exists and is a symbolic link, then the symbolic link itself, not the target of the link, is replaced.  COPY_ATTRIBUTES     Attempts to copy the file attributes associated with this file to the target file. The exact file attributes that are copied is platform and file system dependent and therefore unspecified. Minimally, the last-modified-time is copied to the target file if supported by both the source and target file store. Copying of file timestamps may result in precision loss.  NOFOLLOW_LINKS     Symbolic links are not followed. If the file is a symbolic link, then the symbolic link itself, not the target of the link, is copied. It is implementation specific if file attributes can be copied to the new link. In other words, the COPY_ATTRIBUTES option may be ignored when copying a symbolic link. An implementation of this interface may support additional implementation specific options
+REPLACE_EXISTING    
+ If the target file exists, then the target file is replaced if it is not a non-empty directory. If the target file exists and is a symbolic link, then the symbolic link itself, not the target of the link, is replaced.  COPY_ATTRIBUTES     Attempts to copy the file attributes associated with this file to the target file. The exact file attributes that are copied is platform and file system dependent and therefore unspecified. Minimally, the last-modified-time is copied to the target file if supported by both the source and target file store. Copying of file timestamps may result in precision loss.  NOFOLLOW_LINKS     Symbolic links are not followed. If the file is a symbolic link, then the symbolic link itself, not the target of the link, is copied. It is implementation specific if file attributes can be copied to the new link. In other words, the COPY_ATTRIBUTES option may be ignored when copying a symbolic link. An implementation of this interface may support additional implementation specific options
 
 
 
@@ -347,3 +353,25 @@ REPLACE_EXISTING     If the target file exists, then the target file is repl
 Therefore, in this case, the given code on the whole will end up with an exception.
 
 NOTE: Some candidates have reported being tested on StandardCopyOption.ATOMIC_MOVE.
+
+
+- How relativize works for the purpose of the exam. The basic idea of relativize is to determine a path, which, when applied to the original path will give you the path that was passed. For example, "a/c" relativize "a/b" is "../b" because "a/c/../b" is "a/b" Notice that  "c/.." cancel out.
+  
+  Please go through the following description of relativize() method, which explains how it works in more detail.
+  
+  public Path relativize(Path other)
+  Constructs a relative path between this path and a given path. Relativization is the inverse of resolution. This method attempts to construct a relative path that when resolved against this path, yields a path that locates the same file as the given path. For example, on UNIX, if this path is "/a/b" and the given path is "/a/b/c/d" then the resulting relative path would be "c/d". 
+  
+  Where this path and the given path do not have a root component, then a relative path can be constructed. 
+  
+  A relative path cannot be constructed if only one of the paths have a root component. 
+  
+  Where both paths have a root component then it is implementation dependent if a relative path can be constructed. 
+  
+  If this path and the given path are equal then an empty path is returned.
+  
+  For any two normalized paths p and q, where q does not have a root component,
+  p.relativize(p.resolve(q)).equals(q)
+
+
+- 
