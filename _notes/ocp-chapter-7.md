@@ -924,10 +924,45 @@ Further, since the variables x and y are not declared as volatile, the updates m
 
 -  A Thread is created by doing new ClassThatExtendsThread() OR by doing  new Thread(classImplementingRunnable); The newly created Thread is started by calling start().  All the code that does the work in a separate thread goes in the run() method. Method signature: public void run() Note that this method is not abstract in the Thread Class. So you do not have to necessarily override it. However, if you want to do anything useful, you should override it. The Thread class's version of run() method doesn't do anything other than to call the run method of the Runnable instance (if it is passed while instantiating the class).  A call to start() returns immediately but before returning, it internally causes a call to the run method of either the Thread instance (if the thread was created by doing new ClassThatExtendsThread()) or of the Runnable instance (if the thread was created by doing  new Thread( classImplementingRunnable);)
 
-- 1. The forEachOrdered method processes the elements of the stream in the order they are present in the underlying source. In this case, the underlying source of the first stream is the "source" ArrayList. In this ArrayList, the elements are in the required order already and that is the order in which they will be printed even if the stream is a parallel stream because of forEachOrdered.
+- NO:
+ 1. The forEachOrdered method processes the elements of the stream in the order they are present in the underlying source. In this case, the underlying source of the first stream is the "source" ArrayList. In this ArrayList, the elements are in the required order already and that is the order in which they will be printed even if the stream is a parallel stream because of forEachOrdered.
+ 2. Parallel streams allow operations such as peek and map to execute on the elements of the stream from multiple threads. This means they can be executed in any order. Therefore, in this case, the code that adds the elements to the destination (that is, the call to peek at //2) can add elements to destination list in any order. This means that, effectively, the order of elements in destination is unknown. This is the problem that really needs to be fixed here. Changing parallelStream to stream on the source will rectify this problem because then the elements will be added to destination in the same order.
 
-2. Parallel streams allow operations such as peek and map to execute on the elements of the stream from multiple threads. This means they can be executed in any order. Therefore, in this case, the code that adds the elements to the destination (that is, the call to peek at //2) can add elements to destination list in any order. This means that, effectively, the order of elements in destination is unknown. This is the problem that really needs to be fixed here. Changing parallelStream to stream on the source will rectify this problem because then the elements will be added to destination in the same order.
+
+- static variable and there are 2 threads that are accessing it. None of the threads has synchronized access to the variable. So there is no guarantee which thread will access it when. Further, one thread might increment i while another is executing i<5. So it is possible that more than 5 words may be printed. 
+
+- two new threads are created but none of them is started.(Remember run() does not start a thread. start() does.)
+  Here, run is called but NOT of MyThread class but of Thread class. Thread class's run() is an interesting method. If the thread object was constructed using a separate Runnable object, then that Runnable object's run method is called otherwise, this method does nothing and returns. Here, Thread's run calls MyThread's run() which prints the string and returns. Everything is done in one thread (the main thread) and so the order is known.
 
 
-- 
+- First thread acquires the lock of sb1. It appends X to sb1. Just after that, the OS stops this thread and starts the second thread. (Note that first thread still has the lock of sb1). Second thread acquires the lock of sb2 and appends Y to sb2. Now it tries to acquire the lock for sb1. But sb1's lock is already acquired by the first thread so the second thread has to wait. Now, the OS starts the first thread. It tries to acquire the lock of sb2 but cannot get it as the lock is already acquired by the second thread.
+  Here, you can see that both the threads are waiting for each other to release the lock. So in effect both are stuck! This is a classic case of a deadlock.
+  So the output cannot be determined.
 
+- 1. The statement : Thread.currentThread().setName("First"); in the main() method sets the name of the current thread. This is the thread that is running the main method. 2. The statement: MyRunnable mr = new MyRunnable("MyRunnable"); creates a new MyRunnable object. In its constructor, it creates a new threads with the name "MyRunnable" and also starts this thread. 3. Now there are two threads running (or ready to run state): The main thread (having the name "First") and the MyRunnable thread (having the name "MyRunnable"). Any of these two threads may be allowed to run by the OS. 4. Calling mr.run() does not create a new Thread. Instead, the run() method is executed by the thread that has called the run() method, in this case the main thread. Since the main threads calls run() twices, the name of the main thread is printed twice in sequence. However, it changes the name before calling the run() second time. Therefore, "Second" will always be printed after "First" (may not be immediately after, though). Since it is printed by the same thread. 
+
+
+- `AtomicInteger ai = new AtomicInteger(); 
+    Stream<String> stream = Stream.of("old", "king", "cole", "was", "a", "merry", "old", "soul").parallel();
+    stream.filter( e->{   
+     ai.incrementAndGet();     return e.contains("o"); 
+    }).allMatch(x->x.indexOf("o")>0);   
+    System.out.println("AI = "+ai);`
+    
+1. In the given code, stream refers to a parallel stream. This implies that the JVM is free to break up the original stream into multiple smaller streams, perform the operations on these pieces in parallel, and finally combine the results.
+2. Here, the stream consists of 8 elements. It is, therefore, possible for a JVM running on an eight core machine to split this stream into 8 streams (with one element each) and invoke the filter operation on each of them. If this happens, ai will be incremented 8 times. 
+3. It is also possible that the JVM decides not to split the stream at all. In this case, it will invoke the filter predicate on the first element (which will return true) and then invoke the allMatch predicate (which will return false because "old".indexOf("o") is 0). Since allMatch is a short circuiting terminal operation, it knows that there is no point in checking other elements because the result will be false anyway. Hence, in this scenario, ai will be incremented only once.
+4. The number of pieces that the original stream will be split into could be anything between 1 and 8 and by applying the same logic as above, we can say that ai will be incremented any number of times between 1 and 8.
+
+- Performance : 
+ The order of join() and compute() is critical. 
+ Remember that fork() causes the sub-task to be submitted to the pool and another thread can execute that task in parallel to the current thread. 
+ Therefore, if you call join() on the newly created sub task, you are basically waiting until that task finishes. This means you are using up both the threads (current thread and another thread from the pool that executes the subtask) for that sub task. Instead of waiting, you should use the current thread to compute another subtask and when done, wait for another thread to finish. This means, both the threads will execute their respective tasks in parallel instead of in sequence. 
+ Therefore, even though the final answer will be the same, the performance will not be the same.
+ 
+ - code: `AtomicInteger count = new AtomicInteger(0); at //1 count.incrementAndGet(); at //2`
+  AtomicInteger allows you to manipulate an integer value atomically. It provides several methods for this purpose. Please go through the JavaDoc API description for this class as it is important for the exam.
+  
+-  `public class CopyOnWriteArrayList<E> implements List<E>, RandomAccess, Cloneable, Serializable`
+  A thread-safe variant of ArrayList in which all mutative operations (add, set, and so on) are implemented by making a fresh copy of the underlying array.  This is ordinarily too costly, but may be more efficient than alternatives when traversal operations vastly outnumber mutations, and is useful when you cannot or don't want to synchronize traversals, yet need to preclude interference among concurrent threads. The "snapshot" style iterator method uses a reference to the state of the array at the point that the iterator was created. This array never changes during the lifetime of the iterator, so interference is impossible and the iterator is guaranteed not to throw ConcurrentModificationException. The iterator will not reflect additions, removals, or changes to the list since the iterator was created. Element-changing operations on iterators themselves (remove, set, and add) are not supported. 
+These methods throw UnsupportedOperationException.

@@ -204,6 +204,15 @@ Since NavigableSet is a SortedSet, it keeps the elements sorted.
  2. Stack is a LIFO structure (Last In First Out i.e. add to the front and remove from the front), it provides methods push(e) and pop() for this purpose, where push adds to the front and pop removes from the front.
  pollFirst()/pollLast() - poll is a Queue method. Therefore pollFirst and pollLast will remove elements from the front and from the end respectively. removeFirst()/removeLast() - These are Deque specific methods. They will remove elements from the front and from the end respectively. These methods differ from pollFirst/pollLast only in that they throw an exception if this deque is empty.  offerFirst(e)/offerLast(e) - offer is a Queue method. Therefore offerFirst and offerLast will add elements to the front and to the end respectively. addFirst(e)/addLast(e) - add is a Queue method. Therefore addFirst and addLast will add elements to the front and to the end respectively.  peek(), peekFirst(): return the first element from the front of the queue but does not remove it from the queue. peekLast() : returns the last element from the end of the queue but does not remove it from the queue. element(): retrieves, but does not remove, the head of the queue represented by this deque (in other words, the first element of this deque). This method differs from peek only in that it throws an exception if this deque is empty.
  
+- `
+The signature of a method :
+ <E extends CharSequence> List<? super E> doIt(List<E> nums) 
+result = doIt(in);
+Given that String implements CharSequence interface, what should be the reference type of 'in' and 'result' variables?`
+The input parameter has been specified as List<E>, where E has to be some class that extends CharSequence. So ArrayList<String>, List<String>, or List<CharSequence> are all valid as reference types for 'in'.  The output type of the method has been specified as List<? super E> , which means that it is a List that contains objects of some class that is a super class of E. Here, E will be typed to whatever is being used for 'in'. For example, if you declare ArrayList<String> in, E will be String
+Concept here once the method returns, there is no way to know what is the exact class of objects stored in the returned List. 
+So you cannot declare out in a way that ties it to any particular class, not even Object.  Thus, the only way to accomplish this is to either use non-typed reference type, such as:  List result; or use the same type as the return type mentioned in the method signature i.e. List<? super String> (because E will be bound to String in this case.)
+
  
  
    
