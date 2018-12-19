@@ -189,3 +189,21 @@ Thus, you can do: m.add(anyObj, new ArrayList());  Just the opposite of super is
           Returns a view of the portion of this map whose keys are greater than (or equal to, if inclusive is true) fromKey. 
 -  A NavigableSet is a SortedSet extended with navigation methods reporting closest matches for given search targets. Methods lower, floor, ceiling, and higher return elements respectively less than, less than or equal, greater than or equal, and greater than a given element, returning null if there is no such element. 
 Since NavigableSet is a SortedSet, it keeps the elements sorted.
+
+
+- LinkedHashMap class maintains the elements in the order of their insertion time. This property can be used to build the required cache as follows:
+    1. Insert the key-value pairs as you do normally where key will be the object identifier and value will be the object to be cached.
+    2. When a key is requested, remove it from the LinkedHashMap and then insert it again. This will make sure that this pair marked as inserted latest.
+    3. If the capacity is full, remove the first element.
+    
+    You cannot simply insert the key-value again. (without first removing it) because a reinsertion operation does not affect the position of the pair.
+
+
+-   Deque can act as a Queue as well as a Stack. Based on this fact, you can deduce the following:
+ 1. Queue is a FIFO structure (First In First Out i.e. add to the end and remove from the front), it has methods offer(e)/add(e)(for adding an element to the end or tail) and poll()/remove()(for removing an element from the front or head) for this purpose.  Note that offer and add are similar while poll and remove are similar.
+ 2. Stack is a LIFO structure (Last In First Out i.e. add to the front and remove from the front), it provides methods push(e) and pop() for this purpose, where push adds to the front and pop removes from the front.
+ pollFirst()/pollLast() - poll is a Queue method. Therefore pollFirst and pollLast will remove elements from the front and from the end respectively. removeFirst()/removeLast() - These are Deque specific methods. They will remove elements from the front and from the end respectively. These methods differ from pollFirst/pollLast only in that they throw an exception if this deque is empty.  offerFirst(e)/offerLast(e) - offer is a Queue method. Therefore offerFirst and offerLast will add elements to the front and to the end respectively. addFirst(e)/addLast(e) - add is a Queue method. Therefore addFirst and addLast will add elements to the front and to the end respectively.  peek(), peekFirst(): return the first element from the front of the queue but does not remove it from the queue. peekLast() : returns the last element from the end of the queue but does not remove it from the queue. element(): retrieves, but does not remove, the head of the queue represented by this deque (in other words, the first element of this deque). This method differs from peek only in that it throws an exception if this deque is empty.
+ 
+ 
+ 
+   

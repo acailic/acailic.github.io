@@ -265,3 +265,14 @@ Static init
 - [Member Inner Class](https://github.com/acailic/java8-learning/blob/master/Java-8/src/advancedClassDesign/MemberInnerClass.java) <br />
 - [Polymorphism](https://github.com/acailic/java8-learning/blob/master/Java-8/src/advancedClassDesign/Polymorphism.java) <br />
 - [Static Nested Class](https://github.com/acailic/java8-learning/blob/master/Java-8/src/advancedClassDesign/StaticNestedClass.java)
+
+### Questions
+
+1. if two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result. In this case, equals() will return true for: new Info("aa", "b", "c") and new Info("a", "ab", "c") but their hashCode() values will be different.
+
+2. From outer can see inner class:
+
+`class OuterWorld {   public InnerPeace i = new InnerPeace();   private class InnerPeace   {      private String reason = "none";   }   void m(){     System.out.println(i.reason);   }    }`
+
+
+     
