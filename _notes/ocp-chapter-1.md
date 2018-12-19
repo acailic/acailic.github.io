@@ -268,11 +268,45 @@ Static init
 
 ### Questions
 
-1. if two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result. In this case, equals() will return true for: new Info("aa", "b", "c") and new Info("a", "ab", "c") but their hashCode() values will be different.
+- if two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result. In this case, equals() will return true for: new Info("aa", "b", "c") and new Info("a", "ab", "c") but their hashCode() values will be different.
 
-2. From outer can see inner class:
+- From outer can see inner class:
 
 `class OuterWorld {   public InnerPeace i = new InnerPeace();   private class InnerPeace   {      private String reason = "none";   }   void m(){     System.out.println(i.reason);   }    }`
 
+- The static block will be executed only once when the class is loaded. A class is loaded when it is first referenced. In this case, it is first referenced by the JVM when it tries to run the main() method of this class.
 
-     
+-  aggregate features from multiple classes OOP: ggregate features of another class, you either extend that class (i.e. inheritance) or have an object of the other class in your class (i.e. composition). 
+    1.Inheritance
+    2.Composition
+
+- public String toString() - method that returns a String representation of the object. This means all classes have this method. However, this String contains just the name of the class and its hashcode. It doesn't contain information about the attributes of the class and is therefore not meaningful for human reading. Therefore, if you want to include the value of the attributes of a class in its String representation, you should override toString method of that class.   
+- Composition is a good way to reuse functionality from multiple class because it does not require your class to extend from any other class.  
+- Composition is implemented simply by forwarding a call to another object. The calling class has no dependence on implementation details of the called object. This is very useful when your class already extends another class.  Composition and Inheritance both are techniques for code reuse.
+
+
+-  Singleton pattern: The class has a public static method that returns an instance of that class. The class has a private class variable that refers to an instance of the same class.
+
+- The Singleton patterns enforces that only one object of the class is ever created. To achieve this, 
+you need to do 3 things: 
+ 1. Make the constructor of the class private so that no one can instantiate it except this class itself. 
+ 2. Add a private static variable of the same class to the class and instantiate it.
+ 3. Add a public static method (usually named getInstance()), that returns the class member created in step 2. 
+ 
+- rule to remember is: If the equals() method returns true, the hashCode() of the two objects MUST be the same. The reverse is desirable but not necessary.  Further, equals method must follow these rules: It should be reflexive: for any reference value x, x.equals(x) should return true. It should be symmetric: for any reference values x and y, x.equals(y) should return true if and only if y.equals(x) returns true. It should be transitive: for any reference values x, y, and z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) should return true. It should be consistent: for any reference values x and y, multiple invocations of x.equals(y) consistently return true or consistently return false, provided no information used in equals comparisons on the object is modified. For any non-null reference value x, x.equals(null) should return false. 
+
+- It can throw any exception as long as it is a subclass of any of the exceptions thrown by the overridden method. It can also be a subclass of RuntimeException. eg. If the base class A has: void m1() throws IOException then overriding method in class B can be : void m1() throws FileNotFoundException because FileNotFoundException is a subclass of IOException.
+- Note that print() is declared private in class A. So a.print() is not valid in class B's code as the class of 'a' is A. Now, you may think that the actual object is of class B and method to be executed is selected according to the actual object. While that is true (except in case of private instance methods, which are bound at compile time anyway), access rights are checked at compile time. At compile time, the compiler has no knowledge of the actual object and so access rights are checked against the class of the variable.
+
+-  1. The signature of the standard equals method in Object class is public boolean equals(Object ). So you cannot override that method with anything which is not public. In this case, however, Resource class does not even have equals(Object ) method. So it is not overriding Object class's equals method. It is overloading it  and is thus free to make it private, protected, or default access.  2. The parameter type of Object class's equals method is Object, which means that you can pass any object as an argument.  3. A method with default access is accessible only to classes within that package.  4. When multiple methods of a class are applicable to be selected, the most specific method is chosen.
+
+- 1. The + operator is overloaded for Strings and when it sees a String on one side and another object on the other side, it calls toString() method on the other object to get a String representation of that object. (If the other object is null, it doesn't call toString on null and assumes "null" as the value.) 2. Object class has a public toString() method that returns a String representation of the object. This means all classes have this method. However, this String contains just the name of the class and its hashcode. It doesn't contain information about the attributes of the class. Therefore, if you want to include the value of the attributes of a class in its String representation, you should override toString method of that class.
+
+
+-  illustrates the fundamental aspect of overriding, which is that it is the actual class of object and not the class of the reference type that determines which instance method will be invoked. Here, actual class of the object pointed to by w is GoodWidget and so GoodWidget's doWidgetStuff will be invoked. This method does nothing and so nothing is printed.  Notice that the explicit cast to Widget has no impact because the class of the reference is not considered while invoking the instance methods at all. But if you try to access the field (or a static method) directly, the class of the reference is used. Therefore,  
+        System.out.println(w.data); //prints data   
+      System.out.println(((GoodWidget)w).data); //prints big data
+
+-  here is that an overriding method cannot make the overridden method more private. It can make the method more public though.  The access hierarchy in increasing levels of accessibility is: private->'no modifier'->protected->public ( public is accessible to all and private is accessible to none except itself.)  Here, class OverridingSaloon has no modifier for m1() so it is trying to reduce the accessibility of protected to default. 'protected' means the method will be accessible to all the classes in the same package and all the subclasses (even if the subclass is in a different package). No modifier (which is the default level) means the method will be accessible only to all the classes in the same package. (i.e. not even to the subclass if the subclass is in a different package.)
+
+
