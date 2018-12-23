@@ -310,3 +310,64 @@ you need to do 3 things:
 -  here is that an overriding method cannot make the overridden method more private. It can make the method more public though.  The access hierarchy in increasing levels of accessibility is: private->'no modifier'->protected->public ( public is accessible to all and private is accessible to none except itself.)  Here, class OverridingSaloon has no modifier for m1() so it is trying to reduce the accessibility of protected to default. 'protected' means the method will be accessible to all the classes in the same package and all the subclasses (even if the subclass is in a different package). No modifier (which is the default level) means the method will be accessible only to all the classes in the same package. (i.e. not even to the subclass if the subclass is in a different package.)
 
 
+- An interface can redeclare a default method and also make it abstract. An interface can redeclare a default method and provide a different implementation.
+
+- non-static variable s cannot be referenced from a static context. 's' is not accessible from the inner class. This is because the inner class is created in a static method so it does not have any reference to TestFrame 
+`... 
+ String s="Message";   
+  public static void main(String args[])  
+    {       TestFrame t = new TestFrame();    
+       Button b = new Button("press me");      
+        b.addActionListener(new ActionListener()  {        
+                      public void actionPerformed(ActionEvent e)        
+                                    {  System.out.println("Message is " +s); }...`
+                                    
+                                    
+- When interfaces are involved, more than one method declaration may be overridden by a single overriding declaration. In this case, the overriding declaration must have a throws clause that is compatible with ALL the overridden declarations.
+
+- When interfaces are involved, more than one method declaration may be implemented by a single method declaration. In this case, the overriding declaration must have a throws clause that is compatible with ALL the overridden declarations. The declaration public void m1(){} satisfies both the declarations. 
+
+- Three concepts : 
+
+1. A Set (such as a TreeSet or HashSet) does not allow duplicate elements. If you add a duplicate element, it is ignored. Thus, only three unique SIZE elements are stored.
+
+It is important to understand how the add() method of a Set works :
+boolean add(E o)
+	Adds the specified element to this set if it is not already present (optional operation). More formally, adds the specified element, o, to this set if this set contains no element e such that (o==null ? e==null : o.equals(e)). If this set already contains the specified element, the call leaves this set unchanged and returns false. In combination with the restriction on constructors, this ensures that sets never contain duplicate elements.
+
+2. TreeSet sorts the elements in their natural order. So while retrieving elements, it returns them in the sorted order.
+
+3. The natural order of enums is the order in which they are defined. It is not necessarily same as alphabetical order of their names.
+
+
+- facts about enums: 
+1. Enum constructor is always private. You cannot make it public or protected. If an enum type has no constructor declarations, then a private constructor that takes no parameters is automatically provided.
+2. An enum is implicitly final, which means you cannot extend it. 
+3. You cannot extend an enum from another enum or class because an enum implicitly extends java.lang.Enum. But an enum can implement interfaces. 
+4. Since enum maintains exactly one instance of its constants, you cannot clone it. You cannot even override the clone method in an enum because java.lang.Enum makes it final. 
+5. Compiler provides an enum with two public static methods automatically -  values() and valueOf(String). The values method returns an array of its constants and valueOf method tries to match the String argument exactly (i.e. case sensitive) with an enum constant and returns that constant if successful otherwise it throws java.lang.IllegalArgumentException.  
+
+- The following are a few more important facts about java.lang.Enum which you should know:  
+1. It implements java.lang.Comparable (thus, an enum can be added to sorted collections such as SortedSet, TreeSet, and TreeMap). 
+2. It has a method ordinal(), which returns the index (starting with 0) of that constant i.e. the position of that constant in its enum declaration. 3. It has a method name(), which returns the name of this enum constant, exactly as declared in its enum declaration.
+
+
+- following scenarios will you need to create an abstract class : You want to define common method signatures in the class but force subclasses to provide implementations for such methods.
+
+
+
+- Unlike a regular java class, you cannot access a non-final static field from an enum's constructor.
+- Here, CAT is actually an instance of an anonymous subclass of Pets. This subclass is overriding getData() method:
+    `...
+    public enum Pets {    DOG(1, "D"),    CAT(2, "C")    {     
+        public String getData(){ return type+name; }    }, 
+       FISH(3, "F");    int type;    String name;    
+       Pets(int t, String s) { this.name = s; this.type = t;}   
+     public String getData(){ return name+type; } 
+    }
+    `
+- If the inner class is non static, 
+all the static and non-static members of the outer class are accessible (otherwise only static are accessible). 
+Prior to java 8, only final local variables were accessible to the inner class but in Java 8, 
+even effectively final local variables of the method are accessible to the inner defined in that method as well.
+  
