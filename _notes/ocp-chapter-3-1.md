@@ -164,6 +164,8 @@ List<String> stringList = new ArrayList<>();
 ## Questions
 
 - Arrays.binarySearch() method returns the index of the search key, if it is contained in the list; otherwise, (-(insertion point) - 1). 
+Throws: 
+	ClassCastException - if the search key is not comparable to the elements of the array.
 
 - Deque is an important interface for the exam. To answer the questions, you must remember that a Deque can act as a Queue as well as a Stack. Based on this fact, you can deduce the following: 
 1. Since Queue is a FIFO structure (First In First Out i.e. add to the end and remove from the front), it has methods offer(e)/add(e)(for adding an element to the end or tail) and poll()/remove()(for removing an element from the front or head) for this purpose.  Note that offer and add are similar while poll and remove are similar.
@@ -214,5 +216,27 @@ Concept here once the method returns, there is no way to know what is the exact 
 So you cannot declare out in a way that ties it to any particular class, not even Object.  Thus, the only way to accomplish this is to either use non-typed reference type, such as:  List result; or use the same type as the return type mentioned in the method signature i.e. List<? super String> (because E will be bound to String in this case.)
 
  
- 
+-   
+    1. addData1(List<? super Dooby> dataList) : This means that dataList is a List whose elements are of a class that is either Dooby or a super class of Dooby. We don't know which super class of Dooby. Thus, if you try to add any object to dataList, it has to be a assignable to Dooby. Thus, dataList.add(b); will be invalid because b is not assignable to Dooby. Further, if you try to take some object out of dataList, that object will be of a class that is either Dooby or a Superclass of Dooby. Only way you can declare a variable that can be assigned the object retrieved from dataList is Object obj. Thus, t = dataList.get(0); and b = dataList.get(0); are both invalid. 
+    2. addData2(List<? extends Dooby> dataList) This means that dataList is a List whose elements are of a class that is either Dooby or a subclass of Dooby. Since we don't know which subclass of Dooby is the list composed of, there is no way you can add any object to this list.  If you try to take some object out of dataList, that object will be of a class that is either Dooby or a subclass of Dooby and thus it can be assigned to a variable of class Dooby or its superclass.. Thus, t = dataList.get(0) ; is invalid.
+
+-  List.subList method returns a view backed by the original list. It doesn't change the existing list. Therefore, when you print the elements from the original list after calling subList, you will see all the elements of the original list.  Remember that, however, if you modify the sub list, the changes will be visible in the original list. For example, the following will print aeioxu: List<String> view = f.apply(vowels);//get a view backed by the original list view.add("x");//modify the view vowels.forEach(System.out::print); //updates visible in original list 
+
+
+- Arrays.binarySearch() method returns the index of the search key, if it is contained in the list; otherwise, (-(insertion point) - 1). The insertion point is defined as the point at which the key would be inserted into the list: the index of the first element greater than the key, or list.size(), if all elements in the list are less than the specified key. Note that this guarantees that the return value will be >= 0 if and only if the key is found.
+
+-  Map<Object, ?> m = new LinkedHashMap<Object, Object>(); 
+ While this is a valid declaration, it will not allow you to put anything into 'm'. The reason is that m is declared to be of type Map that takes an instance of Object class as a key and instance of 'Unknown class' as value. Therefore, if you try to put an Object, or Integer, or anything, the compiler will not allow it because that 'Unknown' class is not necessarily Object or Integer or any other class.  Even though the actual object pointed to by 'm' is of type LinkedHashMap<Object, Object>, the compiler looks only at the reference type of the variable. Thus, 'm' is read-only. It would have worked if m were declared as Map<Object, Object> m = .... Because in this case the compiler *knows* that m can take an instance of Object as value. Instance of Object covers all kind of objects.  
+  Map<Object, ? super ArrayList> m = new LinkedHashMap<Object, ArrayList>();  
+   You should read it aloud as follows: 'm' is declared to be of type Map that takes an instance of Object class as a key and an instance of 'a class that is either ArrayList or a superclass of Arraylist' as value. This means that the value can be an instance of ArrayList or its subclass (since an ArrayList object or its subclass object can be assigned to a reference of type ArrayList or its super class.). However, you cannot put Object (which is a superclass of ArrayList) in it because the compiler doesn't know the exact superclass that 'm' can take. It could be AbstractList, or Object, or any other super class of ArrayList. The compiler only knows that it is a superclass but not the exact type. So option 4 is correct but 5 is wrong.  Thus, you can do: m.add(anyObj, new ArrayList());
+   
+-  If you iterate over the same structure twice, the order of elements returned in both the iterations will be the same:
+1. TreeMap -It always returns the entries in sorted order.
+2. LinkedHashMap- It is a linked list implementation of the Map interface, with predictable iteration order. This implementation differs from HashMap in that it maintains a doubly-linked list running through all of its entries. This linked list defines the iteration ordering, which is normally the order in which keys were inserted into the map (insertion-order). Note that insertion order is not affected if a key is re-inserted into the map.
+
+- `Collections.sort(Arrays.asList(sa), null);` The second argument to Collections.sort is for passing a Comparator object that you want to use for comparing the objects. If it is null, natural sorting order for the elements is used. Therefore, the given list will be sorted with "andy" as the first element, which will be printed.  Although not documented in the JavaDoc API description, passing null doesn't cause a NullPointerException.   
+   
+   
+
+- 
    
