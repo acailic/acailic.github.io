@@ -340,3 +340,37 @@ class Person implements Serializable {
 - [Iteracting with Users](https://github.com/acailic/java8-learning/blob/master/Java-8/src/io/IteractingWithUsers.java) <br />
 - [Streams](https://github.com/acailic/java8-learning/blob/master/Java-8/src/io/Streams.java) <br />
 - [Streams Continue](https://github.com/acailic/java8-learning/blob/master/Java-8/src/io/StreamsContinue.java) <br />
+
+
+### Questions
+
+- serialized and deserialized in another JVM:
+
+Remember that static fields are never serialized irrespective of whether they are marked transient or not.  In fact, making static fields as transient is redundant. Thus, f1, f2 and f4 will not be serialized at all. However, since f4 is being initialized as a part of class initialization, it will be initialized to the same value in another JVM. Thus, its value will be same as the one initialized by the code.
+
+- Remember that transient fields and static fields are never serialized. Constructor, instance blocks, and field initialization of the class being deserialized are also not invoked. So, when boo is deserialized, the value of ti is set to 0.
+
+- Console is meant to interact with the user typically through command/shell window and keyboard. Thus, binary data doesn't make sense for the console.  You can read whatever the user types using readLine() and readPassword() method. You can also acquire a Reader object using reader() method on Console object. All these provide character data. Similarly, you can acquire PrintWriter object using writer() method on Console, which allows you to write character data to the console.
+
+1. Console class is in java.io package. 
+2. Correct way to retrieve the Console object is System.console(); There is only one Console object so new Console(); doesn't make sense. And therefore, Console's constructor is not public. 
+3. You can read user's input using either readLine() or readPassword(). Here, since you are reading password, readPassword() should be used. readPassword() ensures that the keys typed by the user aren't echoed to the command prompt.
+
+- A Reader such as a FileReader provides only low level operations such as reading a single character or array of characters. It does not understand the notion of "lines". BufferedReader "decorates" Reader to provide higher level method readLine() by buffering characters. It is an efficient way of reading characters, character arrays, and lines.  The same relationship exists between FileWriter and BufferedWriter but for writing.
+
+- BufferedWriter does not have writeUTF method but it does have newLine and write(String) methods. So the code will fail to compile at //1. You should remember that following points:
+ 1.BufferedWriter only adds the functionality of buffering on top of a Writer. It doesn't directly deal with encoding. Encoding is handled by the underlying Writer object. 
+2.FileWriter is a concrete subclass of java.io.Writer that writes data to the underlying file in default encoding. If you want to write text in a different encoding, you will need to create an OutputStreamWriter with that encoding. For example, OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("utf8.txt"), Charset.forName("UTF-8").newEncoder()  );
+ You can then create a BufferedWriter over this OutputStreamWriter.
+ 
+- A BufferedReader can wrap any Reader. Both FileReader and BufferedReader are Readers.
+- none of PrintWriter's print or write methods throw I/O exceptions (although some of its constructors may). This is unlike other streams, where you need to include exception handling (i.e. a try/catch or throws clause) when you use the stream.
+- PrintWriter's write method writes a single character to the file. The size in bytes of a character depends on the default character encoding of the underlying platform.
+  For example, if the encoding is UTF-8, only 1 byte will be written and the size of the file will be 1 byte.
+ 
+-  FileOutputStream take an int parameter but write only the low 8 bits (i.e. 1 byte) of that integer.  DataOutputStream provides methods such as writeInt, writeChar, and writeDouble, for writing complete value of the primitives to a file. So if you want to write an integer to the file, you should use writeInt(1) in which case a file of size 4 bytes will be created. You can read back the stored primitives using methods such as DataInputSream.readInt().   
+
+- To customize the behavior of class serialization, the readObject and writeObject methods should be implemented. Constructor of the class for an object being deserialized is never invoked.
+
+- If the object graph contains non-serializable objects, an exception is thrown and nothing is serialized. Object graph means all the objects that are linked/referenced by the first object (directly or indirectly) that is being serialized.
+  Fields of an Object that are marked as transient are not serialized and so they do not cause an exception. Any field that is not marked transient but points to an object of a class that does not implement Serializable, will cause an exception to be thrown. Thus, the given statement is wrong.
