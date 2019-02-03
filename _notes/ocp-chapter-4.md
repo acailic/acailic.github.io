@@ -947,3 +947,17 @@ It is not documented by Oracle exactly what happens when you change the stream e
 
 1. The reduce method needs a BinaryOperator. This interface is meant to consume two arguments and produce one output. It is applied repeatedly on the elements in the stream until only one element is left. The first argument is used to provide an initial value to start the process. (If you don't pass this argument, a different reduce method will be invoked and that returns an Optional object. ) 
 2. The Stream.max method requires a Comparator. All you need to implement this interface using a lambda expression is a reference to any method that takes two arguments and returns an int. The name of the method doesn't matter. That is why it is possible to pass the reference of Integer's max method as an argument to Stream's max method. However, Integer.max works very differently from Integer.compare. The max method returns the maximum of two numbers while the compare method returns a difference between two numbers. Therefore, when you pass Integer::max to Stream's max, you will not get the correct maximum element from the stream. That is why //2 will compile but will not work correctly.
+
+
+- Since we are creating a parallel stream, it is possible for both the elements of the stream to be processed by two different threads. In this case, the identity argument will be used to reduce both the elements. Thus, it will print _a_b.
+  It is also possible that the result of the first reduction ( _a ) is reduced further using the second element (b). In this case, it will print _ab. 
+  
+  Even though the elements may be processed out of order individualy in different threads, the final output will be produced by joining the individual reduction results in the same order. Thus, the output can never have b before a.
+  
+  
+  
+- Since the first stream is made parallel, it may be partitioned into multiple pieces and each piece may be processed by a different thread. findAny may, therefore, return a value from any of those partitions. Hence, any number from 13 to 15 may be printed. 
+  
+  The second stream is sequential and therefore, ideally, findAny should return the first element. However, findAny is deliberately designed to be non-deterministic. Its API specifically says that it may return any element from the stream. If you want to select the first element, you should use findFirst.
+  
+-
