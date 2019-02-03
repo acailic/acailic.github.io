@@ -475,3 +475,13 @@ boolean isResultSet = statement.execute("SELECT * FROM PERSON");    // closes he
 
 - `con.setAutoCommit(true);` 
   since auto-commit has been disabled in the given code (by calling c.setAutoCommit(false)), you have to explicitly commit the transaction to commit the changes to the database. The regular way to do this is to call con.commit(). Notice that commit method does not take any arguments.  Another way is to utilize the side effect of changing the auto-commit mode of the connection. If the setAutoCommit method is called during a transaction and the auto-commit mode is changed, the transaction is committed. If setAutoCommit is called and the auto-commit mode is not changed, the call is a no-op. In this question, con.setAutoCommit(true) changes the auto-commit mode of the connection from false to true and therefore this call commits the changes.
+  
+  
+  
+- The actual classes for Connection, Statement, and ResultSet interfaces are provided by the JDBC driver and are therefore driver dependent.
+  
+  The RowSet interface is unique in that it is intended to be implemented using the rest of the JDBC API. In other words, a RowSet implementation is a layer of software that executes "on top" of a JDBC driver. Implementations of the RowSet interface can be provided by anyone, including JDBC driver vendors who want to provide a RowSet implementation as part of their JDBC products. Oracle provides sample implementations of various RowSet interfaces with the JDK as well. So it is not clear whether this option is a correct option or not but we have included it because a few candidates have reported getting such a question.    
+  
+  
+  
+  
