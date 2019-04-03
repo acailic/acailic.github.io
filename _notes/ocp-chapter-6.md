@@ -626,6 +626,8 @@ assert (Thread.currentThread().getName().equals("main"));
 
 - An assertion signifies a basic assumption made by the programmer that he/she believes to be true at all times. It is never a wise idea to try to recover when an assertion fails because that is the whole purpose of assertions: that the program should fail if that assumption fails.
 - controlling the execution of assertions at run time: -da, -enableassertions
+- Assertions can be enabled selectively on per class basis as well as on per package basis.
+- It is not a good practice to write code that recovers from an assertion failure. 
 
  - Here assert is being used as an identifier (a method name is an identifier). However, beginning Java 1.4, assert has become a keyword. You cannot use a keyword as an identifier. Therefore, to use 'assert'  as an identifier instead of a keyword, you have to tell the compiler that your code is 1.3 compliant. It will generate a warning but it will compile. To do so just use the -source option like this:  javac -source 1.3 Assertion.java 
   Remember that you CANNOT use 'assert' as a keyword as well as an identifier at the same time.

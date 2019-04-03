@@ -268,6 +268,23 @@ System.out.println(time.plusHours(1));  // 2018-03-25T03:30+02:00[Europe/Madrid]
 
 ## Question
 
+- JavaDoc API description of the toString methods of Duration and Period.  
+Duration.toString:  It generates a string representation of the duration object using ISO-8601 seconds based representation, such as PT8H6M12.345S.
+  The format of the returned string will be PTnHnMnS, where n is the relevant hours, minutes or seconds part of the duration. Any fractional seconds are placed after a decimal point i the seconds section. If a section has a zero value, it is omitted. The hours, minutes and seconds will all have the same sign.
+   Examples:     "20.345 seconds"                 -- "PT20.345S  
+      "15 minutes" (15 * 60 seconds)   -- "PT15M"     "10 hours" (10 * 3600 seconds)  
+    -- "PT10H"     "2 days" (2 * 86400 seconds)     -- "PT48H" 
+    
+    
+   Note that multiples of 24 hours are not output as days to avoid confusion with Period. 
+    
+    
+   Period.toString:
+    
+   Outputs this period as a String, such as P6Y3M1D. 
+   The output will be in the ISO-8601 period format. A zero period will be represented as zero days, 'P0D'. 
+
+
 - public static Duration between(Temporal startInclusive, Temporal endExclusive)
   1. Duration.between method computes the duration between two temporal objects.  If the objects are of different types, then the duration is calculated based on the type of the first object. For example, if the first argument is a LocalTime then the second argument is converted to a LocalTime. (Not the case here because both arguments are of ZonedDateTime).
   2. In this case, the difference between the two zones is 3 hours therefore the resulting duration will contain 3 hours. 

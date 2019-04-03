@@ -960,4 +960,13 @@ It is not documented by Oracle exactly what happens when you change the stream e
   
   The second stream is sequential and therefore, ideally, findAny should return the first element. However, findAny is deliberately designed to be non-deterministic. Its API specifically says that it may return any element from the stream. If you want to select the first element, you should use findFirst.
   
--
+- class A is not static inner class of TestClass. So it cannot exist without an outer instance of TestClass. class B is static inner class and can be instantiated without an outer instance of TestClass. Now, the method useClasses() is an instance method. So, it already has instance of outer class associated with it. So, new A(); is also valid. new TestClass.A(); is same as new A().
+  Although not related to this question, FYI, an anonymous class can never be static. Even if created in a static method.  
+  
+- TestClass is also a Thread because it extends Thread. The first Thread object is created at :
+ TestClass tc = new TestClass(); The second Thread object is created at : new Thread( tc.new Runner() ).
+ Runner is not a Thread object. Thread[] t = new Thread[5]; does not create any thread object. It only creates an array that can hold 5 Thread objects. Each of those 5 references are initialized to null.
+ tc.new Runner() is a valid construct because Runner is a non-static inner class. So you cannot do 'new TestClass.Runner()'.
+ 
+ 
+ - You can make any class abstract by adding abstract to its declaration. For example: public abstract class X{ }

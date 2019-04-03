@@ -349,7 +349,8 @@ boolean add(E o)
 
 - The following are a few more important facts about java.lang.Enum which you should know:  
 1. It implements java.lang.Comparable (thus, an enum can be added to sorted collections such as SortedSet, TreeSet, and TreeMap). 
-2. It has a method ordinal(), which returns the index (starting with 0) of that constant i.e. the position of that constant in its enum declaration. 3. It has a method name(), which returns the name of this enum constant, exactly as declared in its enum declaration.
+2. It has a method ordinal(), which returns the index (starting with 0) of that constant i.e. the position of that constant in its enum declaration.
+3. It has a method name(), which returns the name of this enum constant, exactly as declared in its enum declaration.
 
 
 - following scenarios will you need to create an abstract class : You want to define common method signatures in the class but force subclasses to provide implementations for such methods.
@@ -370,4 +371,7 @@ boolean add(E o)
 all the static and non-static members of the outer class are accessible (otherwise only static are accessible). 
 Prior to java 8, only final local variables were accessible to the inner class but in Java 8, 
 even effectively final local variables of the method are accessible to the inner defined in that method as well.
+
+
+- All keys in a map are unique.
   
