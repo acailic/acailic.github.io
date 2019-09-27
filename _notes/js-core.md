@@ -6,7 +6,7 @@ date: 2019-09-27
 ---
 
 # JS Core Theory
-##Basics
+## Basics
  - [Var](https://javascript.info/var)
  - [Variables](https://javascript.info/variables)
  - [From var to const](http://exploringjs.com/es6/ch_core-features.html#sec_from-var-to-const)
@@ -15,7 +15,7 @@ date: 2019-09-27
  - [Try Catch](https://javascript.info/try-catch)
  - [Use Strict](https://javascript.info/strict-mode)
     
-##Functions    
+## Functions    
  - [Function basics](https://javascript.info/function-basics)
  - [Function object](https://javascript.info/function-object)
  - [The "new Function" syntax](https://javascript.info/new-function)
@@ -38,7 +38,7 @@ date: 2019-09-27
 - [Arrays Are Maps, Not Tuples](http://speakingjs.com/es5/ch18.html#_arrays_are_maps_not_tuples)
 - [Arrays Can Also Have Properties](http://speakingjs.com/es5/ch18.html#_arrays_can_also_have_properties)
 - [Array methods](https://javascript.info/array-methods)
-##Asynchronous
+## Asynchronous
 - [In The Loop](https://youtu.be/cCOL7MC4Pl0)
 - [event loop?](https://youtu.be/8aGhZQkoFbQ)
 - [Why Async](https://frontarm.com/courses/async-javascript/promises/why-async/)
