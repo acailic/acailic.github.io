@@ -1,5 +1,5 @@
 ---
-title:JS Core
+title: JS Core
 layout: post
 tags: [javascript, core]
 date: 2019-09-27
