@@ -1,11 +1,11 @@
 ---
-title: JS Core
+title: JS Core 1
 layout: post
 tags: [javascript, core]
 date: 2019-09-27
 ---
 
-# JS Core Theory
+# JS Core Theory 1
 ## Basics
  - [Var](https://javascript.info/var)
  - [Variables](https://javascript.info/variables)
