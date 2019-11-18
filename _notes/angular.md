@@ -29,7 +29,7 @@ date: 2019-09-27
 
 - [Bootstrapping Angular](https://blog.cloudboost.io/bootstrapping-angular-4-app-711722a4e816)
 - [Learn NgModule in Angular with Examples](https://youtu.be/oqZ4-ULwfbc)
-- [Angular 7|8 Components](https://www.techiediaries.com/angular-components/)
+- [Angular 7&8 Components](https://www.techiediaries.com/angular-components/)
 - [Introduction to services and dependency injection](https://angular.io/guide/architecture-services)
 - [A Practical Guide to Angular Directives](https://www.sitepoint.com/practical-guide-angular-directives/)
 - [Pipes](https://angular.io/guide/pipes)
