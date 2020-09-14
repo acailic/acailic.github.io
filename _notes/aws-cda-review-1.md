@@ -15,6 +15,6 @@ date: 2020-09-14
 - using templates online, also useful for generate documentation
 - template componentents: resources(mandatory), parametars, mapping, outputs, condiditionals, metadata
 - update and version of templates
-- YAML format, key pair values, nested values, arrays( with - ) or list, multi line string ( with | )  
+- YAML format, key pair values, nested values, arrays( with "-" ) or list, multi line string ( with "|" )  
 
 ## 
