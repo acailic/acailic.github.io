@@ -84,6 +84,69 @@ If you delete with a version ID, it deletes in the source, not replicated.
 -	Amazon Glacier Deep Archive – for long term storage – cheaper:Standard (12 hours),	Bulk (48 hours),
 -	Minimum storage duration of 180 days
 
+### S3 Lifecycle policies
+- You can transition objects between storage classes. Moving objects can be automated using a lifecycle configuration
+-	For infrequently accessed object, move them to STANDARD_IA
+-	For archive objects you don’t need in real-time, GLACIER or DEEP_ARCHIVE
+- Transition actions: It defines when objects are transitioned to another storage class.Move objects to Standard IA class 60 days after creation.	Move to Glacier for archiving after 6 months
+-	Expiration actions: configure objects to expire (delete) after some time
+- Access log files can be set to delete after a 365 days
+-	Can be used to delete old versions of files (if versioning is enabled).	Can be used to delete incomplete multi-part uploads
+-	Rules can be created for a certain prefix (ex - s3://mybucket/mp3/*).	Rules can be created for certain objects tags (ex - Department: Finance)
+- exp: S3 source images can be on STANDARD, with a lifecycle configuration to transition them to GLACIER after 45 days. S3 thumbnails can be on ONEZONE_IA, with a lifecycle configuration to expire them (delete them) after 45 days.
+- exp: 	You need to enable S3 versioning in order to have object versions, so that “deleted objects” are in fact hidden by a “delete marker” and can be recovered.	You can transition these “noncurrent versions” of the object to S3_IA. You can transition afterwards these “noncurrent versions” to DEEP_ARCHIVE
+
+### S3 baseline performance
+-	Amazon S3 automatically scales to high request rates, latency 100-200 ms
+-	Your application can achieve at least 3,500 PUT/COPY/POST/DELETE and 5,500 GET/HEAD requests per second per prefix in a bucket.
+-	There are no limits to the number of prefixes in a bucket.
+•	Example (object path => prefix):
+•	bucket/folder1/sub1/file	=> /folder1/sub1/
+•	bucket/folder1/sub2/file	=> /folder1/sub2/
+•	bucket/1/file	=> /1/
+•	bucket/2/file	=> /2/
+-	If you spread reads across all four prefixes evenly, you can achieve 22,000 requests per second for GET and HEAD
+#### S3 KMS limitation
+- if you use SSE-KMS, you may be impacted by the KMS limits. Count towards the KMS quota per second (5500, 10000, 30000 req/s based on region)
+-	When you upload, it calls the GenerateDataKey KMS API.	When you download, it calls the Decrypt KMS API 
+-	As of today, you cannot request a quota increase for KMS
+#### S3 Performance
+-	Multi-Part upload:	recommended for files > 100MB, must use for files > 5GB.	Can help parallelize uploads (speed up transfers)
+- S3 Transfer Acceleration (upload only):	Increase transfer speed by transferring file to an AWS edge location which will forward the data to the S3 bucket in the target region. Compatible with multi-part upload.
+- S3 Byte-Range Fetches-Parallelize GETs by requesting specific byte ranges.	Better resilience in case of failures
+
+### S3 and Glacier Select
+- Retrieve less data using SQL by performing server side filtering
+- Can filter by rows & columns (simple SQL statements); like filtering CSV files
+- Less network transfer, less CPU cost client-side
+- https://aws.amazon.com/blogs/aws/s3-glacier-select/
+
+### S3 Lock Policies and Glacier Lock
+- S3 Object Lock:	Adopt a WORM (Write Once Read Many) model
+-	Block an object version deletion for a specified amount of time
+- Glacier Vault Lock: Adopt a WORM (Write Once Read Many) model
+- Lock the policy for future edits (can no longer be changed)
+- Helpful for compliance and data retention
+
+
+### S3 Event Notification
+- S3:ObjectCreated, S3:ObjectRemoved, S3:ObjectRestore, S3:Replication…
+- Object name filtering possible (*.jpg)
+- Use case: generate thumbnails of images uploaded to S3
+- Can create as many “S3 events” as desired
+- S3 event notifications typically deliver events in seconds but can sometimes take a minute or longer
+- If two writes are made to a single non-versioned object at the same time, it is possible that only a single event notification will be sent
+- If you want to ensure that an event notification is sent for every successful write, you can enable versioning on your bucket.
+
+## AWS Athena
+- Serverless service to perform analytics directly against S3 files
+- Uses SQL language to query the files
+- Has a JDBC / ODBC driver
+- Charged per query and amount of data scanned
+- Supports CSV, JSON, ORC, Avro, and Parquet (built on Presto)
+- Use cases: Business intelligence / analytics / reporting, analyze & query VPC Flow Logs, ELB Logs, CloudTrail trails, etc...
+- Exam Tip: Analyze data directly on S3 => use Athena
+
 
 ### questions
 - MFA Delete forces users to use MFA tokens before deleting objects. It's an extra level of security to prevent accidental deletes
