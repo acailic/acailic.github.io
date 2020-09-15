@@ -25,6 +25,24 @@ date: 2020-09-16
 - Cross Region Replication (CRR) - Use cases: compliance, lower latency access, replication across accounts
 - Same Region Replication (SRR) - Use cases: log aggregation, live replication between production and test accounts
 -	Buckets can be in different accounts. Copying is asynchronous. Must give proper IAM permissions to S3
+- After activating, only new objects are replicated (not retroactive)
+- For DELETE operations:
+If you delete without a version ID, it adds a delete marker, not replicated.
+If you delete with a version ID, it deletes in the source, not replicated.
+-	There is no “chaining” of replication
+### S3 Pre-Signed	URLs
+- Can generate pre-signed URLs using SDK or CLI. 	For downloads (easy, can use the CLI). For uploads (harder, must use the SDK)
+- Valid for a default of 3600 seconds, can change timeout with --expires-in [TIME_BY_SECONDS] argument
+- Users given a pre-signed URL inherit the permissions of the person who generated the URL for GET / PUT
+
+## S3 Storage Classes
+### Amazon S3 Standard - General Purpose
+### Amazon S3 Standard-Infrequent Access (IA)
+### Amazon S3 One Zone-Infrequent Access
+### Amazon S3 Intelligent Tiering
+### Amazon Glacier
+### Amazon Glacier Deep Archive
+
  
 
 
