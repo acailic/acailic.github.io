@@ -5,7 +5,7 @@ tags: [aws, cda, cloudformation]
 date: 2020-09-14
 ---
 
-### Introduction
+### Cloud Formation: Introduction
 
 - infrastracture as code, easy to recreate
 -  declarative way, pseudo code
