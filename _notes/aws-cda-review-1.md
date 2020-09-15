@@ -1,7 +1,7 @@
 ---
 title: AWS Cloud Formation
 layout: post
-tags: [aws, cda]
+tags: [aws, cda, cloudformation]
 date: 2020-09-14
 ---
 
