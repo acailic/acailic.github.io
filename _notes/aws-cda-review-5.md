@@ -89,10 +89,60 @@ date: 2020-09-16
 -	After cloning an environment, you can change settings
 
 #### Migration
+- After creating an Elastic Beanstalk environment, you cannot change the Elastic Load Balancer type (only the configuration)
+-	To migrate:
+1.	create a new environment with the same configuration except LB (can’t clone)
+2.	deploy your application onto the new environment
+3.	perform a CNAME swap or Route 53 update
+
 #### RDS
+- RDS can be provisioned with Beanstalk, which is great for dev / test
+- This is not great for prod as the database lifecycle is tied to the Beanstalk environment lifecycle
+- The best for prod is to separately create an RDS database and provide our EB application with the connection string
+- To migrate RDS:
+1.create a snapshot of RDS DB (as a safeguard)
+2.	Go to the RDS console and protect the RDS database from deletion
+3.	Create a new Elastic Beanstalk environment, without RDS, point your application to existing RDS
+4.	perform a CNAME swap (blue/green) or Route 53 update, confirm working
+5.	Terminate the old environment (RDS won’t be deleted)
+6.	Delete CloudFormation stack (in DELETE_FAILED state)
+
 #### Docker
 ##### Single Docker
+- Run your application as a single docker container
+-	Either provide:
+•	Dockerfile: Elastic Beanstalk will build and run the Docker container
+•	Dockerrun.aws.json (v1): Describe where *already built* Docker image is
+•	Image
+•	Ports
+•	Volumes
+•	Logging
+•	Etc...
+-	Beanstalk in Single Docker Container does not use ECS
+
 ##### Multiple Docker
+- Multi Docker helps run multiple containers per EC2 instance in EB
+- This will create for you:
+•	ECS Cluster
+•	EC2 instances, configured to use the ECS Cluster
+•	Load Balancer (in high availability mode)
+•	Task definitions and execution
+- Requires a config Dockerrun.aws.json (v2) at the root of source code
+- Dockerrun.aws.json is used to generate the ECS task definition
+- Your Docker images must be pre-built and stored in ECR for example
+##### HTTPS
+- Beanstalk with HTTPS
+•	Idea: Load the SSL certificate onto the Load Balancer
+•	Can be done from the Console (EB console, load balancer configuration)
+•	Can be done from the code: .ebextensions/securelistener-alb.config
+•	SSL Certificate can be provisioned using ACM (AWS Certificate Manager) or CLI
+•	Must configure a security group rule to allow incoming port 443 (HTTPS port)
+
+- Beanstalk redirect HTTP to HTTPS
+•	Configure your instances to redirect HTTP to HTTPS: https://github.com/awsdocs/elastic-beanstalk-samples/tree/master/configuration-files/aws-provided/security-configuration/https-redirect
+•	OR configure the Application Load Balancer (ALB only) with a rule
+•	Make sure health checks are not redirected (so they keep giving 200 OK)
+
 #### Web Server vs Worker Environment
 - If your application performs tasks that are long to complete, offload these tasks to a dedicated
 worker environment
