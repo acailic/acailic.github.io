@@ -84,6 +84,13 @@ If you delete with a version ID, it deletes in the source, not replicated.
 -	Amazon Glacier Deep Archive – for long term storage – cheaper:Standard (12 hours),	Bulk (48 hours),
 -	Minimum storage duration of 180 days
 
+
+### questions
+- MFA Delete forces users to use MFA tokens before deleting objects. It's an extra level of security to prevent accidental deletes
+- S3 CRR is used to replicate data from an S3 bucket to another one in a different region
+- Pre-Signed URL are temporary and grant time-limited access to some actions in your S3 bucket.
+- When a file is over 100 MB, Multi Part upload is recommended as it will upload many parts in parallel, maximizing the throughput of your bandwidth and also allowing for a smaller part to retry in case that part fails.
+- Athena -Serverless data analysis service allowing you to query data in S3
  
 
 
