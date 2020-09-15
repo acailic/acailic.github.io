@@ -18,7 +18,7 @@ date: 2020-09-16
 ### S3 Access Logs
 -	For audit purpose, you may want to log all access to S3 buckets.	Any request made to S3, from any account, authorized or denied, will be logged into another S3 bucket.
 -	That data can be analyzed using data analysis tools or Amazon Athena.
--	The log format is at: https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFo rmat.html
+-	The log format is at: https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
 - S3 Access Logs: Warning:	Do not set your logging bucket to be the monitored bucket.	It will create a logging loop, and your bucket will grow in size exponentially.
 ### S3 Replication (CRR & SRR)
 - Must enable versioning in source and destination
