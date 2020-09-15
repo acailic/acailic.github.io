@@ -27,4 +27,12 @@ Custom origin (HTTP)- ALB, EC2 instance, S3 website(static), any http backend
 - Separate caching of dynamic and static content. 
 - part of cache can be invalidated by CreateInvalidation API
 ### Security
--
+- GeoRestriction
+- HTTPS : viewer protocol policy, origin protocol policy
+- Signed URL/cookies. adding policy for expiration and ip ranges, trusted signers
+- CloudFront Signed Url vs S3 Pre-signed URL: CloudFront signed allow acces to a path no matter the origin. Account wide key-pair, filter by ip,date,expiration. Uses cache.
+S3 Pre-signed url - issues request as the person who pre-signed url. uses the iam key of signing iam. limited lifetime.
+
+### Questions
+- CloudFront Signed URL are commonly used to distribute paid content through dynamic CloudFront Signed URL generation.
+- S3 CRR allows you to replicate the data from one bucket in a region to another bucket in another region
