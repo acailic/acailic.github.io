@@ -27,3 +27,15 @@ date: 2020-09-14
 - mappings are fixed variables withing template. differentiate between environments, regions, types. values are hardcoded
 - !FindInMap [ MapName, ToplevleKey, SecondLevelKey] - returns a value from specific key
 - outputs are optional, we can import into other stacks if exported. cross stack colaboration. Export: Name: ValueName . !ImportValue ValueName .
+- conditionals - conditoinals on env, regions
+```yaml
+Conditions:
+  CreateProdResources: !Equals [!Ref EnvType, prod ]
+``` 
+- Intrisic functions: Ref, Fn:GetAtt, Fn:FindInMap, Fn:ImportValue, Fn:Join, Fn:Sub, conditions func (Fn::If, Fn:Not, Fn:Equals...)
+- Fn::Ref - parametars, resources. !Ref . like get of id.
+- Fn:GetAtt- get attributes for instances. !GetAtt EC2Instance.Availability
+- Fn:FindInMap -  !FindInMap [ MapName, ToplevleKey, SecondLevelKey] - returns a value from specific key
+- Fn:ImportValue - !ImportValue SSHSecurityGroup
+- Fn:Join - join values with a delimiter !Join [":", [a,b,c]}
+- Fn:Sub or !Sub - used to substitute variable from text. customize templates. 
