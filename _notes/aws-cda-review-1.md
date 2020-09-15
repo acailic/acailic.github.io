@@ -44,3 +44,8 @@ Conditions:
 - Cross vs NestedStack - Cross helpful when there are different lifecycles, with use of Outputs Exports and import values. Passing values into stacks.
 Nested is helpful for reuse. Its not shared, exp. reuse of load balancer.
 - StackSets- create/update/delete stacks acorss multiple accounts and regions with one operation. 
+
+## questions
+- Before being used by CloudFormation, your templates must be uploaded to AWS S3.
+- Export output name must be unique inside region
+- 
