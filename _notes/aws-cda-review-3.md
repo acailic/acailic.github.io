@@ -34,6 +34,9 @@ If you delete with a version ID, it deletes in the source, not replicated.
 - Can generate pre-signed URLs using SDK or CLI. 	For downloads (easy, can use the CLI). For uploads (harder, must use the SDK)
 - Valid for a default of 3600 seconds, can change timeout with --expires-in [TIME_BY_SECONDS] argument
 - Users given a pre-signed URL inherit the permissions of the person who generated the URL for GET / PUT
+- Use case: only logged in users for premium video on s3. Allow an list of users to download files by URL dynamicly. Allow temporary a user to upload a file to a precise location. 
+- aws configure set default.s3.signature_version s3v4
+- aws s3 presign s3:/link --expires-in 100 --region eu-west-1 
 
 ## S3 Storage Classes
 ### Amazon S3 Standard - General Purpose
