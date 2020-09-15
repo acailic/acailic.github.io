@@ -39,3 +39,8 @@ Conditions:
 - Fn:ImportValue - !ImportValue SSHSecurityGroup
 - Fn:Join - join values with a delimiter !Join [":", [a,b,c]}
 - Fn:Sub or !Sub - used to substitute variable from text. customize templates. 
+- Rollbacks: default everything gets rollback. Update fails- gets back to working state. 
+- CloudFormation - ChangeSet is applied after is reviewed to current stack.
+- Cross vs NestedStack - Cross helpful when there are different lifecycles, with use of Outputs Exports and import values. Passing values into stacks.
+Nested is helpful for reuse. Its not shared, exp. reuse of load balancer.
+- StackSets- create/update/delete stacks acorss multiple accounts and regions with one operation. 
