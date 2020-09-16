@@ -8,14 +8,28 @@ date: 2020-09-16
 ### Docker managment
 - To manage containers, we need a container management platform
 - Three choices:
-•	ECS: Amazon’s own platform
-•	Fargate: Amazon’s own Serverless platform
+•	ECS: Amazon’s own platform, “Classic” provision EC2 instances to run containers onto
+•	Fargate: Amazon’s own Serverless platform, ECS Serverless, no more EC2 to provision
 •	EKS: Amazon’s managed Kubernetes (open source)
 ## ECS
 - ECS Clusters are logical grouping of EC2 instances
 - EC2 instances run the ECS agent (Docker container)
 - The ECS agents registers the instance to the ECS cluster
 - The EC2 instances run a special AMI, made specifically for ECS
+-	EC2 instances must be created
+- We must configure the file /etc/ecs/ecs.config with the cluster name
+-	The EC2 instance must run an ECS agent
+-	EC2 instances can run multiple containers on the same type:
+•	You must not specify a host port (only container port)
+•	You should use an Application Load Balancer with the dynamic port mapping
+•	The EC2 instance security group must allow traffic from the ALB on all ports
+-	ECS tasks can have IAM Roles to execute actions against AWS
+-	Security groups operate at the instance level, not task level
+-	ECS does integrate with CloudWatch Logs:
+•	You need to setup logging at the task definition level
+•	Each container will have a different log stream
+•	The EC2 Instance Profile needs to have the correct IAM permissions
+
 #### ECS task definition
 -	Tasks definitions are metadata in JSON form to tell ECS how to run a Docker Container
 -	It contains crucial information around:
@@ -89,5 +103,9 @@ date: 2020-09-16
 -	So we manage infrastructure…
 -	With Fargate, it’s all Serverless! We don’t provision EC2 instances
 -	We just create task definitions, and AWS will run our containers for us
+-	Fargate is Serverless (no EC2 to manage)
+-	AWS provisions containers for us and assigns them ENI
+-	Fargate containers are provisioned by the container spec (CPU / RAM)
+-	Fargate tasks can have IAM Roles to execute actions against AWS
 
 
