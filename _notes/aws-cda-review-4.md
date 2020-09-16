@@ -12,7 +12,7 @@ date: 2020-09-16
 •	Fargate: Amazon’s own Serverless platform
 •	EKS: Amazon’s managed Kubernetes (open source)
 
-### ECS
+## ECS
 - ECS Clusters are logical grouping of EC2 instances
 - EC2 instances run the ECS agent (Docker container)
 - The ECS agents registers the instance to the ECS cluster
@@ -32,6 +32,17 @@ date: 2020-09-16
 -	ECS Services help define how many tasks should run and how they should be run
 -	They ensure that the number of tasks desired is running across our fleet of EC2 instances.
 -	They can be linked to ELB / NLB / ALB if needed
+
+#### ECS IAM Role
+- EC2 Instance Profile:
+•	Used by the ECS agent
+•	Makes API calls to ECS service
+•	Send container logs to CloudWatch Logs
+•	Pull Docker image from ECR
+- ECS Task Role:
+•	Allow each task to have a specific role
+•	Use different roles for the different ECS Services you run
+•	Task Role is defined in the task definition
 
 ### ECR
 -	So far we’ve been using Docker images from Docker Hub (public)
