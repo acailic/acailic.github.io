@@ -59,6 +59,7 @@ date: 2020-09-16
 - Console: upload zip file (creates new app version), and then deploy
 - CLI: create new app version using CLI (uploads zip), and then deploy
 - Elastic Beanstalk will deploy the zip on each EC2 instance, resolve dependencies and start the application
+- it uploads zip to s3
 
 ### Beanstalk Lifecycle Policy and Extension
 - Elastic Beanstalk can store at most 1000 application versions. If you don’t remove old versions, you won’t be able to deploy anymore
@@ -66,7 +67,7 @@ date: 2020-09-16
 -	Versions that are currently used won’t be deleted. Option not to delete the source bundle in S3 to prevent data loss
 - A zip file containing our code must be deployed to Elastic Beanstalk
 - All the parameters set in the UI can be configured with code using files
-- Requirements:
+- Requirements, so must be :
 •	in the .ebextensions/ directory in the root of source code
 •	YAML / JSON format
 •	.config extensions (example: logging.config)
@@ -130,6 +131,19 @@ date: 2020-09-16
 - Requires a config Dockerrun.aws.json (v2) at the root of source code
 - Dockerrun.aws.json is used to generate the ECS task definition
 - Your Docker images must be pre-built and stored in ECR for example
+
+##### Custom Platform
+- uses  Packer
+- Custom Platforms are very advanced, they allow to define from scratch:
+•	The Operating System (OS)
+•	Additional Software
+•	Scripts that Beanstalk runs on these platforms
+-	Use case: app language is incompatible with Beanstalk & doesn’t use Docker
+•	To create your own platform:
+-	Define an AMI using Platform.yaml file
+•	Build that platform using the Packer software (open source tool to create AMIs)
+- Custom Platform vs Custom Image (AMI): custom platform is entire new and custom image is a tweak to exisiting platform
+
 ##### HTTPS
 - Beanstalk with HTTPS
 •	Idea: Load the SSL certificate onto the Load Balancer
