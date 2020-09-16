@@ -11,13 +11,12 @@ date: 2020-09-16
 •	ECS: Amazon’s own platform
 •	Fargate: Amazon’s own Serverless platform
 •	EKS: Amazon’s managed Kubernetes (open source)
-
 ## ECS
 - ECS Clusters are logical grouping of EC2 instances
 - EC2 instances run the ECS agent (Docker container)
 - The ECS agents registers the instance to the ECS cluster
 - The EC2 instances run a special AMI, made specifically for ECS
-####  ECS task definition
+#### ECS task definition
 -	Tasks definitions are metadata in JSON form to tell ECS how to run a Docker Container
 -	It contains crucial information around:
 •	Image Name
@@ -27,12 +26,36 @@ date: 2020-09-16
 •	Networking information
 •	IAM Role
 •	Logging configuration (ex CloudWatch)
-
 #### ECS Service
 -	ECS Services help define how many tasks should run and how they should be run
 -	They ensure that the number of tasks desired is running across our fleet of EC2 instances.
 -	They can be linked to ELB / NLB / ALB if needed
-
+#### ECS Task Placement
+-	When a task of type EC2 is launched, ECS must determine where to place it, with the constraints of CPU, memory, and available port. Similarly, when a service scales in, ECS needs to determine which task to terminate.
+-	To assist with this, you can define a task placement strategy and task placement constraints
+-	Note: this is only for ECS with EC2, not for Fargate
+#### ECS Task Placement Process
+-Task placement strategies are a best effort
+-	When Amazon ECS places tasks, it uses the following process to select container instances:
+1.	Identify the instances that satisfy the CPU, memory, and port requirements in the task definition.
+2.	Identify the instances that satisfy the task placement constraints.
+3.	Identify the instances that satisfy the task placement strategies.
+4.	Select the instances for task placement.
+-	Binpack: place tasks based on the least available amount of CPU or memory. This minimizes the number of instances in use (cost savings)
+- Random
+- Spread: place the task evenly based on the specified value. Example: instanceId, attribute:ecs.availability-zone
+- Mix them together.
+##### ECS Task Placement Constraints
+- distinctInstance: place each task on a different container instance
+- memberOf: places task on instances that satisfy an expression
+•	Uses the Cluster Query Language (advanced)
+#### ECS – Service Auto Scaling
+- CPU and RAM is tracked in CloudWatch at the ECS service level
+- Target Tracking: target a specific average CloudWatch metric
+- Step Scaling: scale based on CloudWatch alarms
+- Scheduled Scaling: based on predictable changes
+- ECS Service Scaling (task level) ≠ EC2 Auto Scaling (instance level)
+- Fargate Auto Scaling is much easier to setup (because serverless)
 #### ECS IAM Role
 - EC2 Instance Profile:
 •	Used by the ECS agent
@@ -43,8 +66,13 @@ date: 2020-09-16
 •	Allow each task to have a specific role
 •	Use different roles for the different ECS Services you run
 •	Task Role is defined in the task definition
-
-### ECR
+#### ECS CLuster 
+•	A Capacity Provider is used in association with a cluster to determine the infrastructure that a task runs on
+•	For ECS and Fargate users, the FARGATE and FARGATE_SPOT capacity providers are added automatically
+•	For Amazon ECS on EC2, you need to associate the capacity provider with an auto-scaling group
+•	When you run a task or a service, you define a capacity provider strategy, to prioritize in which provider to run.
+•	This allows the capacity provider to automatically provision infrastructure for you
+## ECR
 -	So far we’ve been using Docker images from Docker Hub (public)
 -	ECR is a private Docker image repository
 -	Access is controlled through IAM (permission errors => policy)
@@ -55,7 +83,6 @@ date: 2020-09-16
 -	Docker Push & Pull:
 •	docker push 1234567890.dkr.ecr.eu-west-1.amazonaws.com/demo:latest
 •	docker pull 1234567890.dkr.ecr.eu-west-1.amazonaws.com/demo:latest
-
 ### Fargate
 -	When launching an ECS Cluster, we have to create our EC2 instances
 -	If we need to scale, we need to add EC2 instances
