@@ -163,3 +163,14 @@ worker environment
 -	Decoupling your application into two tiers is common. Requests into ALB+ASG further put into SQS Queuqe + ASG
 -	Example: processing a video, generating a zip file, etc. You can define periodic tasks in a file cron.yaml
 
+### Questions
+- I would like to customize the runtime of Elastic Beanstalk and include some of my company wide security software. I should --> provide custom platform.
+- Environments in Elastic Beanstalk can be named freely.
+- Deployment to roll back quickly, this deployment mode terminates the temporary ASG that has the new version, while the current one is untouched and already running at capacity.
+- to create an ElastiCache with my Elastic Beanstalk environment i should create an elasicchache.config file in the .ebexstensions folder which is root of the code zup file and provide appropriate configuration
+- Elastic Beanstalk have been painfully slow, and after looking at the logs, I realize this is due to the fact that my dependencies are resolved on each EC2 machine at deployment time. How can I speed up my deployment with the minimal impact? - Resolve dependencies beforehand and package them in the zip file uploaded to ElasticBeanStalk
+- your Elastic Beanstalk environment to expose an HTTPS endpoint instead of an HTTP endpoint in order to get in-flight encryption between your clients and your web servers. What must be done to setup HTTPS on Beanstalk? - Create an .ebextension/elb.config file to configure the load balancer
+- how can you remove older versions that are not used by Elastic Beanstalk so that new versions can be created for your applications - Use lifecycle policy
+- https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-tiers.html
+- To perform a set of repetitive and scheduled tasks asynchronously. Which Elastic Beanstalk environment should you setup? - Setup a worker environment and a cron.yaml file.
+- You have created a test environment in Elastic Beanstalk and as part of that environment, you have created an RDS database. How can you make sure the database can be explored after the environment is destroyed ? - Make a snapshot of the db before its deleted 
