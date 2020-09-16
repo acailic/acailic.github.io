@@ -51,6 +51,7 @@ date: 2020-09-16
 •	eb deploy
 •	eb config
 •	eb terminate
+
 #### Deployment process
 - Describe dependencies(requirements.txt for Python, package.json for Node.js)
 - Package code as zip, and describe dependencies
@@ -139,8 +140,8 @@ date: 2020-09-16
 •	Additional Software
 •	Scripts that Beanstalk runs on these platforms
 -	Use case: app language is incompatible with Beanstalk & doesn’t use Docker
-•	To create your own platform:
--	Define an AMI using Platform.yaml file
+-	To create your own platform:
+•	Define an AMI using Platform.yaml file
 •	Build that platform using the Packer software (open source tool to create AMIs)
 - Custom Platform vs Custom Image (AMI): custom platform is entire new and custom image is a tweak to exisiting platform
 
@@ -151,7 +152,6 @@ date: 2020-09-16
 •	Can be done from the code: .ebextensions/securelistener-alb.config
 •	SSL Certificate can be provisioned using ACM (AWS Certificate Manager) or CLI
 •	Must configure a security group rule to allow incoming port 443 (HTTPS port)
-
 - Beanstalk redirect HTTP to HTTPS
 •	Configure your instances to redirect HTTP to HTTPS: https://github.com/awsdocs/elastic-beanstalk-samples/tree/master/configuration-files/aws-provided/security-configuration/https-redirect
 •	OR configure the Application Load Balancer (ALB only) with a rule
