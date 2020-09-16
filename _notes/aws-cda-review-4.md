@@ -108,4 +108,5 @@ date: 2020-09-16
 -	Fargate containers are provisioned by the container spec (CPU / RAM)
 -	Fargate tasks can have IAM Roles to execute actions against AWS
 
-
+### Questions
+-
