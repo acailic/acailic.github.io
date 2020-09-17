@@ -168,6 +168,25 @@ date: 2020-09-14
 •	Directly to an ASG
 •	Mix of ASG / Tags so you can build deployment segments
 •	Customization in scripts with DEPLOYMENT_GROUP_NAME environment variables
+- Rollbacks- 
+•	You can specify automated rollback options
+•	Roll back when a deployment fails
+•	Roll back when alarm thresholds are met
+•	Disable rollbacks — Do not perform rollbacks for this deployment.
+-	If a roll back happens, CodeDeploy redeploys the last known good revision as a new deployment.
+
+#####  CodeDeploy to EC2
+- Define how to deploy the application using appspec.yml + deployment strategy
+-	Will do in-place update to your fleet of EC2 instances
+-	Can use hooks to verify the deployment after each deployment phase
+#####  CodeDeploy to ASG
+- In place updates:
+•	Updates current existing EC2 instances
+•	Instances newly created by an ASG will also get automated deployments
+-	Blue / green deployment:
+•	A new auto-scaling group is created (settings are copied)
+•	Choose how long to keep the old instances
+•	Must be using an ELB
 
 ### CodeStar
 -	CodeStar is an integrated solution that regroups: GitHub, CodeCommit, CodeBuild, CodeDeploy, CloudFormation, CodePipeline, CloudWatch
