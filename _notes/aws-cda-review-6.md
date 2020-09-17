@@ -195,3 +195,30 @@ date: 2020-09-14
 -	Ability to integrate with Cloud9 to obtain a web IDE (not all regions)
 -	One dashboard to view all your components
 -	Free service, pay only for the underlying usage of other services. Limited customization.
+
+### Questions
+- AWS Service helps you run automated test in your CICD? - CodeBuild
+- looking to automatically trigger a code analysis at each commit in CodeCommit to ensure your developers haven't committed secret credentials. How can you achieve this? - Setup AWS SNS/Lambda integration in CodeCommit
+- You want to send email alerts anytime pull requests are open or comments are added to commits in CodeCommit. You should use: - AWS CloudWatch Events
+- CodeCommit doesn't support the following authentication - HTTP public access
+- You want to give a colleague that has an IAM User in another AWS Account access to your CodeCommit repository. How should you achieve that? - Setup IAM role in your account and tell him to use STS cross-account to assume that role
+-  CodePipeline hasn't deployed code to Elastic Beanstalk even though you've pushed code to your CodeCommit repository. It used to work 10 minutes ago. What reason is the most likely to explain that situation? - CodeBuild probably faileed some test.
+- Your manager wants to receive emails when your CodePipeline fails in order to take action. How do you do it? - Setup AWS CLoudWatch Event Rule
+- Which AWS Services allow you to track and audit API calls made to and from CodePipeline? - AWS CloudTrail
+- Where should the buildspec.yml file be placed in your code for CodeBuild to work properly? - At the root of your code
+- Your CodeBuild has failed. What isn't a solution to troubleshoot what happened? - SSH into the CodeBuild cointainer to debug. CodeBuild containers are deleted at the end of their execution (success or failed). You can't SSH into them, even while they're running
+- You would like to improve the performance of your CodeBuild build. You realize that 15 minutes at each build is spent on pulling dependencies from remote repositories and that takes a while. What should you do to drastically speed up the build time? - Change buildspec.yml to enable dependancies caching in amazon s3
+- You would like to deploy static web files to Amazon S3 automatically, after generating the static websites from markdown files. Which services should you use for this? - CodePipeline + CodeBuild. CodeBuild can run any commands, so you can use it to run commands including generating a static website and copy your static web files to Amazon S3.
+- What's the proper order of events in CodeDeploy? - Stop App, Before Install, After Install, Start App
+- Which hook step should be used in appspec.yml file to ensure the application is properly running after being deployed? - ValidateService
+- You've created a fleet of EC2 & on-premise instances and you're trying to run your first CodeDeploy. It doesn't work, why? - You probably forgotten to install and start the CodeDeploy agent.
+- You would like to have a one-stop dashboard for all the CICD needs of one of your projects. You don't need heavy control of the individual configuration of each components in your CICD, but need to be able to get a holistic view of your projects. Which service do you recommend? - CodeStar
+
+
+
+
+
+
+
+
+
