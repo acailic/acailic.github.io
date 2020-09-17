@@ -109,4 +109,17 @@ date: 2020-09-16
 -	Fargate tasks can have IAM Roles to execute actions against AWS
 
 ### Questions
--
+- Which ECS config must you enable in /etc/ecs/ecs.config to allow your ECS tasks to endorse IAM roles ? - ECS_ENABLE_TASK_IAM_ROLE
+- Any permissions issues against ECR is most likely due to IAM policies.
+- run multiple instances of the same application on the same EC2 instance and expose it with a load balancer. The application is available as a Docker container. - Use ALB+ECS, uses dynamic port feature
+-  running a web application on ECS, the Docker image is stored on ECR, and trying to launch two containers of the same type on EC2. The first container starts, but the second one doesn't. You have checked and there's enough CPU and RAM available on the EC2 instance - Host port is defined in thas definition, To enable random host port, set host port = 0 (or empty), which allows multiple containers of the same type to launch on the same instance
+-  EC2 instance and it's not registered with the ECS cluster. What's NOT a reason for this issue? - security groups do not matter when an instance registers with the ECS service
+- pull an image from ECR? (CLI v1) : 1. $ (aws ecr get-login --no-include-email) ; 2. docker pull $ECR_IMAGE_URL
+- to run 4 ECS services on your ECS cluster, which need access to various services. What is the best practice - create 4 ECS task roles and attache them to relevant ECS task definition
+- task cluster placement is the MOST cost-efficient - binpack
+
+
+
+
+
+
