@@ -175,11 +175,11 @@ date: 2020-09-14
 •	Disable rollbacks — Do not perform rollbacks for this deployment.
 -	If a roll back happens, CodeDeploy redeploys the last known good revision as a new deployment.
 
-#####  CodeDeploy to EC2
+##### CodeDeploy to EC2
 - Define how to deploy the application using appspec.yml + deployment strategy
 -	Will do in-place update to your fleet of EC2 instances
 -	Can use hooks to verify the deployment after each deployment phase
-#####  CodeDeploy to ASG
+##### CodeDeploy to ASG
 - In place updates:
 •	Updates current existing EC2 instances
 •	Instances newly created by an ASG will also get automated deployments
