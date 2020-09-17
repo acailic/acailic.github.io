@@ -106,7 +106,7 @@ date: 2020-09-17
 - If the function is retried, you will see duplicate logs entries in CloudWatch Logs
 -	Can define a DLQ (dead-letter queue) – SNS or SQS – for failed processing (need correct IAM permissions)
 -	Asynchronous invocations allow you to speed up the processing if you don’t need to wait for the result (ex: you need 1000 files processed)
-Lambda - Asynchronous Invocations - Services
+- Lambda - Asynchronous Invocations - Services
 •	Amazon Simple Storage Service (S3)
 •	Amazon Simple Notification Service (SNS)
 •	Amazon CloudWatch Events / EventBridge
