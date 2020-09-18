@@ -171,3 +171,16 @@ scaling up to the number of active message groups.
 -	SQS FIFO:
 •	Messages with the same GroupID will be processed in order
 •	The Lambda function scales to the number of active message groups
+#### Lambda Destinations
+#### Lambda Execution Role (IAM Role)
+#### Lambda Resource Based	Policies
+#### Lambda Environment Variables
+#### Lambda Logging	& Monitoring
+#### Lambda Tracing	with X-Ray and by default
+#### Lambda in VPC
+#### Lambda function configuration
+#### Lambda Execution Context
+#### Lambda	Functions /tmp space
+#### Lambda Concurrency and	Throttling
+#### Lambda	Function Dependencies
+#### Lambda	Layers
