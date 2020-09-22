@@ -403,3 +403,29 @@ check the health of the Lambda function
 • Remember the AWS Lambda limits
 • Use Layers where necessary
 • Avoid using recursive code, never have a Lambda function call itself
+### Questions 
+- Which is NOT supported by AWS Lambda? - Docker
+- You have a Lambda function that will process data for 25 minutes before successfully completing it. The code is working fine on your machine, but in AWS Lambda it just fails with a "timeout" issue after 3 seconds. What should you do? - Run code elswhere
+- Your lambda function is invoked asynchronously and some events fail from being processed after 3 retries. You'd like to collect and analyze these events later on. What should do you? - This is good as SQS will hold the message for some days so we have time to consume it
+- You have enabled a Lambda DLQ to SNS but you don't see any events there even though you can tell from CloudWatch metrics that you have failures... what is the most likely reason? - Your IAM execution role for lambda is missing permissions
+- You have enabled the Lambda and X-Ray integration but it doesn't work. Why is that? - need to check iam permissions
+- You get the following exception: An error occurred (InvalidParameterValueException) when calling the UpdateFunctionCode operation: Unzipped size must be smaller than 262144000 bytes - The uncompressed zipe file exceeds AWS Lambda limits
+- You'd like to have a long string of 8 KB loaded in your Lambda code - Place it in code zip file
+- Every time you release a Lambda function version, it gets a new number and you have to manually update all the AWS components linked to your functions (event triggers etc...). What should you use? - use function aliases
+- You want to test out a new Lambda function version and ensure it can sustain production traffic. You are risk averse and don't want to take down your whole application. You should -Use aliases
+- You have an RDS instance and realize that every-time your AWS Lambda function is called, it re-establishes a connection to your database. You tell your developers to use a long live database connection string. They tell you... - Move the DB conneciton outside the function handler
+- Your Lambda function must use the Node.js drivers to connect to your RDS PostgreSQL database in your VPC. As such, how do you bundle your Lambda function to add the dependencies? - Put the function and the dependencies in on folder and zip them together
+- How do you declare a Lambda function with AWS CloudFormation? - upload all the code as zip to S3 and refer the object in AWS::Lambda::Function block.
+- You would like to deploy a Lambda function globally so that requests are filtered at the AWS edge locations. Which Lambda deployment mode do you need? - Lambda@Edge
+- What is the best way to store temporary files for your Lambda functions that will be discarded when the function stops running? - Use the local directory /tmp
+- You are looking to invoke an AWS Lambda function every hour (similar to a cron job) in a serverless way. Which event source should you use for your AWS Lambda function?- CloudWatch events https://docs.aws.amazon.com/lambda/latest/dg/with-scheduled-events.html
+- How can a Lambda function be integrated with an ALB?- With a target group
+- A Lambda function invoked by S3 Events has been doing some duplicate logging into CloudWatch Logs with the same request ID. Why? -function failed and retries happened
+- Which of the following service does NOT require an event source mapping? -SNS, its asynchrounous
+- What is the best way to send the result of an asynchronous Lambda function to SQS? -Use destination
+- A Python dependency takes 5 minutes to natively compile for Lambda and therefore deployments have been really slow. What do you suggest? -Create a lambda layer
+- 
+
+
+
+
