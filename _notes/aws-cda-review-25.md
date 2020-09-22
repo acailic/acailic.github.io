@@ -8,42 +8,44 @@ date: 2020-09-17
 ### AWS DynamoDB
 #### Traditional Architecture
 - Traditional applications leverage RDBMS databases
-• These databases have the SQL query language
-• Strong requirements about how the data should be modeled
-• Ability to do join, aggregations, computations
-• Vertical scaling (means usually getting a more powerful CPU / RAM / IO)
+- These databases have the SQL query language
+- Strong requirements about how the data should be modeled
+- Ability to do join, aggregations, computations
+- Vertical scaling (means usually getting a more powerful CPU / RAM / IO)
 #### NoSQL databases
-• NoSQL databases are non-relational databases and are distributed
-• NoSQL databases include MongoDB, DynamoDB, etc.
-• NoSQL databases do not support join
-• All the data that is needed for a query is present in one row
-• NoSQL databases don’t perform aggregations such as “SUM”
-• NoSQL databases scale horizontally
-• There’s no “right or wrong” for NoSQL vs SQL, they just require to
+- NoSQL databases are non-relational databases and are distributed
+- NoSQL databases include MongoDB, DynamoDB, etc.
+- NoSQL databases do not support join
+- All the data that is needed for a query is present in one row
+- NoSQL databases don’t perform aggregations such as “SUM”
+- NoSQL databases scale horizontally
+- There’s no “right or wrong” for NoSQL vs SQL, they just require to
 model the data differently and think about user queries differently
 ### DynamoDB
-• Fully Managed, Highly available with replication across 3 AZ
-• NoSQL database - not a relational database
-• Scales to massive workloads, distributed database
-• Millions of requests per seconds, trillions of row, 100s of TB of storage
-• Fast and consistent in performance (low latency on retrieval)
-• Integrated with IAM for security, authorization and administration
-• Enables event driven programming with DynamoDB Streams
+- Fully Managed, Highly available with replication across 3 AZ
+- NoSQL database - not a relational database
+- Scales to massive workloads, distributed database
+- Millions of requests per seconds, trillions of row, 100s of TB of storage
+- Fast and consistent in performance (low latency on retrieval)
+- Integrated with IAM for security, authorization and administration
+- Enables event driven programming with DynamoDB Streams
 • Low cost and auto scaling capabilities
-• DynamoDB is made of tables
-• Each table has a primary key (must be decided at creation time)
-• Each table can have an infinite number of items (= rows)
-• Each item has attributes (can be added over time – can be null)
-• Maximum size of a item is 400KB
-• Data types supported are:
+### DynamoDB- Basics
+- DynamoDB is made of tables
+- Each table has a primary key (must be decided at creation time)
+- Each table can have an infinite number of items (= rows)
+- Each item has attributes (can be added over time – can be null)
+- Maximum size of a item is 400KB
+- Data types supported are:
 • Scalar Types: String, Number, Binary, Boolean, Null
 • Document Types: List, Map
 • Set Types: String Set, Number Set, Binary Set
+- Nested stuff
 ### DynamoDB – Primary Keys
-• Option 1: Partition key only (HASH)
-• Partition key must be unique for each
+- Option 1: Partition key only (HASH)
+- Partition key must be unique for each
 item
-• Partition key must be “diverse” so
+- Partition key must be “diverse” so
 that the data is distributed
 • Example: user_id for a users table
 • Option 2: Partition key + Sort Key
