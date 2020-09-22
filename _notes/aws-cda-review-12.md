@@ -362,7 +362,4 @@ analytics and ETL
 - Which SQS FIFO message attribute allows two messages to be processed in order?- MessageGroupId
 - Which SQS FIFO message attribute allows two messages to be de-duplicated ? MessageDeduplicationId
 - In KCL, you can have a maximum of EC2 instances running in parallel equal to the number of shards in your Kinesis Stream.
-- If you currently have 10 active group messages (defined by GroupID) in your SQS FIFO queues, how many consumers can consume simultaneously? -you can have as many consumers as GroupID for your FIFO queues
--
--
- 
+-If you currently have 10 active group messages (defined by GroupID) in your SQS FIFO queues, how many consumers can consume simultaneously? -you can have as many consumers as GroupID for your FIFO queues
