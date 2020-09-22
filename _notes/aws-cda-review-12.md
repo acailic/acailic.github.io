@@ -342,3 +342,27 @@ analytics and ETL
 • Ordering at the shard level
 • Data expires after X days
 • Must provision throughput
+
+### Questions
+- You are preparing for the biggest day of sale of the year, where your traffic will increase by 100x. You have already setup SQS standard queue. What should you do?- Do nothing, SQS scales automatically
+- You would like messages to be processed by SQS consumers only after 5 minutes. What should you do?- INcrease the DelaySeconds parameters
+- Your consumers poll 10 messages at a time and finish processing them in 1 minute. You notice that your messages are processed twice, as other consumers also receive the messages. What should you do?- Increae the VisiblilityTimeout
+- One message keeps on being processed and makes your consumers crash one by one. That message has a bad format and you'd like to get rid of it automatically if that happens. How can you implement this?- Implement a DLG with a redrive policy.
+- Your SQS costs are extremely high. Upon closer look, you notice that your consumers are polling SQS too often and getting empty data as a result. What should you do?- Enable long pooling
+- You'd like your messages to be processed exactly once and in order. Which do you need?- SQS FIFO Queue 
+- You want to send messages of 1 MB to SQS. You need to? - use the SQS Extended Client Library
+- You'd like to send a message to 3 different applications all using SQS. You should?- use SNS+SQS Fan Out pattern
+- You have a Kinesis stream usually receiving 5MB/s of data and sending out 8 MB/s of data. You have provisioned 6 shards. Some days, your traffic spikes up to 2 times and you get a throughput exception. You should: 
+- u have a Kinesis stream usually receiving 5MB/s of data and sending out 8 MB/s of data. You have provisioned 6 shards. Some days, your traffic spikes up to 2 times and you get a throughput exception. You should: -Add more shards
+- You are sending a clickstream for your users navigating your website, all the way to Kinesis. It seems that the users data is not ordered in Kinesis, and the data for one individual user is spread across many shards. How to fix that problem?- You should use a partition key that represents the identity of the user
+- You intermittently get a ProvisionedThroughputExceeded Exception in your producing applications. You should: -Use exponential backoff on retries
+- We'd like to perform real time analytics on streams of data. The most appropriate product will be: Kinesis
+- We'd like for our big data to be loaded near real time to S3 or Redshift. We'd like to convert the data along the way. What should we use? Kinesis Streams + Kinesis Firehouse
+- You want to send email notifications to your users. You should use: SNS
+- Which SQS FIFO message attribute allows two messages to be processed in order?- MessageGroupId
+- Which SQS FIFO message attribute allows two messages to be de-duplicated ? MessageDeduplicationId
+- In KCL, you can have a maximum of EC2 instances running in parallel equal to the number of shards in your Kinesis Stream.
+- If you currently have 10 active group messages (defined by GroupID) in your SQS FIFO queues, how many consumers can consume simultaneously? -you can have as many consumers as GroupID for your FIFO queues
+-
+-
+ 
