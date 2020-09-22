@@ -262,49 +262,52 @@ Kinesis Streams with distributed applications sharing the read workload
 - Possibility to encrypt / decrypt data client side (harder)
 - VPC Endpoints available for Kinesis to access within VPC
 ####  AWS Kinesis Data Analytics
-• Perform real-time analytics on Kinesis Streams using SQL
-• Kinesis Data Analytics:
+- Perform real-time analytics on Kinesis Streams using SQL
+- Kinesis Data Analytics:
 • Auto Scaling
 • Managed: no servers to provision
 • Continuous: real time
-• Pay for actual consumption rate
-• Can create streams out of the real-time queries
+- Pay for actual consumption rate
+- Can create streams out of the real-time queries
 #### AWS Kinesis Firehose
-• Fully Managed Service, no administration
-• Near Real Time (60 seconds latency)
-• Load data into Redshift / Amazon S3 / ElasticSearch / Splunk
-• Automatic scaling
-• Support many data format (pay for conversion)
-• Pay for the amount of data going through Firehose
+- Fully Managed Service, no administration
+- Near Real Time (60 seconds latency)
+- Load data into Redshift / Amazon S3 / ElasticSearch / Splunk
+- Automatic scaling
+- Support many data format (pay for conversion)
+- Pay for the amount of data going through Firehose
 #### Ordering data into Kinesis
-• Imagine you have 100 trucks
+- Imagine you have 100 trucks
 (truck_1, truck_2, … truck_100) on
 the road sending their GPS positions
-regularly into AWS.
-• You want to consume the data in
+regularly into AWS. You want to consume the data in
 order for each truck, so that you can
 track their movement accurately.
-• How should you send that data into
-Kinesis?
-• Answer: send using a “Partition Key”
+- How should you send that data into
+Kinesis? Answer: send using a “Partition Key”
 value of the “truck_id”
-• The same key will always go to the
-same shard
+- The same key will always go to the
+same shard. track will go to same shard.
 #### Ordering data into SQS 
+- there is no ordering
+- for fifo if you dont use a groyp id, messages are consumed in the oder they are sent with only one consumer
+- You want to scale the number of consumers, but you want messages to be “grouped”
+when they are related to each other
+- Then you use a Group ID (similar to Partition Key in Kinesis)
 #### Kinesis vs SQS ordering
-• Let’s assume 100 trucks, 5 kinesis shards, 1 SQS FIFO
-• Kinesis Data Streams:
+- Let’s assume 100 trucks, 5 kinesis shards, 1 SQS FIFO
+- Kinesis Data Streams:
 • On average you’ll have 20 trucks per shard
 • Trucks will have their data ordered within each shard
 • The maximum amount of consumers in parallel we can have is 5
 • Can receive up to 5 MB/s of data
-• SQS FIFO
+- SQS FIFO
 • You only have one SQS FIFO queue
 • You will have 100 Group ID
 • You can have up to 100 Consumers (due to the 100 Group ID)
 • You have up to 300 messages per second (or 3000 if using batching)
 #### SQS vs SNS vs Kinesis
-SQS:
+- SQS:
 • Consumer “pull data”
 • Data is deleted after being
 consumed
@@ -316,7 +319,7 @@ throughput
 (except FIFO queues)
 • Individual message delay
 capability
-SNS:
+- SNS:
 • Push data to many
 subscribers
 • Up to 10,000,000
@@ -329,7 +332,7 @@ not delivered)
 throughput
 • Integrates with SQS for fanout
 architecture pattern
-Kinesis:
+- Kinesis:
 • Consumers “pull data”
 • As many consumers as we
 want
