@@ -144,92 +144,91 @@ failed items (using exponential back-off algorithm)
 • Up to 16 MB of data
 • Items are retrieved in parallel to minimize latency
 #### DynamoDB – Query
-• Query returns items based on:
+- Query returns items based on:
 • PartitionKey value (must be = operator)
 • SortKey value (=, <, <=, >, >=, Between, Begin) – optional
 • FilterExpression to further filter (client side filtering)
-• Returns:
+- Returns:
 • Up to 1 MB of data
 • Or number of items specified in Limit
-• Able to do pagination on the results
-• Can query table, a local secondary index, or a global secondary index
+- Able to do pagination on the results
+- Can query table, a local secondary index, or a global secondary index
 ####  DynamoDB - Scan
-• Scan the entire table and then filter out data (inefficient)
-• Returns up to 1 MB of data – use pagination to keep on reading
-• Consumes a lot of RCU
-• Limit impact using Limit or reduce the size of the result and pause
-• For faster performance, use parallel scans:
+- Scan the entire table and then filter out data (inefficient)
+- Returns up to 1 MB of data – use pagination to keep on reading
+- Consumes a lot of RCU
+- Limit impact using Limit or reduce the size of the result and pause
+- For faster performance, use parallel scans:
 • Multiple instances scan multiple partitions at the same time
 • Increases the throughput and RCU consumed
 • Limit the impact of parallel scans just like you would for Scans
-• Can use a ProjectionExpression + FilterExpression (no change to RCU)
+- Can use a ProjectionExpression + FilterExpression (no change to RCU)
 #### DynamoDB – LSI (Local Secondary Index)
-• Alternate range key for your table, local to the hash key
-• Up to five local secondary indexes per table.
-• The sort key consists of exactly one scalar attribute.
-• The attribute that you choose must be a scalar String, Number, or Binary
-• LSI must be defined at table creation time
+- Alternate range key for your table, local to the hash key
+- Up to five local secondary indexes per table.
+- The sort key consists of exactly one scalar attribute.
+- The attribute that you choose must be a scalar String, Number, or Binary
+- LSI must be defined at table creation time
 #### DynamoDB – GSI (Global Secondary Index)
-• To speed up queries on non-key attributes, use a Global Secondary Index
-• GSI = partition key + optional sort key
-• The index is a new “table” and we can project attributes on it
+- To speed up queries on non-key attributes, use a Global Secondary Index
+- GSI = partition key + optional sort key
+- The index is a new “table” and we can project attributes on it
 • The partition key and sort key of the original table are always projected (KEYS_ONLY)
 • Can specify extra attributes to project (INCLUDE)
 • Can use all attributes from main table (ALL)
-• Must define RCU / WCU for the index
-• Possibility to add / modify GSI (not LSI)
+- Must define RCU / WCU for the index
+- Possibility to add / modify GSI (not LSI)
 ####  DynamoDB Indexes and Throttling
-• GSI:
+- GSI:
 • If the writes are throttled on the GSI, then the main table will be throttled!
 • Even if the WCU on the main tables are fine
 • Choose your GSI partition key carefully!
 • Assign your WCU capacity carefully!
-• LSI:
+- LSI:
 • Uses the WCU and RCU of the main table
 • No special throttling considerations
 #### DynamoDB Concurrency
-• DynamoDB has a feature called “Conditional Update / Delete”
-• That means that you can ensure an item hasn’t changed before altering it
-• That makes DynamoDB an optimistic locking / concurrency database
+- DynamoDB has a feature called “Conditional Update / Delete”
+- That means that you can ensure an item hasn’t changed before altering it
+- That makes DynamoDB an optimistic locking / concurrency database
 #### DynamoDB - DAX
-• DAX = DynamoDB Accelerator
-• Seamless cache for DynamoDB, no application rewrite
-• Writes go through DAX to DynamoDB
-• Micro second latency for cached reads & queries
-• Solves the Hot Key problem (too many reads)
-• 5 minutes TTL for cache by default
-• Up to 10 nodes in the cluster
-• Multi AZ (3 nodes minimum recommended for
+- DAX = DynamoDB Accelerator, like cache
+- Seamless cache for DynamoDB, no application rewrite
+- Writes go through DAX to DynamoDB
+- Micro second latency for cached reads & queries
+- Solves the Hot Key problem (too many reads)
+- 5 minutes TTL for cache by default
+- Up to 10 nodes in the cluster
+- Multi AZ (3 nodes minimum recommended for
 production)
 • Secure (Encryption at rest with KMS, VPC, IAM,
 CloudTrail…)
+### DynamoDB – DAX vs ElastiCache
+- DAX individual object cache and elastic cache store as well aggregation result
 ####  DynamoDB Streams
-• Changes in DynamoDB (Create, Update, Delete) can end up in a DynamoDB Stream
-• This stream can be read by AWS Lambda & EC2 instances, and we can then do:
+- Changes in DynamoDB (Create, Update, Delete) can end up in a DynamoDB Stream
+- This stream can be read by AWS Lambda & EC2 instances, and we can then do:
 • React to changes in real time (welcome email to new users)
 • Analytics
 • Create derivative tables / views
 • Insert into ElasticSearch
-• Could implement cross region replication using Streams
-• Stream has 24 hours of data retention
+- Could implement cross region replication using Streams; now its embedded
+- Stream has 24 hours of data retention
 - Choose the information that will be written to the stream whenever
 the data in the table is modified:
 • KEYS_ONLY — Only the key attributes of the modified item.
 • NEW_IMAGE —The entire item, as it appears after it was modified.
 • OLD_IMAGE —The entire item, as it appeared before it was modified.
-• NEW_AND_OLD_IMAGES — Both the new and the old images of the item.
-• DynamoDB Streams are made of shards, just like Kinesis Data Streams
-• You don’t provision shards, this is automated by AWS
-• Records are not retroactively populated in a stream after enabling it
+• NEW_AND_OLD_IMAGES — Both the new and the old images of the item. useful but expensive
+- DynamoDB Streams are made of shards, just like Kinesis Data Streams
+- You don’t provision shards, this is automated by AWS
+- Records are not retroactively populated in a stream after enabling it
 #### DynamoDB Streams & Lambda
 - You need to define an Event
 Source Mapping to read from
 a DynamoDB Streams
-• You need to ensure the
-Lambda function has the
-appropriate permissions
-• Your Lambda function is
-invoked synchronously
+- You need to ensure the Lambda function has the appropriate permissions
+- Your Lambda function is invoked synchronously
 #### DynamoDB - TTL (Time to Live)
 • TTL = automatically delete an item after an expiry date / time
 • TTL is provided at no extra cost, deletions do not use WCU / RCU
