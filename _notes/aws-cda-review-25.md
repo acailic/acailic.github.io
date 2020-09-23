@@ -97,8 +97,7 @@ partition they go to
 • Total partitions = CEILING(MAX(Capacity, Size))
 - WCU and RCU are spread evenly between partitions
 ####  DynamoDB - Throttling
-- If we exceed our RCU or WCU, we get
-ProvisionedThroughputExceededExceptions
+- If we exceed our RCU or WCU, we get ProvisionedThroughputExceededExceptions
 - Reasons:
 • Hot keys: one partition key is being read too many times (popular item for ex)
 • Hot partitions:
