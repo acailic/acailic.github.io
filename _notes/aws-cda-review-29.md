@@ -7,11 +7,11 @@ date: 2020-09-14
 
 ## Other AWS Services
 ### AWS Certificate Manager (ACM)
-• To host public SSL certificates in AWS, you can:
+- To host public SSL certificates in AWS, you can:
 • Buy your own and upload them using the CLI
 • Have ACM provision and renew public SSL
 certificates for you (free of cost)
-• ACM loads SSL certificates on the following
+- ACM loads SSL certificates on the following
 integrations:
 • Load Balancers (including the ones created by EB)
 • CloudFront distributions
@@ -39,20 +39,23 @@ AWS infrastructure!
 • Lambda
 • Integrated with IAM for allowing to send emails
 ###  AWS Databases Summary
-• RDS: Relational databases, OLTP
+- RDS: Relational databases, OLTP
 • PostgreSQL, MySQL, Oracle…
 • Aurora + Aurora Serverless
 • Provisioned database
-• DynamoDB: NoSQL DB
+- DynamoDB: NoSQL DB
 • Managed, Key Value, Document
 • Serverless
-• ElastiCache: In memory DB
+- ElastiCache: In memory DB
 • Redis / Memcached
-• Cache capability
-• Redshift: OLAP – Analytic Processing
+• Cache capability, provisoned
+- Redshift: OLAP – Analytic Processing
 • Data Warehousing / Data Lake
 • Analytics queries
-• Neptune: Graph Database
-• DMS: Database Migration Service
-• DocumentDB: managed MongoDB
+- Neptune: Graph Database
+- DMS: Database Migration Service
+- DocumentDB: managed MongoDB
 for AWS
+
+### Questions
+- You need to load SSL certificates onto your Load Balancers and also have EC2 instances dynamically retrieve them when needed for service to service two way TLS communication. What service should you use to centrally manage these SSL certificates?-ACM
