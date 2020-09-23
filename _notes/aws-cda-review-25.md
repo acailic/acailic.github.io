@@ -230,15 +230,15 @@ a DynamoDB Streams
 - You need to ensure the Lambda function has the appropriate permissions
 - Your Lambda function is invoked synchronously
 #### DynamoDB - TTL (Time to Live)
-• TTL = automatically delete an item after an expiry date / time
-• TTL is provided at no extra cost, deletions do not use WCU / RCU
-• TTL is a background task operated by the DynamoDB service itself
-• Helps reduce storage and manage the table size over time
-• Helps adhere to regulatory norms
-• TTL is enabled per row (you define a TTL column, and add a date there)
-• DynamoDB typically deletes expired items within 48 hours of expiration
-• Deleted items due to TTL are also deleted in GSI / LSI
-• DynamoDB Streams can help recover expired items
+- TTL = automatically delete an item after an expiry date / time
+- TTL is provided at no extra cost, deletions do not use WCU / RCU
+- TTL is a background task operated by the DynamoDB service itself
+- Helps reduce storage and manage the table size over time
+- Helps adhere to regulatory norms
+- TTL is enabled per row (you define a TTL column, and add a date there)
+- DynamoDB typically deletes expired items within 48 hours of expiration
+- Deleted items due to TTL are also deleted in GSI / LSI
+- DynamoDB Streams can help recover expired items
 ##### DynamoDB CLI – Good to Know
 • --projection-expression : attributes to retrieve
 • --filter-expression : filter results
