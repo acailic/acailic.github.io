@@ -56,52 +56,57 @@ that the data is distributed
 • user_id for the partition key
 • game_id for the sort key
 ### DynamoDB – Provisioned Throughput
-• Table must have provisioned read and write capacity units
-• Read Capacity Units (RCU): throughput for reads
-• Write Capacity Units (WCU): throughput for writes
-• Option to setup auto-scaling of throughput to meet demand
-• Throughput can be exceeded temporarily using “burst credit”
-• If burst credit are empty, you’ll get a “ProvisionedThroughputException”.
-• It’s then advised to do an exponential back-off retry
+- Table must have provisioned read and write capacity units
+- Read Capacity Units (RCU): throughput for reads
+- Write Capacity Units (WCU): throughput for writes
+- Option to setup auto-scaling of throughput to meet demand
+- Throughput can be exceeded temporarily using “burst credit”
+- If burst credit are empty, you’ll get a “ProvisionedThroughputException”.
+- It’s then advised to do an exponential back-off retry
 #### DynamoDB – Write Capacity Units
-• One write capacity unit represents one write per second for an item up
+- One write capacity unit represents one write per second for an item up
 to 1 KB in size.
-• If the items are larger than 1 KB, more WCU are consumed
+- If the items are larger than 1 KB, more WCU are consumed
+- 10 obje per sec for 2KB each= 2*10WCU
+- 6 obj per sec of 4.5KB, 6*5 rounded, 30WCU 
 #### Strongly Consistent Read vs Eventually Consistent Read
-• Eventually Consistent Read: If we read
+- Eventually Consistent Read: If we read
 just after a write, it’s possible we’ll get
 unexpected response because of
 replication
-• Strongly Consistent Read: If we read just
+- Strongly Consistent Read: If we read just
 after a write, we will get the correct data
-• By default: DynamoDB uses Eventually
+- By default: DynamoDB uses Eventually
 Consistent Reads, but GetItem, Query &
 Scan provide a “ConsistentRead”
 parameter you can set to True
 #### DynamoDB – Read Capacity Units
-• One read capacity unit represents one strongly consistent read per second, or
+- One read capacity unit represents one strongly consistent read per second, or
 two eventually consistent reads per second, for an item up to 4 KB in size.
-• If the items are larger than 4 KB, more RCU are consumed
+- If the items are larger than 4 KB, more RCU are consumed
+- 10 strongly conistent reads pers sec of 4KB = 10*4/4=10RCU
+- 16 eventualy conistent reads pers sec of 12KB = (16/2)*(12/4)=24RCU
+- 10 strongly conistent reads pers sec of 6KB = 10*8/4=20RCU
 #### DynamoDB – Partitions Internal
-• Data is divided in partitions
+- Data is divided in partitions
 • Partition keys go through a hashing algorithm to know to which
 partition they go to
-• To compute the number of partitions:
+- To compute the number of partitions:
 • By capacity: (TOTAL RCU / 3000) + (TOTAL WCU / 1000)
 • By size: Total Size / 10 GB
 • Total partitions = CEILING(MAX(Capacity, Size))
-• WCU and RCU are spread evenly between partitions
+- WCU and RCU are spread evenly between partitions
 ####  DynamoDB - Throttling
-• If we exceed our RCU or WCU, we get
+- If we exceed our RCU or WCU, we get
 ProvisionedThroughputExceededExceptions
-• Reasons:
+- Reasons:
 • Hot keys: one partition key is being read too many times (popular item for ex)
 • Hot partitions:
 • Very large items: remember RCU and WCU depends on size of items
-• Solutions:
+- Solutions:
 • Exponential back-off when exception is encountered (already in SDK)
 • Distribute partition keys as much as possible
-• If RCU issue, we can use DynamoDB Accelerator (DAX)
+• If RCU issue, we can use DynamoDB Accelerator (DAX), its like a cache
 #### DynamoDB – Writing Data
 • PutItem - Write data to DynamoDB (create data or full replace)
 • Consumes WCU
