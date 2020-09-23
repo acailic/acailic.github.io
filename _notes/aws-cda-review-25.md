@@ -258,46 +258,53 @@ different tables at the same time
 - Read Modes: Eventual Consistency, Strong Consistency, Transactional
 - Consume 2x of WCU / RCU
 ####  DynamoDB as Session State Cache
-• It’s common to use DynamoDB to store session state
-• vs ElastiCache:
+- It’s common to use DynamoDB to store session state
+- vs ElastiCache:
 • ElastiCache is in-memory, but DynamoDB is serverless
 • Both are key/value stores
-• vs EFS:
+• question do you want serverless and automatic scalling
+- vs EFS:
 • EFS must be attached to EC2 instances as a network drive
-• vs EBS & Instance Store:
+- vs EBS & Instance Store:
 • EBS & Instance Store can only be used for local caching, not shared caching
-• vs S3:
+- vs S3:
 • S3 is higher latency, and not meant for small objects
 ##### DynamoDB Write Sharding
-• Imagine we have a voting application with two candidates, candidate A and
+- Imagine we have a voting application with two candidates, candidate A and
 candidate B.
-• If we use a partition key of candidate_id, we will run into partitions issues, as we
+- If we use a partition key of candidate_id, we will run into partitions issues, as we
 only have two partitions
-• Solution: add a suffix (usually random suffix, sometimes calculated suffix)
+- Solution: add a suffix (usually random suffix, sometimes calculated suffix); Candidate_A-1;
+#### DynamoDB – Write Types
+- Concurrent Writes
+- Conditional Writes
+- Atomic Writes
+- Batch Writes
+#### DynamoDB - Large Objects Pattern
+- upload to s3 big file and use metadata from file
+#### DynamoDB - Indexing s3
+- Upload metadata of files into DynamoDB and use api for search
 ##### DynamoDB Operations
-• Table Cleanup:
-• Option 1: Scan + Delete => very slow,
-expensive, consumes RCU & WCU
-• Option 2: Drop Table + Recreate table =>
-fast, cheap, efficient
-• Copying a DynamoDB Table:
+- Table Cleanup:
+• Option 1: Scan + Delete => very slow,expensive, consumes RCU & WCU
+• Option 2: Drop Table + Recreate table =>fast, cheap, efficient
+- Copying a DynamoDB Table:
 • Option 1: Use AWS DataPipeline (uses EMR)
 • Option 2: Create a backup and restore the
-backup into a new table name (can take some
-time)
+backup into a new table name (can take sometime)
 • Option 3: Scan + Write => write own code
 ##### DynamoDB – Security & Other Features
-• Security:
+- Security:
 • VPC Endpoints available to access DynamoDB without internet
 • Access fully controlled by IAM
 • Encryption at rest using KMS
 • Encryption in transit using SSL / TLS
-• Backup and Restore feature available
+- Backup and Restore feature available
 • Point in time restore like RDS
 • No performance impact
-• Global Tables
+- Global Tables
 • Multi region, fully replicated, high performance
-• Amazon DMS can be used to migrate to DynamoDB (from Mongo, Oracle, MySQL,
+- Amazon DMS can be used to migrate to DynamoDB (from Mongo, Oracle, MySQL,
 S3, etc…)
-• You can launch a local DynamoDB on your computer for development purposes
+- You can launch a local DynamoDB on your computer for development purposes
 ### Questions
