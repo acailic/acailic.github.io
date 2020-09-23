@@ -240,23 +240,23 @@ a DynamoDB Streams
 - Deleted items due to TTL are also deleted in GSI / LSI
 - DynamoDB Streams can help recover expired items
 ##### DynamoDB CLI – Good to Know
-• --projection-expression : attributes to retrieve
-• --filter-expression : filter results
-• General CLI pagination options including DynamoDB / S3:
-• Optimization:
+- --projection-expression : attributes to retrieve
+- --filter-expression : filter results
+- General CLI pagination options including DynamoDB / S3:
+- Optimization:
 • --page-size : full dataset is still received but each API call will request less data (helps avoid
 timeouts)
-• Pagination:
+- Pagination:
 • --max-items : max number of results returned by the CLI. Returns NextToken
 • --starting-token: specify the last received NextToken to keep on reading
 #### DynamoDB Transactions
-• New feature from November 2018
-• Transaction = Ability to Create / Update / Delete multiple rows in
+- New feature from November 2018
+- Transaction = Ability to Create / Update / Delete multiple rows in
 different tables at the same time
-• It’s an “all or nothing” type of operation.
-• Write Modes: Standard, Transactional
-• Read Modes: Eventual Consistency, Strong Consistency, Transactional
-• Consume 2x of WCU / RCU
+- It’s an “all or nothing” type of operation.
+- Write Modes: Standard, Transactional
+- Read Modes: Eventual Consistency, Strong Consistency, Transactional
+- Consume 2x of WCU / RCU
 ####  DynamoDB as Session State Cache
 • It’s common to use DynamoDB to store session state
 • vs ElastiCache:
