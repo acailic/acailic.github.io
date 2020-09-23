@@ -224,8 +224,7 @@ the data in the table is modified:
 - You don’t provision shards, this is automated by AWS
 - Records are not retroactively populated in a stream after enabling it
 #### DynamoDB Streams & Lambda
-- You need to define an Event
-Source Mapping to read from
+- You need to define an EventSource Mapping to read from
 a DynamoDB Streams
 - You need to ensure the Lambda function has the appropriate permissions
 - Your Lambda function is invoked synchronously
@@ -308,3 +307,21 @@ backup into a new table name (can take sometime)
 S3, etc…)
 - You can launch a local DynamoDB on your computer for development purposes
 ### Questions
+- We have to provision the instance type for our DynamoDB database?-no
+- We have to provision read and write capacity units for our DynamoDB tables ?-yes
+- DynamoDB tables scale?-Horizontally
+- If my primary key is a combination of partition key and sort key, then?-Partition+SortKey must be unique
+- You are designing a blog post table. Which column will give us the best partition key for optimal distribution?-blog_id 
+- You are writing item of 8 KB in size at the rate of 12 per seconds. What WCU do you need?-96
+- You are doing strongly consistent read of 10 KB items at the rate of 10 per second. What RCU do you need?-10 KB gets rounded to 12 KB, divided by 4KB = 3, times 10 per second = 30
+- You are doing 12 eventually consistent reads per second, and each item has a size of 16 KB. What RCU do you need?-we can do 2 eventually consistent reads per seconds for items of 4 KB with 1 RCU
+- We are getting a ProvisionedThroughputExceededExceptions but after checking the metrics, we see we haven't exceeded the total RCU we had provisioned. What happened?- Hot partition/hot key.remember RCU and WCU are spread across all partitions 
+- You are about to enter the Christmas sale and you know a few items in your website are very popular and will be read often. Last year you had a ProvisionedThroughputExceededException. What should you do this year?-Create a DAX cluster
+- How can you select the attributes to retrieve in the response while using the GetItem DynamoDB CLI?-ProjectionExpression
+- You want to delete all the data in your table. What's the best way of doing it?-DeleteTable and then CreateTable
+- You want to increase the performance of your scan operation. What should you do?- Use parallel scans
+- You want to use Query equal operation on a non key attribute. How can you do it?-Create a globall secondary index
+- You would like to have query for a non key attribute for the >= predicate while keeping the same partition key. You should-Create Local Secondary index
+- You would like to react in real-time to users de-activating their account and send them an email to try to bring them back. The best way of doing it is to ?-Integrate Lambda with Dynamo Stream
+- Which concurrency model can be implemented with DynamoDB?-Optimistic Locking
+- Which feature of DynamoDB allows it to achieve Optimistic Locking?-Conditional Writes
