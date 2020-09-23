@@ -105,41 +105,41 @@ partition they go to
 - Solutions:
 • Exponential back-off when exception is encountered (already in SDK)
 • Distribute partition keys as much as possible
-• If RCU issue, we can use DynamoDB Accelerator (DAX), its like a cache
+- If RCU issue, we can use DynamoDB Accelerator (DAX), its like a cache
 #### DynamoDB – Writing Data
-• PutItem - Write data to DynamoDB (create data or full replace)
+- PutItem - Write data to DynamoDB (create data or full replace)
 • Consumes WCU
-• UpdateItem – Update data in DynamoDB (partial update of attributes)
+- UpdateItem – Update data in DynamoDB (partial update of attributes)
 • Possibility to use Atomic Counters and increase them
-• Conditional Writes:
+- Conditional Writes:
 • Accept a write / update only if conditions are respected, otherwise reject
 • Helps with concurrent access to items
 • No performance impact
 #### DynamoDB – Deleting Data
-• DeleteItem
+- DeleteItem
 • Delete an individual row
-• Ability to perform a conditional delete
-• DeleteTable
+- Ability to perform a conditional delete
+- DeleteTable
 • Delete a whole table and all its items
 • Much quicker deletion than calling DeleteItem on all items
 #### DynamoDB – Batching Writes
-• BatchWriteItem
+- BatchWriteItem
 • Up to 25 PutItem and / or DeleteItem in one call
 • Up to 16 MB of data written
 • Up to 400 KB of data per item
-• Batching allows you to save in latency by reducing the number of API
+- Batching allows you to save in latency by reducing the number of API
 calls done against DynamoDB
-• Operations are done in parallel for better efficiency
-• It’s possible for part of a batch to fail, in which case we have the try the
+- Operations are done in parallel for better efficiency
+- It’s possible for part of a batch to fail, in which case we have the try the
 failed items (using exponential back-off algorithm)
 #### DynamoDB – Reading Data
-• GetItem:
+- GetItem:
 • Read based on Primary key
 • Primary Key = HASH or HASH-RANGE
 • Eventually consistent read by default
 • Option to use strongly consistent reads (more RCU - might take longer)
 • ProjectionExpression can be specified to include only certain attributes
-• BatchGetItem:
+- BatchGetItem:
 • Up to 100 items
 • Up to 16 MB of data
 • Items are retrieved in parallel to minimize latency
