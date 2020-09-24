@@ -128,29 +128,29 @@ must use the Envelope Encryption == GenerateDataKey API
 • You can request a Request Quotas increase through API or AWS support
 ##### KMS Request Quotas
 #### S3 Encryption for Objects
-• There are 4 methods of encrypting objects in S3
+- There are 4 methods of encrypting objects in S3
 • SSE-S3: encrypts S3 objects using keys handled & managed by AWS
 • SSE-KMS: leverage AWS Key Management Service to manage encryption keys
 • SSE-C: when you want to manage your own encryption keys
 • Client Side Encryption
-• It’s important to understand which ones are adapted to which situation
+- It’s important to understand which ones are adapted to which situation
 for the exam
 #### SSE-KMS
-• SSE-KMS: encryption using keys handled & managed by KMS
-• KMS Advantages: user control + audit trail
-• Object is encrypted server side
+- SSE-KMS: encryption using keys handled & managed by KMS
+- KMS Advantages: user control + audit trail
+- Object is encrypted server side
 • Must set header: “x-amz-server-side-encryption": ”aws:kms"
 #### SSE-KMS Deep Dive
-• SSE-KMS leverages the GenerateDataKey & Decrypt KMS API calls
-• These KMS API calls will show up in CloudTrail, helpful for logging
-• To perform SSE-KMS, you need:
+- SSE-KMS leverages the GenerateDataKey & Decrypt KMS API calls
+- These KMS API calls will show up in CloudTrail, helpful for logging
+- To perform SSE-KMS, you need:
 • A KMS Key Policy that authorizes the user / role
 • An IAM policy that authorizes access to KMS
 • Otherwise you will get an access denied error
-• S3 calls to KMS for SSE-KMS count against your KMS limits
+- S3 calls to KMS for SSE-KMS count against your KMS limits
 • If throttling, try exponential backoff
 • If throttling, you can request an increase in KMS limits
-• The service throttling is KMS, not Amazon S3
+- The service throttling is KMS, not Amazon S3
 #### S3 Bucket Policies – Force SSL
 #### S3 Bucket Policy – Force Encryption of SSE-KMS
 1. Deny incorrect encryption
@@ -162,13 +162,13 @@ uploaded un-encrypted
 • Note: could swap 2) for S3
 default encryption of SSE-KMS
 #### SSM Parameter Store
-• Secure storage for configuration and secrets
-• Optional Seamless Encryption using KMS
-• Serverless, scalable, durable, easy SDK
-• Version tracking of configurations / secrets
-• Configuration management using path & IAM
-• Notifications with CloudWatch Events
-• Integration with CloudFormation
+- Secure storage for configuration and secrets
+- Optional Seamless Encryption using KMS
+- Serverless, scalable, durable, easy SDK
+- Version tracking of configurations / secrets
+- Configuration management using path & IAM
+- Notifications with CloudWatch Events
+- Integration with CloudFormation
 #### SSM Parameter Store Hierarchy
 #### Standard and advanced parameter tiers
 #### Parameters Policies (for advanced parameters)
