@@ -210,3 +210,5 @@ configuration for your CodeBuild
 • Environment variables can reference secrets manager secrets
 -
 ### Questions
+- To enable encryption in flight, we need to have?-an HTTPS endpoint with a SSL certificate
+- Server side encryption means that the data is sent encrypted to the server first-false
