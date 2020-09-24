@@ -205,6 +205,8 @@ console.
 configuration for your CodeBuild
 - Secrets in CodeBuild:
 - Don’t store them as plaintext in environment variables
-- Instead…
+- Instead:
 • Environment variables can reference parameter store parameters
 • Environment variables can reference secrets manager secrets
+-
+### Questions
