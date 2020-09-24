@@ -212,3 +212,15 @@ configuration for your CodeBuild
 ### Questions
 - To enable encryption in flight, we need to have?-an HTTPS endpoint with a SSL certificate
 - Server side encryption means that the data is sent encrypted to the server first-false
+- In server side encryption, only the encryption happens on the server. Where does the decryption happen?-both happen on server side
+- In client side encryption, the server must know our encryption scheme to accept the data-False
+- We need to create User Keys in KMS before using the encryption features for EBS, S3, etc: false, we can use the aws managed service keys in KMS
+- We'd like to encrypt 400 KB of data. We should use: AWS KMS GenerateDataKey call and encrypt client side
+- We'd like our Lambda function to have access to a database password. We should: Have it as an encrypted environment variable and decrypt it at runtime
+- We would like to audit the values of an encryption value over time: We should use SSM Parameter Store
+- An EC2 instance is trying to download a file from S3 that is encrypted with SSE:KMS. It's getting a denied exception, even though the IAM policy allows access to that S3 object. What do you recommend?-Add permission for KMS:Decrypt
+- You would like to store secrets and have automatic rotation. What's your recommendation?- automatic rotation is natively supported in Secrets Manager
+- How to encrypt existing CloudWatch Logs?-Encrypt with them with the  associate-kms-key API call
+
+
+
