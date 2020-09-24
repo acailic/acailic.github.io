@@ -173,38 +173,38 @@ default encryption of SSE-KMS
 #### Standard and advanced parameter tiers
 #### Parameters Policies (for advanced parameters)
 #### AWS Secrets Manager
-• Newer service, meant for storing secrets
-• Capability to force rotation of secrets every X days
-• Automate generation of secrets on rotation (uses Lambda)
-• Integration with Amazon RDS (MySQL, PostgreSQL, Aurora)
-• Secrets are encrypted using KMS
-• Mostly meant for RDS integration
+- Newer service, meant for storing secrets
+- Capability to force rotation of secrets every X days
+- Automate generation of secrets on rotation (uses Lambda)
+- Integration with Amazon RDS (MySQL, PostgreSQL, Aurora)
+- Secrets are encrypted using KMS
+- Mostly meant for RDS integration
 #### SSM Parameter Store vs Secrets Manager
-• Secrets Manager ($$$):
+- Secrets Manager ($$$):
 • Automatic rotation of secrets with AWS Lambda
 • Integration with RDS, Redshift, DocumentDB
 • KMS encryption is mandatory
 • Can integration with CloudFormation
-• SSM Parameter Store ($):
+- SSM Parameter Store ($):
 • Simple API
 • No secret rotation
 • KMS encryption is optional
 • Can integration with CloudFormation
 • Can pull a Secrets Manager secret using the SSM Parameter Store API
 #### CloudWatch Logs - Encryption
-• You can encrypt CloudWatch logs with KMS keys
-• Encryption is enabled at the log group level, by associating a CMK with a
+- You can encrypt CloudWatch logs with KMS keys
+- Encryption is enabled at the log group level, by associating a CMK with a
 log group, either when you create the log group or after it exists.
-• You cannot associate a CMK with a log group using the CloudWatch
+- You cannot associate a CMK with a log group using the CloudWatch
 console.
-• You must use the CloudWatch Logs API:
+- You must use the CloudWatch Logs API:
 • associate-kms-key : if the log group already exists
 • create-log-group: if the log group doesn’t exist yet
 #### CodeBuild Security
-• To access resources in your VPC, make sure you specify a VPC
+- To access resources in your VPC, make sure you specify a VPC
 configuration for your CodeBuild
-• Secrets in CodeBuild:
-• Don’t store them as plaintext in environment variables
-• Instead…
+- Secrets in CodeBuild:
+- Don’t store them as plaintext in environment variables
+- Instead…
 • Environment variables can reference parameter store parameters
 • Environment variables can reference secrets manager secrets
