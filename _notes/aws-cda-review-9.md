@@ -81,12 +81,12 @@ strategies and the distribution)
 • The HTTP request is passed to the backend
 • The HTTP response from the backend is forwarded by API Gateway
 #### Mapping Templates (AWS & HTTP Integration)
-• Mapping templates can be used to modify request / responses
-• Rename / Modify query string parameters
-• Modify body content
-• Add headers
-• Uses Velocity Template Language (VTL): for loop, if etc…
-• Filter output results (remove unnecessary data)
+- Mapping templates can be used to modify request / responses
+- Rename / Modify query string parameters
+- Modify body content
+- Add headers
+- Uses Velocity Template Language (VTL): for loop, if etc…
+- Filter output results (remove unnecessary data)
 #### Mapping Example: JSON to XML with SOAP
 - SOAP API are XML based, whereas REST API are JSON based
 - In this case, API Gateway should:
@@ -95,32 +95,32 @@ strategies and the distribution)
 • Call SOAP service and receive XML response
 • Transform XML response to desired format (like JSON), and respond to the user
 #### AWS API Gateway Swagger / Open API spec
-• Common way of defining REST APIs, using API definition as code
-• Import existing Swagger / OpenAPI 3.0 spec to API Gateway
+- Common way of defining REST APIs, using API definition as code
+- Import existing Swagger / OpenAPI 3.0 spec to API Gateway
 • Method
 • Method Request
 • Integration Request
 • Method Response
 • + AWS extensions for API gateway and setup every single option
-• Can export current API as Swagger / OpenAPI spec
-• Swagger can be written in YAML or JSON
-• Using Swagger we can generate SDK for our applications
+- Can export current API as Swagger / OpenAPI spec
+- Swagger can be written in YAML or JSON
+- Using Swagger we can generate SDK for our applications
 #### Caching API responses
-• Caching reduces the number of calls made to
+- Caching reduces the number of calls made to
 the backend
-• Default TTL (time to live) is 300 seconds
+- Default TTL (time to live) is 300 seconds
 (min: 0s, max: 3600s)
-• Caches are defined per stage
-• Possible to override cache settings per
+- Caches are defined per stage
+- Possible to override cache settings per
 method
-• Cache encryption option
-• Cache capacity between 0.5GB to 237GB
-• Cache is expensive, makes sense in
+- Cache encryption option
+- Cache capacity between 0.5GB to 237GB
+- Cache is expensive, makes sense in
 production, may not make sense in dev / test
 #### API Gateway Cache Invalidation
-• Able to flush the entire cache (invalidate it) immediately
-• Clients can invalidate the cache with header: Cache-Control: max-age=0 (with proper IAM authorization)
-• If you don't impose an InvalidateCache policy (or choose the Require authorization check box in the console), any client can invalidate the API cache
+- Able to flush the entire cache (invalidate it) immediately
+- Clients can invalidate the cache with header: Cache-Control: max-age=0 (with proper IAM authorization)
+- If you don't impose an InvalidateCache policy (or choose the Require authorization check box in the console), any client can invalidate the API cache
 #### API Gateway – Usage Plans & API Keys
 - If you want to make an API available as an offering ($) to your customers
 - Usage Plan:
@@ -142,35 +142,35 @@ deploy the APIs to stages.
 customers) who will be using your API.
 3. Create the usage plan with the desired throttle and quota limits.
 4. Associate API stages and API keys with the usage plan.
-• Callers of the API must supply an assigned API key in the x-api-key header in
+- Callers of the API must supply an assigned API key in the x-api-key header in
 requests to the API.
 #### API Gateway – Logging & Tracing
-• CloudWatch Logs:
+- CloudWatch Logs:
 • Enable CloudWatch logging at the Stage level (with Log Level)
 • Can override settings on a per API basis (ex: ERROR, DEBUG, INFO)
 • Log contains information about request / response body
-• X-Ray:
+- X-Ray:
 • Enable tracing to get extra information about requests in API Gateway
 • X-Ray API Gateway + AWS Lambda gives you the full picture
 #### API Gateway – CloudWatch Metrics
-• Metrics are by stage, Possibility to enable detailed metrics
-• CacheHitCount & CacheMissCount: efficiency of the cache
-• Count: The total number API requests in a given period.
-• IntegrationLatency: The time between when API Gateway relays a
+- Metrics are by stage, Possibility to enable detailed metrics
+- CacheHitCount & CacheMissCount: efficiency of the cache
+- Count: The total number API requests in a given period.
+- IntegrationLatency: The time between when API Gateway relays a
 request to the backend and when it receives a response from the
 backend.
-• Latency: The time between when API Gateway receives a request from
+- Latency: The time between when API Gateway receives a request from
 a client and when it returns a response to the client. The latency
 includes the integration latency and other API Gateway overhead.
-• 4XXError (client-side) & 5XXError (server-side)
+- 4XXError (client-side) & 5XXError (server-side)
 #### API Gateway Throttling
-• Account Limit
+- Account Limit
 • API Gateway throttles requests at10000 rps across all API
 • Soft limit that can be increased upon request
-• In case of throttling => 429 Too Many Requests (retriable error)
-• Can set Stage limit & Method limits to improve performance
-• Or you can define Usage Plans to throttle per customer
-• Just like Lambda Concurrency, one API that is overloaded, if not limited,
+- In case of throttling => 429 Too Many Requests (retriable error)
+- Can set Stage limit & Method limits to improve performance
+- Or you can define Usage Plans to throttle per customer
+- Just like Lambda Concurrency, one API that is overloaded, if not limited,
 can cause the other APIs to be throttled
 #### API Gateway - Errors
 - 4xx means Client errors
@@ -185,35 +185,33 @@ heavy loads.
 • 504: Integration Failure – ex Endpoint Request Timed-out Exception
 API Gateway requests time out after 29 second maximum
 #### AWS API Gateway - CORS
-• CORS must be enabled when you receive API calls from another
+- CORS must be enabled when you receive API calls from another
 domain.
-• The OPTIONS pre-flight request must contain the following headers:
+- The OPTIONS pre-flight request must contain the following headers:
 • Access-Control-Allow-Methods
 • Access-Control-Allow-Headers
 • Access-Control-Allow-Origin
-• CORS can be enabled through the console
+- CORS can be enabled through the console
 #### CORS – Enabled on the API Gateway
-#### API Gateway – Security
-IAM Permissions
-• Create an IAM policy authorization and attach to User / Role
-• Authentication = IAM | Authorization = IAM Policy
-• Good to provide access within AWS (EC2, Lambda, IAM users…)
-• Leverages “Sig v4” capability where IAM credential are in headers
-#### API Gateway – Resource Policies
-Resource policies (similar to Lambda Resource Policy)
-• Allow for Cross Account Access (combined with IAM Security)
-• Allow for a specific source IP address
-• Allow for a VPC Endpoint
+#### API Gateway – Security IAM Permissions
+- Create an IAM policy authorization and attach to User / Role
+- Authentication = IAM | Authorization = IAM Policy
+- Good to provide access within AWS (EC2, Lambda, IAM users…)
+- Leverages “Sig v4” capability where IAM credential are in headers
+#### API Gateway – Resource Policies Resource policies (similar to Lambda Resource Policy)
+- Allow for Cross Account Access (combined with IAM Security)
+- Allow for a specific source IP address
+- Allow for a VPC Endpoint
 #### API Gateway – Security Cognito User Pools
-• Cognito fully manages user lifecycle, token expires automatically
-• API gateway verifies identity automatically from AWS Cognito
-• No custom implementation required
-• Authentication = Cognito User Pools | Authorization = API Gateway Methods
+- Cognito fully manages user lifecycle, token expires automatically
+- API gateway verifies identity automatically from AWS Cognito
+- No custom implementation required
+- Authentication = Cognito User Pools | Authorization = API Gateway Methods
 #### API Gateway – Security Lambda Authorizer (formerly Custom Authorizers)
-• Token-based authorizer (bearer token) – ex JWT (JSON Web Token) or Oauth
-• A request parameter-based Lambda authorizer (headers, query string, stage var)
-• Lambda must return an IAM policy for the user, result policy is cached
-• Authentication = External | Authorization = Lambda function
+- Token-based authorizer (bearer token) – ex JWT (JSON Web Token) or Oauth
+- A request parameter-based Lambda authorizer (headers, query string, stage var)
+- Lambda must return an IAM policy for the user, result policy is cached
+- Authentication = External | Authorization = Lambda function
 ### API Gateway – Security – Summary
 - IAM:
 • Great for users / roles already within your AWS account, + resource policy for cross account
@@ -241,11 +239,11 @@ CORS
 • All features (except Native OpenID
 Connect / OAuth 2.0
 #### API Gateway – WebSocket API – Overview
-• What’s WebSocket?
+- What’s WebSocket?
 • Two-way interactive communication between a user’s browser and a server
 • Server can push information to the client
 • This enables stateful application use cases
-• WebSocket APIs are often used in real-time applications such as chat
+- WebSocket APIs are often used in real-time applications such as chat
 applications, collaboration platforms, multiplayer games, and financial
 trading platforms.
 • Works with AWS Services (Lambda, DynamoDB) or HTTP endpoints
