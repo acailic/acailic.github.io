@@ -72,4 +72,7 @@ CloudWatch Alarm
 - SAM is integrated with CodeDeploy to do deploy to Lambda aliases
 
 ### Questions
--
+- What are the two commands to run to upload Lambda functions and CloudFormation templates to AWS?:cloudformation package and cloudformation deploy
+- You have a CloudFormation template and it starts with:Transform: 'AWS::Serverless-2016-10-31'What does the Transform represent?: its a SAM template
+- Which of the following is NOT an added resource type by Serverless Application Model?: AWS::Serverless::UserPool
+- Which Policy should you insert in your serverless model template to give buckets access for read access?:S3ReadPolicy
