@@ -248,4 +248,16 @@ applications, collaboration platforms, multiplayer games, and financial
 trading platforms.
 - Works with AWS Services (Lambda, DynamoDB) or HTTP endpoints
 #### Questions
--
+- To make a serverless API, I should integrate API Gateway with:-Lambda
+- In order to redirect my API Gateway stage to the correct AWS Lambda alias, I should use:-Stage Variables
+- I want to test a whole new API (v2) but I'm worried about shifting all my traffic to it. The recommend way is to:-Create a canary release in my first environment
+- You would like to mask fields in the output data sent back by your Lambda function-Use mapping templates
+- Which specification allows you to import and export your API?-Swagger
+- Your API is getting hit with the same GET request over and over. Your lambda function is overloaded and your bill starts to substantially increase. The GET response returns the same payload and changes only daily. What should you do?- Enable Stage Cache
+- How can you invalidate the cache client side?-Pass the header Cache-Control: max-age=0
+- You would like to analyze the full picture of the latency of your API calls. You should use:-X-RAY
+- You would like to use your API from another domain. You need to:Enable CORS
+- You would like to validate 3rd party tokens provided in the Bearer Header for authentication. You need:Lambda Authorizer with API Gateway. ????
+- You would like to provide a Facebook login before your users call your API hosted by API Gateway. You need seamlessly authentication integration, you will use:-Cognito User Pools
+- You have created an API key and a Usage plan, yet using the API key doesn't work. What should be done?:You must associate the API key with the usage plan
+- Which metric can help you analyze integration & timeout issues between a Lambda function and API Gateway?-Integration latency
