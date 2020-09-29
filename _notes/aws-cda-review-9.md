@@ -261,3 +261,5 @@ trading platforms.
 - You would like to provide a Facebook login before your users call your API hosted by API Gateway. You need seamlessly authentication integration, you will use:-Cognito User Pools
 - You have created an API key and a Usage plan, yet using the API key doesn't work. What should be done?:You must associate the API key with the usage plan
 - Which metric can help you analyze integration & timeout issues between a Lambda function and API Gateway?-Integration latency
+- API Gateway supports real-time APIs through WebSocket
+- 
