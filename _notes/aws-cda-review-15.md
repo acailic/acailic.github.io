@@ -110,4 +110,30 @@ AD
 • Cannot be joined with on-premise AD
 
 ### Questions
--
+- We need to gain access to a Role in another AWS account. How is it done?: We should use the STS service to gain temporary credentials
+- An EC2 instance has an IAM instance role attached to it, providing it read and write access to the S3 bucket "my_bucket". You have tested the IAM instance role and both reads and writes are working. You then remove the IAM role from the EC2 instance and test both read and write again. Writes stopped working but Reads are still working. What is the likely cause of this behavior?:The S3 bucket policy authorizes reads. When evaluating an IAM policy of an EC2 instance doing actions on S3, the union of both the IAM policy of the EC2 instance and the bucket policy of the S3 bucket are taken into account.
+- What's this IAM policy allowing you to do?:
+Allowing you to assign IAM Roles to EC2 if they start with "RDS-"
+```
+{
+    "Version": "2012-10-17",
+    "Id": "Secret Policy",
+    "Statement": [
+        {
+            "Sid": "EC2",
+            "Effect": "Allow",
+            "Action": "ec2:*",
+            "Resource": "*"
+        },
+        {
+            "Sid": "Passrole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": "arn:aws:iam:::role/RDS-*"
+        }
+    ]
+}:  
+```
+- Your AWS account is now growing to 200 users and you would like to provide each of these users a personal space in the S3 bucket "my_company_space" with the prefix /home/<username>, where they have read/write access. How can you do this efficiently?:Create one customer-managed policy with dynamic variables and attach it to a group of all users
