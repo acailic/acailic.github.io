@@ -1,5 +1,5 @@
 ---
-title: AWS  Kinesis producers
+title: AWS  Kinesis 
 layout: post
 tags: [aws, sda, kineisis]
 date: 2020-09-30
