@@ -5,28 +5,28 @@ tags: [aws, cda, cognito]
 date: 2020-09-17
 ---
 ## Amazon Cognito
-• We want to give our users an identity so that they can interact with our
-application.
-• Cognito User Pools:
+- We want to give our users an identity so that they can interact with our
+application. like third party
+- Cognito User Pools:
 • Sign in functionality for app users
 • Integrate with API Gateway & Application Load Balancer
-• Cognito Identity Pools (Federated Identity):
+- Cognito Identity Pools (Federated Identity):
 • Provide AWS credentials to users so they can access AWS resources directly
 • Integrate with Cognito User Pools as an identity provider
-• Cognito Sync:
+- Cognito Sync:
 • Synchronize data from device to Cognito.
 • Is deprecated and replaced by AppSync
-• Cognito vs IAM: “hundreds of users”, ”mobile users”, “authenticate with SAML”
+- Cognito vs IAM: “hundreds of users”, ”mobile users”, “authenticate with SAML”
 
 ### Cognito User Pools (CUP) – User Features
-• Create a serverless database of user for your web & mobile apps
-• Simple login: Username (or email) / password combination
-• Password reset
-• Email & Phone Number Verification
-• Multi-factor authentication (MFA)
-• Federated Identities: users from Facebook, Google, SAML…
-• Feature: block users if their credentials are compromised elsewhere
-• Login sends back a JSON Web Token (JWT)
+- Create a serverless database of user for your web & mobile apps
+- Simple login: Username (or email) / password combination
+- Password reset
+- Email & Phone Number Verification
+- Multi-factor authentication (MFA)
+- Federated Identities: users from Facebook, Google, SAML…
+- Feature: block users if their credentials are compromised elsewhere
+- Login sends back a JSON Web Token (JWT)
 
 ### Cognito User Pools (CUP) - Integrations
 • CUP integrates with API Gateway and Application Load Balancer
@@ -45,7 +45,6 @@ Migrate User Lambda Trigger Migrate a user from an existing user directory to us
 pools
 Messages Custom Message Lambda Trigger Advanced customization and localization of messages
 Token Creation Pre Token Generation Lambda Trigger Add or remove attributes in Id tokens
-
 ### Cognito User Pools – Hosted Authentication UI
 • Cognito has a hosted
 authentication UI that you can
@@ -57,14 +56,14 @@ social logins, OIDC or SAML
 • Can customize with a custom
 logo and custom CSS
 ### Cognito Identity Pools (Federated Identities)
-• Get identities for “users” so they obtain temporary AWS credentials
-• Your identity pool (e.g identity source) can include:
+- Get identities for “users” so they obtain temporary AWS credentials
+- Your identity pool (e.g identity source) can include:
 • Public Providers (Login with Amazon, Facebook, Google, Apple)
 • Users in an Amazon Cognito user pool
 • OpenID Connect Providers & SAML Identity Providers
 • Developer Authenticated Identities (custom login server)
 • Cognito Identity Pools allow for unauthenticated (guest) access
-• Users can then access AWS services directly or through API Gateway
+- Users can then access AWS services directly or through API Gateway
 • The IAM policies applied to the credentials are defined in Cognito
 • They can be customized based on the user_id for fine grained control
 ### Cognito Identity Pools – Diagram Cognito Web
@@ -96,3 +95,6 @@ logo and custom CSS
 • Push Sync: silently notify across all devices when identity data changes
 • Cognito Stream: stream data from Cognito into Kinesis
 • Cognito Events: execute Lambda functions in response to events
+
+### Questions
+- 
