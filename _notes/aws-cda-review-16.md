@@ -30,29 +30,29 @@ application. like third party
 ### Cognito User Pools (CUP) - Integrations
 - CUP integrates with API Gateway and Application Load Balancer
 ### Cognito User Pools – Lambda Triggers
-User Pool Flow Operation Description
-Authentication
-Events
-Pre Authentication Lambda Trigger Custom validation to accept or deny the sign-in request
-Post Authentication Lambda Trigger Event logging for custom analytics
-Pre Token Generation Lambda Trigger Augment or suppress token claims
-Sign-Up Pre Sign-up Lambda Trigger Custom validation to accept or deny the sign-up
+- User Pool Flow Operation Description
+- Authentication Events
+- Pre Authentication Lambda Trigger Custom validation to accept or deny the sign-in request
+- Post Authentication Lambda Trigger Event logging for custom analytics
+- Pre Token Generation Lambda Trigger Augment or suppress token claims
+- Sign-Up 
+- Pre Sign-up Lambda Trigger Custom validation to accept or deny the sign-up
 request
-Post Confirmation Lambda Trigger Custom welcome messages or event logging for
+- Post Confirmation Lambda Trigger Custom welcome messages or event logging for
 custom analytics
-Migrate User Lambda Trigger Migrate a user from an existing user directory to user
+- Migrate User Lambda Trigger Migrate a user from an existing user directory to user
 pools
-Messages Custom Message Lambda Trigger Advanced customization and localization of messages
-Token Creation Pre Token Generation Lambda Trigger Add or remove attributes in Id tokens
+- Messages Custom Message Lambda Trigger Advanced customization and localization of messages
+- Token Creation Pre Token Generation Lambda Trigger Add or remove attributes in Id tokens
 ### Cognito User Pools – Hosted Authentication UI
-• Cognito has a hosted
+- Cognito has a hosted
 authentication UI that you can
 add to your app to handle signup
 and sign-in workflows
-• Using the hosted UI, you have a
+- Using the hosted UI, you have a
 foundation for integration with
 social logins, OIDC or SAML
-• Can customize with a custom
+- Can customize with a custom
 logo and custom CSS
 ### Cognito Identity Pools (Federated Identities)
 - Get identities for “users” so they obtain temporary AWS credentials
