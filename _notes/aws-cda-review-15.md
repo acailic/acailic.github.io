@@ -63,23 +63,23 @@ personal computer or on-premise server
 - On premise server best practice is to call STS to obtain temporary
 security credentials
 ### IAM Best Practices – IAM Roles
-• EC2 machines should have their own roles
-• Lambda functions should have their own roles
-• ECS Tasks should have their own roles
+- EC2 machines should have their own roles
+- Lambda functions should have their own roles
+- ECS Tasks should have their own roles
 (ECS_ENABLE_TASK_IAM_ROLE=true)
-• CodeBuild should have its own service role
-• Create a least-privileged role for any service that requires it
-• Create a role per application / lambda function (do not reuse roles)
+- CodeBuild should have its own service role
+- Create a least-privileged role for any service that requires it
+- Create a role per application / lambda function (do not reuse roles)
 ### IAM Best Practices – Cross Account Access
-• Define an IAM Role for another
+- Define an IAM Role for another
 account to access
-• Define which accounts can access
+- Define which accounts can access
 this IAM Role
-• Use AWS STS (Security Token
+- Use AWS STS (Security Token
 Service) to retrieve credentials and
 impersonate the IAM Role you
 have access to (AssumeRole API)
-• Temporary credentials can be valid
+- Temporary credentials can be valid
 between 15 minutes to 1 hour 
 ### Dynamic Policies
 - Policies decided in runtime, like per aws account username
@@ -96,14 +96,15 @@ between 15 minutes to 1 hour
 • Policy is deleted if you delete the IAM principal
 ### AWS Directory Services
 - AWS Managed Microsoft AD
-- Create your own AD in AWS, manage users
+• Create your own AD in AWS, manage users
 locally, supports MFA
 • Establish “trust” connections with your onpremise
 AD
 - AD Connector
-- Directory Gateway (proxy) to redirect to onpremise
+• Directory Gateway (proxy) to redirect to onpremise
 AD
-- Users are managed on the on-premise AD
+• Users are managed on the on-premise AD
+• just a proxy
 - Simple AD
-- AD-compatible managed directory on AWS
-- Cannot be joined with on-premise AD
+• AD-compatible managed directory on AWS
+• Cannot be joined with on-premise AD
