@@ -43,28 +43,18 @@ This option is similar to the write-through strategy wherein the application wri
 
 SNS and SQS can be used to create a fanout messaging scenario in which messages are "pushed" to multiple subscribers, which eliminates the need to periodically check or poll for updates and enables parallel asynchronous processing of the message by the subscribers. SQS can allow for later re-processing and dead letter queues. This is called the fan-out pattern.
 
-- ALB + ECS
-
+- Availability: ALB + ECS
 Amazon Elastic Container Service (ECS) is a highly scalable, high-performance container management service that supports Docker containers and allows you to easily run applications on a managed cluster of Amazon EC2 instances.
 Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones.
-
 When you use ECS with a load balancer such as ALB deployed across multiple Availability Zones, it helps provide a scalable and highly available REST API.
-
 API Gateway + Lambda
-
 Amazon API Gateway is a fully managed service that makes it easy for developers to publish, maintain, monitor, and secure APIs at any scale. Using API Gateway, you can create an API that acts as a “front door” for applications to access data, business logic, or functionality from your back-end services, such as EC2 or Lambda functions.
-
 - Define a dev environment with a single instance and a 'load test' environment that has settings close to production environment
-
 AWS Elastic Beanstalk makes it easy to create new environments for your application. You can create and manage separate environments for development, testing, and production use, and you can deploy any version of your application to any environment. Environments can be long-running or temporary. When you terminate an environment, you can save its configuration to recreate it later.
-
 It is common practice to have many environments for the same application. You can deploy multiple environments when you need to run multiple versions of an application. So for the given use-case, you can set up 'dev' and 'load test' environment.
 - Amazon EC2 Reserved Instances - Reserved instances can provide a capacity reservation, offering additional confidence in your ability to launch the number of instances you have reserved when you need them. You save money going with Reserved instances vs on-demand especially in a year's worth of time.
-
 Reserved Instances are not physical instances, but rather a billing discount applied to the use of On-Demand Instances in your account. These On-Demand Instances must match certain attributes, such as instance type and Region, to benefit from the billing discount. So, there is no performance difference between an On-Demand instance or a Reserved instance.Amazon EC2 Spot Instances - A Spot Instance is an unused EC2 instance that is available for less than the On-Demand price. Because Spot Instances enable you to request unused EC2 instances at steep discounts, you can lower your Amazon EC2 costs significantly. Spot instances are useful if your applications can be interrupted, like data analysis, batch jobs, background processing, and optional tasks. Spot instances can be pulled down anytime without prior notice. Hence, not the right choice for the current scenario.
-
 Amazon EC2 On-Demand Instances - With On-Demand Instances, you pay for compute capacity by the second with no long-term commitments. You have full control over its lifecycle—you decide when to launch, stop, hibernate, start, reboot, or terminate it. But, On-Demand instances cost a lot more than Reserved instances. Here, in our use case, we already know that the systems are required for a complete year, so making use of Reserved Instances discount makes a lot more sense.
-
 On-premise EC2 instance - On-premise implies the client has to maintain the physical machines, their capacity provisioning and maintenance. Not an option when the client is planning to move to AWS Cloud.
 - Specify a ProjectionExpression: A projection expression is a string that identifies the attributes you want. To retrieve a single attribute, specify its name. For multiple attributes, the names must be comma-separated.
 - Create an IAM role in account B with access to DynamoDB. Modify the trust policy of the role in Account B to allow the execution role of Lambda to assume this role. Update the Lambda function code to add the AssumeRole API call
@@ -76,9 +66,7 @@ Concurrency is the number of requests that a Lambda function is serving at any g
 
 To ensure that a function can always reach a certain level of concurrency, you can configure the function with reserved concurrency. When a function has reserved concurrency, no other function can use that concurrency. More importantly, reserved concurrency also limits the maximum concurrency for the function, and applies to the function as a whole, including versions and aliases. Therefore using reserved concurrency for Lambda function B would limit its maximum concurrency and allow Lambda function A to execute without getting throttled.
 - Increase the RAM assigned to your Lambda function
-
 AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume.
-
 In the AWS Lambda resource model, you choose the amount of memory you want for your function which allocates proportional CPU power and other resources. This means you will have access to more compute power when you choose one of the new larger settings. You can set your memory in 64MB increments from 128MB to 3008MB. You access these settings when you create a function or update its configuration. The settings are available using the AWS Management Console, AWS CLI, or SDKs. Therefore, by increasing the amount of memory available to the Lambda functions, you can run the compute-heavy workflows.
 
 -  !Ref
