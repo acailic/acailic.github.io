@@ -95,4 +95,9 @@ logo and custom CSS
 - Cognito Stream: stream data from Cognito into Kinesis
 - Cognito Events: execute Lambda functions in response to events
 ### Questions
-- 
+- You need to synchronize data offline between your mobile devices. You should use: Cognito sync
+- You need your clients to log in with Twitter and directly interact with your DynamoDB tables. You should use:Cognito Identity Pools
+- You would like to provide a Facebook login before your users call your API hosted by API Gateway. You need seamlessly authentication integration, you will use:Cognito User Pools
+- You would like to store the users that have successfully logged in to Cognito in RDS. What should you do?: Write a Post-Authentication hook with Lambda
+- What can you NOT customize in the Cognito hosted UI?:The underlying Javascript
+
