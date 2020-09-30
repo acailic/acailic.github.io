@@ -27,6 +27,9 @@ the execution to fail entirely.
 - Retrying failures - Retry: IntervalSeconds, MaxAttempts, BackoffRate
 - Moving on - Catch: ErrorEquals, Next
 - Best practice is to include data in the error messages
+### Step Functions – Standard vs Express
+- Standard: 1 year max duration. Execution rate 2k per sec, state trans 4k per account. Price per transition. Exactly once workflow execution
+- Express: 5min max duration, over 100k per sec, price by number of execution you run, duration, memory. At least once workflow exec.
 ### AWS AppSync - Overview
 - AppSync is a managed service that uses GraphQL
 - GraphQL makes it easy for applications to get exactly the data they need.
