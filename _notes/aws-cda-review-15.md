@@ -48,7 +48,9 @@ returns:
 - IAM policies area attached to group,users,roles
 - S3 bucket policies are attached to buckets
 - When evaluating if an IAM Principal can perform an operation X on bucket, the union of its assigned IAM Policies and s3 BUcket POlicies will be evaluated.
-
+### IAM PassRole
+- iam:passrole give a iam role to aws service, on setup
+- based on trust allows, trusted entities on pipeline, trusted relationships
 ### IAM Best Practices – General
 - Never use Root Credentials, enable MFA for Root Account
 - Grant Least Privilege
@@ -79,7 +81,6 @@ impersonate the IAM Role you
 have access to (AssumeRole API)
 • Temporary credentials can be valid
 between 15 minutes to 1 hour 
- 
 ### Dynamic Policies
 - Policies decided in runtime, like per aws account username
 ### Inline vs Managed Policies
@@ -99,10 +100,10 @@ between 15 minutes to 1 hour
 locally, supports MFA
 • Establish “trust” connections with your onpremise
 AD
-• AD Connector
-• Directory Gateway (proxy) to redirect to onpremise
+- AD Connector
+- Directory Gateway (proxy) to redirect to onpremise
 AD
-• Users are managed on the on-premise AD
-• Simple AD
-• AD-compatible managed directory on AWS
-• Cannot be joined with on-premise AD
+- Users are managed on the on-premise AD
+- Simple AD
+- AD-compatible managed directory on AWS
+- Cannot be joined with on-premise AD
