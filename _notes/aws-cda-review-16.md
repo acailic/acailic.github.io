@@ -27,9 +27,8 @@ application. like third party
 - Federated Identities: users from Facebook, Google, SAML…
 - Feature: block users if their credentials are compromised elsewhere
 - Login sends back a JSON Web Token (JWT)
-
 ### Cognito User Pools (CUP) - Integrations
-• CUP integrates with API Gateway and Application Load Balancer
+- CUP integrates with API Gateway and Application Load Balancer
 ### Cognito User Pools – Lambda Triggers
 User Pool Flow Operation Description
 Authentication
@@ -85,7 +84,7 @@ logo and custom CSS
 • Users can login through Public Social, OIDC, SAML & Cognito User Pools
 • Users can be unauthenticated (guests)
 • Users are mapped to IAM roles & policies, can leverage policy variables
-• CUP + CIP = manage user / password + access AWS services
+- CUP + CIP = manage user / password + access AWS services
 ### Cognito Sync
 - Deprecated – use AWS AppSync now
 - Store preferences, configuration, state of app
@@ -95,6 +94,5 @@ logo and custom CSS
 - Push Sync: silently notify across all devices when identity data changes
 - Cognito Stream: stream data from Cognito into Kinesis
 - Cognito Events: execute Lambda functions in response to events
-
 ### Questions
 - 
