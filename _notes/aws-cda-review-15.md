@@ -44,6 +44,11 @@ returns:
 1. if there an explicit DENY, end decision and DENY
 2. if there is ALLOW, end decision with ALLOW
 3. else DENY
+### AIM policies & S3 Bucket Policies
+- IAM policies area attached to group,users,roles
+- S3 bucket policies are attached to buckets
+- When evaluating if an IAM Principal can perform an operation X on bucket, the union of its assigned IAM Policies and s3 BUcket POlicies will be evaluated.
+
 ### IAM Best Practices – General
 - Never use Root Credentials, enable MFA for Root Account
 - Grant Least Privilege
