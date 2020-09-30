@@ -20,7 +20,7 @@ User Data is generally used to perform common automated configuration tasks and 
 By default, scripts entered as user data are executed with root user privileges - Scripts entered as user data are executed as the root user, hence do not need the sudo command in the script. Any files you create will be owned by root; if you need non-root users to have file access, you should modify the permissions accordingly in the script.
 By default, user data runs only during the boot cycle when you first launch an instance - By default, user data scripts and cloud-init directives run only during the boot cycle when you first launch an instance. You can update your configuration to ensure that your user data scripts and cloud-init directives run every time you restart your instance.
 - The health check type of your instance's Auto Scaling group, must be changed from EC2 to ELB by using a configuration file - By default, the health check configuration of your Auto Scaling group is set as an EC2 type that performs a status check of EC2 instances. To automate the replacement of unhealthy EC2 instances, you must change the health check type of your instance's Auto Scaling group from EC2 to ELB by using a configuration file.
-### Development with AWS
+## Development with AWS
 - AWS Kinesis Data Streams
 Amazon Kinesis Data Streams (KDS) is a massively scalable and durable real-time data streaming service. KDS can continuously capture gigabytes of data per second from hundreds of thousands of sources such as website clickstreams, database event streams, financial transactions, social media feeds, IT logs, and location-tracking events. The data collected is available in milliseconds to enable real-time analytics use cases such as real-time dashboards, real-time anomaly detection, dynamic pricing, and more.
 Amazon Kinesis Data Streams enables real-time processing of streaming big data. It provides ordering of records, as well as the ability to read and/or replay records in the same order to multiple Amazon Kinesis Applications. The Amazon Kinesis Client Library (KCL) delivers all records for a given partition key to the same record processor, making it easier to build multiple applications reading from the same Amazon Kinesis data stream (for example, to perform counting, aggregation, and filtering). Amazon Kinesis Data Streams is recommended when you need the ability for multiple applications to consume the same stream concurrently. For example, you have one application that updates a real-time dashboard and another application that archives data to Amazon Redshift. You want both applications to consume data from the same stream concurrently and independently.
@@ -81,6 +81,21 @@ AWS Lambda lets you run code without provisioning or managing servers. You pay o
 
 In the AWS Lambda resource model, you choose the amount of memory you want for your function which allocates proportional CPU power and other resources. This means you will have access to more compute power when you choose one of the new larger settings. You can set your memory in 64MB increments from 128MB to 3008MB. You access these settings when you create a function or update its configuration. The settings are available using the AWS Management Console, AWS CLI, or SDKs. Therefore, by increasing the amount of memory available to the Lambda functions, you can run the compute-heavy workflows.
 
-- 
+-  !Ref
+The intrinsic function Ref returns the value of the specified parameter or resource. When you specify a parameter's logical name, it returns the value of the parameter, when you specify a resource's logical name, it returns a value that you can typically use to refer to that resource such as a physical ID. Take a look at this YAML sample template:
+MyEIP:
+  Type: "AWS::EC2::EIP"
+  Properties:
+    InstanceId: !Ref MyEC2Instance
+Incorrect options:
 
+!GetAtt - This function returns the value of an attribute from a resource in the template. The YAML syntax is like so:
+
+!GetAtt logicalNameOfResource.attributeName
+
+!Param - This is not a valid function name. This option has been added as a distractor.
+
+!Join - This function appends a set of values into a single value, separated by the specified delimiter. The YAML syntax is like so:
+
+!Join [ delimiter, [ comma-delimited list of values ] ]
 
