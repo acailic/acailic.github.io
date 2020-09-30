@@ -69,32 +69,32 @@ logo and custom CSS
 ### Cognito Identity Pools – Diagram Cognito Web
 ### Cognito Identity Pools – Diagram with CUP
 ### Cognito Identity Pools – IAM Roles
-• Default IAM roles for authenticated and guest users
-• Define rules to choose the role for each user based on the user’s ID
-• You can partition your users’ access using policy variables
-• IAM credentials are obtained by Cognito Identity Pools through STS
-• The roles must have a “trust” policy of Cognito Identity Pools
+- Default IAM roles for authenticated and guest users
+- Define rules to choose the role for each user based on the user’s ID
+- You can partition your users’ access using policy variables
+- IAM credentials are obtained by Cognito Identity Pools through STS
+- The roles must have a “trust” policy of Cognito Identity Pools
 ###  Cognito User Pools vs Identity Pools
-• Cognito User Pools:
+- Cognito User Pools:
 • Database of users for your web and mobile application
 • Allows to federate logins through Public Social, OIDC, SAML…
 • Can customize the hosted UI for authentication (including the logo)]
 • Has triggers with AWS Lambda during the authentication flow
-• Cognito Identity Pools:
+- Cognito Identity Pools:
 • Obtain AWS credentials for your users
 • Users can login through Public Social, OIDC, SAML & Cognito User Pools
 • Users can be unauthenticated (guests)
 • Users are mapped to IAM roles & policies, can leverage policy variables
 • CUP + CIP = manage user / password + access AWS services
 ### Cognito Sync
-• Deprecated – use AWS AppSync now
-• Store preferences, configuration, state of app
-• Cross device synchronization (any platform – iOS, Android, etc…)
-• Offline capability (synchronization when back online)
-• Store data in datasets (up to 1MB), up to 20 datasets to synchronize
-• Push Sync: silently notify across all devices when identity data changes
-• Cognito Stream: stream data from Cognito into Kinesis
-• Cognito Events: execute Lambda functions in response to events
+- Deprecated – use AWS AppSync now
+- Store preferences, configuration, state of app
+- Cross device synchronization (any platform – iOS, Android, etc…)
+- Offline capability (synchronization when back online)
+- Store data in datasets (up to 1MB), up to 20 datasets to synchronize
+- Push Sync: silently notify across all devices when identity data changes
+- Cognito Stream: stream data from Cognito into Kinesis
+- Cognito Events: execute Lambda functions in response to events
 
 ### Questions
 - 
