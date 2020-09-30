@@ -78,18 +78,7 @@ Service) to retrieve credentials and
 impersonate the IAM Role you
 have access to (AssumeRole API)
 • Temporary credentials can be valid
-between 15 minutes to 1 hour
-### Advanced IAM - Authorization Model
-Evaluation of Policies, simplified
-1. If there’s an explicit DENY, end decision and DENY
-2. If there’s an ALLOW, end decision with ALLOW
-3. Else DENY
-### IAM Policies & S3 Bucket Policies
-• IAM Policies are attached to users, roles, groups
-• S3 Bucket Policies are attached to buckets
-• When evaluating if an IAM Principal can perform an operation X on a
-bucket, the union of its assigned IAM Policies and S3 Bucket Policies will
-be evaluated.
+between 15 minutes to 1 hour 
 ### Inline vs Managed Policies
 • AWS Managed Policy
 • Maintained by AWS
