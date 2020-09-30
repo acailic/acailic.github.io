@@ -79,20 +79,23 @@ impersonate the IAM Role you
 have access to (AssumeRole API)
 • Temporary credentials can be valid
 between 15 minutes to 1 hour 
+ 
+### Dynamic Policies
+- Policies decided in runtime, like per aws account username
 ### Inline vs Managed Policies
-• AWS Managed Policy
+- AWS Managed Policy
 • Maintained by AWS
 • Good for power users and administrators
 • Updated in case of new services / new APIs
-• Customer Managed Policy
+- Customer Managed Policy
 • Best Practice, re-usable, can be applied to many principals
 • Version Controlled + rollback, central change management
-• Inline
+- Inline
 • Strict one-to-one relationship between policy and principal
 • Policy is deleted if you delete the IAM principal
 ### AWS Directory Services
-• AWS Managed Microsoft AD
-• Create your own AD in AWS, manage users
+- AWS Managed Microsoft AD
+- Create your own AD in AWS, manage users
 locally, supports MFA
 • Establish “trust” connections with your onpremise
 AD
