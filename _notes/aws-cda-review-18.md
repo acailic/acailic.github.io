@@ -71,6 +71,28 @@ horizontal scaling
 • An ELB (EC2 Load Balancer) is a managed load balancer
 • AWS guarantees that it will be working
 • AWS takes care of upgrades, maintenance, high availability
+
+#### Types of load balancer on AWS
+• AWS has 3 kinds of managed Load Balancers
+• Classic Load Balancer (v1 - old generation) – 2009
+• HTTP, HTTPS, TCP
+• Application Load Balancer (v2 - new generation) – 2016
+• HTTP, HTTPS, WebSocket
+• Network Load Balancer (v2 - new generation) – 2017
+• TCP, TLS (secure TCP) & UDP
+• Overall, it is recommended to use the newer / v2 generation load balancers as they
+provide more features
+• You can setup internal (private) or external (public) ELBs
+### Load Balancer Good to Know
+• LBs can scale but not instantaneously – contact AWS for a “warm-up”
+• Troubleshooting
+• 4xx errors are client induced errors
+• 5xx errors are application induced errors
+• Load Balancer Errors 503 means at capacity or no registered target
+• If the LB can’t connect to your application, check your security groups!
+• Monitoring
+• ELB access logs will log all access requests (so you can debug per request)
+• CloudWatch Metrics will give you aggregate statistics (ex: connections count)
 • AWS provides only a few configuration knobs
 • It costs less to setup your own load balancer but it will be a lot more
 effort on your end.
