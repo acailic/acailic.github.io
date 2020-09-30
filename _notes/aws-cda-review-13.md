@@ -48,3 +48,6 @@ AWS AppSync GraphQL API:
 - OPENID_CONNECT: OpenID Connect provider / JSON Web Token
 - AMAZON_COGNITO_USER_POOLS
 - For custom domain & HTTPS, use CloudFront in front of AppSync
+### Questions
+- You need to orchestrate multiple Lambda functions and wait for the result of all of them before making a final computation. What do you recommend:Use Step functions parallel steps and then one final computation step
+- Which of the following does NOT allow for a real-time WebSocket API?:DynamoDB on its own does not push changes to the users and does not have a two-way communication. It's just a request/response database
