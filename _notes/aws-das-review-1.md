@@ -4,6 +4,17 @@ layout: post
 tags: [aws, sda, kineisis]
 date: 2020-09-30
 ---
+###  Collection Introduction
+- Real Time Immediate actions
+• Kinesis Data Streams (KDS)
+•Simple Queue Service (SQS)
+•Internet of Things (IoT)
+- Near real time Reactive actions
+•Kinesis Data Firehose (KDF)
+•Database Migration Service (DMS)
+- Batch Historical Analysis
+•Snowball
+•Data Pipeline
 
 ###  AWS Kinesis Overview
 • Kinesis is a managed alternative to Apache Kafka
