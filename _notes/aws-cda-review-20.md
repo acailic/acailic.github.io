@@ -248,23 +248,23 @@ data (sharding)
 • No backup and restore
 • Multi-threaded architecture
 #### Caching Implementation Considerations
-• Read more at: https://aws.amazon.com/caching/implementationconsiderations/
-• Is it safe to cache data? Data may be out of date, eventually consistent
-• Is caching effective for that data?
-• Pattern: data changing slowly, few keys are frequently needed
-• Anti patterns: data changing rapidly, all large key space frequently needed
-• Is data structured well for caching?
-• example: key value caching, or caching of aggregations results
-• Which caching design pattern is the most appropriate?
+- Read more at: https://aws.amazon.com/caching/implementationconsiderations/
+- Is it safe to cache data? Data may be out of date, eventually consistent
+- Is caching effective for that data?
+- Pattern: data changing slowly, few keys are frequently needed
+- Anti patterns: data changing rapidly, all large key space frequently needed
+- Is data structured well for caching?
+- example: key value caching, or caching of aggregations results
+- Which caching design pattern is the most appropriate?
 #### Lazy Loading / Cache-Aside / Lazy Population
-Pros
+- Pros
 • Only requested data is
 cached (the cache isn’t filled
 up with unused data)
 • Node failures are not fatal
 (just increased latency to
 warm the cache)
-• Cons
+- Cons
 • Cache miss penalty that
 results in 3 round trips,
 noticeable delay for that
@@ -288,23 +288,24 @@ strategy as well
 • Cache churn – a lot of the
 data will never be read
 #### Cache Evictions and Time-to-live (TTL)
-• Cache eviction can occur in three ways:
-• You delete the item explicitly in the cache
-• Item is evicted because the memory is full and it’s not recently used (LRU)
-• You set an item time-to-live (or TTL)
-• TTL are helpful for any kind of data:
-• Leaderboards
-• Comments
-• Activity streams
-• TTL can range from few seconds to hours or days
-• If too many evictions happen due to memory, you should scale up or out
+- Cache eviction can occur in three ways:
+- You delete the item explicitly in the cache
+- Item is evicted because the memory is full and it’s not recently used (LRU)
+- You set an item time-to-live (or TTL)
+- TTL are helpful for any kind of data:
+- Leaderboards
+- Comments
+- Activity streams
+- TTL can range from few seconds to hours or days
+- If too many evictions happen due to memory, you should scale up or out
 #### Final words of wisdom
-• Lazy Loading / Cache aside is easy to implement and works for many
+- Lazy Loading / Cache aside is easy to implement and works for many
 situations as a foundation, especially on the read side
-• Write-through is usually combined with Lazy Loading as targeted for the
+- Write-through is usually combined with Lazy Loading as targeted for the
 queries or workloads that benefit from this optimization
-• Setting a TTL is usually not a bad idea, except when you’re using Writethrough.
+- Setting a TTL is usually not a bad idea, except when you’re using Writethrough.
 Set it to a sensible value for your application
-• Only cache the data that makes sense (user profiles, blogs, etc…)
-• Quote: There are only two hard things in Computer Science: cache
+- Only cache the data that makes sense (user profiles, blogs, etc…)
+- Quote: There are only two hard things in Computer Science: cache
 invalidation and naming things
+### Questions
