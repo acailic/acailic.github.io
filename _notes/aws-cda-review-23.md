@@ -164,4 +164,12 @@ ex: (PUT 200 => PUT 200 => GET 200 (might be older version))
 ex: (DELETE 200 => GET 200)
 - Note: there’s no way to request “strong consistency”
 ### Questions
-- 
+- I tried creating an S3 bucket named "dev" but it didn't work. This is a new AWS Account and I have no buckets at all. What is the cause?-Bucket names must be globally unique and "dev" is already taken
+-  You've added files in your bucket and then enabled versioning. The files you've already added will have which version?-null
+-  Your client wants to make sure the encryption is happening in S3, but wants to fully manage the encryption keys and never store them in AWS. You recommend:- SSE-C
+-  Your company wants data to be encrypted in S3, and maintain control of the rotation policy for the encryption keys. You recommend:-SSE-KMS
+-  Your company does not trust S3 for encryption and wants it to happen on the application. You recommend:-Client Side Encryption
+-  The bucket policy allows our users to read/write files in the bucket, yet we were not able to perform a PutObject API call. What is your assessment?-Explicit DENY in an IAM policy will take precedence over a bucket policy permission. The IAM user has an explicit DENY in the attached IAM policy
+-  You have a website that loads files from another S3 bucket. When you try the URL of the files directly in your Chrome browser it works, but when the website you're visiting tries to load these files it doesn't. What's the problem?- CORS is not enabled
+- Which encryption method requires HTTPS?-SSE-C
+  
