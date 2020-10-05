@@ -107,4 +107,6 @@ Connect cannot access VPC endpoints
 - Site to Site VPN: VPN over public internet between on-premises DC and AWS
 - Direct Connect: direct private connection to a AWS
 #### Questions
-- 
+- You have set up an internet gateway in your VPC, but your EC2 instances still don't have access to the internet. Which of the following is **NOT** a possible issue?-security groups are stateful and if traffic can go out, then it can go back in
+- You would like to provide internet access to your instances in private subnets with IPv4, while making sure this solution requires the least amount of administration and scales seamlessly. What should you use?-NAT Gateway
+- Your EC2 instance in a private subnet must access the AWS APIs privately. You must keep all traffic within the AWS network. What do you recommend?-VPC Endpoints
