@@ -7,54 +7,54 @@ date: 2020-09-17
 
 ### Amazon S3
 - one of the main building blocks of AWS
-• It’s advertised as ”infinitely scaling” storage
-• It’s widely popular and deserves its own section
-• Many websites use Amazon S3 as a backbone
-• Many AWS services uses Amazon S3 as an integration as well
-• We’ll have a step-by-step approach to S3
+- It’s advertised as ”infinitely scaling” storage
+- It’s widely popular and deserves its own section
+- Many websites use Amazon S3 as a backbone
+- Many AWS services uses Amazon S3 as an integration as well
+- We’ll have a step-by-step approach to S3
 ### Amazon S3 allows people to store objects (files) in “buckets” (directories)
-• Buckets must have a globally unique name
-• Buckets are defined at the region level
-• Naming convention
-• No uppercase
-• No underscore
-• 3-63 characters long
-• Not an IP
-• Must start with lowercase letter or number
+- Buckets must have a globally unique name
+- Buckets are defined at the region level
+- Naming convention
+- No uppercase
+- No underscore
+- 3-63 characters long
+- Not an IP
+- Must start with lowercase letter or number
 ### Amazon S3 Overview - Objects
-• Objects (files) have a Key
-• The key is the FULL path:
+- Objects (files) have a Key
+- The key is the FULL path:
 • s3://my-bucket/my_file.txt
 • s3://my-bucket/my_folder1/another_folder/my_file.txt
-• The key is composed of prefix + object name
+- The key is composed of prefix + object name
 • s3://my-bucket/my_folder1/another_folder/my_file.txt
-• There’s no concept of “directories” within buckets
+- There’s no concept of “directories” within buckets
 (although the UI will trick you to think otherwise)
-• Just keys with very long names that contain slashes (“/”)
+- Just keys with very long names that contain slashes (“/”)
 ### Amazon S3 Overview – Objects (continued)
-• Object values are the content of the body:
-• Max Object Size is 5TB (5000GB)
-• If uploading more than 5GB, must use “multi-part upload”
-• Metadata (list of text key / value pairs – system or user metadata)
-• Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle
-• Version ID (if versioning is enabled)
+- Object values are the content of the body:
+- Max Object Size is 5TB (5000GB)
+- If uploading more than 5GB, must use “multi-part upload”
+- Metadata (list of text key / value pairs – system or user metadata)
+- Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle
+- Version ID (if versioning is enabled)
 ### Amazon S3 - Versioning
-• You can version your files in Amazon S3
-• It is enabled at the bucket level
-• Same key overwrite will increment the “version”: 1, 2, 3….
-• It is best practice to version your buckets
-• Protect against unintended deletes (ability to restore a version)
-• Easy roll back to previous version
-• Notes:
+- You can version your files in Amazon S3
+- It is enabled at the bucket level
+- Same key overwrite will increment the “version”: 1, 2, 3….
+- It is best practice to version your buckets
+- Protect against unintended deletes (ability to restore a version)
+- Easy roll back to previous version
+- Notes:
 • Any file that is not versioned prior to enabling versioning will have version “null”
 • Suspending versioning does not delete the previous versions
 ### S3 Encryption for Objects
-• There are 4 methods of encrypting objects in S3
-• SSE-S3: encrypts S3 objects using keys handled & managed by AWS
-• SSE-KMS: leverage AWS Key Management Service to manage encryption keys
-• SSE-C: when you want to manage your own encryption keys
-• Client Side Encryption
-• It’s important to understand which ones are adapted to which situation
+- There are 4 methods of encrypting objects in S3
+- SSE-S3: encrypts S3 objects using keys handled & managed by AWS
+- SSE-KMS: leverage AWS Key Management Service to manage encryption keys
+- SSE-C: when you want to manage your own encryption keys
+- Client Side Encryption
+- It’s important to understand which ones are adapted to which situation
 for the exam
 ### SSE-S3
 - SSE-S3: encryption using keys handled & managed by Amazon S3
