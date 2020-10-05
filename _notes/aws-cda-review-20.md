@@ -309,3 +309,18 @@ Set it to a sensible value for your application
 - Quote: There are only two hard things in Computer Science: cache
 invalidation and naming things
 ### Questions
+- My company would like to have a MySQL database that is going to be available even in case of a disaster in the AWS Cloud. I should setup:-Multi AZ
+- Our RDS database struggles to keep up with the demand of the users from our website. Our million users mostly read news, and we don't post news very often. Which solution will NOT help fix this problem?-RDS Multi AZ
+- We have setup read replicas on our RDS database, but our users are complaining that upon updating their social media posts, they do not see the update right away:-Read Replicas have asynchronous replication and therefore it's likely our users will only observe eventual consistency
+- Which RDS Classic (not Aurora) feature does not require us to change our SQL connection string?-Multi AZ keeps the same connection string regardless of which database is up. Read Replicas imply we need to reference them individually in our application as each read replica will have its own DNS name
+- You want to ensure your Redis cluster will always be available
+- Your application functions on an ASG behind an ALB. Users have to constantly log back in and you'd rather not enable stickiness on your ALB as you fear it will overload some servers. What should you do?-Store session data in ElastiCache
+- One analytics application is currently performing its queries against your main production database. These queries slow down the database which impacts the main user experience. What should you do to improve the situation?-Read Replicas will help as our analytics application can now perform queries against it, and these queries won't impact the main production database.
+- You have a requirement to use TDE (Transparent Data Encryption) on top of KMS. Which database technology does NOT support TDE on RDS?-PostgreSQL
+- Which RDS database technology does NOT support IAM authentication?-Oracle
+- You would like to ensure you have a database available in another region if a disaster happens to your main region. Which database do you recommend?-Global Databases allow.Global Databases allow you to have cross region replication.
+- You are managing a PostgreSQL database and for security reasons, you would like to ensure users are authenticated using short-lived credentials. What do you suggest doing?- Use PostgreSQL for RDS and authenticate using a token obtained through the RDS service. In this case, IAM is leveraged to obtain the RDS service token, so this is the IAM authentication use case. 
+- Your organisation wants to enforce SSL connections on your MySQL database:Apply a 'REQUIRE SSL' statement to all your users in your SQL database
+- You are implementing a caching strategy with ElastiCache and would like to ensure that only the data that is often requested will be loaded in ElastiCache, as your cache size is small. Which caching strategy should you implement?-Lazy Loading would only cache data that is actively requested from the database
+- You are serving web pages for a very dynamic website and you have a requirement to keep latency to a minimum for every single user when they do a read request. Writes can take longer to happen. Which caching strategy do you recommend?-Write-through, this has longer writes, but the reads are quick and the data is always updated in the cache.
+- 
