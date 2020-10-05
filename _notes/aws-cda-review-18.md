@@ -215,58 +215,58 @@ in the initial SSL handshake
 • The server will then find the correct
 certificate, or return the default one
 Note:
-• Only works for ALB & NLB (newer
+- Only works for ALB & NLB (newer
 generation), CloudFront
-• Does not work for CLB (older gen)
+- Does not work for CLB (older gen)
 ####  Elastic Load Balancers – SSL Certificates
-• Classic Load Balancer (v1)
-• Support only one SSL certificate
-• Must use multiple CLB for multiple hostname with multiple SSL certificates
-• Application Load Balancer (v2)
-• Supports multiple listeners with multiple SSL certificates
-• Uses Server Name Indication (SNI) to make it work
-• Network Load Balancer (v2)
-• Supports multiple listeners with multiple SSL certificates
-• Uses Server Name Indication (SNI) to make it work
+- Classic Load Balancer (v1)
+- Support only one SSL certificate
+- Must use multiple CLB for multiple hostname with multiple SSL certificates
+- Application Load Balancer (v2)
+- Supports multiple listeners with multiple SSL certificates
+- Uses Server Name Indication (SNI) to make it work
+- Network Load Balancer (v2)
+- Supports multiple listeners with multiple SSL certificates
+- Uses Server Name Indication (SNI) to make it work
 #### ELB – Connection Draining
-• Feature naming:
-• CLB: Connection Draining
-• Target Group: Deregistration Delay
+- Feature naming:
+- CLB: Connection Draining
+- Target Group: Deregistration Delay
 (for ALB & NLB)
-• Time to complete “in-flight requests” while
+- Time to complete “in-flight requests” while
 the instance is de-registering or unhealthy
-• Stops sending new requests to the instance
+- Stops sending new requests to the instance
 which is de-registering
-• Between 1 to 3600 seconds, default is 300
+- Between 1 to 3600 seconds, default is 300
 seconds
-• Can be disabled (set value to 0)
-• Set to a low value if your requests are short
+- Can be disabled (set value to 0)
+- Set to a low value if your requests are short
 #### What’s an Auto Scaling Group?
-• In real-life, the load on your websites and application can change
-• In the cloud, you can create and get rid of servers very quickly
-• The goal of an Auto Scaling Group (ASG) is to:
-• Scale out (add EC2 instances) to match an increased load
-• Scale in (remove EC2 instances) to match a decreased load
-• Ensure we have a minimum and a maximum number of machines running
-• Automatically Register new instances to a load balancer
+- In real-life, the load on your websites and application can change
+- In the cloud, you can create and get rid of servers very quickly
+- The goal of an Auto Scaling Group (ASG) is to:
+- Scale out (add EC2 instances) to match an increased load
+- Scale in (remove EC2 instances) to match a decreased load
+- Ensure we have a minimum and a maximum number of machines running
+- Automatically Register new instances to a load balancer
 #### ASGs have the following attributes
-• A launch configuration
-• AMI + Instance Type
-• EC2 User Data
-• EBS Volumes
-• Security Groups
-• SSH Key Pair
-• Min Size / Max Size / Initial Capacity
-• Network + Subnets Information
-• Load Balancer Information
-• Scaling Policies
+- A launch configuration
+- AMI + Instance Type
+- EC2 User Data
+- EBS Volumes
+- Security Groups
+- SSH Key Pair
+- Min Size / Max Size / Initial Capacity
+- Network + Subnets Information
+- Load Balancer Information
+- Scaling Policies
 #### Auto Scaling Alarms
-• It is possible to scale an ASG based on CloudWatch alarms
-• An Alarm monitors a metric (such as Average CPU)
-• Metrics are computed for the overall ASG instances
-• Based on the alarm:
-• We can create scale-out policies (increase the number of instances)
-• We can create scale-in policies (decrease the number of instances)
+- It is possible to scale an ASG based on CloudWatch alarms
+- An Alarm monitors a metric (such as Average CPU)
+- Metrics are computed for the overall ASG instances
+- Based on the alarm:
+- We can create scale-out policies (increase the number of instances)
+- We can create scale-in policies (decrease the number of instances)
 #### Auto Scaling New Rules
 • It is now possible to define ”better” auto scaling rules that are directly
 managed by EC2
