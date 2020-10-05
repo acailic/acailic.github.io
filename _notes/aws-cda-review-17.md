@@ -145,17 +145,17 @@ that).
 - Recommended for short-term and un-interrupted workloads, where
 you can't predict how the application will behave.
 #### EC2 Reserved Instances
-• Up to 75% discount compared to On-demand
-• Pay upfront for what you use with long term commitment
-• Reservation period can be 1 or 3 years
-• Reserve a specific instance type
-• Recommended for steady state usage applications (think database)
-• Convertible Reserved Instance
-• can change the EC2 instance type
-• Up to 54% discount
-• Scheduled Reserved Instances
-• launch within time window you reserve
-• When you require a fraction of day / week / month
+- Up to 75% discount compared to On-demand
+- Pay upfront for what you use with long term commitment
+- Reservation period can be 1 or 3 years
+- Reserve a specific instance type
+- Recommended for steady state usage applications (think database)
+- Convertible Reserved Instance
+- can change the EC2 instance type
+- Up to 54% discount
+- Scheduled Reserved Instances
+- launch within time window you reserve
+- When you require a fraction of day / week / month
 #### EC2 Spot Instances
 - Can get a discount of up to 90% compared to On-demand
 - Instances that you can “lose” at any point of time if your max price is less than the
@@ -169,57 +169,57 @@ current spot price
 • Not great for critical jobs or databases
 • Great combo: Reserved Instances for baseline + On-Demand & Spot for peaks
 #### EC2 Dedicated Hosts
-• Physical dedicated EC2 server for your use
-• Full control of EC2 Instance placement
-• Visibility into the underlying sockets / physical cores of the hardware
-• Allocated for your account for a 3 year period reservation
-• More expensive
-• Useful for software that have complicated licensing model (BYOL –
+- Physical dedicated EC2 server for your use
+- Full control of EC2 Instance placement
+- Visibility into the underlying sockets / physical cores of the hardware
+- Allocated for your account for a 3 year period reservation
+- More expensive
+- Useful for software that have complicated licensing model (BYOL –
 Bring Your Own License)
 • Or for companies that have strong regulatory or compliance needs
 #### EC2 Dedicated Instances
-• Instances running on
+- Instances running on
 hardware that’s dedicated to
 you
-• May share hardware with
+- May share hardware with
 other instances in same
 account
-• No control over instance
+- No control over instance
 placement (can move
 hardware after Stop / Start)
 #### Which host is right for me?
-• On demand: coming and staying in resort
+- On demand: coming and staying in resort
 whenever we like, we pay the full price
-• Reserved: like planning ahead and if we plan to
+- Reserved: like planning ahead and if we plan to
 stay for a long time, we may get a good
 discount.
-• Spot instances: the hotel allows people to bid
+- Spot instances: the hotel allows people to bid
 for the empty rooms and the highest bidder
 keeps the rooms. You can get kicked out at any
 time
-• Dedicated Hosts: We book an entire building
+- Dedicated Hosts: We book an entire building
 of the resort
 #### EC2 Pricing
-• EC2 instances prices (per hour) varies based on these parameters:
-• Region you’re in
-• Instance Type you’re using
-• On-Demand vs Spot vs Reserved vs Dedicated Host
-• Linux vs Windows vs Private OS (RHEL, SLES, Windows SQL)
-• You are billed by the second, with a minimum of 60 seconds.
-• You also pay for other factors such as storage, data transfer, fixed IP
+- EC2 instances prices (per hour) varies based on these parameters:
+- Region you’re in
+- Instance Type you’re using
+- On-Demand vs Spot vs Reserved vs Dedicated Host
+- Linux vs Windows vs Private OS (RHEL, SLES, Windows SQL)
+- You are billed by the second, with a minimum of 60 seconds.
+- You also pay for other factors such as storage, data transfer, fixed IP
 public addresses, load balancing
 • You do not pay for the instance if the instance is stopped
 #### What’s an AMI?
-• As we saw, AWS comes with base images such as:
+- As we saw, AWS comes with base images such as:
 • Ubuntu
 • Fedora
 • RedHat
 • Windows
 • Etc…
-• These images can be customised at runtime using EC2 User data
-• But what if we could create our own image, ready to go?
-• That’s an AMI – an image to use to create our instances
-• AMIs can be built for Linux or Windows machines
+- These images can be customised at runtime using EC2 User data
+- But what if we could create our own image, ready to go?
+- That’s an AMI – an image to use to create our instances
+- AMIs can be built for Linux or Windows machines
 #### Why would you use a custom AMI?
 • Using a custom built AMI can provide the following advantages:
 • Pre-installed packages needed
@@ -245,30 +245,30 @@ https://aws.amazon.com/ec2/instance-types/
 • M instance types are balanced
 • T2/T3 instance types are “burstable”
 #### Burstable Instances (T2)
-• AWS has the concept of burstable instances (T2 machines)
-• Burst means that overall, the instance has OK CPU performance.
-• When the machine needs to process something unexpected (a spike in
+- AWS has the concept of burstable instances (T2 machines)
+- Burst means that overall, the instance has OK CPU performance.
+- When the machine needs to process something unexpected (a spike in
 load for example), it can burst, and CPU can be VERY good.
-• If the machine bursts, it utilizes “burst credits”
-• If all the credits are gone, the CPU becomes BAD
-• If the machine stops bursting, credits are accumulated over time
-• Burstable instances can be amazing to handle unexpected traffic and
+- If the machine bursts, it utilizes “burst credits”
+- If all the credits are gone, the CPU becomes BAD
+- If the machine stops bursting, credits are accumulated over time
+- Burstable instances can be amazing to handle unexpected traffic and
 getting the insurance that it will be handled correctly
-• If your instance consistently runs low on credit, you need to move to a
+- If your instance consistently runs low on credit, you need to move to a
 different kind of non-burstable instance (all the ones described before).
 #### Elastic Network Interfaces (ENI)
-• Logical component in a VPC that represents a
+- Logical component in a VPC that represents a
 virtual network card
-• The ENI can have the following attributes:
-• Primary private IPv4, one or more secondary IPv4
-• One Elastic IP (IPv4) per private IPv4
-• One Public IPv4
-• One or more security groups
-• A MAC address
-• You can create ENI independently and attach
+- The ENI can have the following attributes:
+- Primary private IPv4, one or more secondary IPv4
+- One Elastic IP (IPv4) per private IPv4
+- One Public IPv4
+- One or more security groups
+- A MAC address
+- You can create ENI independently and attach
 them on the fly (move them) on EC2 instances
 for failover
-• Bound to a specific availability zone (AZ)
+- Bound to a specific availability zone (AZ)
 #### Questions
-- You plan on running an open-source MongoDB database year-round on EC2. Which instance launch mode should you choose?
+- You plan on running an open-source MongoDB database year-round on EC2. Which instance launch mode should you choose?- Reserved
 - 
