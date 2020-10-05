@@ -271,4 +271,7 @@ for failover
 - Bound to a specific availability zone (AZ)
 #### Questions
 - You plan on running an open-source MongoDB database year-round on EC2. Which instance launch mode should you choose?- Reserved
-- 
+- You are launching an EC2 instance in us-east-1 using this Python script snippet:
+(we will see SDK in a later section, for now just look at the code reference ImageId)
+ec2.create_instances(ImageId='ami-b23a5e7', MinCount=1, MaxCount=1)
+It works well, so you decide to deploy your script in us-west-1 as well. There, the script does not work and fails with "ami not found" error. What's the problem?
