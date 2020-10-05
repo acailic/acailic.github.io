@@ -125,4 +125,12 @@ reservation of Internet domain names
 - Domain Registrar != DNS
 • (But each domain registrar usually comes with some DNS features)
 ### Questions
+- You are launching an EC2 instance in us-east-1 using this Python script snippet:
+(we will see SDK in a later section, for now just look at the code reference ImageId)
+ec2.create_instances(ImageId='ami-b23a5e7', MinCount=1, MaxCount=1)
+It works well, so you decide to deploy your script in us-west-1 as well. There, the script does not work and fails with "ami not found" error. What's the problem?:AMI is region locked and the same ID cannot be used across regions
+- You would like to deploy a database technology and the vendor license bills you based on the physical cores and underlying network socket visibility. Which EC2 launch modes allow you to get visibility into them?:Dedicated Hosts
+- You are running a critical workload of three hours per week, on Monday. As a solutions architect, which EC2 Instance Launch Type should you choose to maximize the cost savings while ensuring the application stability?:Scheduled Reserved Instances
 - 
+-
+
