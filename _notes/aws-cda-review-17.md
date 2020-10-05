@@ -270,4 +270,5 @@ them on the fly (move them) on EC2 instances
 for failover
 • Bound to a specific availability zone (AZ)
 #### Questions
--
+- You plan on running an open-source MongoDB database year-round on EC2. Which instance launch mode should you choose?
+- 
