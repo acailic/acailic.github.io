@@ -159,4 +159,16 @@ can identify you, using your AWS credentials (access key & secret key)
 • If you use the SDK or CLI, the HTTP requests are signed for you
 • You should sign an AWS HTTP request using Signature v4 (SigV4)
 #### Questions
-- 
+- I have an on-premise personal server that I'd like to use to perform AWS API calls:you can't attach EC2 IAM roles to on premise servers.I should run `aws configure` and put my credentials there. Invalidate them when I'm done
+- My EC2 Instance does not have the permissions to perform an API call PutObject on S3. What should I do?:I should ask an administrator to attach a Policy to the IAM Role on my EC2 Instance that authorises it to do the API call
+- I need my colleagues help to debug my code. When he runs the application on his machine, it's working fine, whereas I get API authorisation exceptions. What should I do?:Compare his IAM policy and my IAM policy in the policy simulator to understand the differences
+- To get the instance id of my EC2 machine from the EC2 machine, the best thing is to:Query the meta data at http://169.254.169.254/latest/meta-data
+- The AWS CLI depends on which language?:Python
+- I'd like to deploy an application to an on-premise server. The server needs to perform API calls to Amazon S3. Amongst the following options, the best security I can achieve is:never use your personal credentials other than for personal machines.create an IAM user for the application and put the credentials into environment variables. Here, it's about creating a dedicated user for that application, as using your own personal credentials would blur the lines between actual users and applications.
+- When I run the CLI on my EC2 Instances, the CLI uses the _Meta_data_ service to get _temporary_ credentials thanks to the IAM Role that's attached.
+- I want to test whether my EC2 machine is able to perform the termination of EC2 instances. There is an IAM role attached to my EC2 Instance. I should:Use the IAM Policy Simulator OR the dry run CLI option
+- Can EC2 Instances retrieve the IAM Role policy JSON document that's attached to them using the CLI without any role attached?:No. you can retrieve the role name attached to your EC2 instance using the metadata service but not the policy itself.
+- I have received an authorisation exception from my EC2 instance while performing an EC2 API call.I want the decode the cryptic error message. How do I do it?:Use the STS decode-authorization-message API
+- My KMS API call just failed against AWS. It's seems I've reached the rate limit of the KMS API. I should retry: Using an exponential backoff strategy
+- Which API call should be used to get credentials before issuing API calls against an MFA-protected API?:STS GetSessionToken
+- What is the priority in the CLI credentials chain?Command Line Options > Environment Variables > EC2 Instance Profile 
