@@ -75,54 +75,54 @@ one is chosen by the client
 - Helpful to split traffic between two regions
 - Can be associated with Health Checks
 ### Latency Routing Policy
-• Redirect to the server that
+- Redirect to the server that
 has the least latency close
 to us
-• Super helpful when latency
+- Super helpful when latency
 of users is a priority
-• Latency is evaluated in
+- Latency is evaluated in
 terms of user to
 designated AWS Region
-• Germany may be directed
+- Germany may be directed
 to the US (if that’s the
 lowest latency)
 ### Health Checks
-• Have X health checks failed => unhealthy (default 3)
-• After X health checks passed => health (default 3)
-• Default Health Check Interval: 30s (can set to 10s – higher cost)
-• About 15 health checkers will check the endpoint health
-• => one request every 2 seconds on average
-• Can have HTTP, TCP and HTTPS health checks (no SSL verification)
-• Possibility of integrating the health check with CloudWatch
-• Health checks can be linked to Route53 DNS queries!
+- Have X health checks failed => unhealthy (default 3)
+- After X health checks passed => health (default 3)
+- Default Health Check Interval: 30s (can set to 10s – higher cost)
+- About 15 health checkers will check the endpoint health
+- => one request every 2 seconds on average
+- Can have HTTP, TCP and HTTPS health checks (no SSL verification)
+- Possibility of integrating the health check with CloudWatch
+- Health checks can be linked to Route53 DNS queries!
 ### Geo Location Routing Policy
-• Different from Latency based!
-• This is routing based on user
+- Different from Latency based!
+- This is routing based on user
 location
-• Here we specify: traffic from the
+- Here we specify: traffic from the
 UK should go to this specific IP
-• Should create a “default” policy
+- Should create a “default” policy
 (in case there’s no match on
 location)
 ### Multi Value Routing Policy
-• Use when routing traffic to multiple resources
-• Want to associate a Route 53 health checks with records
-• Up to 8 healthy records are returned for each Multi Value query
-• Multi Value is not a substitute for having an ELB
+- Use when routing traffic to multiple resources
+- Want to associate a Route 53 health checks with records
+- Up to 8 healthy records are returned for each Multi Value query
+- Multi Value is not a substitute for having an ELB
 ### Route53 as a Registrar
-• A domain name registrar is an organization that manages the
+- A domain name registrar is an organization that manages the
 reservation of Internet domain names
-• Famous names:
+- Famous names:
 • GoDaddy
 • Google Domains
 • Etc…
 • And also… Route53 (e.g. AWS)!
-• Domain Registrar != DNS
+- Domain Registrar != DNS
 ### 3rd Party Registrar with AWS Route 53
-• If you buy your domain on 3rd party website, you can still use Route53.
+- If you buy your domain on 3rd party website, you can still use Route53.
 • 1) Create a Hosted Zone in Route 53
 • 2) Update NS Records on 3rd party website to use Route 53 name servers
-• Domain Registrar != DNS
+- Domain Registrar != DNS
 • (But each domain registrar usually comes with some DNS features)
 ### Questions
 - 
