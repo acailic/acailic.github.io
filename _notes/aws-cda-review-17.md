@@ -7,97 +7,97 @@ date: 2020-09-17
 
 ### AWS Fundamentals: IAM, EC2
 ### AWS Regions
-• AWS has Regions all around the world
-• Names can be: us-east-1, eu-west-3…
-• A region is a cluster of data centers
-• Most AWS services are region-scoped
+- AWS has Regions all around the world
+- Names can be: us-east-1, eu-west-3…
+- A region is a cluster of data centers
+- Most AWS services are region-scoped
 ### AWS Availability Zones
-• Each region has many availability zones
+- Each region has many availability zones
 (usually 3, min is 2, max is 6). Example:
 • ap-southeast-2a
 • ap-southeast-2b
 • ap-southeast-2c
-• Each availability zone (AZ) is one or more
+- Each availability zone (AZ) is one or more
 discrete data centers with redundant power,
 networking, and connectivity
-• They’re separate from each other, so that
+- They’re separate from each other, so that
 they’re isolated from disasters
-• They’re connected with high bandwidth,
+- They’re connected with high bandwidth,
 ultra-low latency networking
 ### IAM Introduction
-• IAM (Identity and Access Management)
-• Your whole AWS security is there:
+- IAM (Identity and Access Management)
+- Your whole AWS security is there:
 • Users
 • Groups
 • Roles
-• Root account should never be used (and shared)
-• Users must be created with proper permissions
-• IAM is at the center of AWS
-• Policies are written in JSON (JavaScript Object Notation)
+- Root account should never be used (and shared)
+- Users must be created with proper permissions
+- IAM is at the center of AWS
+- Policies are written in JSON (JavaScript Object Notation)
 ### IAM Federation
-• Big enterprises usually integrate their own repository of users with IAM
-• This way, one can login into AWS using their company credentials
-• Identity Federation uses the SAML standard (Active Directory)
+- Big enterprises usually integrate their own repository of users with IAM
+- This way, one can login into AWS using their company credentials
+- Identity Federation uses the SAML standard (Active Directory)
 ### IAM 101 Brain Dump
-• One IAM User per PHYSICAL PERSON
-• One IAM Role per Application
-• IAM credentials should NEVER BE SHARED
-• Never, ever, ever, ever, write IAM credentials in code. EVER.
-• And even less, NEVER EVER EVER COMMIT YOUR IAM credentials
-• Never use the ROOT account except for initial setup.
-• Never use ROOT IAM Credentials
+- One IAM User per PHYSICAL PERSON
+- One IAM Role per Application
+- IAM credentials should NEVER BE SHARED
+- Never, ever, ever, ever, write IAM credentials in code. EVER.
+- And even less, NEVER EVER EVER COMMIT YOUR IAM credentials
+- Never use the ROOT account except for initial setup.
+- Never use ROOT IAM Credentials
 ### What is EC2?
-• EC2 is one of most popular of AWS offering
-• It mainly consists in the capability of :
-• Renting virtual machines (EC2)
-• Storing data on virtual drives (EBS)
-• Distributing load across machines (ELB)
-• Scaling the services using an auto-scaling group (ASG)
-• Knowing EC2 is fundamental to understand how the Cloud works
+- EC2 is one of most popular of AWS offering
+- It mainly consists in the capability of :
+- Renting virtual machines (EC2)
+- Storing data on virtual drives (EBS)
+- Distributing load across machines (ELB)
+- Scaling the services using an auto-scaling group (ASG)
+- Knowing EC2 is fundamental to understand how the Cloud works
 ### Hands-On:Launching an EC2 Instance running Linux
-• We’ll be launching our first virtual server using the AWS Console
-• We’ll get a first high level approach to the various parameters
-• We’ll learn how to start / stop / terminate our instance.
+- We’ll be launching our first virtual server using the AWS Console
+- We’ll get a first high level approach to the various parameters
+- We’ll learn how to start / stop / terminate our instance.
 ### EC2 Instance Connect
-• Connect to your EC2 instance within your browser
-• No need to use your key file that was downloaded
-• The “magic” is that a temporary key is uploaded onto EC2 by AWS
-• Works only out-of-the-box with Amazon Linux 2
-• Need to make sure the port 22 is still opened!
+- Connect to your EC2 instance within your browser
+- No need to use your key file that was downloaded
+- The “magic” is that a temporary key is uploaded onto EC2 by AWS
+- Works only out-of-the-box with Amazon Linux 2
+- Need to make sure the port 22 is still opened!
 ### Introduction to Security Groups
-• Security Groups are the fundamental of network security in AWS
-• They control how traffic is allowed into or out of our EC2 Machines.
-• It is the most fundamental skill to learn to troubleshoot networking
+- Security Groups are the fundamental of network security in AWS
+- They control how traffic is allowed into or out of our EC2 Machines.
+- It is the most fundamental skill to learn to troubleshoot networking
 issues
-• In this lecture, we’ll learn how to use them to allow, inbound and
+- In this lecture, we’ll learn how to use them to allow, inbound and
 outbound ports
 ### Security Groups Good to know
-• Can be attached to multiple instances
-• Locked down to a region / VPC combination
-• Does live “outside” the EC2 – if traffic is blocked the EC2 instance won’t see
+- Can be attached to multiple instances
+- Locked down to a region / VPC combination
+- Does live “outside” the EC2 – if traffic is blocked the EC2 instance won’t see
 it
-• It’s good to maintain one separate security group for SSH access
-• If your application is not accessible (time out), then it’s a security group issue
-• If your application gives a “connection refused“ error, then it’s an application
+- It’s good to maintain one separate security group for SSH access
+- If your application is not accessible (time out), then it’s a security group issue
+- If your application gives a “connection refused“ error, then it’s an application
 error or it’s not launched
-• All inbound traffic is blocked by default
-• All outbound traffic is authorised by default
+- All inbound traffic is blocked by default
+- All outbound traffic is authorised by default
 ### Private vs Public IP (IPv4)
-• Networking has two sorts of IPs. IPv4 and IPv6:
+- Networking has two sorts of IPs. IPv4 and IPv6:
 • IPv4: 1.160.10.240
 • IPv6: 3ffe:1900:4545:3:200:f8ff:fe21:67cf
-• In this course, we will only be using IPv4.
+- In this course, we will only be using IPv4.
 • IPv4 is still the most common format used online.
 • IPv6 is newer and solves problems for the Internet of Things (IoT).
 • IPv4 allows for 3.7 billion different addresses in the public space
 • IPv4: [0-255].[0-255].[0-255].[0-255].
 #### Private vs Public IP (IPv4)
 Fundamental Differences
-• Public IP:
+- Public IP:
 • Public IP means the machine can be identified on the internet (WWW)
 • Must be unique across the whole web (not two machines can have the same public IP).
 • Can be geo-located easily
-• Private IP:
+- Private IP:
 • Private IP means the machine can only be identified on a private network only
 • The IP must be unique across the private network
 • BUT two different private networks (two companies) can have the same IPs.
@@ -111,38 +111,38 @@ Elastic IP
 • An Elastic IP is a public IPv4 IP you own as long as you don’t delete it
 • You can attach it to one instance at a time
 #### Elastic IP
-• With an Elastic IP address, you can mask the failure of an instance or software
+- With an Elastic IP address, you can mask the failure of an instance or software
 by rapidly remapping the address to another instance in your account.
-• You can only have 5 Elastic IP in your account (you can ask AWS to increase
+- You can only have 5 Elastic IP in your account (you can ask AWS to increase
 that).
-• Overall, try to avoid using Elastic IP:
-• They often reflect poor architectural decisions
-• Instead, use a random public IP and register a DNS name to it
+- Overall, try to avoid using Elastic IP:
+- They often reflect poor architectural decisions
+- Instead, use a random public IP and register a DNS name to it
 • Or, as we’ll see later, use a Load Balancer and don’t use a public IP
 #### EC2 User Data
-• It is possible to bootstrap our instances using an EC2 User data script.
+- It is possible to bootstrap our instances using an EC2 User data script.
 • bootstrapping means launching commands when a machine starts
-• That script is only run once at the instance first start
-• EC2 user data is used to automate boot tasks such as:
-• Installing updates
-• Installing software
-• Downloading common files from the internet
-• Anything you can think of
-• The EC2 User Data Script runs with the root user
+- That script is only run once at the instance first start
+- EC2 user data is used to automate boot tasks such as:
+- Installing updates
+- Installing software
+- Downloading common files from the internet
+- Anything you can think of
+- The EC2 User Data Script runs with the root user
 #### EC2 Instance Launch Types
-• On Demand Instances: short workload, predictable pricing
-• Reserved: (MINIMUM 1 year)
-• Reserved Instances: long workloads
-• Convertible Reserved Instances: long workloads with flexible instances
-• Scheduled Reserved Instances: example – every Thursday between 3 and 6 pm
-• Spot Instances: short workloads, for cheap, can lose instances (less reliable)
-• Dedicated Instances: no other customers will share your hardware
-• Dedicated Hosts: book an entire physical server, control instance placement
+- On Demand Instances: short workload, predictable pricing
+- Reserved: (MINIMUM 1 year)
+- Reserved Instances: long workloads
+- Convertible Reserved Instances: long workloads with flexible instances
+- Scheduled Reserved Instances: example – every Thursday between 3 and 6 pm
+- Spot Instances: short workloads, for cheap, can lose instances (less reliable)
+- Dedicated Instances: no other customers will share your hardware
+- Dedicated Hosts: book an entire physical server, control instance placement
 #### EC2 On Demand
-• Pay for what you use (billing per second, after the first minute)
-• Has the highest cost but no upfront payment
-• No long term commitment
-• Recommended for short-term and un-interrupted workloads, where
+- Pay for what you use (billing per second, after the first minute)
+- Has the highest cost but no upfront payment
+- No long term commitment
+- Recommended for short-term and un-interrupted workloads, where
 you can't predict how the application will behave.
 #### EC2 Reserved Instances
 • Up to 75% discount compared to On-demand
@@ -157,10 +157,10 @@ you can't predict how the application will behave.
 • launch within time window you reserve
 • When you require a fraction of day / week / month
 #### EC2 Spot Instances
-• Can get a discount of up to 90% compared to On-demand
-• Instances that you can “lose” at any point of time if your max price is less than the
+- Can get a discount of up to 90% compared to On-demand
+- Instances that you can “lose” at any point of time if your max price is less than the
 current spot price
-• The MOST cost-efficient instances in AWS
+- The MOST cost-efficient instances in AWS
 • Useful for workloads that are resilient to failure
 • Batch jobs
 • Data analysis
