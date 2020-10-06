@@ -7,14 +7,14 @@ date: 2020-10-01
 ###  Collection Introduction
 - Real Time Immediate actions
 • Kinesis Data Streams (KDS)
-•Simple Queue Service (SQS)
-•Internet of Things (IoT)
+• Simple Queue Service (SQS)
+• Internet of Things (IoT)
 - Near real time Reactive actions
-•Kinesis Data Firehose (KDF)
-•Database Migration Service (DMS)
+• Kinesis Data Firehose (KDF)
+• Database Migration Service (DMS)
 - Batch Historical Analysis
-•Snowball
-•Data Pipeline
+• Snowball
+• Data Pipeline
 
 ###  AWS Kinesis Overview
 • Kinesis is a managed alternative to Apache Kafka
@@ -58,8 +58,7 @@ shard.
 for each records put in shards. Added
 by Kinesis after ingestion
 #### Kinesis Data Streams Limits to know
--
-Producer:
+-Producer:
 • 1MB/s or 1000 messages/s at write PER SHARD
 • ProvisionedThroughputException  otherwise
 - Consumer Classic:
@@ -79,62 +78,41 @@ Library (KPL)
 - 3rd party libraries:Spark, Log4J Appenders, Flume,Kafka Connect, Nifi ..
 ### AWS Kinesis API-Exceptions
 - ProvisionedThroughputExceeded Exceptions
-•Happens when sending more data (exceeding MB/s or TPS for any
+• Happens when sending more data (exceeding MB/s or TPS for any
 shard)
-•Make sure you don’t have a hot shard (such as your partition key is bad
+• Make sure you don’t have a hot shard (such as your partition key is bad
 and too much data goes to that partition)
 -Solution:
-•Retries with backoff
-•Increase shards (scaling)
-•Ensure your partition key is a good one
+• Retries with backoff
+• Increase shards (scaling)
+• Ensure your partition key is a good one
 ### Kinesis Producer Library (KPL)
-•
-Easy to use and highly configurable C++ / Java library
-•
-Used for building high performance, long running producers
-•
-Automated and configurable retry mechanism
-•
-Synchronous or Asynchronous API (better performance for async
-•
-Submits metrics to CloudWatch for monitoring
-•
-Batching (both turned on by default) increase throughput, decrease
+- Easy to use and highly configurable C++ / Java library
+- Used for building high performance, long running producers
+- Automated and configurable retry mechanism
+- Synchronous or Asynchronous API (better performance for async
+- Submits metrics to CloudWatch for monitoring
+- Batching (both turned on by default) increase throughput, decrease
 cost:
-•
-Collect Records and Write to multiple shards in the same PutRecords API call
-•
-Aggregate increased latency
-•
-Capability to store multiple records in one record (go over 1000 records per second limit)
-•
-Increase payload size and improve throughput (maximize 1MB/s limit)
-•
-Compression must be implemented by the user
-•
-KPL Records must be de coded with KCL or special helper library
+- Collect Records and Write to multiple shards in the same PutRecords API call
+- Aggregate increased latency
+- Capability to store multiple records in one record (go over 1000 records per second limit)
+- Increase payload size and improve throughput (maximize 1MB/s limit)
+- Compression must be implemented by the user
+- KPL Records must be de coded with KCL or special helper library
 - We can influence the batching efficiency by introducing some
 delay with RecordMaxBufferedTime (default
 ### Kinesis Agent
-•
-Monitor Log files and sends them to Kinesis Data Streams
-•
-Java based agent, built on top of KPL
-•
-Install in Linux based server environments
-•
-Features:
-•
-Write from multiple directories and write to multiple streams
-•
-Routing feature based on directory / log file
-•
-Pre process data before sending to streams (single line, csv to json , log to
+- Monitor Log files and sends them to Kinesis Data Streams
+-Java based agent, built on top of KPL
+- Install in Linux based server environments
+- Features:
+• Write from multiple directories and write to multiple streams
+• Routing feature based on directory / log file
+• Pre process data before sending to streams (single line, csv to json , log to
 json
-•
-The agent handles file rotation, checkpointing, and retry upon failures
-•
-Emits metrics to CloudWatch for monitoring
+• The agent handles file rotation, checkpointing, and retry upon failures
+• Emits metrics to CloudWatch for monitoring
 
 ## Kinesis Consumers - Classic
 • Kinesis SDK
