@@ -240,25 +240,72 @@ the data that the SDK sends to XRay,
 using interceptors, filters,
 handlers, middleware…
 #### X-Ray Concepts
-• Segments: each application / service will send them
-• Subsegments: if you need more details in your segment
-• Trace: segments collected together to form an end-to-end trace
-• Sampling: decrease the amount of requests sent to X-Ray, reduce cost
-• Annotations: Key Value pairs used to index traces and use with filters
-• Metadata: Key Value pairs, not indexed, not used for searching
-• The X-Ray daemon / agent has a config to send traces cross account:
+- Segments: each application / service will send them
+- Subsegments: if you need more details in your segment
+- Trace: segments collected together to form an end-to-end trace
+- Sampling: decrease the amount of requests sent to X-Ray, reduce cost
+- Annotations: Key Value pairs used to index traces and use with filters
+- Metadata: Key Value pairs, not indexed, not used for searching
+- The X-Ray daemon / agent has a config to send traces cross account:
 • make sure the IAM permissions are correct – the agent will assume the role
 • This allows to have a central account for all your application tracing
 #### X-Ray Sampling Rules
-• With sampling rules, you control the amount of data that you record
-• You can modify sampling rules without changing your code
-• By default, the X-Ray SDK records the first request each second, and
+- With sampling rules, you control the amount of data that you record
+- You can modify sampling rules without changing your code
+- By default, the X-Ray SDK records the first request each second, and
 five percent of any additional requests.
-• One request per second is the reservoir, which ensures that at least one
+- One request per second is the reservoir, which ensures that at least one
 trace is recorded each second as long the service is serving requests.
-• Five percent is the rate at which additional requests beyond the
+- Five percent is the rate at which additional requests beyond the
 reservoir size are sampled.
-#### 
+- You can create your own rules with the reservoir and rate
+#### X-Ray Write APIs (used by the X-Ray daemon)
+- PutTraceSegments: Uploads segment
+documents to AWS X-Ray
+- PutTelemetryRecords: Used by the AWS
+X-Ray daemon to upload telemetry.
+• SegmentsReceivedCount,
+SegmentsRejectedCounts,
+BackendConnectionErrors…
+- GetSamplingRules: Retrieve all sampling
+rules (to know what/when to send)
+• GetSamplingTargets &
+GetSamplingStatisticSummaries: advanced
+- The X-Ray daemon needs to have an IAM
+policy authorizing the correct API calls to
+arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess function correctly
+- GetServiceGraph: main graph
+- BatchGetTraces: Retrieves a list of
+traces specified by ID. Each trace is a
+collection of segment documents that
+originates from a single request.
+- GetTraceSummaries: Retrieves IDs
+and annotations for traces available for
+a specified time frame using an
+optional filter. To get the full traces,
+pass the trace IDs to BatchGetTraces.
+- GetTraceGraph: Retrieves a service
+graph for one or more specific trace
+IDs.
+####  X-Ray with Elastic Beanstalk
+- AWS Elastic Beanstalk platforms include the X-Ray daemon
+- You can run the daemon by setting an option in the Elastic Beanstalk console
+or with a configuration file (in .ebextensions/xray-daemon.config)
+- Make sure to give your instance profile the correct IAM permissions so that
+the X-Ray daemon can function correctly
+- Then make sure your application code is instrumented with the X-Ray SDK
+- Note: The X-Ray daemon is not provided for Multicontainer Docker
+### AWS CloudTrail
+- Provides governance, compliance and audit for your AWS Account
+- CloudTrail is enabled by default!
+- Get an history of events / API calls made within your AWS Account by:
+• Console
+• SDK
+• CLI
+• AWS Services
+- Can put logs from CloudTrail into CloudWatch Logs
+- If a resource is deleted in AWS, look into CloudTrail first!
+
 ### Questions
 - We'd like to have CloudWatch Metrics for EC2 at a 1 minute rate. What should we do?:Enable Detailed Monitoring.
 - High Resolution Custom Metrics can have a minimum resolution of: 1 sec
