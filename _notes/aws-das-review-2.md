@@ -108,13 +108,30 @@ distribution (histograms)
 - Line graphs
 • For changes over time
 -Scatter plots, heat maps
-•For correlation
+• For correlation
 - Pie graphs, tree maps
-•For aggregation
+• For aggregation
 - Pivot tables
-•For tabular data
+• For tabular data
 - Stories
+### Additional Visual Types
+- KPIs:KPI’s: compare key value to its target value
+- Geospatial Charts (maps)
+- Donut Charts:Percentage of total amount
+- Gauge Charts:Compare values ina a measure
+- Word Clouds: word or phrase frequency
 ### Alternative visualization tools
+- Web based
+visualizations tools
+(deployed to the
+public)
+• D3.js
+• Chart.js
+• Highchart.js
+- Business Intelligence
+Tools
+• Tableau
+• MicroStrategy
 ### Questions
 - Your manager has asked you to prepare a visual on QuickSight to see trends in how money was spent on entertainment in the office in the past 12 months. What visual will you use?:LineChart
 - You wish to publish a visual you've created illustrating trends of work coming into your company, for your employees to view. Which tool in QuickSight would be appropriate?:A dashboard is a way to publish a screen of data to a larger audience.
