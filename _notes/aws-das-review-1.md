@@ -115,14 +115,14 @@ json
 • Emits metrics to CloudWatch for monitoring
 
 ## Kinesis Consumers - Classic
-• Kinesis SDK
-• Kinesis Client Library (KCL)
-• Kinesis Connector Library
-• 3rd party libraries: Spark,
+- Kinesis SDK
+- Kinesis Client Library (KCL)
+- Kinesis Connector Library
+- 3rd party libraries: Spark,
 Log4J Appenders, Flume,
 Kafka Connect…
-• Kinesis Firehose
-• AWS Lambda
-• (Kinesis Consumer Enhanced
+- Kinesis Firehose
+- AWS Lambda
+- (Kinesis Consumer Enhanced
 Fan-Out discussed in the next
 lecture)
