@@ -1,5 +1,5 @@
 ---
-title: AWS  Kinesis 
+title: AWS DAS Kinesis 
 layout: post
 tags: [aws, das, kineisis]
 date: 2020-09-30
