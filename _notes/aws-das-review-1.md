@@ -2,7 +2,7 @@
 title: AWS DAS Kinesis 
 layout: post
 tags: [aws, das, kineisis]
-date: 2020-09-30
+date: 2020-10-01
 ---
 ###  Collection Introduction
 - Real Time Immediate actions
