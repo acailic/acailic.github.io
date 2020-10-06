@@ -1,7 +1,7 @@
 ---
 title: AWS  Kinesis 
 layout: post
-tags: [aws, sda, kineisis]
+tags: [aws, das, kineisis]
 date: 2020-09-30
 ---
 ###  Collection Introduction
