@@ -1,11 +1,22 @@
 ---
-title: AWS Serverless Monitoring & Audit
+title: AWS Monitoring & Audit
 layout: post
 tags: [aws, cda, monitoring, audit]
 date: 2020-09-18
 ---
-#### AWS Serverless Monitoring & Audit
-
+#### AWS Monitoring & Audit
+### Monitoring in AWS
+- AWS CloudWatch:
+• Metrics: Collect and track key metrics
+• Logs: Collect, monitor, analyze and store log files
+• Events: Send notifications when certain events happen in your AWS
+• Alarms: React in real-time to metrics / events
+- AWS X-Ray:
+• Troubleshooting application performance and errors
+• Distributed tracing of microservices
+- AWS CloudTrail:
+• Internal monitoring of API calls being made
+• Audit changes to AWS Resources by your users
 
 ### Questions
 - We'd like to have CloudWatch Metrics for EC2 at a 1 minute rate. What should we do?:Enable Detailed Monitoring.
