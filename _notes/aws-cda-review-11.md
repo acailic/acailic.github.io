@@ -305,7 +305,18 @@ the X-Ray daemon can function correctly
 • AWS Services
 - Can put logs from CloudTrail into CloudWatch Logs
 - If a resource is deleted in AWS, look into CloudTrail first!
-
+#### CloudTrail vs CloudWatch vs X-Ray
+- CloudTrail:
+• Audit API calls made by users / services / AWS console
+• Useful to detect unauthorized calls or root cause of changes
+- CloudWatch:
+• CloudWatch Metrics over time for monitoring
+• CloudWatch Logs for storing application log
+• CloudWatch Alarms to send notifications in case of unexpected metrics
+- X-Ray:
+• Automated Trace Analysis & Central Service Map Visualization
+• Latency, Errors and Fault analysis
+• Request tracking across distributed systems
 ### Questions
 - We'd like to have CloudWatch Metrics for EC2 at a 1 minute rate. What should we do?:Enable Detailed Monitoring.
 - High Resolution Custom Metrics can have a minimum resolution of: 1 sec
