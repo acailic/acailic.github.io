@@ -126,3 +126,20 @@ Kafka Connect…
 - (Kinesis Consumer Enhanced
 Fan-Out discussed in the next
 lecture)
+### Kinesis Consumer SDK GetRecords
+- Classic Kinesis Records are
+polled by consumers from a
+shard
+- Each shard has 2 MB total
+aggregate throughput
+-GetRecords returns up to 10MB
+of data (then throttle for 5
+seconds) or up to 10000 records
+- Maximum of 5 GetRecords API
+calls per shard per second =
+200ms latency
+- If 5 consumers application
+consume from the same shard,
+means every consumer can poll
+once a second and receive less
+than 400 KB/s
