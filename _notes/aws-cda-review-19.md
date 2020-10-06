@@ -153,4 +153,7 @@ by default if the EC2 instance gets terminated.
 • Can leverage EFS-IA for cost savings
 • Remember: EFS vs EBS vs Instance Store
 #### Questions
--
+- Your instance in us-east-1a just got terminated, and the attached EBS volume is now available. Your colleague tells you he can't seem to attach it to your instance in us-east-1b?EBS Volumes are created for a specific AZ. It is possible to migrate them between different AZ through backup and restore.
+- You would like to have the same data being accessible as an NFS drive cross AZ on all your EC2 instances. What do you recommend?-EFS is a network file system (NFS) and allows to mount the same file system on EC2 instances that are in different AZ
+- You would like to have a high-performance cache for your application that mustn't be shared. You don't mind losing the cache upon termination of your instance. Which storage mechanism do you recommend as a Solution Architect?:Instance Store provide the best disk performance
+- You are running a high-performance database that requires an IOPS of 210,000 for its underlying filesystem. What do you recommend?:Is running a DB on EC2 instance store possible? It is possible to run a database on EC2. It is also possible to use instance store, but there are some considerations to have. The data will be lost if the instance is stopped, but it can be restarted without problems. One can also set up a replication mechanism on another EC2 instance with instance store to have a standby copy. One can also have back-up mechanisms. It's all up to how you want to set up your architecture to validate your requirements. In this case, it's around IOPS, and we build an architecture of replication and back up around it. EBS gp2 drive has max 16k and io1 has max 64k IOPS.
