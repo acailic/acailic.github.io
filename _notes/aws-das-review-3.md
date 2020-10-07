@@ -280,11 +280,11 @@ Scalar Types: String, Number, Binary, Boolean, Null
 Document Types: List, Map
 Set Types: String Set, Number Set, Binary Set
 ### DynamoDB – Primary Keys
-Option 1: Partition key only (HASH)
+- Option 1: Partition key only (HASH)
 Partition key must be unique for each item
 Partition key must be “diverse” so that the data is distributed
 Example: user_id for a users table
-Option 2: Partition key + Sort Key
+- Option 2: Partition key + Sort Key
 The combination must be unique
 Data is grouped by partition key
 Sort key == range key
@@ -292,49 +292,49 @@ Example: users-games table
 user_id for the partition key
 game_id for the sort key
 ### DynamoDB – Partition Keys exercise
-We’re building a movie database
-What is the best partition key to maximize data distribution?
-movie_id
-producer_name
-leader_actor_name
-movie_language
-movie_id has the highest cardinality so it’s a good candidate
-moving_language doesn’t take many values and may be skewed towards English so it’s not a great partition key
+- We’re building a movie database
+- What is the best partition key to maximize data distribution?
+•  movie_id
+• producer_name
+• leader_actor_name
+• movie_language
+• movie_id has the highest cardinality so it’s a good candidate
+• moving_language doesn’t take many values and may be skewed towards English so it’s not a great partition key
 ### DynamoDB in Big Data
-Common use cases include:
-Mobile apps
-Gaming
-Digital ad serving
-Live voting
-Audience interaction for live events
-Sensor networks
-Log ingestion
-Access control for web-based content
-Metadata storage for Amazon S3 objects
-E-commerce shopping carts
-Web session management
+- Common use cases include:
+• Mobile apps
+• Gaming
+• Digital ad serving
+• Live voting
+• Audience interaction for live events
+• Sensor networks
+• Log ingestion
+• Access control for web-based content
+• Metadata storage for Amazon S3 objects
+• E-commerce shopping carts
+• Web session management
 ### Anti Pattern
-Prewritten application tied to a traditional relational database: use RDS instead
-Joins or complex transactions
-Binary Large Object (BLOB) data: store data in S3 & metadata in DynamoDB
-Large data with low I/O rate: use S3 instead
+- Prewritten application tied to a traditional relational database: use RDS instead
+- Joins or complex transactions
+- Binary Large Object (BLOB) data: store data in S3 & metadata in DynamoDB
+- Large data with low I/O rate: use S3 instead
 ### DynamoDB – Provisioned Throughput
-Table must have provisioned read and write capacity units
-Read Capacity Units (RCU): throughput for reads
-Write Capacity Units (WCU): throughput for writes
-Option to setup auto-scaling of throughput to meet demand
-Throughput can be exceeded temporarily using “burst credit”
-If burst credit are empty, you’ll get a “ProvisionedThroughputException”.
-It’s then advised to do an exponential back-off retry
+- Table must have provisioned read and write capacity units
+- Read Capacity Units (RCU): throughput for reads
+- Write Capacity Units (WCU): throughput for writes
+- Option to setup auto-scaling of throughput to meet demand
+- Throughput can be exceeded temporarily using “burst credit”
+- If burst credit are empty, you’ll get a “ProvisionedThroughputException”.
+- It’s then advised to do an exponential back-off retry
 ### DynamoDB – Write Capacity Units
-One write capacity unit represents one write per second for an item up to 1 KB in size.
-If the items are larger than 1 KB, more WCU are consumed
-Example 1: we write 10 objects per seconds of 2 KB each.
-We need 2 * 10 = 20 WCU
-Example 2: we write 6 objects per second of 4.5 KB each
-We need 6 * 5 = 30 WCU  (4.5 gets rounded to the upper KB)
-Example 3: we write 120 objects per minute of 2 KB each
-We need 120 / 60 * 2 = 4 WCU
+- One write capacity unit represents one write per second for an item up to 1 KB in size.
+- If the items are larger than 1 KB, more WCU are consumed
+- Example 1: we write 10 objects per seconds of 2 KB each.
+- We need 2 * 10 = 20 WCU
+- Example 2: we write 6 objects per second of 4.5 KB each
+- We need 6 * 5 = 30 WCU  (4.5 gets rounded to the upper KB)
+- Example 3: we write 120 objects per minute of 2 KB each
+- We need 120 / 60 * 2 = 4 WCU
 ### Strongly Consistent Read vs Eventually Consistent Read
 - Eventually Consistent Read: If we read just after a write, it’s possible we’ll get unexpected response because of replication
 - Strongly Consistent Read: If we read just after a write, we will get the correct data
