@@ -390,9 +390,63 @@ queue
 • Data Feed from “Internet of Things”
 ## IoT Overview
 ### IoT Device Gateway
+
+Serves as the entry point for IoT devices connecting to AWS
+
+Allows devices to securely and efficiently communicate with AWS IoT
+
+Supports the MQTT, WebSockets, and HTTP 1.1 protocols
+
+Fully managed and scales automatically to support over a billion devices
+
+No need to manage any infrastructure
+
 ### IoT Message Broker
+
+Pub/sub (publishers/subscribers) messaging pattern - low latency
+
+Devices can communicate with one another this way
+
+Messages sent using the MQTT, WebSockets, or HTTP 1.1 protocols
+
+Messages are published into topics (just like SNS)
+
+Message Broker forwards messages to all clients connected to
+
+the topic
 ### IoT Thing Registry = IAM of IoT
+
+All connected IoT devices are represented in the AWS IoT registry
+
+Organizes the resources associated with each device in the AWS Cloud
+
+Each device gets a unique ID
+
+Supports metadata for each device (ex: Celsius vs Fahrenheit, etc…)
+
+Can create X.509 certificate to help IoT devices connect to AWS
+
+IoT Groups: group devices together and apply permissions to the group
 ### Authentication
+
+
+3 possible authentication methods for Things:
+
+Create X.509 certificates and load them securely onto the Things
+
+AWS SigV4
+
+Custom tokens with Custom authorizers
+
+For mobile apps:
+
+Cognito identities (extension to Google, Facebook login, etc…)
+
+Web / Desktop / CLI:
+
+IAM
+
+Federated Identities
 ### Authorization
 ### Device Shadow
 ### Rules Engine
