@@ -484,3 +484,32 @@ Max size of an item in DynamoDB = 400 KB
 For large objects, store them in S3 and reference them in DynamoDB
 Amazon S3
 ### AWS ElastiCache Overview
+The same way RDS is to get managed Relational Databases…
+ElastiCache is to get managed Redis or Memcached
+Caches are in-memory databases with really high performance, low latency
+Helps reduce load off of databases for read intensive workloads
+Helps make your application stateless
+Write Scaling using sharding
+Read Scaling using Read Replicas
+Multi AZ with Failover Capability
+AWS takes care of OS maintenance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups
+### Redis Overview
+Redis is an in-memory key-value store
+Super low latency (sub ms)
+Cache survive reboots by default (it’s called persistence)
+Great to host
+User sessions
+Leaderboard (for gaming)
+Distributed states
+Relieve pressure on databases (such as RDS)
+Pub / Sub capability for messaging
+Multi AZ with Automatic Failover for disaster recovery if you don’t want to lose your cache data
+Support for Read Replicas
+### Memcached Overview
+Memcached is an in-memory object store
+Cache doesn’t survive reboots
+Use cases:
+Quick retrieval of objects from memory
+Cache often accessed objects
+Overall, Redis has largely grown in popularity and has better feature sets than Memcached.
+I would personally only use Redis for caching needs.
