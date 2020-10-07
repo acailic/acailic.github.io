@@ -4,7 +4,7 @@ layout: post
 tags: [aws, das, ec2, integration]
 date: 2020-10-01
 ---
-###
+### AWS Services Integration
 ### AWS Instance Types
 General Purpose: T2, T3, M4, M5
 Compute Optimized: C4, C5
