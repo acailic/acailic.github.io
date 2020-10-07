@@ -143,3 +143,65 @@ consume from the same shard,
 means every consumer can poll
 once a second and receive less
 than 400 KB/s
+### Kinesis Client Library (KCL)
+- Java first library but exists for other
+languages too (Golang, Python, Ruby, Node,
+.NET
+- Read records from Kinesis produced with the
+KPL (de aggregation)
+- Share multiple shards with multiple
+consumers in one “group”, shard discovery
+- Checkpointing feature to resume progress
+- Leverages DynamoDB for coordination and
+checkpointing (one row per shard)
+- Make sure you provision enough WCU / RCU
+- Or use On Demand for DynamoDB
+- Otherwise DynamoDB may slow down KCL
+- Record processors will process the data
+### Kinesis Connector Library
+- Older Java library (2016),
+leverages the KCL library
+- Write data to:
+• Amazon S3
+• DynamoDB
+• Redshift
+• ElasticSearch
+- Kinesis Firehose replaces the
+Connector Library for a few of
+these targets, Lambda for the
+others
+### AWS Lambda sourcing from Kinesis
+- AWS Lambda can source records from Kinesis Data Streams
+- Lambda consumer has a library to de aggregate record from the
+KPL
+- Lambda can be used to run lightweight ETL to:
+• Amazon S3
+• DynamoDB
+• Redshift
+• ElasticSearch
+• Anywhere you want
+- Lambda can be used to trigger notifications / send emails in real time
+- Lambda has a configurable batch size (more in Lambda section)
+### Kinesis Enhanced Fan Out
+- New game changing feature from
+August 2018.
+- Works with KCL 2.0 and AWS
+Lambda (Nov 2018)
+- Each Consumer get 2 MB/s of
+provisioned throughput per shard
+- That means 20 consumers will get
+40MB/s per shard aggregated
+- No more 2 MB/s limit!
+- Enhanced Fan Out: Kinesis pushes
+data to consumers over HTTP/2
+- Reduce latency (~70 ms)
+### Enhanced FanOut vs Standard Consumers
+- Standard consumers:
+• Low number of consuming applications (1,2,3…)
+• Can tolerate ~200 ms latency
+• Minimize cost
+- Enhanced Fan Out Consumers:
+• Multiple Consumer applications for the same Stream
+• Low Latency requirements ~70ms
+• Higher costs (see Kinesis pricing page)
+• Default limit of 5 consumers using enhanced fan out per data stream
