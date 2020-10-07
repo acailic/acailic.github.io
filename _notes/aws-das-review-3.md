@@ -135,9 +135,7 @@ Using ETag, we can ensure integrity of files
 When you had > 100 TPS (transaction per second), S3 performance could degrade
 Behind the scene, each object goes to an S3 partition and for the best performance, we want the highest partition distribution
 In the exam, and historically, it was recommended to have random characters in front of your key name to optimise performance:<my_bucket>/5r4d_my_folder/my_file1.txt,<my_bucket>/a91e_my_folder/my_file2.txt
-It was recommended never to use dates to prefix keys:
-<my_bucket>/2018_09_09_my_folder/my_file1.txt
-<my_bucket>/2018_09_10_my_folder/my_file2.txt
+It was recommended never to use dates to prefix keys:<my_bucket>/2018_09_09_my_folder/my_file1.txt,<my_bucket>/2018_09_10_my_folder/my_file2.txt
 ### AWS S3 Performance – Key Names Current performance (not yet exam)
 https://aws.amazon.com/about-aws/whats-new/2018/07/amazon-s3-announces-increased-request-rate-performance/
 As of July 17th 2018, we can scale up to 3500 RPS for PUT and 5500 RPS for GET for EACH PREFIX
