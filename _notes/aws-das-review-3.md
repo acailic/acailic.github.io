@@ -261,3 +261,111 @@ Send filtered dataset
 Amazon S3 Using S3 Select
 Server-side filtering
 ### DynamoDB
+Fully Managed, Highly available with replication across 3 AZ
+NoSQL database - not a relational database
+Scales to massive workloads, distributed database
+Millions of requests per seconds, trillions of row, 100s of TB of storage
+Fast and consistent in performance (low latency on retrieval)
+Integrated with IAM for security, authorization and administration
+Enables event driven programming with DynamoDB Streams
+Low cost and auto scaling capabilities
+### DynamoDB - Basics
+DynamoDB is made of tables
+Each table has a primary key (must be decided at creation time)
+Each table can have an infinite number of items (= rows)
+Each item has attributes (can be added over time – can be null)
+Maximum size of a item is 400KB
+Data types supported are:
+Scalar Types: String, Number, Binary, Boolean, Null
+Document Types: List, Map
+Set Types: String Set, Number Set, Binary Set
+### DynamoDB – Primary Keys
+Option 1: Partition key only (HASH)
+Partition key must be unique for each item
+Partition key must be “diverse” so that the data is distributed
+Example: user_id for a users table
+Option 2: Partition key + Sort Key
+The combination must be unique
+Data is grouped by partition key
+Sort key == range key
+Example: users-games table
+user_id for the partition key
+game_id for the sort key
+### DynamoDB – Partition Keys exercise
+We’re building a movie database
+What is the best partition key to maximize data distribution?
+movie_id
+producer_name
+leader_actor_name
+movie_language
+movie_id has the highest cardinality so it’s a good candidate
+moving_language doesn’t take many values and may be skewed towards English so it’s not a great partition key
+### DynamoDB in Big Data
+Common use cases include:
+Mobile apps
+Gaming
+Digital ad serving
+Live voting
+Audience interaction for live events
+Sensor networks
+Log ingestion
+Access control for web-based content
+Metadata storage for Amazon S3 objects
+E-commerce shopping carts
+Web session management
+### Anti Pattern
+Prewritten application tied to a traditional relational database: use RDS instead
+Joins or complex transactions
+Binary Large Object (BLOB) data: store data in S3 & metadata in DynamoDB
+Large data with low I/O rate: use S3 instead
+### DynamoDB – Provisioned Throughput
+Table must have provisioned read and write capacity units
+Read Capacity Units (RCU): throughput for reads
+Write Capacity Units (WCU): throughput for writes
+Option to setup auto-scaling of throughput to meet demand
+Throughput can be exceeded temporarily using “burst credit”
+If burst credit are empty, you’ll get a “ProvisionedThroughputException”.
+It’s then advised to do an exponential back-off retry
+### DynamoDB – Write Capacity Units
+One write capacity unit represents one write per second for an item up to 1 KB in size.
+If the items are larger than 1 KB, more WCU are consumed
+Example 1: we write 10 objects per seconds of 2 KB each.
+We need 2 * 10 = 20 WCU
+Example 2: we write 6 objects per second of 4.5 KB each
+We need 6 * 5 = 30 WCU  (4.5 gets rounded to the upper KB)
+Example 3: we write 120 objects per minute of 2 KB each
+We need 120 / 60 * 2 = 4 WCU
+### Strongly Consistent Read vs Eventually Consistent Read
+Eventually Consistent Read: If we read just after a write, it’s possible we’ll get unexpected response because of replication
+Strongly Consistent Read: If we read just after a write, we will get the correct data
+By default: DynamoDB uses Eventually Consistent Reads, but GetItem, Query & Scan provide a
+“ConsistentRead” parameter you can set to True
+### DynamoDB – Read Capacity Units
+One read capacity unit represents one strongly consistent read per second, or two eventually consistent reads per second, for an item up to 4 KB in size.
+If the items are larger than 4 KB, more RCU are consumed
+Example 1: 10 strongly consistent reads per seconds of 4 KB each
+We need 10 * 4 KB / 4 KB = 10 RCU
+Example 2: 16 eventually consistent reads per seconds of 12 KB each
+We need (16 / 2) * ( 12 / 4 ) = 24 RCU
+Example 3: 10 strongly consistent reads per seconds of 6 KB each
+We need 10 * 8 KB / 4 = 20 RCU (we have to round up 6 KB to 8 KB)
+### DynamoDB - Throttling
+If we exceed our RCU or WCU, we get
+ProvisionedThroughputExceededExceptions
+Reasons:
+Hot keys / partitions: one partition key is being read too many times (popular item for ex)
+Very large items: remember RCU and WCU depends on size of items
+Solutions:
+Exponential back-off when exception is encountered (already in SDK)
+Distribute partition keys as much as possible
+If RCU issue, we can use DynamoDB Accelerator (DAX)
+### DynamoDB – Partitions Internal
+### DynamoDB – Writing Data
+PutItem - Write data to DynamoDB (create data or full replace)
+Consumes WCU
+UpdateItem – Update data in DynamoDB (partial update of attributes)
+Possibility to use Atomic Counters and increase them
+Conditional Writes:
+Accept a write / update only if conditions are respected, otherwise reject
+Helps with concurrent access to items
+No performance impact
