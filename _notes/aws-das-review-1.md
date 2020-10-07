@@ -423,16 +423,87 @@ the topic
 ### Device Shadow
 ### Rules Engine
 ### IoT Greengrass
+- IoT Greengrass brings the compute layer to the device directly
+- You can execute AWS Lambda functions on the devices:
+- Pre-process the data
+- Execute predictions based on ML models
+- Keep device data in sync
+- Communicate between local devices
+- Operate offline
+- Deploy functions from the cloud directly to the devices
 ### DMS – Database Migration Service
+- Quickly and securely migrate databases to AWS, resilient, self healing
+- The source database remains available during the migration
+- Supports:
+- Homogeneous migrations: ex Oracle to Oracle
+- Heterogeneous migrations: ex Microsoft SQL Server to Aurora
+- Continuous Data Replication using CDC
+- You must create an EC2 instance to perform the replication tasks
 ### DMS Sources and Targets
+- SOURCES:
+- On-Premise and EC2 instances databases: Oracle, MS SQL Server, MySQL, MariaDB, PostgreSQL, MongoDB, SAP, DB2
+- Azure: Azure SQL Database
+- Amazon RDS: all including Aurora
+- Amazon S3
+- TARGETS:
+- On-Premise and EC2 instances databases: Oracle, MS SQL Server, MySQL, MariaDB, PostgreSQL, SAP
+- Amazon RDS
+- Amazon Redshift
+- Amazon DynamoDB
+- Amazon S3
+- ElasticSearch Service
+- Kinesis Data Streams
+- DocumentDB
 ### AWS Schema Conversion Tool (SCT)
+- Convert your Database’s Schema from one engine to another
+- Example OLTP: (SQL Server or Oracle) to MySQL, PostgreSQL, Aurora
+- Example OLAP: (Teradata or Oracle) to Amazon Redshift
+- You can use AWS SCT to create AWS DMS endpoints and tasks.
 ### Direct Connect
-### Direct Connect Diagram
+- Provides a dedicated private connection from a remote network to your VPC
+- Can setup multiple 1 Gbps or 10 Gbps dedicated network connections
+- Setup Dedicated connection between your DC and Direct Connect locations
+- You need to setup a Virtual Private Gateway on your VPC
+- Access public resources (S3) and private (EC2) on same connection
+- Use Cases:
+- Increase bandwidth throughput - working with large data sets – lower cost
+- More consistent network experience - applications using real-time data feeds
+- Hybrid Environments (on prem + cloud)
+- Enhanced security (private connection)
+- Supports both IPv4 and IPv6
+- High-availability: Two DC as failover or use Site-to-Site VPN as a failover
 ### Direct Connect Gateway
+- If you want to setup a Direct Connect to one or more VPC in many different regions (same account), you must use a Direct Connect Gateway
 ### Snowball
+- Physical data transport solution that helps moving TBs or PBs of data in or out of AWS
+- Alternative to moving data over the network (and paying network fees)
+- Secure, tamper resistant, uses KMS 256 bit encryption
+- Tracking using SNS and text messages. E-ink shipping label
+- Pay per data transfer job
+- Use cases: large data cloud migrations, DC decommission, disaster recovery
+- If it takes more than a week to transfer over the network, use Snowball devices!
 ### Snowball Process
-### Snowball Diagrams
+- Request snowball devices from the AWS console for delivery
+- Install the snowball client on your servers
+- Connect the snowball to your servers and copy files using the client
+- Ship back the device when you’re done (goes to the right
+AWS facility)
+- Data will be loaded into an S3 bucket
+- Snowball is completely wiped
+- Tracking is done using SNS, text messages and the AWS console
+### Snowball Edge
+- Snowball Edges add computational capability to the device
+- 100 TB capacity with either:
+- Storage optimized – 24 vCPU
+- Compute optimized – 52 vCPU & optional GPU
+- Supports a custom EC2 AMI so you can perform processing on the go
+- Supports custom Lambda functions
+• Very useful to pre-process the data while moving
+• Use case: data migration, image collation, IoT Lambda capture, machine learning, AMI function
 ### AWS Snowmobile
+- Transfer exabytes of data (1 EB = 1,000 PB = 1,000,000 TBs)
+- Each Snowmobile has 100 PB of capacity (use multiple in parallel)
+- Better than Snowball if you transfer more than 10 PB
 ### MSK Managed Streaming for ApacheKafka
 - Fully managed Apache Kafka on AWS (alternative to Kinesis)
 - Allow you to create, update, delete clusters (control plane)
