@@ -5,15 +5,15 @@ tags: [aws, das, s3, dynamodb]
 date: 2020-10-01
 ---
 ## AWS S3 Overview - Buckets
-Amazon S3 allows people to store objects (files) in “buckets”(directories)
-Buckets must have a globally unique name
-Buckets are defined at the region level
-Naming convention
-No uppercase
-No underscore
-3-63 characters long
-Not an IP
-Must start with lowercase letter or number
+- Amazon S3 allows people to store objects (files) in “buckets”(directories)
+- Buckets must have a globally unique name
+- Buckets are defined at the region level
+- Naming convention
+- No uppercase
+- No underscore
+- 3-63 characters long
+- Not an IP
+- Must start with lowercase letter or number
 ### AWS S3 Overview - Objects
 - Objects (files) have a Key. The key is the FULL path:<my_bucket>/my_file.txt,<my_bucket>/my_folder1/another_folder/my_file.txt
 - There’s no concept of “directories” within buckets (although the UI will trick you to think otherwise)
@@ -25,12 +25,12 @@ Must start with lowercase letter or number
 - Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle
 - Version ID (if versioning is enabled)
 ### AWS S3 - Consistency Model
-Read after write consistency for PUTS of new objects
-As soon as an object is written, we can retrieve it ex: (PUT 200 -> GET 200)
-This is true, except if we did a GET before to see if the object existed ex: (GET 404 -> PUT 200 -> GET 404) – eventually consistent
-Eventual Consistency for DELETES and PUTS of existing objects
-If we read an object after updating, we might get the older version ex: (PUT 200 -> PUT 200 -> GET 200 (might be older version))
-If we delete an object, we might still be able to retrieve it for a short time ex: (DELETE 200 -> GET 200)
+- Read after write consistency for PUTS of new objects
+- As soon as an object is written, we can retrieve it ex: (PUT 200 -> GET 200)
+- This is true, except if we did a GET before to see if the object existed ex: (GET 404 -> PUT 200 -> GET 404) – eventually consistent
+- Eventual Consistency for DELETES and PUTS of existing objects
+- If we read an object after updating, we might get the older version ex: (PUT 200 -> PUT 200 -> GET 200 (might be older version))
+- If we delete an object, we might still be able to retrieve it for a short time ex: (DELETE 200 -> GET 200)
 ### S3 Storage Classes
 - Amazon S3 Standard - General Purpose
 - Amazon S3 Standard-Infrequent Access (IA)
@@ -40,78 +40,78 @@ If we delete an object, we might still be able to retrieve it for a short time e
 - Amazon Glacier Deep Archive
 - Amazon S3 Reduced Redundancy Storage (deprecated - omitted)
 ### S3 Standard – General Purpose
-High durability (99.999999999%) of objects across multiple AZ
-If you store 10,000,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years
-99.99% Availability over a given year
-Sustain 2 concurrent facility failures
-Use Cases: Big Data analytics, mobile & gaming applications, content distribution…
+- High durability (99.999999999%) of objects across multiple AZ
+- If you store 10,000,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years
+- 99.99% Availability over a given year
+- Sustain 2 concurrent facility failures
+- Use Cases: Big Data analytics, mobile & gaming applications, content distribution…
 ### S3 Standard – Infrequent Access (IA)
-Suitable for data that is less frequently accessed, but requires rapid access when needed
-High durability (99.999999999%) of objects across multiple AZs
-99.9% Availability
-Low cost compared to Amazon S3 Standard
-Sustain 2 concurrent facility failures
-Use Cases: As a data store for disaster recovery, backups…
+- Suitable for data that is less frequently accessed, but requires rapid access when needed
+- High durability (99.999999999%) of objects across multiple AZs
+- 99.9% Availability
+- Low cost compared to Amazon S3 Standard
+- Sustain 2 concurrent facility failures
+- Use Cases: As a data store for disaster recovery, backups…
 ### S3 One Zone - Infrequent Access (IA)
-Same as IA but data is stored in a single AZ
-High durability (99.999999999%) of objects in a single AZ; data lost when AZ is destroyed
-99.5% Availability
-Low latency and high throughput performance
-Supports SSL for data at transit and encryption at rest
-Low cost compared to IA (by 20%)
-Use Cases: Storing secondary backup copies of on-premise data, or storing data you can recreate
+- Same as IA but data is stored in a single AZ
+- High durability (99.999999999%) of objects in a single AZ; data lost when AZ is destroyed
+- 99.5% Availability
+- Low latency and high throughput performance
+- Supports SSL for data at transit and encryption at rest
+- Low cost compared to IA (by 20%)
+- Use Cases: Storing secondary backup copies of on-premise data, or storing data you can recreate
 ### S3 Intelligent Tiering
-Same low latency and high throughput performance of S3 Standard
-Small monthly monitoring and auto-tiering fee
-Automatically moves objects between two access tiers based on changing access patterns
-Designed for durability of 99.999999999% of objects across multiple Availability Zones
-Resilient against events that impact an entire Availability Zone
-Designed for 99.9% availability over a given year
+- Same low latency and high throughput performance of S3 Standard
+- Small monthly monitoring and auto-tiering fee
+- Automatically moves objects between two access tiers based on changing access patterns
+- Designed for durability of 99.999999999% of objects across multiple Availability Zones
+- Resilient against events that impact an entire Availability Zone
+- Designed for 99.9% availability over a given year
 ### Amazon Glacier
-Low cost object storage meant for archiving / backup
-Data is retained for the longer term (10s of years)
-Alternative to on-premise magnetic tape storage
-Average annual durability is 99.999999999%
-Cost per storage per month ($0.004 / GB) + retrieval cost
-Each item in Glacier is called “Archive” (up to 40TB)
-Archives are stored in ”Vaults”
+- Low cost object storage meant for archiving / backup
+- Data is retained for the longer term (10s of years)
+- Alternative to on-premise magnetic tape storage
+- Average annual durability is 99.999999999%
+- Cost per storage per month ($0.004 / GB) + retrieval cost
+- Each item in Glacier is called “Archive” (up to 40TB)
+- Archives are stored in ”Vaults”
 ### Amazon Glacier & Glacier Deep Archive
-Amazon Glacier – 3 retrieval options:
-Expedited (1 to 5 minutes)
-Standard (3 to 5 hours)
-Bulk (5 to 12 hours)
-Minimum storage duration of 90 days
-Amazon Glacier Deep Archive – for long term storage – cheaper:
-Standard (12 hours)
-Bulk (48 hours)
-Minimum storage duration of 180 days
+- Amazon Glacier – 3 retrieval options:
+- Expedited (1 to 5 minutes)
+- Standard (3 to 5 hours)
+- Bulk (5 to 12 hours)
+- Minimum storage duration of 90 days
+- Amazon Glacier Deep Archive – for long term storage – cheaper:
+- Standard (12 hours)
+- Bulk (48 hours)
+- Minimum storage duration of 180 days
 ### S3 Storage Classes Comparison
 ### S3 – Moving between storage classes
-You can transition objects between storage classes
-For infrequently accessed object, move them to
+- You can transition objects between storage classes
+- For infrequently accessed object, move them to
 STANDARD_IA
-For archive objects you don’t need in real-time, GLACIER or
+- For archive objects you don’t need in real-time, GLACIER or
 DEEP_ARCHIVE
-Moving objects can be automated using a lifecycle configuration
+- Moving objects can be automated using a lifecycle configuration
 ### S3 Lifecycle Rules
-Transition actions: It defines when objects are transitioned to another storage class.
-Move objects to Standard IA class 60 days after creation
-Move to Glacier for archiving after 6 months
-Expiration actions: configure objects to expire (delete) after some time
-Access log files can be set to delete after a 365 days
-Can be used to delete old versions of files (if versioning is enabled)
-Can be used to delete incomplete multi-part uploads
-Rules can be created for a certain prefix (ex - s3://mybucket/mp3/*)
-Rules can be created for certain objects tags (ex - Department: Finance)
+- Transition actions: It defines when objects are transitioned to another storage class.
+- Move objects to Standard IA class 60 days after creation
+- Move to Glacier for archiving after 6 months
+- Expiration actions: configure objects to expire (delete) after some time
+- Access log files can be set to delete after a 365 days
+- Can be used to delete old versions of files (if versioning is enabled)
+- Can be used to delete incomplete multi-part uploads
+- Rules can be created for a certain prefix (ex - s3://mybucket/mp3/*)
+- Rules can be created for certain objects tags (ex - Department: Finance)
 ### AWS S3 - Versioning
-You can version your files in AWS S3
-It is enabled at the bucket level
-Same key overwrite will increment the “version”: 1, 2, 3….
-It is best practice to version your buckets
-Protect against unintended deletes (ability to restore a version)
-Easy roll back to previous version
-Any file that is not versioned prior to enabling versioning will have version “null”
-You can “suspend” versioning
+- You can version your files in AWS S3
+- It is enabled at the bucket level
+- Same key overwrite will increment the “version”: 1, 2, 3….
+- It is best practice to version your buckets
+- Protect against unintended deletes (ability to restore a version)
+- Easy roll back to previous version
+- Any file that is not versioned prior to enabling versioning will have version “null”
+- You can “suspend” versioning
 ### S3 Cross Region Replication
 - Must enable versioning (source and destination)
 - Buckets must be in different AWS regions
