@@ -420,23 +420,50 @@ the topic
 - IAM
 - Federated Identities
 ### Authorization
+- AWS IoT policies:
+• Attached to X.509 certificates or Cognito Identities
+• Able to revoke any device at any time
+• IoT Policies are JSON documents
+• Can be attached to groups instead of individual Things.
+- IAM Policies:
+• Attached to users, group or roles
+• Used for controlling IoT AWS APIs
 ### Device Shadow
+- JSON document representing the state of a connected Thing
+- We can set the state to a different desired state (ex: light on)
+- The IoT thing will retrieve the state when online and adapt
 ### Rules Engine
+- Rules are defined on the MQTT topics
+- Rules = when it’s triggered | Action = what is does
+- Rules use cases:
+• Augment or filter data received from a device
+• Write data received from a device to a DynamoDB database
+• Save a file to S3
+• Send a push notification to all users using SNS
+• Publish data to a SQS queue
+• Invoke a Lambda function to extract data
+• Process messages from a large number of devices using Amazon
+• Kinesis
+• Send data to the Amazon Elasticsearch Service
+• Capture a CloudWatch metric and Change a CloudWatch alarm
+• Send the data from an MQTT message to Amazon Machine Learning to make predictions based on an Amazon ML model
+& more
+- Rules need IAM Roles to perform their actions
 ### IoT Greengrass
 - IoT Greengrass brings the compute layer to the device directly
 - You can execute AWS Lambda functions on the devices:
-- Pre-process the data
-- Execute predictions based on ML models
-- Keep device data in sync
-- Communicate between local devices
+• Pre-process the data
+• Execute predictions based on ML models
+• Keep device data in sync
+• Communicate between local devices
 - Operate offline
 - Deploy functions from the cloud directly to the devices
 ### DMS – Database Migration Service
 - Quickly and securely migrate databases to AWS, resilient, self healing
 - The source database remains available during the migration
 - Supports:
-- Homogeneous migrations: ex Oracle to Oracle
-- Heterogeneous migrations: ex Microsoft SQL Server to Aurora
+• Homogeneous migrations: ex Oracle to Oracle
+• Heterogeneous migrations: ex Microsoft SQL Server to Aurora
 - Continuous Data Replication using CDC
 - You must create an EC2 instance to perform the replication tasks
 ### DMS Sources and Targets
