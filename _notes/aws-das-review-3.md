@@ -246,3 +246,5 @@ Restore links have an expiry date
 Expedited (1 to 5 minutes retrieval) – $0.03 per GB and $0.01 per request
 Standard (3 to 5 hours) - $0.01 per GB and 0.05 per 1000 requests
 Bulk (5 to 12 hours) - $0.0025 per GB and $0.025 per 1000 requests
+### Glacier - Vault Policies & Vault Lock
+### S3 Select & Glacier Select
