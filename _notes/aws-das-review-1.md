@@ -1,7 +1,7 @@
 ---
-title: AWS DAS Kinesis 
+title: AWS DAS Collection 
 layout: post
-tags: [aws, das, kineisis]
+tags: [aws, das, kineisis, iot, direct, snowball]
 date: 2020-10-01
 ---
 ###  Collection Introduction
