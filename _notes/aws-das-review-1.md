@@ -513,4 +513,27 @@ Security and ACLs for clients is done within the Apache Kafka cluster
    Delivery to CloudWatch Logs   
    Delivery to Amazon S3
    Delivery to Kinesis Data Firehose
-### 
+   
+### Questions
+- You are accumulating data from IoT devices and you must send data within 10 seconds to Amazon ElasticSearch service. That data should also be consumed by other services when needed. Which service do you recommend using?:Kinesis Data Streams
+- You need a managed service that can deliver data to Amazon S3 and scale automatically for you. You want to be billed only for the actual usage of the service and be able to handle peak loads. Which service do you recommend?:Kinesis Data Firehose
+- You are sending a lot of 100B data records and would like to ensure you can use Kinesis to receive your data. What should you use to ensure optimal throughput, that has asynchronous features ?:Kinesis Producer Library.Through batching (collection and aggregation), we can achieve maximum throughput using the KPL. KPL is also supporting an asynchronous API.
+- You would like to collect log files in mass from your Linux servers running on premise. You need a retry mechanism embedded and monitoring through CloudWatch. Logs should end up in Kinesis. What will help you accomplish this?:Kinesis Agent
+- You would like to perform batch compression before sending data to Kinesis, in order to maximize the throughput. What should you use?:Kinesis Producer Library + Implement Compression Yourself. Compression must be implemented.
+- You have 10 consumers applications consuming concurrently from one shard, in classic mode by issuing GetRecords() commands. What is the average latency for consuming these records for each application?:You can issue up to 5 GetRecords API calls per second, so it'll take 2 seconds for each consuming application before they can issue their next call.Ans: 2s.
+- You have 10 consumers applications consuming concurrently from one shard, in enhanced fan out mode. What is the average latency for consuming these records for each application?:70ms. here, no matter how many consumers you have, in enhanced fan out mode, each consumer will receive 2MB per second of throughput and have an average latency of 70ms.
+- You would like to have data delivered in near real time to Amazon ElasticSearch, and the data delivery to be managed by AWS. What should you use?:Kinesis Firehose
+- You are consuming from a Kinesis stream with 10 shards that receives on average 8 MB/s of data from various producers using the KPL. You are therefore using the KCL to consume these records, and observe through the CloudWatch metrics that the throughput is 2 MB/s, and therefore your application is lagging. What's the most likely root cause for this issue?:Your DynamoDB table is under-provisioned 
+- You would like to increase the capacity of your Kinesis streams. What should you do?:Split Shards
+- Which of the following statement is wrong?Spark Streaming can read from Kinesis Data Firehose
+- Which of the following Kinesis Data Firehose does not write to?:DynamoDB
+- You are looking to decouple jobs and ensure data is deleted after being processes. Which technology would you choose?: SQS
+- You are collecting data from IoT devices at scale and would like to forward that data into Kinesis Data Firehose. How should you proceed?:Send that data into an IoT topic and define a rule action
+- Which protocol is not supported by the IoT Device Gateway?:FTP
+- You would like to control the target temperature of your room using an IoT thing thermostat. How can you change its state for target temperature even in the case it's temporarily offline?Change the state of the device shadow.That's precisely the purposes of the device shadow, which gets synchronized with the device when it comes back online
+- You are looking to continuously replicate a MySQL database that's on premise to Aurora. Which service will allow you to do so securely?Database Migration Services.DMS is fully secure
+- You have setup Direct Connect on one location to ensure your traffic into AWS is going over a private network. You would like to setup a failover connection, that must be as reliable and as redundant as possible, as you cannot afford to be down for too long. What backup connection do you recommend?:Direct Setup is although this is more secure than Site to Site VPN, it is less reliable as it does not leverage the public web. It is the wrong answer here, but a correct answer overall for setting up highly available Direct Connect. Site to site VPN is although this is not as private as another Direct Connect setup, it is definitely more reliable as it leverages the public web. It is the correct answer here.
+- You would like to transfer data in AWS in less than two days from now. What should you use?:Setting up direct link takes a long time, or snowball. Use public internet.
+- 
+- 
+- 
