@@ -5,8 +5,7 @@ tags: [aws, das, s3, dynamodb]
 date: 2020-10-01
 ---
 ## AWS S3 Overview - Buckets
-Amazon S3 allows people to store objects (files) in “buckets”
-(directories)
+Amazon S3 allows people to store objects (files) in “buckets”(directories)
 Buckets must have a globally unique name
 Buckets are defined at the region level
 Naming convention
@@ -16,18 +15,17 @@ No underscore
 Not an IP
 Must start with lowercase letter or number
 ### AWS S3 Overview - Objects
-Objects (files) have a Key. The key is the FULL path:
+- Objects (files) have a Key. The key is the FULL path:
 <my_bucket>/my_file.txt
 <my_bucket>/my_folder1/another_folder/my_file.txt
-There’s no concept of “directories” within buckets
-(although the UI will trick you to think otherwise)
-Just keys with very long names that contain slashes (“/”)
-Object Values are the content of the body:
-Max Size is 5TB
-If uploading more than 5GB, must use “multi-part upload”
-Metadata (list of text key / value pairs – system or user metadata)
-Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle
-Version ID (if versioning is enabled)
+- There’s no concept of “directories” within buckets (although the UI will trick you to think otherwise)
+- Just keys with very long names that contain slashes (“/”)
+- Object Values are the content of the body:
+- Max Size is 5TB
+- If uploading more than 5GB, must use “multi-part upload”
+- Metadata (list of text key / value pairs – system or user metadata)
+- Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle
+- Version ID (if versioning is enabled)
 ### AWS S3 - Consistency Model
 Read after write consistency for PUTS of new objects
 As soon as an object is written, we can retrieve it ex: (PUT 200 -> GET 200)
@@ -36,13 +34,13 @@ Eventual Consistency for DELETES and PUTS of existing objects
 If we read an object after updating, we might get the older version ex: (PUT 200 -> PUT 200 -> GET 200 (might be older version))
 If we delete an object, we might still be able to retrieve it for a short time ex: (DELETE 200 -> GET 200)
 ### S3 Storage Classes
-Amazon S3 Standard - General Purpose
-Amazon S3 Standard-Infrequent Access (IA)
-Amazon S3 One Zone-Infrequent Access
-Amazon S3 Intelligent Tiering
-Amazon Glacier
-Amazon Glacier Deep Archive
-Amazon S3 Reduced Redundancy Storage (deprecated - omitted)
+- Amazon S3 Standard - General Purpose
+- Amazon S3 Standard-Infrequent Access (IA)
+- Amazon S3 One Zone-Infrequent Access
+- Amazon S3 Intelligent Tiering
+- Amazon Glacier
+- Amazon Glacier Deep Archive
+- Amazon S3 Reduced Redundancy Storage (deprecated - omitted)
 ### S3 Standard – General Purpose
 High durability (99.999999999%) of objects across multiple AZ
 If you store 10,000,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years
@@ -141,7 +139,6 @@ Behind the scene, each object goes to an S3 partition and for the best performan
 In the exam, and historically, it was recommended to have random characters in front of your key name to optimise performance:
 <my_bucket>/5r4d_my_folder/my_file1.txt
 <my_bucket>/a91e_my_folder/my_file2.txt
-…
 It was recommended never to use dates to prefix keys:
 <my_bucket>/2018_09_09_my_folder/my_file1.txt
 <my_bucket>/2018_09_10_my_folder/my_file2.txt
