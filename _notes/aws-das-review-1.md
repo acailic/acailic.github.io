@@ -374,7 +374,7 @@ queue
 • Capability to “delay” messages
 • Dynamic scaling of load (no ops)
 ### SQS vs Kinesis
-SQS Use cases :
+- SQS Use cases :
 • Order processing
 • Image Processing
 • Auto scaling queues according to messages.
@@ -388,3 +388,16 @@ SQS Use cases :
 • Gaming data feed
 • Complex Stream Processing
 • Data Feed from “Internet of Things”
+## IoT Overview
+### IoT Device Gateway
+### IoT Message Broker
+### IoT Thing Registry = IAM of IoT
+### Authentication
+### Authorization
+### Device Shadow
+### Rules Engine
+### IoT Greengrass
+### DMS – Database Migration Service
+### DMS Sources and Targets
+### AWS Schema Conversion Tool (SCT)
+### Direct Connect
