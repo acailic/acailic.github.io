@@ -113,86 +113,83 @@ Easy roll back to previous version
 Any file that is not versioned prior to enabling versioning will have version “null”
 You can “suspend” versioning
 ### S3 Cross Region Replication
-Must enable versioning (source and destination)
-Buckets must be in different AWS regions
+- Must enable versioning (source and destination)
+- Buckets must be in different AWS regions
 • Can be in different accounts
-Asynchronous
+- Asynchronous
 • Copying is asynchronous
 replication
-• Must give proper IAM permissions
-to S3
-eu-west-1
-us-east-1
-Use cases: compliance, lower latency access, replication across accounts
+-  Must give proper IAM permissions to S3
+- Use cases: compliance, lower latency access, replication across accounts
 ### AWS S3 – ETag (Entity Tag)
-How do you verify if a file has already been uploaded to S3?
-Names work, but how are you sure the file is exactly the same?
-For this, you can use AWS ETags:
-For simple uploads (less than 5GB), it’s the MD5 hash
-For multi-part uploads, it’s more complicated, no need to know the algorithm
-Using ETag, we can ensure integrity of files
+- How do you verify if a file has already been uploaded to S3?
+- Names work, but how are you sure the file is exactly the same?
+- For this, you can use AWS ETags:
+- For simple uploads (less than 5GB), it’s the MD5 hash
+- For multi-part uploads, it’s more complicated, no need to know the algorithm
+- Using ETag, we can ensure integrity of files
 ### AWS S3 Performance – Key Names Historic fact and current exam
-When you had > 100 TPS (transaction per second), S3 performance could degrade
-Behind the scene, each object goes to an S3 partition and for the best performance, we want the highest partition distribution
-In the exam, and historically, it was recommended to have random characters in front of your key name to optimise performance:<my_bucket>/5r4d_my_folder/my_file1.txt,<my_bucket>/a91e_my_folder/my_file2.txt
-It was recommended never to use dates to prefix keys:<my_bucket>/2018_09_09_my_folder/my_file1.txt,<my_bucket>/2018_09_10_my_folder/my_file2.txt
+- When you had > 100 TPS (transaction per second), S3 performance could degrade
+- Behind the scene, each object goes to an S3 partition and for the best performance, we want the highest partition distribution
+- In the exam, and historically, it was recommended to have random characters in front of your key name to optimise performance:<my_bucket>/5r4d_my_folder/my_file1.txt,<my_bucket>/a91e_my_folder/my_file2.txt
+- It was recommended never to use dates to prefix keys:<my_bucket>/2018_09_09_my_folder/my_file1.txt,<my_bucket>/2018_09_10_my_folder/my_file2.txt
 ### AWS S3 Performance – Key Names Current performance (not yet exam)
-https://aws.amazon.com/about-aws/whats-new/2018/07/amazon-s3-announces-increased-request-rate-performance/
-As of July 17th 2018, we can scale up to 3500 RPS for PUT and 5500 RPS for GET for EACH PREFIX
-“This S3 request rate performance increase removes any previous guidance to randomize object prefixes to achieve faster performance”
-It’s a “good to know”, until the exam gets updated ☺
+- https://aws.amazon.com/about-aws/whats-new/2018/07/amazon-s3-announces-increased-request-rate-performance/
+- As of July 17th 2018, we can scale up to 3500 RPS for PUT and 5500 RPS for GET for EACH PREFIX
+- “This S3 request rate performance increase removes any previous guidance to randomize object prefixes to achieve faster performance”
+- It’s a “good to know”, until the exam gets updated ☺
 ### AWS S3 Performance
-Faster upload of large objects (>5GB), use multipart upload:
-parallelizes PUTs for greater throughput
-maximize your network bandwidth
-decrease time to retry in case a part fails
-Use CloudFront to cache S3 objects around the world (improves reads)
-S3 Transfer Acceleration (uses edge locations) – just need to change the endpoint you write to, not the code.
-If using SSE-KMS encryption, you may be limited to your AWS limits for KMS usage (~100s – 1000s downloads / uploads per second)
+- Faster upload of large objects (>5GB), use multipart upload:
+- parallelizes PUTs for greater throughput
+- maximize your network bandwidth
+- decrease time to retry in case a part fails
+- Use CloudFront to cache S3 objects around the world (improves reads)
+- S3 Transfer Acceleration (uses edge locations) – just need to change the endpoint you write to, not the code.
+- If using SSE-KMS encryption, you may be limited to your AWS limits for KMS usage (~100s – 1000s downloads / uploads per second)
 ### S3 Encryption for Objects
-There are 4 methods of encrypting objects in S3
-SSE-S3: encrypts S3 objects using keys handled & managed by AWS
-SSE-KMS: leverage AWS Key Management Service to manage encryption keys
-SSE-C: when you want to manage your own encryption keys
-Client Side Encryption
-It’s important to understand which ones are adapted to which situation for the exam
+- There are 4 methods of encrypting objects in S3
+- SSE-S3: encrypts S3 objects using keys handled & managed by AWS
+- SSE-KMS: leverage AWS Key Management Service to manage encryption keys
+- SSE-C: when you want to manage your own encryption keys
+- Client Side Encryption
+- It’s important to understand which ones are adapted to which situation for the exam
 ### S3 Encryption for Objects: SSE-S3
-SSE-S3: encryption using keys handled & managed by AWS S3
-Object is encrypted server side
-AES-256 encryption type
+- SSE-S3: encryption using keys handled & managed by AWS S3
+- Object is encrypted server side
+- AES-256 encryption type
 Must set header:   “x-amz-server-side-encryption": "AES256"
 ### S3 Encryption for Objects: SSE-KMS
-SSE-KMS: encryption using keys handled & managed by KMS
-KMS Advantages: user control + audit trail
-Object is encrypted server side
-Must set header:   “x-amz-server-side-encryption": ”aws:kms"
+- SSE-KMS: encryption using keys handled & managed by KMS
+- KMS Advantages: user control + audit trail
+- Object is encrypted server side
+- Must set header:   “x-amz-server-side-encryption": ”aws:kms"
 ### S3 Encryption for Objects: SSE-C
-SSE-C: server-side encryption using data keys fully managed by the customer outside of AWS
-Amazon S3 does not store the encryption key you provide
-HTTPS must be used
-Encryption key must provided in HTTP headers, for every HTTP request made
+- SSE-C: server-side encryption using data keys fully managed by the customer outside of AWS
+- Amazon S3 does not store the encryption key you provide
+- HTTPS must be used
+- Encryption key must provided in HTTP headers, for every HTTP request made
 ### S3 Encryption for Objects: Client Side Encryption
-Client library such as the Amazon S3 Encryption Client
-Clients must encrypt data themselves before sending to S3
-Clients must decrypt data themselves when retrieving from S3
-Customer fully manages the keys and encryption cycle
+- Client library such as the Amazon S3 Encryption Client
+- Clients must encrypt data themselves before sending to S3
+- Clients must decrypt data themselves when retrieving from S3
+- Customer fully manages the keys and encryption cycle
 ### S3 Encryption for Objects: Encryption in transit (SSL)
-AWS S3 exposes:
-HTTP endpoint: non encrypted
-HTTPS endpoint: encryption in flight
-You’re free to use the endpoint you want, but HTTPS is recommended
-HTTPS is mandatory for SSE-C
-Encryption in flight is also called SSL / TLS
+- AWS S3 exposes:
+- HTTP endpoint: non encrypted
+- HTTPS endpoint: encryption in flight
+- You’re free to use the endpoint you want, but HTTPS is recommended
+- HTTPS is mandatory for SSE-C
+- Encryption in flight is also called SSL / TLS
 ### S3 CORS (Cross-Origin Resource Sharing)
-If you request data from another website, you need to enable CORS
-Cross Origin Resource Sharing allows you to limit the number of websites that can request your files in S3 (and limit your costs)
-It’s a popular exam question
+- If you request data from another website, you need to enable CORS
+- Cross Origin Resource Sharing allows you to limit the number of websites that can request your files in S3 (and limit your costs)
+- It’s a popular exam question
 ### S3 Access Logs
-For audit purpose, you may want to log all access to S3 buckets
-Any request made to S3, from any account, authorized or denied, will be logged into another S3 bucket
-That data can be analyzed using data analysis tools…
-Or Amazon Athena as we’ll see later in this course!
-The log format is at: https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
+- For audit purpose, you may want to log all access to S3 buckets
+- Any request made to S3, from any account, authorized or denied, will be logged into another S3 bucket
+- That data can be analyzed using data analysis tools…
+- Or Amazon Athena as we’ll see later in this course!
+- The log format is at: https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
 ### S3 Security
 - User based
 - IAM policies - which API calls should be allowed for a specific user from IAM console
