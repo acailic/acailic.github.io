@@ -205,3 +205,75 @@ data to consumers over HTTP/2
 • Low Latency requirements ~70ms
 • Higher costs (see Kinesis pricing page)
 • Default limit of 5 consumers using enhanced fan out per data stream
+### Kinesis Operations-Adding Shards
+- Also called “Shard Splitting”
+- Can be used to increase the Stream capacity (1 MB/s data in per
+shard)
+- Can be used to divide a “hot shard”
+- The old shard is closed and will be deleted once the data is expired
+### Kinesis Operations Merging Shards
+- Decrease the Stream capacity and save costs
+- Can be used to group two shards with low traffic
+- Old shards are closed and deleted based on data expiration
+### Kinesis Operations Auto Scaling
+- Auto Scaling is not a native
+feature of Kinesis
+- The API call to change the
+number of shards is
+UpdateShardCount
+- We can implement Auto Scaling
+with AWS Lambda
+### Kinesis Scaling Limitations
+- Resharding cannot be done in parallel. Plan capacity in advance
+- You can only perform one resharding operation at a time and it takes a few
+s econds
+- For1000 shards, it takes 30K seconds (8.3 hours) to double the shards to
+2000
+- You can’t do the following:
+• Scale more than twice for each rolling 24 hour period for each stream
+• Scale up to more than double your current shard count for a stream
+• Scale down below half your current shard count for a stream
+• Scale up to more than 500 shards in a stream
+• Scale a stream with more than 500 shards down unless the result is fewer than 500
+shards
+• Scale up to more than the shard limit for your account
+### Kinesis Security
+- Control access / authorization using IAM policies
+- Encryption in flight using HTTPS endpoints
+- Encryption at rest using KMS
+- Client side encryption must be manually implemented (harder)
+- VPC Endpoints available for Kinesis to access within VPC
+### AWS Kinesis Data Firehose
+- Fully Managed Service, no administration
+- Near Real Time (60 seconds latency minimum for non full
+- Load data into Redshift / Amazon S3 / ElasticSearch / Splunk
+- Automatic scaling
+- Supports many data formats
+- Data Conversions from JSON to Parquet / ORC (only for S3)
+- Data Transformation through AWS Lambda (ex: CSV => JSON)
+- Supports compression when target is Amazon S3 (GZIP, ZIP, and SNAPPY)
+- Only GZIP is the data is further loaded into Redshift
+- Pay for the amount of data going through Firehose
+- Spark / KCL do not read from KDF
+### Firehose Buffer Sizing
+- Firehose accumulates records in a buffer
+- The buffer is flushed based on time and size rules
+- Buffer Size (ex: 32MB): if that buffer size is reached, it’s flushed
+- Buffer Time (ex: 2 minutes): if that time is reached, it’s flushed
+- Firehose can automatically increase the buffer size to increase
+throughput
+- High throughput => Buffer Size will be hit
+- Low throughput => Buffer Time will be hit
+### Kinesis Data Streams vs Firehose
+- Streams
+• Going to write custom code (producer / consumer)
+• Real time (~200 ms latency for classic, ~70 ms latency for enhanced fan out)
+• Must manage scaling (shard splitting / merging)
+• Data Storage for 1 to 7 days, replay capability, multi consumers
+• Use with Lambda to insert data in real time to ElasticSearch (for example)
+- Firehose
+• Fully managed, send to S3, Splunk, Redshift, ElasticSearch
+• Serverless data transformations with Lambda
+• Near real time (lowest buffer time is 1 minute)
+• Automated Scaling
+• No data storage
