@@ -4,7 +4,6 @@ layout: post
 tags: [aws, das, s3, dynamodb]
 date: 2020-10-01
 ---
-
 ## AWS S3 Overview - Buckets
 Amazon S3 allows people to store objects (files) in “buckets”
 (directories)
@@ -17,7 +16,7 @@ No underscore
 Not an IP
 Must start with lowercase letter or number
 ### AWS S3 Overview - Objects
-• Objects (files) have a Key. The key is the FULL path:
+Objects (files) have a Key. The key is the FULL path:
 <my_bucket>/my_file.txt
 <my_bucket>/my_folder1/another_folder/my_file.txt
 There’s no concept of “directories” within buckets
@@ -166,12 +165,43 @@ SSE-KMS: leverage AWS Key Management Service to manage encryption keys
 SSE-C: when you want to manage your own encryption keys
 Client Side Encryption
 It’s important to understand which ones are adapted to which situation for the exam
+### S3 Encryption for Objects: SSE-S3
+SSE-S3: encryption using keys handled & managed by AWS S3
+Object is encrypted server side
+AES-256 encryption type
+Must set header:   “x-amz-server-side-encryption": "AES256"
 ### S3 Encryption for Objects: SSE-KMS
+SSE-KMS: encryption using keys handled & managed by KMS
+KMS Advantages: user control + audit trail
+Object is encrypted server side
+Must set header:   “x-amz-server-side-encryption": ”aws:kms"
 ### S3 Encryption for Objects: SSE-C
+SSE-C: server-side encryption using data keys fully managed by the customer outside of AWS
+Amazon S3 does not store the encryption key you provide
+HTTPS must be used
+Encryption key must provided in HTTP headers, for every HTTP request made
 ### S3 Encryption for Objects: Client Side Encryption
+Client library such as the Amazon S3 Encryption Client
+Clients must encrypt data themselves before sending to S3
+Clients must decrypt data themselves when retrieving from S3
+Customer fully manages the keys and encryption cycle
 ### S3 Encryption for Objects: Encryption in transit (SSL)
+AWS S3 exposes:
+HTTP endpoint: non encrypted
+HTTPS endpoint: encryption in flight
+You’re free to use the endpoint you want, but HTTPS is recommended
+HTTPS is mandatory for SSE-C
+Encryption in flight is also called SSL / TLS
 ### S3 CORS (Cross-Origin Resource Sharing)
+If you request data from another website, you need to enable CORS
+Cross Origin Resource Sharing allows you to limit the number of websites that can request your files in S3 (and limit your costs)
+It’s a popular exam question
 ### S3 Access Logs
+For audit purpose, you may want to log all access to S3 buckets
+Any request made to S3, from any account, authorized or denied, will be logged into another S3 bucket
+That data can be analyzed using data analysis tools…
+Or Amazon Athena as we’ll see later in this course!
+The log format is at: https://docs.aws.amazon.com/AmazonS3/latest/dev/Lo gFormat.html
 ### S3 Security
 ### S3 Bucket Policies
 ### S3 Security - Other
