@@ -390,63 +390,35 @@ queue
 • Data Feed from “Internet of Things”
 ## IoT Overview
 ### IoT Device Gateway
-
-Serves as the entry point for IoT devices connecting to AWS
-
-Allows devices to securely and efficiently communicate with AWS IoT
-
-Supports the MQTT, WebSockets, and HTTP 1.1 protocols
-
-Fully managed and scales automatically to support over a billion devices
-
-No need to manage any infrastructure
-
+- Serves as the entry point for IoT devices connecting to AWS
+- Allows devices to securely and efficiently communicate with AWS IoT
+- Supports the MQTT, WebSockets, and HTTP 1.1 protocols
+- Fully managed and scales automatically to support over a billion devices
+- No need to manage any infrastructure
 ### IoT Message Broker
-
-Pub/sub (publishers/subscribers) messaging pattern - low latency
-
-Devices can communicate with one another this way
-
-Messages sent using the MQTT, WebSockets, or HTTP 1.1 protocols
-
-Messages are published into topics (just like SNS)
-
-Message Broker forwards messages to all clients connected to
-
+- Pub/sub (publishers/subscribers) messaging pattern - low latency
+- Devices can communicate with one another this way
+- Messages sent using the MQTT, WebSockets, or HTTP 1.1 protocols
+- Messages are published into topics (just like SNS)
+- Message Broker forwards messages to all clients connected to
 the topic
 ### IoT Thing Registry = IAM of IoT
-
-All connected IoT devices are represented in the AWS IoT registry
-
-Organizes the resources associated with each device in the AWS Cloud
-
-Each device gets a unique ID
-
-Supports metadata for each device (ex: Celsius vs Fahrenheit, etc…)
-
-Can create X.509 certificate to help IoT devices connect to AWS
-
-IoT Groups: group devices together and apply permissions to the group
+- All connected IoT devices are represented in the AWS IoT registry
+- Organizes the resources associated with each device in the AWS Cloud
+- Each device gets a unique ID
+- Supports metadata for each device (ex: Celsius vs Fahrenheit, etc…)
+- Can create X.509 certificate to help IoT devices connect to AWS
+- IoT Groups: group devices together and apply permissions to the group
 ### Authentication
-
-
-3 possible authentication methods for Things:
-
-Create X.509 certificates and load them securely onto the Things
-
-AWS SigV4
-
-Custom tokens with Custom authorizers
-
-For mobile apps:
-
-Cognito identities (extension to Google, Facebook login, etc…)
-
-Web / Desktop / CLI:
-
-IAM
-
-Federated Identities
+- 3 possible authentication methods for Things:
+- Create X.509 certificates and load them securely onto the Things
+- AWS SigV4
+- Custom tokens with Custom authorizers
+- For mobile apps:
+- Cognito identities (extension to Google, Facebook login, etc…)
+- Web / Desktop / CLI:
+- IAM
+- Federated Identities
 ### Authorization
 ### Device Shadow
 ### Rules Engine
@@ -462,58 +434,49 @@ Federated Identities
 ### Snowball Diagrams
 ### AWS Snowmobile
 ### MSK Managed Streaming for ApacheKafka
-
-Fully managed Apache Kafka on AWS (alternative to Kinesis)
-
-Allow you to create, update, delete clusters (control plane)
-
-MSK creates & manages brokers nodes & Zookeeper nodes for you
-
-Deploy the MSK cluster in your VPC, multi AZ (up to 3 for HA)
-
-Automatic recovery from common Apache Kafka failures
-
-Can create custom configurations for your clusters
-
-Data is stored on EBS volumes
-
-You can build producers and consumers of data (data plane)
+- Fully managed Apache Kafka on AWS (alternative to Kinesis)
+- Allow you to create, update, delete clusters (control plane)
+- MSK creates & manages brokers nodes & Zookeeper nodes for you
+- Deploy the MSK cluster in your VPC, multi AZ (up to 3 for HA)
+- Automatic recovery from common Apache Kafka failures
+- Can create custom configurations for your clusters
+- Data is stored on EBS volumes
+- You can build producers and consumers of data (data plane)
 ### Apache Kafka at a high level
 ### MSK  Configurations
-Choose the number of AZ (3 – recommended, or 2)
-Choose the VPC & Subnets
-The broker instance type (ex: kafka.m5.large)
-The number of brokers per AZ (can add brokers later)
-Size of your EBS volumes (1GB - 16 TB)
+- Choose the number of AZ (3 – recommended, or 2)
+- Choose the VPC & Subnets
+- The broker instance type (ex: kafka.m5.large)
+- The number of brokers per AZ (can add brokers later)
+- Size of your EBS volumes (1GB - 16 TB)
 ### MSK - Override Kafka Configurations
-List of properties you can set: https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html
-Important to note:
-Max message size in Kafka by default is 1MB
-Can override this with the broker message.max.bytes setting
-Must also change the consumer max.fetch.bytes setting
-Latency:
-By default it’s low in Kafka 10-40ms (way less than Kinesis)
-The producer can increase latency to increase batching using linger.ms
+- List of properties you can set: https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html
+- Important to note:
+- Max message size in Kafka by default is 1MB
+- Can override this with the broker message.max.bytes setting
+- Must also change the consumer max.fetch.bytes setting
+- Latency:
+- By default it’s low in Kafka 10-40ms (way less than Kinesis)
+- The producer can increase latency to increase batching using linger.ms
 ### MSK Security
-Can enable encryption in flight using TLS between the brokers
-Can say PLAINTEXT and/or TLS-encrypted between the clients and brokers
-Encryption at rest for your EBS volumes using KMS
-Supports TLS client authentication using a Private Certificate Authority (CA) from ACM
-Authorize specific security groups for your Apache Kafka clients
-Security and ACLs for clients is done within the Apache Kafka cluster
+- Can enable encryption in flight using TLS between the brokers
+- Can say PLAINTEXT and/or TLS-encrypted between the clients and brokers
+- Encryption at rest for your EBS volumes using KMS
+- Supports TLS client authentication using a Private Certificate Authority (CA) from ACM
+- Authorize specific security groups for your Apache Kafka clients
+- Security and ACLs for clients is done within the Apache Kafka cluster
 ### MSK - Monitoring    
- CloudWatch Metrics
-  Basic monitoring (cluster and broker metrics)
-      Enhanced monitoring (++enhanced broker metrics)
-      Topic-level monitoring (++enhanced topic-level metrics)   
-   Prometheus (Open-Source Monitoring)   
-   Opens a port on the broker to export cluster, broker and topic-level metrics   
-   Setup the JMX Exporter (metrics) or Node Exporter (CPU and disk metrics)   
-   Broker Log Delivery   
-   Delivery to CloudWatch Logs   
-   Delivery to Amazon S3
-   Delivery to Kinesis Data Firehose
-   
+ - CloudWatch Metrics
+ - Basic monitoring (cluster and broker metrics)
+ - Enhanced monitoring (++enhanced broker metrics)
+ - Topic-level monitoring (++enhanced topic-level metrics)   
+ - Prometheus (Open-Source Monitoring)   
+ - Opens a port on the broker to export cluster, broker and topic-level metrics   
+ - Setup the JMX Exporter (metrics) or Node Exporter (CPU and disk metrics)   
+ - Broker Log Delivery   
+ - Delivery to CloudWatch Logs   
+ - Delivery to Amazon S3
+ - Delivery to Kinesis Data Firehose
 ### Questions
 - You are accumulating data from IoT devices and you must send data within 10 seconds to Amazon ElasticSearch service. That data should also be consumed by other services when needed. Which service do you recommend using?:Kinesis Data Streams
 - You need a managed service that can deliver data to Amazon S3 and scale automatically for you. You want to be billed only for the actual usage of the service and be able to handle peak loads. Which service do you recommend?:Kinesis Data Firehose
@@ -534,6 +497,3 @@ Security and ACLs for clients is done within the Apache Kafka cluster
 - You are looking to continuously replicate a MySQL database that's on premise to Aurora. Which service will allow you to do so securely?Database Migration Services.DMS is fully secure
 - You have setup Direct Connect on one location to ensure your traffic into AWS is going over a private network. You would like to setup a failover connection, that must be as reliable and as redundant as possible, as you cannot afford to be down for too long. What backup connection do you recommend?:Direct Setup is although this is more secure than Site to Site VPN, it is less reliable as it does not leverage the public web. It is the wrong answer here, but a correct answer overall for setting up highly available Direct Connect. Site to site VPN is although this is not as private as another Direct Connect setup, it is definitely more reliable as it leverages the public web. It is the correct answer here.
 - You would like to transfer data in AWS in less than two days from now. What should you use?:Setting up direct link takes a long time, or snowball. Use public internet.
-- 
-- 
-- 
