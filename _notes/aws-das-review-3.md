@@ -361,155 +361,152 @@ Distribute partition keys as much as possible
 If RCU issue, we can use DynamoDB Accelerator (DAX)
 ### DynamoDB – Partitions Internal
 ### DynamoDB – Writing Data
-PutItem - Write data to DynamoDB (create data or full replace)
-Consumes WCU
-UpdateItem – Update data in DynamoDB (partial update of attributes)
-Possibility to use Atomic Counters and increase them
-Conditional Writes:
-Accept a write / update only if conditions are respected, otherwise reject
-Helps with concurrent access to items
-No performance impact
+- PutItem - Write data to DynamoDB (create data or full replace)
+• Consumes WCU
+- UpdateItem – Update data in DynamoDB (partial update of attributes)
+• Possibility to use Atomic Counters and increase them
+- Conditional Writes:
+• Accept a write / update only if conditions are respected, otherwise reject
+• Helps with concurrent access to items
+- No performance impact
 ### DynamoDB – Deleting Data
-DeleteItem
-Delete an individual row
-Ability to perform a conditional delete
-DeleteTable
-Delete a whole table and all its items
-Much quicker deletion than calling DeleteItem on all items
+- DeleteItem
+• Delete an individual row
+• Ability to perform a conditional delete
+- DeleteTable
+• Delete a whole table and all its items
+- Much quicker deletion than calling DeleteItem on all items
 ### DynamoDB – Batching Writes
-BatchWriteItem
-Up to 25 PutItem and / or DeleteItem in one call
-Up to 16 MB of data written
-Up to 400 KB of data per item
-Batching allows you to save in latency by reducing the number of API calls done against DynamoDB
-Operations are done in parallel for better efficiency
-It’s possible for part of a batch to fail, in which case we have the try the failed items (using exponential back-off algorithm)
+- BatchWriteItem
+- Up to 25 PutItem and / or DeleteItem in one call
+- Up to 16 MB of data written
+- Up to 400 KB of data per item
+- Batching allows you to save in latency by reducing the number of API calls done against DynamoDB
+- Operations are done in parallel for better efficiency
+- It’s possible for part of a batch to fail, in which case we have the try the failed items (using exponential back-off algorithm)
 ### DynamoDB – Reading Data
-GetItem:
-Read based on Primary key
-Primary Key = HASH or HASH-RANGE
-Eventually consistent read by default
-Option to use strongly consistent reads (more RCU - might take longer)
-ProjectionExpression can be specified to include only certain attributes
-BatchGetItem:
+- GetItem:
+- Read based on Primary key
+- Primary Key = HASH or HASH-RANGE
+- Eventually consistent read by default
+- Option to use strongly consistent reads (more RCU - might take longer)
+- ProjectionExpression can be specified to include only certain attributes
+- BatchGetItem:
 Up to 100 items
 Up to 16 MB of data
 Items are retrieved in parallel to minimize latency
 ### DynamoDB – Query
-Query returns items based on:
-PartitionKey value (must be = operator)
-SortKey value (=, <, <=, >, >=, Between, Begin) – optional
-FilterExpression to further filter (client side filtering)
-Returns:
-Up to 1 MB of data
-Or number of items specified in Limit
-Able to do pagination on the results
-Can query table, a local secondary index, or a global secondary index
+- Query returns items based on:
+- PartitionKey value (must be = operator)
+- SortKey value (=, <, <=, >, >=, Between, Begin) – optional
+- FilterExpression to further filter (client side filtering)
+- Returns:
+- Up to 1 MB of data
+- Or number of items specified in Limit
+- Able to do pagination on the results
+- Can query table, a local secondary index, or a global secondary index
 ### DynamoDB - Scan
-Scan the entire table and then filter out data (inefficient)
-Returns up to 1 MB of data – use pagination to keep on reading
-Consumes a lot of RCU
-Limit impact using Limit or reduce the size of the result and pause
-For faster performance, use parallel scans:
-Multiple instances scan multiple partitions at the same time
-Increases the throughput and RCU consumed
-Limit the impact of parallel scans just like you would for Scans
-Can use a ProjectionExpression + FilterExpression (no change to RCU)
+- Scan the entire table and then filter out data (inefficient)
+- Returns up to 1 MB of data – use pagination to keep on reading
+- Consumes a lot of RCU
+- Limit impact using Limit or reduce the size of the result and pause
+- For faster performance, use parallel scans:
+- Multiple instances scan multiple partitions at the same time
+- Increases the throughput and RCU consumed
+- Limit the impact of parallel scans just like you would for Scans
+- Can use a ProjectionExpression + FilterExpression (no change to RCU)
 ### DynamoDB – LSI (Local Secondary Index)
-Alternate range key for your table, local to the hash key
-Up to five local secondary indexes per table.
-The sort key consists of exactly one scalar attribute.
-The attribute that you choose must be a scalar String, Number, or Binary
-LSI must be defined at table creation time
+- Alternate range key for your table, local to the hash key
+- Up to five local secondary indexes per table.
+- The sort key consists of exactly one scalar attribute.
+- The attribute that you choose must be a scalar String, Number, or Binary
+- LSI must be defined at table creation time
 ### DynamoDB – GSI (Global Secondary Index)
-To speed up queries on non-key attributes, use a Global Secondary Index
-GSI = partition key + optional sort key
-The index is a new “table” and we can project attributes on it
-The partition key and sort key of the original table are always projected (KEYS_ONLY)
-Can specify extra attributes to project (INCLUDE)
-Can use all attributes from main table (ALL)
-Must define RCU / WCU for the index
-Possibility to add / modify GSI (not LSI)
+- To speed up queries on non-key attributes, use a Global Secondary Index
+- GSI = partition key + optional sort key
+- The index is a new “table” and we can project attributes on it
+- The partition key and sort key of the original table are always projected (KEYS_ONLY)
+- Can specify extra attributes to project (INCLUDE)
+- Can use all attributes from main table (ALL)
+- Must define RCU / WCU for the index
+- Possibility to add / modify GSI (not LSI)
 ### DynamoDB - DAX
-DAX = DynamoDB Accelerator
-Seamless cache for DynamoDB, no application re-write
-Writes go through DAX to DynamoDB
-Micro second latency for cached reads & queries
-Solves the Hot Key problem (too many reads)
-5 minutes TTL for cache by default
-Up to 10 nodes in the cluster
-Multi AZ (3 nodes minimum recommended for production)
-Secure (Encryption at rest with KMS, VPC,
-IAM, CloudTrail…)
+- DAX = DynamoDB Accelerator
+- Seamless cache for DynamoDB, no application re-write
+- Writes go through DAX to DynamoDB
+- Micro second latency for cached reads & queries
+- Solves the Hot Key problem (too many reads)
+- 5 minutes TTL for cache by default
+- Up to 10 nodes in the cluster
+- Multi AZ (3 nodes minimum recommended for production)
+- Secure (Encryption at rest with KMS, VPC, IAM, CloudTrail…)
 ### DynamoDB Streams 
-Changes in DynamoDB (Create, Update, Delete) can end up in a DynamoDB Stream
-This stream can be read by AWS Lambda, and we can then do:
-React to changes in real time (welcome email to new users)
-Create derivative tables / views
-Insert into ElasticSearch
-Could implement Cross Region Replication using Streams
-Stream has 24 hours of data retention
-Configurable batch size (up to 1,000 rows, 6 MB)
+- Changes in DynamoDB (Create, Update, Delete) can end up in a DynamoDB Stream
+- This stream can be read by AWS Lambda, and we can then do:
+- React to changes in real time (welcome email to new users)
+- Create derivative tables / views
+- Insert into ElasticSearch
+- Could implement Cross Region Replication using Streams
+- Stream has 24 hours of data retention
+- Configurable batch size (up to 1,000 rows, 6 MB)
 ### DynamoDB Streams Kinesis Adapter
-Use the KCL library to directly consume from DynamoDB Streams
-You just need to add a “Kinesis Adapter” library
-The interface and programming is exactly the same as Kinesis Streams
-That’s the alternative to using
-AWS Lambda
+- Use the KCL library to directly consume from DynamoDB Streams
+- You just need to add a “Kinesis Adapter” library
+- The interface and programming is exactly the same as Kinesis Streams
+- That’s the alternative to using AWS Lambda
 ### DynamoDB TTL (Time to Live)
-TTL = automatically delete an item after an expiry date / time
-TTL is provided at no extra cost, deletions do not use WCU / RCU
-TTL is a background task operated by the DynamoDB service itself
-Helps reduce storage and manage the table size over time
-Helps adhere to regulatory norms
-TTL is enabled per row (you define a TTL column, and add a date there)
-DynamoDB typically deletes expired items within 48 hours of expiration
-Deleted items due to TTL are also deleted in GSI / LSI
-DynamoDB Streams can help recover expired items
+- TTL = automatically delete an item after an expiry date / time
+- TTL is provided at no extra cost, deletions do not use WCU / RCU
+- TTL is a background task operated by the DynamoDB service itself
+- Helps reduce storage and manage the table size over time
+- Helps adhere to regulatory norms
+- TTL is enabled per row (you define a TTL column, and add a date there)
+- DynamoDB typically deletes expired items within 48 hours of expiration
+- Deleted items due to TTL are also deleted in GSI / LSI
+- DynamoDB Streams can help recover expired items
 ### DynamoDB – Security & Other Features
-Security:
-VPC Endpoints available to access DynamoDB without internet
-Access fully controlled by IAM
-Encryption at rest using KMS
-Encryption in transit using SSL / TLS
-Backup and Restore feature available
-Point in time restore like RDS
-No performance impact
-Global Tables
-Multi region, fully replicated, high performance
-Amazon Database Migration Service (DMS) can be used to migrate to DynamoDB (from Mongo, Oracle, MySQL, S3, etc…)
-You can launch a local DynamoDB on your computer for development purposes
+- Security:
+- VPC Endpoints available to access DynamoDB without internet
+- Access fully controlled by IAM
+- Encryption at rest using KMS
+- Encryption in transit using SSL / TLS
+- Backup and Restore feature available
+- Point in time restore like RDS
+- No performance impact
+- Global Tables
+- Multi region, fully replicated, high performance
+- Amazon Database Migration Service (DMS) can be used to migrate to DynamoDB (from Mongo, Oracle, MySQL, S3, etc…)
+- You can launch a local DynamoDB on your computer for development purposes
 ### DynamoDB – Storing large objects
-Max size of an item in DynamoDB = 400 KB
-For large objects, store them in S3 and reference them in DynamoDB
-Amazon S3
+- Max size of an item in DynamoDB = 400 KB
+- For large objects, store them in S3 and reference them in DynamoDB Amazon S3
 ### AWS ElastiCache Overview
-The same way RDS is to get managed Relational Databases…
-ElastiCache is to get managed Redis or Memcached
-Caches are in-memory databases with really high performance, low latency
-Helps reduce load off of databases for read intensive workloads
-Helps make your application stateless
-Write Scaling using sharding
-Read Scaling using Read Replicas
-Multi AZ with Failover Capability
-AWS takes care of OS maintenance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups
+- The same way RDS is to get managed Relational Databases…
+- ElastiCache is to get managed Redis or Memcached
+- Caches are in-memory databases with really high performance, low latency
+- Helps reduce load off of databases for read intensive workloads
+- Helps make your application stateless
+- Write Scaling using sharding
+- Read Scaling using Read Replicas
+- Multi AZ with Failover Capability
+- AWS takes care of OS maintenance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups
 ### Redis Overview
-Redis is an in-memory key-value store
-Super low latency (sub ms)
-Cache survive reboots by default (it’s called persistence)
-Great to host
-User sessions
-Leaderboard (for gaming)
-Distributed states
-Relieve pressure on databases (such as RDS)
-Pub / Sub capability for messaging
-Multi AZ with Automatic Failover for disaster recovery if you don’t want to lose your cache data
-Support for Read Replicas
+- Redis is an in-memory key-value store
+- Super low latency (sub ms)
+- Cache survive reboots by default (it’s called persistence)
+- Great to host
+- User sessions
+- Leaderboard (for gaming)
+- Distributed states
+- Relieve pressure on databases (such as RDS)
+- Pub / Sub capability for messaging
+- Multi AZ with Automatic Failover for disaster recovery if you don’t want to lose your cache data
+- Support for Read Replicas
 ### Memcached Overview
-Memcached is an in-memory object store
-Cache doesn’t survive reboots
-Use cases:
-Quick retrieval of objects from memory
-Cache often accessed objects
-Overall, Redis has largely grown in popularity and has better feature sets than Memcached.
-I would personally only use Redis for caching needs.
+- Memcached is an in-memory object store
+- Cache doesn’t survive reboots
+- Use cases:
+- Quick retrieval of objects from memory
+- Cache often accessed objects
+- Overall, Redis has largely grown in popularity and has better feature sets than Memcached.
+- I would personally only use Redis for caching needs.
