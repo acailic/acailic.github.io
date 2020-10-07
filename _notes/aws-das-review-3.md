@@ -247,4 +247,25 @@ Expedited (1 to 5 minutes retrieval) – $0.03 per GB and $0.01 per request
 Standard (3 to 5 hours) - $0.01 per GB and 0.05 per 1000 requests
 Bulk (5 to 12 hours) - $0.0025 per GB and $0.025 per 1000 requests
 ### Glacier - Vault Policies & Vault Lock
+Vault is a collection of archives
+Each Vault has:
+ONE vault access policy
+ONE vault lock policy
+Vault Policies are written in JSON
+Vault Access Policy is similar to bucket policy (restrict user / account permissions)
+Vault Lock Policy is a policy you lock, for regulatory and compliance requirements.
+The policy is immutable, it can never be changed (that’s why it’s call LOCK)
+Example 1: forbid deleting an archive if less than 1 year old
+Example 2: implement WORM policy (write once read many)
 ### S3 Select & Glacier Select
+Retrieve less data using SQL by performing server side filtering
+Can filter by rows & columns (simple SQL statements)
+Less network transfer, less CPU cost client-side
+### S3 Select with Hadoop
+Transfer some data from S3 before analyzing it with your cluster
+Load less data into Hadoop, save network costs, transfer the data faster
+CSV file
+Send filtered dataset
+Amazon S3 Using S3 Select
+Server-side filtering
+### DynamoDB
