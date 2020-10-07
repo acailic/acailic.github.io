@@ -201,7 +201,43 @@ For audit purpose, you may want to log all access to S3 buckets
 Any request made to S3, from any account, authorized or denied, will be logged into another S3 bucket
 That data can be analyzed using data analysis tools…
 Or Amazon Athena as we’ll see later in this course!
-The log format is at: https://docs.aws.amazon.com/AmazonS3/latest/dev/Lo gFormat.html
+The log format is at: https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
 ### S3 Security
+User based
+IAM policies - which API calls should be allowed for a specific user from IAM console
+Resource Based
+Bucket Policies - bucket wide rules from the S3 console - allows cross account
+Object Access Control List (ACL) – finer grain
+Bucket Access Control List (ACL) – less common
 ### S3 Bucket Policies
+JSON based policies
+Resources: buckets and objects
+Actions: Set of API to Allow or Deny
+Effect: Allow / Deny
+Principal: The account or user to apply the policy to
+Use S3 bucket for policy to:
+Grant public access to the bucket
+Force objects to be encrypted at upload
+Grant access to another account (Cross Account)
+### S3 Default Encryption vs Bucket Policies
+The old way to enable default encryption was to use a bucket policy and refuse any HTTP command without the proper headers:
+The new way is to use the “default encryption” option in S3
+Note: Bucket Policies are evaluated before “default encryption”
 ### S3 Security - Other
+Networking:
+Supports VPC Endpoints (for instances in VPC without www internet)
+Logging and Audit:
+S3 access logs can be stored in other S3 bucket
+API calls can be logged in AWS CloudTrail
+User Security:
+MFA (multi factor authentication) can be required in versioned buckets to delete objects
+Signed URLs: URLs that are valid only for a limited time (ex: premium video service for logged in users)
+### Glacier
+Low cost object storage meant for archiving / backup
+Data is retained for the longer term (10s of years)
+Alternative to on-premise magnetic tape storage
+Average annual durability is 99.999999999%
+Cost per storage per month ($0.004 / GB) + retrieval cost
+Each item in Glacier is called “Archive” (up to 40TB)
+Archives are stored in ”Vaults”
+Exam tip: archival from S3 after XXX days => use Glacier
