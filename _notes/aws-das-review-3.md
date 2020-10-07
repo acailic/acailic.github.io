@@ -369,3 +369,57 @@ Conditional Writes:
 Accept a write / update only if conditions are respected, otherwise reject
 Helps with concurrent access to items
 No performance impact
+### DynamoDB – Deleting Data
+DeleteItem
+Delete an individual row
+Ability to perform a conditional delete
+DeleteTable
+Delete a whole table and all its items
+Much quicker deletion than calling DeleteItem on all items
+### DynamoDB – Batching Writes
+BatchWriteItem
+Up to 25 PutItem and / or DeleteItem in one call
+Up to 16 MB of data written
+Up to 400 KB of data per item
+Batching allows you to save in latency by reducing the number of API calls done against DynamoDB
+Operations are done in parallel for better efficiency
+It’s possible for part of a batch to fail, in which case we have the try the failed items (using exponential back-off algorithm)
+### DynamoDB – Reading Data
+GetItem:
+Read based on Primary key
+Primary Key = HASH or HASH-RANGE
+Eventually consistent read by default
+Option to use strongly consistent reads (more RCU - might take longer)
+ProjectionExpression can be specified to include only certain attributes
+BatchGetItem:
+Up to 100 items
+Up to 16 MB of data
+Items are retrieved in parallel to minimize latency
+### DynamoDB – Query
+Query returns items based on:
+PartitionKey value (must be = operator)
+SortKey value (=, <, <=, >, >=, Between, Begin) – optional
+FilterExpression to further filter (client side filtering)
+Returns:
+Up to 1 MB of data
+Or number of items specified in Limit
+Able to do pagination on the results
+Can query table, a local secondary index, or a global secondary index
+### DynamoDB - Scan
+Scan the entire table and then filter out data (inefficient)
+Returns up to 1 MB of data – use pagination to keep on reading
+Consumes a lot of RCU
+Limit impact using Limit or reduce the size of the result and pause
+For faster performance, use parallel scans:
+Multiple instances scan multiple partitions at the same time
+Increases the throughput and RCU consumed
+Limit the impact of parallel scans just like you would for Scans
+Can use a ProjectionExpression + FilterExpression (no change to RCU)
+### DynamoDB – LSI (Local Secondary Index)
+Alternate range key for your table, local to the hash key
+Up to five local secondary indexes per table.
+The sort key consists of exactly one scalar attribute.
+The attribute that you choose must be a scalar String, Number, or Binary
+LSI must be defined at table creation time
+### 
+###
