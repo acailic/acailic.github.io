@@ -336,29 +336,29 @@ We need 6 * 5 = 30 WCU  (4.5 gets rounded to the upper KB)
 Example 3: we write 120 objects per minute of 2 KB each
 We need 120 / 60 * 2 = 4 WCU
 ### Strongly Consistent Read vs Eventually Consistent Read
-Eventually Consistent Read: If we read just after a write, it’s possible we’ll get unexpected response because of replication
-Strongly Consistent Read: If we read just after a write, we will get the correct data
-By default: DynamoDB uses Eventually Consistent Reads, but GetItem, Query & Scan provide a
+- Eventually Consistent Read: If we read just after a write, it’s possible we’ll get unexpected response because of replication
+- Strongly Consistent Read: If we read just after a write, we will get the correct data
+- By default: DynamoDB uses Eventually Consistent Reads, but GetItem, Query & Scan provide a
 “ConsistentRead” parameter you can set to True
 ### DynamoDB – Read Capacity Units
-One read capacity unit represents one strongly consistent read per second, or two eventually consistent reads per second, for an item up to 4 KB in size.
-If the items are larger than 4 KB, more RCU are consumed
-Example 1: 10 strongly consistent reads per seconds of 4 KB each
-We need 10 * 4 KB / 4 KB = 10 RCU
-Example 2: 16 eventually consistent reads per seconds of 12 KB each
-We need (16 / 2) * ( 12 / 4 ) = 24 RCU
-Example 3: 10 strongly consistent reads per seconds of 6 KB each
-We need 10 * 8 KB / 4 = 20 RCU (we have to round up 6 KB to 8 KB)
+- One read capacity unit represents one strongly consistent read per second, or two eventually consistent reads per second, for an item up to 4 KB in size.
+- If the items are larger than 4 KB, more RCU are consumed
+- Example 1: 10 strongly consistent reads per seconds of 4 KB each
+- We need 10 * 4 KB / 4 KB = 10 RCU
+- Example 2: 16 eventually consistent reads per seconds of 12 KB each
+- We need (16 / 2) * ( 12 / 4 ) = 24 RCU
+- Example 3: 10 strongly consistent reads per seconds of 6 KB each
+- We need 10 * 8 KB / 4 = 20 RCU (we have to round up 6 KB to 8 KB)
 ### DynamoDB - Throttling
-If we exceed our RCU or WCU, we get
-ProvisionedThroughputExceededExceptions
-Reasons:
-Hot keys / partitions: one partition key is being read too many times (popular item for ex)
-Very large items: remember RCU and WCU depends on size of items
-Solutions:
-Exponential back-off when exception is encountered (already in SDK)
-Distribute partition keys as much as possible
-If RCU issue, we can use DynamoDB Accelerator (DAX)
+- If we exceed our RCU or WCU, we get
+- ProvisionedThroughputExceededExceptions
+- Reasons:
+• Hot keys / partitions: one partition key is being read too many times (popular item for ex)
+• Very large items: remember RCU and WCU depends on size of items
+- Solutions:
+• Exponential back-off when exception is encountered (already in SDK)
+• Distribute partition keys as much as possible
+• If RCU issue, we can use DynamoDB Accelerator (DAX)
 ### DynamoDB – Partitions Internal
 ### DynamoDB – Writing Data
 - PutItem - Write data to DynamoDB (create data or full replace)
