@@ -16,8 +16,10 @@ Not an IP
 Must start with lowercase letter or number
 ### AWS S3 Overview - Objects
 - Objects (files) have a Key. The key is the FULL path:
+```
 <my_bucket>/my_file.txt
 <my_bucket>/my_folder1/another_folder/my_file.txt
+``````
 - There’s no concept of “directories” within buckets (although the UI will trick you to think otherwise)
 - Just keys with very long names that contain slashes (“/”)
 - Object Values are the content of the body:
@@ -238,3 +240,9 @@ Cost per storage per month ($0.004 / GB) + retrieval cost
 Each item in Glacier is called “Archive” (up to 40TB)
 Archives are stored in ”Vaults”
 Exam tip: archival from S3 after XXX days => use Glacier
+###  Glacier Operations
+Restore links have an expiry date
+3 retrieval options:
+Expedited (1 to 5 minutes retrieval) – $0.03 per GB and $0.01 per request
+Standard (3 to 5 hours) - $0.01 per GB and 0.05 per 1000 requests
+Bulk (5 to 12 hours) - $0.0025 per GB and $0.025 per 1000 requests
