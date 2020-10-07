@@ -455,3 +455,62 @@ Federated Identities
 ### DMS Sources and Targets
 ### AWS Schema Conversion Tool (SCT)
 ### Direct Connect
+### Direct Connect Diagram
+### Direct Connect Gateway
+### Snowball
+### Snowball Process
+### Snowball Diagrams
+### AWS Snowmobile
+### MSK Managed Streaming for ApacheKafka
+
+Fully managed Apache Kafka on AWS (alternative to Kinesis)
+
+Allow you to create, update, delete clusters (control plane)
+
+MSK creates & manages brokers nodes & Zookeeper nodes for you
+
+Deploy the MSK cluster in your VPC, multi AZ (up to 3 for HA)
+
+Automatic recovery from common Apache Kafka failures
+
+Can create custom configurations for your clusters
+
+Data is stored on EBS volumes
+
+You can build producers and consumers of data (data plane)
+### Apache Kafka at a high level
+### MSK  Configurations
+Choose the number of AZ (3 – recommended, or 2)
+Choose the VPC & Subnets
+The broker instance type (ex: kafka.m5.large)
+The number of brokers per AZ (can add brokers later)
+Size of your EBS volumes (1GB - 16 TB)
+### MSK - Override Kafka Configurations
+List of properties you can set: https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html
+Important to note:
+Max message size in Kafka by default is 1MB
+Can override this with the broker message.max.bytes setting
+Must also change the consumer max.fetch.bytes setting
+Latency:
+By default it’s low in Kafka 10-40ms (way less than Kinesis)
+The producer can increase latency to increase batching using linger.ms
+### MSK Security
+Can enable encryption in flight using TLS between the brokers
+Can say PLAINTEXT and/or TLS-encrypted between the clients and brokers
+Encryption at rest for your EBS volumes using KMS
+Supports TLS client authentication using a Private Certificate Authority (CA) from ACM
+Authorize specific security groups for your Apache Kafka clients
+Security and ACLs for clients is done within the Apache Kafka cluster
+### MSK - Monitoring    
+ CloudWatch Metrics
+  Basic monitoring (cluster and broker metrics)
+      Enhanced monitoring (++enhanced broker metrics)
+      Topic-level monitoring (++enhanced topic-level metrics)   
+   Prometheus (Open-Source Monitoring)   
+   Opens a port on the broker to export cluster, broker and topic-level metrics   
+   Setup the JMX Exporter (metrics) or Node Exporter (CPU and disk metrics)   
+   Broker Log Delivery   
+   Delivery to CloudWatch Logs   
+   Delivery to Amazon S3
+   Delivery to Kinesis Data Firehose
+### 
