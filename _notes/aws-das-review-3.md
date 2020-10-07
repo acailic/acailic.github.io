@@ -194,91 +194,91 @@ That data can be analyzed using data analysis tools…
 Or Amazon Athena as we’ll see later in this course!
 The log format is at: https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
 ### S3 Security
-User based
-IAM policies - which API calls should be allowed for a specific user from IAM console
-Resource Based
-Bucket Policies - bucket wide rules from the S3 console - allows cross account
-Object Access Control List (ACL) – finer grain
-Bucket Access Control List (ACL) – less common
+- User based
+- IAM policies - which API calls should be allowed for a specific user from IAM console
+- Resource Based
+- Bucket Policies - bucket wide rules from the S3 console - allows cross account
+- Object Access Control List (ACL) – finer grain
+- Bucket Access Control List (ACL) – less common
 ### S3 Bucket Policies
-JSON based policies
-Resources: buckets and objects
-Actions: Set of API to Allow or Deny
-Effect: Allow / Deny
-Principal: The account or user to apply the policy to
-Use S3 bucket for policy to:
-Grant public access to the bucket
-Force objects to be encrypted at upload
-Grant access to another account (Cross Account)
+- JSON based policies
+- Resources: buckets and objects
+- Actions: Set of API to Allow or Deny
+- Effect: Allow / Deny
+- Principal: The account or user to apply the policy to
+- Use S3 bucket for policy to:
+- Grant public access to the bucket
+- Force objects to be encrypted at upload
+- Grant access to another account (Cross Account)
 ### S3 Default Encryption vs Bucket Policies
-The old way to enable default encryption was to use a bucket policy and refuse any HTTP command without the proper headers:
-The new way is to use the “default encryption” option in S3
-Note: Bucket Policies are evaluated before “default encryption”
+- The old way to enable default encryption was to use a bucket policy and refuse any HTTP command without the proper headers:
+- The new way is to use the “default encryption” option in S3
+- Note: Bucket Policies are evaluated before “default encryption”
 ### S3 Security - Other
-Networking:
+- Networking:
 Supports VPC Endpoints (for instances in VPC without www internet)
-Logging and Audit:
+- Logging and Audit:
 S3 access logs can be stored in other S3 bucket
 API calls can be logged in AWS CloudTrail
-User Security:
+- User Security:
 MFA (multi factor authentication) can be required in versioned buckets to delete objects
-Signed URLs: URLs that are valid only for a limited time (ex: premium video service for logged in users)
+- Signed URLs: URLs that are valid only for a limited time (ex: premium video service for logged in users)
 ### Glacier
-Low cost object storage meant for archiving / backup
-Data is retained for the longer term (10s of years)
-Alternative to on-premise magnetic tape storage
-Average annual durability is 99.999999999%
-Cost per storage per month ($0.004 / GB) + retrieval cost
-Each item in Glacier is called “Archive” (up to 40TB)
-Archives are stored in ”Vaults”
-Exam tip: archival from S3 after XXX days => use Glacier
+- Low cost object storage meant for archiving / backup
+- Data is retained for the longer term (10s of years)
+- Alternative to on-premise magnetic tape storage
+- Average annual durability is 99.999999999%
+- Cost per storage per month ($0.004 / GB) + retrieval cost
+- Each item in Glacier is called “Archive” (up to 40TB)
+- Archives are stored in ”Vaults”
+- Exam tip: archival from S3 after XXX days => use Glacier
 ###  Glacier Operations
-Restore links have an expiry date
-3 retrieval options:
-Expedited (1 to 5 minutes retrieval) – $0.03 per GB and $0.01 per request
-Standard (3 to 5 hours) - $0.01 per GB and 0.05 per 1000 requests
-Bulk (5 to 12 hours) - $0.0025 per GB and $0.025 per 1000 requests
+- Restore links have an expiry date
+- 3 retrieval options:
+- Expedited (1 to 5 minutes retrieval) – $0.03 per GB and $0.01 per request
+- Standard (3 to 5 hours) - $0.01 per GB and 0.05 per 1000 requests
+- Bulk (5 to 12 hours) - $0.0025 per GB and $0.025 per 1000 requests
 ### Glacier - Vault Policies & Vault Lock
-Vault is a collection of archives
-Each Vault has:
-ONE vault access policy
-ONE vault lock policy
-Vault Policies are written in JSON
-Vault Access Policy is similar to bucket policy (restrict user / account permissions)
-Vault Lock Policy is a policy you lock, for regulatory and compliance requirements.
-The policy is immutable, it can never be changed (that’s why it’s call LOCK)
-Example 1: forbid deleting an archive if less than 1 year old
-Example 2: implement WORM policy (write once read many)
+- Vault is a collection of archives
+- Each Vault has:
+- ONE vault access policy
+- ONE vault lock policy
+- Vault Policies are written in JSON
+- Vault Access Policy is similar to bucket policy (restrict user / account permissions)
+- Vault Lock Policy is a policy you lock, for regulatory and compliance requirements.
+- The policy is immutable, it can never be changed (that’s why it’s call LOCK)
+- Example 1: forbid deleting an archive if less than 1 year old
+- Example 2: implement WORM policy (write once read many)
 ### S3 Select & Glacier Select
-Retrieve less data using SQL by performing server side filtering
-Can filter by rows & columns (simple SQL statements)
-Less network transfer, less CPU cost client-side
+- Retrieve less data using SQL by performing server side filtering
+- Can filter by rows & columns (simple SQL statements)
+- Less network transfer, less CPU cost client-side
 ### S3 Select with Hadoop
-Transfer some data from S3 before analyzing it with your cluster
-Load less data into Hadoop, save network costs, transfer the data faster
-CSV file
-Send filtered dataset
-Amazon S3 Using S3 Select
-Server-side filtering
+- Transfer some data from S3 before analyzing it with your cluster
+- Load less data into Hadoop, save network costs, transfer the data faster
+- CSV file
+- Send filtered dataset
+- Amazon S3 Using S3 Select
+- Server-side filtering
 ### DynamoDB
-Fully Managed, Highly available with replication across 3 AZ
-NoSQL database - not a relational database
-Scales to massive workloads, distributed database
-Millions of requests per seconds, trillions of row, 100s of TB of storage
-Fast and consistent in performance (low latency on retrieval)
-Integrated with IAM for security, authorization and administration
-Enables event driven programming with DynamoDB Streams
-Low cost and auto scaling capabilities
+- Fully Managed, Highly available with replication across 3 AZ
+- NoSQL database - not a relational database
+- Scales to massive workloads, distributed database
+- Millions of requests per seconds, trillions of row, 100s of TB of storage
+- Fast and consistent in performance (low latency on retrieval)
+- Integrated with IAM for security, authorization and administration
+- Enables event driven programming with DynamoDB Streams
+- Low cost and auto scaling capabilities
 ### DynamoDB - Basics
-DynamoDB is made of tables
-Each table has a primary key (must be decided at creation time)
-Each table can have an infinite number of items (= rows)
-Each item has attributes (can be added over time – can be null)
-Maximum size of a item is 400KB
-Data types supported are:
-Scalar Types: String, Number, Binary, Boolean, Null
-Document Types: List, Map
-Set Types: String Set, Number Set, Binary Set
+- DynamoDB is made of tables
+- Each table has a primary key (must be decided at creation time)
+- Each table can have an infinite number of items (= rows)
+- Each item has attributes (can be added over time – can be null)
+- Maximum size of a item is 400KB
+- Data types supported are:
+- Scalar Types: String, Number, Binary, Boolean, Null
+- Document Types: List, Map
+- Set Types: String Set, Number Set, Binary Set
 ### DynamoDB – Primary Keys
 - Option 1: Partition key only (HASH)
 Partition key must be unique for each item
