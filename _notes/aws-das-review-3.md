@@ -15,11 +15,7 @@ No underscore
 Not an IP
 Must start with lowercase letter or number
 ### AWS S3 Overview - Objects
-- Objects (files) have a Key. The key is the FULL path:
-```
-<my_bucket>/my_file.txt
-<my_bucket>/my_folder1/another_folder/my_file.txt
-``````
+- Objects (files) have a Key. The key is the FULL path:<my_bucket>/my_file.txt,<my_bucket>/my_folder1/another_folder/my_file.txt
 - There’s no concept of “directories” within buckets (although the UI will trick you to think otherwise)
 - Just keys with very long names that contain slashes (“/”)
 - Object Values are the content of the body:
