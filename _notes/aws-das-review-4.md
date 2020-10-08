@@ -4,7 +4,8 @@ layout: post
 tags: [aws, das, glue, lambda, hive, spark, flume]
 date: 2020-10-01
 ---
-
+## Lambda
+## Glue
 ## EMR-Elastic MapReduce
 ### EMR
 - Elastic MapReduce 
@@ -72,4 +73,36 @@ date: 2020-10-01
 - Scalable - works with big data on a cluster. Most appropriate for data warehouse apps
 - Easy OLAP queries - easier than MapReduce
 - Highly optimized, extensible
-#### 
+- Hive maintains a metastore that imparts a structure you define on unstructured data that is stored on HDFS. Metastore is stored in MySql on the master node by default. External metastores offer better integration like: Glue, RDS.
+- it can load table partitions from S3, write tables in s3,load scipts from S3, has dynamodb as external table
+#### Pig on EMR
+- Alternative interface from MapReduce. PigLatin language. Older.
+- Writing mappers and reducers by hand takes a long time.
+- Pig introduces Pig Latin, a scripting language that lets you use SQL-like syntax to define your map and reduce steps.
+- Highly extensible with user-defined functions (UDF’s)
+- Architecture: Hadoop YARN, MapReduce & Tez, Pig
+#### HBase on EMR
+- Non-relational, petabyte-scale database
+- Based on Google’s BigTable, on top of HDFS
+- In-memory
+- Hive integration
+- Sounds a lot like DynamoDB
+- Both are NoSQL databases intended for the same sorts of things
+- But if you’re all-in with AWS anyhow, DynamoDB has advantages
+• Fully managed (auto-scaling)
+• More integration with other AWS services
+• Glue integration
+- HBase has some advantages though:
+• Efficient storage of sparse data
+• Appropriate for high frequency counters (consistent reads & writes)
+• High write & update throughput
+• More integration with Hadoop
+#### Presto on EMR
+It can connect to many different “big data” databases and data stores at once, and query across them
+Interactive queries at petabyte scale
+Familiar SQL syntax
+Optimized for OLAP – analytical queries, data warehousing
+Developed, and still partially maintained by Facebook
+This is what Amazon Athena uses under the hood
+Exposes JDBC, Command-Line, and Tableau interfaces
+### Apache Zeppelin
