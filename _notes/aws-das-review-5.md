@@ -15,7 +15,7 @@ date: 2020-10-01
 - Horizontally scalable
 ### Elasticsearch concepts
 - Documents are the things you’re  searching for. More than text. Every document has ID and type.
-- Types  defines the schema and mapping shared by documents that represent the same sort of thing.
+- Types  defines the schema and mapping shared by documents that represent the same sort of thing. thing of past.
 - Indicies- and index powers search intoo all documents within a collection of types. Contain inverted indices that let you search.
 ### Elasticsearch applications
 - Full-text search
