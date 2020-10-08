@@ -98,11 +98,11 @@ date: 2020-10-01
 • High write & update throughput
 • More integration with Hadoop
 #### Presto on EMR
-It can connect to many different “big data” databases and data stores at once, and query across them
-Interactive queries at petabyte scale
-Familiar SQL syntax
-Optimized for OLAP – analytical queries, data warehousing
-Developed, and still partially maintained by Facebook
-This is what Amazon Athena uses under the hood
-Exposes JDBC, Command-Line, and Tableau interfaces
+- It can connect to many different “big data” databases and data stores at once, and query across them
+- Interactive queries at petabyte scale
+- Familiar SQL syntax
+- Optimized for OLAP – analytical queries, data warehousing
+- Developed, and still partially maintained by Facebook
+- This is what Amazon Athena uses under the hood
+- Exposes JDBC, Command-Line, and Tableau interfaces
 ### Apache Zeppelin
