@@ -47,15 +47,16 @@ date: 2020-10-01
 - QuickSight
 - Producers: RedShift, Aurora, JDBC, Athena, S3
 ### AWS Instance Types
-General Purpose: T2, T3, M4, M5
-Compute Optimized: C4, C5
-Batch processing, Distributed analytics, Machine / Deep Learning Inference
-Memory Optimized: R4, R5, X1, Z1d
-High performance database, In memory database, Real time big data analytics
-Accelerated Computing: P2, P3, G3, F1
-GPU instances, Machine or Deep Learning, High Performance Computing
-Storage Optimized: H1, I3, D2
-Distributed File System (HDFS), NFS, Map Reduce, Apache Kafka, Redshift
+- General Purpose: T2, T3, M4, M5
+- Compute Optimized: C4, C5
+• Batch processing, Distributed analytics, Machine / Deep Learning Inference
+- Memory Optimized: R4, R5, X1, Z1d
+• High performance database, In memory database, Real time big data analytics
+- Accelerated Computing: P2, P3, G3, F1
+• GPU instances, Machine or Deep Learning, High Performance Computing
+- Storage Optimized: H1, I3, D2
+• Distributed File System (HDFS), NFS, Map Reduce, Apache Kafka, Redshift
+- exp. Spark more memory, Machine learning accelerated computing, batch compute optimized
 ### EC2 in Big Data
 On demand, Spot & Reserved instances:
 Spot: can tolerate loss, low cost => checkpointing feature (ML, etc)
