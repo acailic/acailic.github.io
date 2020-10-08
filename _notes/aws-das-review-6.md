@@ -54,3 +54,28 @@ date: 2020-10-01
 - HTTPS is mandatory for SSE-C
 - Encryption in flight is also called SSL / TLS
 ### AWS KMS (Key Management Service)
+- Anytime you hear “encryption” for an AWS service, it’s most likely KMS
+- Easy way to control access to your data, AWS manages keys for us
+- Fully integrated with IAM for authorization
+- Seamlessly integrated into:
+- Amazon EBS: encrypt volumes
+- Amazon S3: Server side encryption of objects
+- Amazon Redshift: encryption of data
+- Amazon RDS: encryption of data
+- Amazon SSM: Parameter store
+- But you can also use the CLI / SDK
+
+### AWS KMS 101
+- Anytime you need to share sensitive information… use KMS
+• Database passwords
+• Credentials to external service
+• Private Key of SSL certificates
+- The value in KMS is that the CMK used to encrypt data can never be retrieved by the user, and the CMK can be rotated for extra security
+- Never ever store your secrets in plaintext, especially in your code!
+- Encrypted secrets can be stored in the code / environment variables
+- KMS can only help in encrypting up to 4KB of data per call
+- If data > 4 KB, use envelope encryption
+- To give access to KMS to someone:
+• Make sure the Key Policy allows the user
+• Make sure the IAM Policy allows the API calls
+### AWS KMS (Key Management Service)
