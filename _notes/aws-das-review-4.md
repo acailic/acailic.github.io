@@ -105,4 +105,5 @@ date: 2020-10-01
 - Developed, and still partially maintained by Facebook
 - This is what Amazon Athena uses under the hood
 - Exposes JDBC, Command-Line, and Tableau interfaces
+- Connectors: HDFS, S3, Cassandra, MongoDB, HBase, SQL, RedShift, Teradata
 ### Apache Zeppelin
