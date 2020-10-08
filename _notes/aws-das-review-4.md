@@ -62,3 +62,14 @@ date: 2020-10-01
 - MLLib - library for machine learning 
 - GraphX- distributed graph, graph in db sense, like social network nodes. ETL
 #### Spark structured streaming 
+- Streaming as a db that grows, virtual db set. it can be queried on moments in time. it resolves reliability.
+- Spark streaming can be integrated with kinesis. Spark kinesis package
+- It can be connected to redshift. redshift kinesis package. uses it like a source. Useful for ETL using Spark. 
+#### Hive on EMR
+- Architecture: Hadoop YARN, MapReduce & Tez, Hive
+- Tez is like spark. MapReduce is fallen into past from new technologies.
+- HiveQL- familar to SQL, Interactive.
+- Scalable - works with big data on a cluster. Most appropriate for data warehouse apps
+- Easy OLAP queries - easier than MapReduce
+- Highly optimized, extensible
+#### 
