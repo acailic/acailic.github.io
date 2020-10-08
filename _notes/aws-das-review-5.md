@@ -4,6 +4,38 @@ layout: post
 tags: [aws, das, elastic, kinesis]
 date: 2020-10-01
 ---
+## Amazon Elsticsearch Service
+- Petabyte-scale analysis and reporting
+- The Elastic Stack
+- A search engine
+- An analysis tool
+- A visualization tool (Kibana)
+- A data pipeline (Beats / LogStash)
+- You can use Kinesis too
+- Horizontally scalable
+### Elasticsearch concepts
+- Documents are the things you’re  searching for. More than text. Every document has ID and type.
+- Types  defines the schema and mapping shared by documents that represent the same sort of thing.
+- Indicies- and index powers search intoo all documents within a collection of types. Contain inverted indices that let you search.
+### Elasticsearch applications
+- Full-text search
+- Log analytics
+- Application monitoring
+- Security analytics
+- Clickstream analytics 
+### Amazon Elasticsearch Service
+Fully-managed (but not serverless)
+Scale up or down without downtime
+But this isn’t automatic
+Pay for what you use
+Instance-hours, storage, data transfer
+Network isolation
+AWS integration
+S3 buckets (via Lambda to Kinesis)
+Kinesis Data Streams
+DynamoDB Streams
+CloudWatch / CloudTrail
+Zone awareness
 ## Amazon Redshift
 - Fully-managed, petabyte-scale data warehouse
 - 10X better performance than other
