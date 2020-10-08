@@ -107,3 +107,26 @@ date: 2020-10-01
 - Exposes JDBC, Command-Line, and Tableau interfaces
 - Connectors: HDFS, S3, Cassandra, MongoDB, HBase, SQL, RedShift, Teradata
 ### Apache Zeppelin
+- If you’re familiar with iPython notebooks – it’s like that
+• Lets you interactively run scripts / code against your data
+• Can interleave with nicely formatted notes
+• Can share notebooks with others on your cluster
+- Spark, Python, JDBC, HBase, Elasticsearch + more
+#### Zeppelin + Spark
+- Can run Spark code interactively (like you can in the Spark shell)
+• This speeds up your development cycle
+• And allows easy experimentation and exploration of your big data
+- Can execute SQL queries directly against SparkSQL
+- Query results may be visualized in charts and graphs
+- Makes Spark feel more like a data science tool!
+#### EMR Notebook
+- Similar concept to Zeppelin, with more AWS integration
+- Notebooks backed up to S3
+- Provision clusters from the notebook!
+- Hosted inside a VPC
+- Accessed only via AWS console
+#### Hue
+- Hadoop User Experience
+- Graphical front-end for applications on your EMR cluster
+- IAM integration: Hue Super-users inherit IAM roles
+- S3: Can browse & move data between HDFS and S3
