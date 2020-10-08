@@ -138,3 +138,6 @@ date: 2020-10-01
 - Made from the start with Hadoop in mind
 - Built-in sinks for HDFS and HBase
 - Originally made to handle log aggregation
+#### MXNet
+- Like Tensorflow, a library for building and accelerating neural networks
+- Included on EMR
