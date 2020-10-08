@@ -120,3 +120,38 @@ VACUUM REINDEX
 - Parquet is 2x faster to unload and consumes up to 6X less storage
 - Compatible with Redshift Spectrum, Athena, EMR, SageMaker
 - Automatically partitioned
+### Redshift anti-patterns
+- Small data sets
+- Use RDS instead
+- OLTP
+- Use RDS or DynamoDB instead
+- Unstructured data
+- ETL first with EMR etc.
+- BLOB data
+- Store references to large binary files in S3, not the files themselves.
+### Amazon RDS
+- Hosted relational database
+- Amazon Aurora
+- MySQL
+- PostgreSQL
+- MariaDB
+- Oracle
+- SQL Server
+- Not for “big data”
+- Might appear on exam as an example of what not to use
+- Or in the context of migrating from RDS to Redshift etc.
+- ACID
+#### Amazon Aurora
+- MySQL and PostgreSQL – compatible
+- Up to 5X faster than MySQL, 3X faster than PostgreSQL
+- 1/10 the cost of commercial databases
+- Up to 64TB per database instance
+- Up to 15 read replicas
+- Continuous backup to S3
+- Replication across availability zones
+- Automatic scaling with Aurora Serverless
+##### Aurora Security
+- VPC network isolation
+- At-rest with KMS
+- Data, backup, snapshots, and replicas can be encrypted
+- In-transit with SSL
