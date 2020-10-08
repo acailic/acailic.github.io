@@ -141,3 +141,21 @@ date: 2020-10-01
 #### MXNet
 - Like Tensorflow, a library for building and accelerating neural networks
 - Included on EMR
+#### S3DistCP
+- Tool for copying large amounts of data
+• From S3 into HDFS
+• From HDFS into S3
+- Uses MapReduce to copy in a distributed manner
+- Suitable for parallel copying of large numbers of objects
+• Across buckets, across accounts
+#### Other EMR / Hadoop Tools
+- Ganglia (monitoring)
+- Mahout (machine learning)
+- Accumulo (another NoSQL database)
+- Sqoop (relational database connector)
+- HCatalog (table and storage management for Hive metastore)
+- Kinesis Connector (directly access Kinesis streams in your scripts)
+- Tachyon (accelerator for Spark)
+- Derby (open-source relational DB in Java)
+- Ranger (data security manager for Hadoop)
+- Install whatever you want
