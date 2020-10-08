@@ -130,3 +130,11 @@ date: 2020-10-01
 - Graphical front-end for applications on your EMR cluster
 - IAM integration: Hue Super-users inherit IAM roles
 - S3: Can browse & move data between HDFS and S3
+#### Splunk
+- Splunk / Hunk “makes machine data accessible, usable, and valuable to everyone”
+- Operational tool – can be used to visualize EMR and S3 data using your EMR Hadoop cluster.
+#### Flume
+- Another way to stream data into your cluster
+- Made from the start with Hadoop in mind
+- Built-in sinks for HDFS and HBase
+- Originally made to handle log aggregation
