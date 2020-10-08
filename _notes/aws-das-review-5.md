@@ -24,18 +24,19 @@ date: 2020-10-01
 - Security analytics
 - Clickstream analytics 
 ### Amazon Elasticsearch Service
-Fully-managed (but not serverless)
-Scale up or down without downtime
-But this isn’t automatic
-Pay for what you use
-Instance-hours, storage, data transfer
-Network isolation
-AWS integration
-S3 buckets (via Lambda to Kinesis)
-Kinesis Data Streams
-DynamoDB Streams
-CloudWatch / CloudTrail
-Zone awareness
+- Fully-managed (but not serverless)
+- Scale up or down without downtime
+•  But this isn’t automatic
+- Pay for what you use
+•  Instance-hours, storage, data transfer
+- Network isolation
+- AWS integration
+• S3 buckets (via Lambda to Kinesis)
+•  Kinesis Data Streams
+•  DynamoDB Streams
+•  CloudWatch / CloudTrail
+• Zone awareness
+### 
 ## Amazon Redshift
 - Fully-managed, petabyte-scale data warehouse
 - 10X better performance than other
