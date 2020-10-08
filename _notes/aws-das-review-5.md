@@ -36,7 +36,24 @@ date: 2020-10-01
 •  DynamoDB Streams
 •  CloudWatch / CloudTrail
 • Zone awareness
-### 
+### Amazon ES Security
+- Resource-based policies
+- Identity-based policies
+- IP-based policies
+- Request signing
+- VPC
+- Cognito
+### Securing Kibana
+- Cognito 
+- Getting inside a VPC from VPC outside is hard…
+Subnet
+• Nginx reverse proxy on EC2
+forwarding to ES domain
+Reverse
+proxy
+• SSH tunnel for port 5601
+• VPC Direct Connect
+• VPN On-Premise
 ## Amazon Redshift
 - Fully-managed, petabyte-scale data warehouse
 - 10X better performance than other
