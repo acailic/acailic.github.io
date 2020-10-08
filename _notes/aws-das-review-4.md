@@ -159,3 +159,21 @@ date: 2020-10-01
 - Derby (open-source relational DB in Java)
 - Ranger (data security manager for Hadoop)
 - Install whatever you want
+### EMR security
+- IAM policies: services,iam with taging per cluster, accesing files on cluster
+- Kerberos: authentication, cryptography. 5.10 and later versions
+- SSH: tunneling, key-pairs
+- IAM roles:  service role and EC2 instance profile
+#### EMR: Choosing Instance Types
+- Master node:
+• m4.large if < 50 nodes, m4.xlarge if > 50 nodes
+- Core & task nodes:
+• m4.large is usually good
+• If cluster waits a lot on external dependencies (i.e. a web crawler), t2.medium
+• Improved performance: m4.xlarge
+• Computation-intensive applications: high CPU instances
+• Database, memory-caching applications: high memory instances
+• Network / CPU-intensive (NLP, ML) – cluster computer instances
+- Spot instances
+• Good choice for task nodes
+• Only use on core & master if you’re testing or very cost-sensitive; you’re risking partial data loss
