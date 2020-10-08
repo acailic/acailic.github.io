@@ -42,4 +42,23 @@ date: 2020-10-01
 - Provisions new nodes if a core node fails
 - Can add and remove task on the fly
 - can resize running cluster's core nodes
-###
+#### Hadoop
+- Architecture-MapReduce, YARN, HDFS
+- if it turns down cluste, data goes bye bye
+-  YARN: yet another resource negotiatior
+-  MapReduce algorithm
+### Spark
+- Architecture-MapReduce & Spark, YARN, HDFS. a lot of stuff in memory.
+- Spark Streaming, analytics, ML, Hive, sql.
+- How it works:
+- Driver Program: Spark context, code you write.
+- Cluster Manager: Spark, YARN
+- Executors: each has cache and code task
+##### Spark Components
+- Spark Core on bottom. RDD 
+- Up: streaming, sql, graphX, MLLib
+- Spark SQL - distributed query language, low latency, optimized, hive,sql. like a giant DB.
+- Streaming- real time solution to stream analytics. ingest data in mini batches. same code for real time and batch processing.
+- MLLib - library for machine learning 
+- GraphX- distributed graph, graph in db sense, like social network nodes. ETL
+#### Spark structured streaming 
