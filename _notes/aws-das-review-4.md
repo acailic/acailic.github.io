@@ -35,6 +35,11 @@ date: 2020-10-01
 • EMRFS Consistent View – Optional for S3 consistency
 • Uses DynamoDB to track consistency
 - Local file system
-- EBS for HDFS
-###
+- EBS for HDFS. you can reduce storage if not needed for reducing costs.
+#### EMR promises
+- EMR charges by the hour
+• Plus EC2 charges
+- Provisions new nodes if a core node fails
+- Can add and remove task on the fly
+- can resize running cluster's core nodes
 ###
