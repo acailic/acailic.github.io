@@ -342,5 +342,22 @@ Row Level Security to control which users can see which rows
 - Gateway: provisions a target and must be used in a route table. ONLY S3 and DynamoDB
 - Interface: provisions an ENI (private IP address) as an entry point (must attach security group) – most AWS services Also called VPC PrivateLink
 ### Questions
-- 
+- Server side encryption means that the data is sent encrypted to the server first:False.
+- In server side encryption, only the encryption happens on the server. Where does the decryption happen?: The Server.
+- We need to gain access to a Role in another AWS account. How is it done?:We should use the STS service to gain temporary credentials
+- You have a mobile application and would like to give your users access to their own personal space in Amazon S3. How do you achieve that?:Use Cognito Identity Federation.
+- You need an encryption service that supports asymmetric encryption schemes. Which service could you use?:CloudHSM
+- We'd like to encrypt 100MB of data client side before uploading it to S3. We should use: Eveloppe Encryption
+- You would like to ensure data is encrypted client side before being sent to Kinesis. What should you use?:You must create custom code
+- Which technology allows you to access the AWS service from your private subnets without the need to have an outgoing internet connection?:VPC Endpoints
+- What do you need to attach to an IoT rule's engine action to ensure it's capable of sending data directly into Kinesis?:An IAM role
+- Users must be created within DynamoDB. : FALSE. The entire security in DynamoDB is managed through IAM, we don't need to create users within DynamoDB (unlike RDS) .
+- Which of the following services is accessed through a VPC Endpoint of type Interface ?: Kinesis. Only S3 and DynamoDB are gateways.
+- What security mechanism does not exist for RDS?:CloudHSM at rest encryption
+- You would like to deploy a Lambda function to privately access your RDS database. Under the default options, your Lambda function cannot reach your RDS database due to a network issue. How can you resolve it?:Deploy your Lambda function in your VPC
+- Which statement about EMR security is incorrect?: Apache Ranger is packaged within EMR. If you choose to use Ranger, it must be installed externally from your EMR cluster. Recommended read: https://aws.amazon.com/blogs/big-data/best-practices-for-securing-amazon-emr/.
+- Which of the following login is not supported by Kibana?:Using an email / password combination
+- Which at rest encryption is not supported by Redshift?: LUKS. its for EMR.
+- Someone has deleted your Redshift cluster and you would like to find out who or what it was. How can you do it?: Use CloadTrail
+
 
