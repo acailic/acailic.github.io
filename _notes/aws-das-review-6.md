@@ -280,3 +280,7 @@ Row Level Security to control which users can see which rows
 - Define which accounts can access this IAM Role
 - Use AWS STS (Security Token Service) to retrieve credentials and impersonate the IAM Role you have access to (AssumeRole API)
 - Temporary credentials can be valid between 15 minutes to 1 hour
+### Identity Federation
+- Federation lets users outside of AWS to assume temporary role for accessing AWS resources.
+- These users assume identity provided access role.
+- Federation assumes a form of 3rd party authentication
