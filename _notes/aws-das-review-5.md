@@ -4,7 +4,7 @@ layout: post
 tags: [aws, das, elastic, kinesis]
 date: 2020-10-01
 ---
-## Amazon Elsticsearch Service
+## Amazon Elasticsearch Service
 - Petabyte-scale analysis and reporting
 - The Elastic Stack
 - A search engine
@@ -98,6 +98,13 @@ Highly formatted reports / visualization
 That’s what QuickSight is for
 ETL
 Use Glue instead
+### Questions Athena
+- As a Big Data analyst, you need to query/analyze data from a set of CSV files stored in S3. Which of the following serverless services helps you with this?:AWS Athena
+- What are two columnar data formats supported by Athena?:Parquet and ORC
+- Your organization is querying JSON data stored in S3 using Athena, and wishes to reduce costs and improve performance with Athena. What steps might you take? Convert the data from JSON to ORC format, and analyze the ORC data with Athena. Using columnar formats such as ORC and Parquet can reduce costs 30-90%, while improving performance at the same time. 
+AVRO is not a columnar data format, and isn't the best choice for improving Athena's efficiency.
+- When using Athena, you are charged separately for using the AWS Glue Data Catalog. True or False ?: True.
+- Which of the following statements is NOT TRUE regarding Athena pricing?: Amazon Athena charges you for failed queries.
 ## Amazon Redshift
 - Fully-managed, petabyte-scale data warehouse
 - 10X better performance than other
@@ -266,6 +273,14 @@ Can configure how many seconds is “short”
 - ETL first with EMR etc.
 - BLOB data
 - Store references to large binary files in S3, not the files themselves.
+### Questions ReadShift
+- You are working as Big Data Analyst of a data warehousing company. The company uses RedShift clusters for data analytics. For auditing and compliance purpose, you need to monitor API calls to RedShift instance and also provide secured data.
+ Which of the following services helps in this regard ?: CloudTrail logs.
+- You are working as a Big Data analyst of a Financial enterprise which has a large data set that needs to have columnar storage to reduce disk IO. It is also required that the data should be queried fast so as to generate reports. Which of the following service is best suited for this scenario?:Redshift
+- You are working for a data warehouse company that uses Amazon RedShift cluster. It is required that VPC flow logs is used to monitor all COPY and UNLOAD traffic of the cluster that moves in and out of the VPC. Which of the following helps you in this regard ?:By enabling Enhanced VPC routing on the Amazon Redshift cluster
+- You are working for a data warehousing company that has large datasets (20TB of structured data and 20TB of unstructured data). They are planning to host this data in AWS with unstructured data storage on S3. At first they are planning to migrate the data to AWS and use it for basic analytics and are not worried about performance.
+ Which of the following options fulfills their requirement?:node type ds2.xlarge. Since they are not worried about performance, storage (ds) is more important than computing power (dc,) and expensive 8xlarge instances aren't necessary.
+- Which of the following services allows you to directly run SQL queries against exabytes of unstructured data in Amazon S3?:Redshift Spectrum. RDS cannot query S3 data directly.
 ### Amazon RDS
 - Hosted relational database
 - Amazon Aurora
