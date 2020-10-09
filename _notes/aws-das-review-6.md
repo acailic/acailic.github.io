@@ -79,16 +79,16 @@ date: 2020-10-01
 • Make sure the Key Policy allows the user
 • Make sure the IAM Policy allows the API calls
 ### AWS KMS (Key Management Service)
-Able to fully manage the keys & policies:
-Create
-Rotation policies
-Disable
-Enable
-Able to audit key usage (using CloudTrail)
-Three types of Customer Master Keys (CMK):
-AWS Managed Service Default CMK: free
-User Keys created in KMS: $1 / month
-User Keys imported (must be 256-bit symmetric key): $1 / month
+- Able to fully manage the keys & policies:
+• Create
+• Rotation policies
+• Disable
+• Enable
+- Able to audit key usage (using CloudTrail)
+- Three types of Customer Master Keys (CMK):
+• AWS Managed Service Default CMK: free
+• User Keys created in KMS: $1 / month
+• User Keys imported (must be 256-bit symmetric key): $1 / month
 + pay for API call to KMS ($0.03 / 10000 calls)
 ### Encryption in AWS Services
 Requires migration (through Snapshot / Backup):
