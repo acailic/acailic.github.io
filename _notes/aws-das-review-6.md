@@ -302,17 +302,17 @@ Row Level Security to control which users can see which rows
 • These credentials come with a pre-defined IAM policy stating their permissions
 - Example:provide (temporary) access to write to S3 bucket using Facebook Login
 ### Policies – leveraging AWS variables
-https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_polici es_variables.html
-${aws:username} : to restrict users to tables / buckets
-${aws:principaltype} : account, user, federated, or assumed role
-${aws:PrincipalTag/department} : to restrict using Tags
-https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_polici es_iam-condition-keys.html#condition-keys-wif
-${aws:FederatedProvider} : which IdP was used for the user (Cognito, Amazon..)
-${www.amazon.com:user_id} , ${cognito-identity.amazonaws.com:sub} …
-${saml:sub}, ${sts:ExternalId}
-For S3 - let’s analyze the policies at: https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html
-For DynamoDB – let’s analyze the policies at: https://docs.aws.amazon.com/amazondynamodb/latest/developergui de/specifying-conditions.html
-Note for RDS – IAM policies don’t help with in-database security, as it’s a proprietary technology and we are responsible for users & authorization
+- https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_polici es_variables.html
+• ${aws:username} : to restrict users to tables / buckets
+• ${aws:principaltype} : account, user, federated, or assumed role
+• ${aws:PrincipalTag/department} : to restrict using Tags
+- https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_polici es_iam-condition-keys.html#condition-keys-wif
+• ${aws:FederatedProvider} : which IdP was used for the user (Cognito, Amazon..)
+• ${www.amazon.com:user_id} , ${cognito-identity.amazonaws.com:sub} …
+• ${saml:sub}, ${sts:ExternalId}
+- For S3 - let’s analyze the policies at: https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html
+- For DynamoDB – let’s analyze the policies at: https://docs.aws.amazon.com/amazondynamodb/latest/developergui de/specifying-conditions.html
+- Note for RDS – IAM policies don’t help with in-database security, as it’s a proprietary technology and we are responsible for users & authorization
 ### AWS CloudTrail
 Provides governance, compliance and audit for your AWS Account
 CloudTrail is enabled by default!
