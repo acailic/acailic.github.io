@@ -294,3 +294,11 @@ Row Level Security to control which users can see which rows
 - To integrate Active Directory / ADFS with AWS (or any SAML 2.0)
 - Provides access to AWS Console or CLI (through temporary creds)
 -  No need to create an IAM user for each of your employees
+### AWS Cognito - Federated Identity Pools For Public Applications
+- Goal:Provide direct access to AWS Resources from the Client Side
+- How:
+• Log in to federated identity provider – or remain anonymous
+• Get temporary AWS credentials back from the Federated Identity Pool
+• These credentials come with a pre-defined IAM policy stating their permissions
+- Example:provide (temporary) access to write to S3 bucket using Facebook Login
+###
