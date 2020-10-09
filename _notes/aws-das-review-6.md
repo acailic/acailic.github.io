@@ -313,28 +313,34 @@ Row Level Security to control which users can see which rows
 - For S3 - let’s analyze the policies at: https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html
 - For DynamoDB – let’s analyze the policies at: https://docs.aws.amazon.com/amazondynamodb/latest/developergui de/specifying-conditions.html
 - Note for RDS – IAM policies don’t help with in-database security, as it’s a proprietary technology and we are responsible for users & authorization
+### Policies Advanced
+- For S3 - let’s analyze the policies at: https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html
+- For DynamoDB – let’s analyze the policies at: https://docs.aws.amazon.com/amazondynamodb/latest/developergui de/specifying-conditions.html
+- Note for RDS – IAM policies don’t help with in-database security, as it’s a proprietary technology and we are responsible for users & authorization
 ### AWS CloudTrail
-Provides governance, compliance and audit for your AWS Account
-CloudTrail is enabled by default!
-Get an history of events / API calls made within your AWS Account by:
-Console
-SDK
-CLI
-AWS Services
-Can put logs from CloudTrail into CloudWatch Logs
-If a resource is deleted in AWS, look into CloudTrail first!
-CloudTrail shows the past 90 days of activity
-The default UI only shows “Create”, “Modify” or “Delete” events
-CloudTrail Trail:
-Get a detailed list of all the events you choose
-Ability to store these events in S3 for further analysis
-Can be region specific or global
-CloudTrail Logs have SSE-S3 encryption when placed into S3
-Control access to S3 using IAM, Bucket Policy, etc…
+- Provides governance, compliance and audit for your AWS Account
+- CloudTrail is enabled by default!
+- Get an history of events / API calls made within your AWS Account by:
+• Console
+• SDK
+• CLI
+• AWS Services
+- Can put logs from CloudTrail into CloudWatch Logs
+- If a resource is deleted in AWS, look into CloudTrail first!
+- CloudTrail shows the past 90 days of activity
+- The default UI only shows “Create”, “Modify” or “Delete” events
+- CloudTrail Trail:
+• Get a detailed list of all the events you choose
+• Ability to store these events in S3 for further analysis
+• Can be region specific or global
+- CloudTrail Logs have SSE-S3 encryption when placed into S3
+- Control access to S3 using IAM, Bucket Policy, etc…
 ### VPC Endpoints
-Endpoints allow you to connect to AWS Services using a private network instead of the public www network
-They scale horizontally and are redundant
-They remove the need of IGW, NAT, etc… to access AWS Services
-Gateway: provisions a target and must be used in a route table
-ONLY S3 and DynamoDB
-Interface: provisions an ENI (private IP address) as an entry point (must attach security group) – most AWS services Also called VPC PrivateLink
+- Endpoints allow you to connect to AWS Services using a private network instead of the public www network
+- They scale horizontally and are redundant
+- They remove the need of IGW, NAT, etc… to access AWS Services
+- Gateway: provisions a target and must be used in a route table. ONLY S3 and DynamoDB
+- Interface: provisions an ENI (private IP address) as an entry point (must attach security group) – most AWS services Also called VPC PrivateLink
+### Questions
+- 
+
