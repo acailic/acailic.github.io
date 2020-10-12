@@ -191,6 +191,12 @@ How does Lambda know there has been changes / updates to the Kinesis stream ? La
 - Spot instances
 • Good choice for task nodes
 • Only use on core & master if you’re testing or very cost-sensitive; you’re risking partial data loss
+### Questions
+- Which one of the following statements is NOT TRUE regarding EMR Notebooks?
+- 
+- 
+- 
+- 
 ### AWS Data Pipeline
 - Let you schedule tasks to organize. Like weekly. Move data between services.
 - Destinations include S3, RDS, DynamoDB, Redshift and EMR
