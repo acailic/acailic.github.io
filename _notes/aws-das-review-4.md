@@ -5,7 +5,21 @@ tags: [aws, das, glue, lambda, hive, spark, flume]
 date: 2020-10-01
 ---
 ## Lambda
+### Questions
+- You are going to be working with objects arriving in S3. Once they arrive you want to use AWS Lambda as a part of an AWS Data Pipeline to process and transform the data. 
+How can you easily configure Lambda to know the data has arrived in a bucket?:Configure S3 bucket notifications to lambda.Lambda functions are generally invoked by some sort of trigger. S3 has the ability to trigger a Lambda function whenever a new object appears in a bucket.
+- You are going to analyze the data coming in an Amazon Kinesis stream. You are going to use Lambda to process these records. What is a prerequisite when it comes to defining Lambda to access Kinesis stream records ?: Lambda must be in the same account as the service triggering it, in addition to having an IAM policy granting it access.
+- How can you make sure your Lambda functions have access to the other resources you are using in your big data architecture like S3, Redshift, etc.?:Using proper IAM roles.IAM roles define the access a Lambda function has to the services it communicates with.
+- You are creating a Lambda - Kinesis stream environment in which Lambda is to check for the records in the stream and do some processing in its Lambda function. 
+How does Lambda know there has been changes / updates to the Kinesis stream ? Lambda polls Kinesis streams. Although you think of a trigger as "pushing" events, Lambda actually polls your Kinesis streams for new activity.
+- When using an Amazon Redshift database loader, how does Lambda keep track of files arriving in S3 to be processed and sent to Redshift ?:In a DynamoDB table
 ## Glue
+### Questions
+- You want to load data from a MySQL server installed in an EC2 t2.micro instance to be processed by AWS Glue. What applies the best here?:Instance should be in your VPC.Although we didn't really discuss access controls, you could arrive at this answer through process of elimination. You'll find yourself doing that on the exam a lot. This isn't really a Glue specific question; it's more about how to connect an AWS service such as Glue to EC2.
+- What is the simplest way to make sure the metadata under Glue Data Catalog is always up-to-date and in-sync with the underlying data without your intervention each time?:Crawlers may be easily scheduled to run periodically while defining them.
+- Which programming languages can be used to write ETL code for AWS Glue?:Python and Scala.Glue ETL runs on Apache Spark under the hood, and these happen to be the primary languages used for Spark development.
+- Can you run existing ETL jobs with AWS Glue?:Yes. You can run your existing Scala or Python code on AWS Glue. Simply upload the code to Amazon S3 and create one or more jobs that use that code. You can reuse the same code across multiple jobs by pointing them to the same code location on Amazon S3.
+- How can you be notified of the execution of AWS Glue jobs?:AWS Glue outputs its progress into CloudWatch, which in turn may be integrated with the Simple Notification Service.
 ## EMR-Elastic MapReduce
 ### EMR
 - Elastic MapReduce 
