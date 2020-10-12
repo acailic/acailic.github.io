@@ -192,11 +192,11 @@ How does Lambda know there has been changes / updates to the Kinesis stream ? La
 • Good choice for task nodes
 • Only use on core & master if you’re testing or very cost-sensitive; you’re risking partial data loss
 ### Questions
-- Which one of the following statements is NOT TRUE regarding EMR Notebooks?
-- 
-- 
-- 
-- 
+- Which one of the following statements is NOT TRUE regarding EMR Notebooks?:EMR Notebooks can be opened without logging into the AWS Management Console. To create or open a notebook and run queries on your EMR cluster you need to log into the AWS Management Console.
+- How can you get a history of all EMR API calls made on your account for security or compliance auditing?:Using AWS CloudTrail. CloudTrail integration is one of the ways in which EMR integrates with AWS.
+- When you delete your EMR cluster, what happens to the EBS volumes?:EMR will delete the volumes once the EMR cluster is terminated. If you don't want the data on your cluster to be ephemeral, be sure to store or copy it in S3.
+- Which one of the following statements is NOT TRUE regarding Apache Pig?:Pig supports access through JDBC.
+- Of the following tools with Amazon EMR, which one is used for querying multiple data stores at once?: Presto
 ### AWS Data Pipeline
 - Let you schedule tasks to organize. Like weekly. Move data between services.
 - Destinations include S3, RDS, DynamoDB, Redshift and EMR
