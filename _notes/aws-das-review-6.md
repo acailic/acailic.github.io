@@ -91,178 +91,177 @@ date: 2020-10-01
 • User Keys imported (must be 256-bit symmetric key): $1 / month
 + pay for API call to KMS ($0.03 / 10000 calls)
 ### Encryption in AWS Services
-Requires migration (through Snapshot / Backup):
-EBS Volumes
-RDS databases
-ElastiCache
-EFS network file system
-In-place encryption:
-S3
+- Requires migration (through Snapshot / Backup):
+• EBS Volumes
+• RDS databases
+• ElastiCache
+• EFS network file system
+- In-place encryption:S3
 ### CloudHSM
-KMS => AWS manages the software for encryption
-CloudHSM => AWS provisions encryption hardware
-Dedicated Hardware (HSM = Hardware Security Module)
-You manage your own encryption keys entirely (not AWS)
-HSM device is tamper resistant, FIPS 140-2 Level 3 compliance
-CloudHSM clusters are spread across Multi AZ (HA) – must setup
-Supports both symmetric and asymmetric encryption (SSL/TLS keys)
-No free tier available
-Must use the CloudHSM Client Software
-Redshift supports CloudHSM for database encryption and key management
-Good option to use with SSE-C encryption
+- KMS => AWS manages the software for encryption
+- CloudHSM => AWS provisions encryption hardware
+- Dedicated Hardware (HSM = Hardware Security Module)
+- You manage your own encryption keys entirely (not AWS)
+- HSM device is tamper resistant, FIPS 140-2 Level 3 compliance
+- CloudHSM clusters are spread across Multi AZ (HA) – must setup
+- Supports both symmetric and asymmetric encryption (SSL/TLS keys)
+- No free tier available
+- Must use the CloudHSM Client Software
+- Redshift supports CloudHSM for database encryption and key management
+- Good option to use with SSE-C encryption
 ### CloudHSM vs KMS
 ### Security - Kinesis
-Kinesis Data Streams
-SSL endpoints using the HTTPS protocol to do encryption in flight
-AWS KMS provides server-side encryption [Encryption at rest]
-For client side-encryption, you must use your own encryption libraries
-Supported Interface VPC Endpoints / Private Link – access privately
-KCL – must get read / write access to DynamoDB table
-Kinesis Data Firehose:
-Attach IAM roles so it can deliver to S3 / ES / Redshift / Splunk
-Can encrypt the delivery stream with KMS [Server side encryption]
-Supported Interface VPC Endpoints / Private Link – access privately
-Kinesis Data Analytics
-Attach IAM role so it can read from Kinesis Data Streams and reference sources and write to an output destination (example Kinesis Data Firehose)
+- Kinesis Data Streams
+- SSL endpoints using the HTTPS protocol to do encryption in flight
+- AWS KMS provides server-side encryption [Encryption at rest]
+- For client side-encryption, you must use your own encryption libraries
+- Supported Interface VPC Endpoints / Private Link – access privately
+- KCL – must get read / write access to DynamoDB table
+- Kinesis Data Firehose:
+- Attach IAM roles so it can deliver to S3 / ES / Redshift / Splunk
+- Can encrypt the delivery stream with KMS [Server side encryption]
+- Supported Interface VPC Endpoints / Private Link – access privately
+- Kinesis Data Analytics
+- Attach IAM role so it can read from Kinesis Data Streams and reference sources and write to an output destination (example Kinesis Data Firehose)
 ### Security - SQS
-Encryption in flight using the HTTPS endpoint
-Server Side Encryption using KMS
-IAM policy must allow usage of SQS
-SQS queue access policy
-Client-side encryption must be implemented manually
-VPC Endpoint is provided through an Interface
+- Encryption in flight using the HTTPS endpoint
+- Server Side Encryption using KMS
+- IAM policy must allow usage of SQS
+- SQS queue access policy
+- Client-side encryption must be implemented manually
+- VPC Endpoint is provided through an Interface
 ### Security - AWS IoT
-AWS IoT policies:
-Attached to X.509 certificates or Cognito Identities
-Able to revoke any device at any time
-IoT Policies are JSON documents
-Can be attached to groups instead of individual Things.
-IAM Policies:
-Attached to users, group or roles
-Used for controlling IoT AWS APIs
-Attach roles to Rules Engine so they can perform their actions
+- AWS IoT policies:
+- Attached to X.509 certificates or Cognito Identities
+- Able to revoke any device at any time
+- IoT Policies are JSON documents
+- Can be attached to groups instead of individual Things.
+- IAM Policies:
+- Attached to users, group or roles
+- Used for controlling IoT AWS APIs
+- Attach roles to Rules Engine so they can perform their actions
 ### Security – Amazon S3
-IAM policies
-S3 bucket policies
-Access Control Lists (ACLs)
-Encryption in flight using HTTPS
-Encryption at rest
-Server-side encryption: SSE-S3, SSE-KMS, SSE-C
-Client-side encryption – such as Amazon S3 Encryption Client
-Versioning + MFA Delete
-CORS for protecting websites
-VPC Endpoint is provided through a Gateway
-Glacier – vault lock policies to prevent deletes (WORM)
+- IAM policies
+- S3 bucket policies
+- Access Control Lists (ACLs)
+- Encryption in flight using HTTPS
+- Encryption at rest
+- Server-side encryption: SSE-S3, SSE-KMS, SSE-C
+- Client-side encryption – such as Amazon S3 Encryption Client
+- Versioning + MFA Delete
+- CORS for protecting websites
+- VPC Endpoint is provided through a Gateway
+- Glacier – vault lock policies to prevent deletes (WORM)
 ### Security – DynamoDB
-Data is encrypted in transit using TLS (HTTPS)
-DynamoDB can be encrypted at rest
-KMS encryption for base tables and secondary indexes
-Only for new tables
-To migrate un-encrypted table, create new table and copy the data
-Encryption cannot be disabled once enabled
-Access to tables / API / DAX using IAM
-DynamoDB Streams do not support encryption
-VPC Endpoint is provided through a Gateway
+- Data is encrypted in transit using TLS (HTTPS)
+- DynamoDB can be encrypted at rest
+- KMS encryption for base tables and secondary indexes
+- Only for new tables
+- To migrate un-encrypted table, create new table and copy the data
+- Encryption cannot be disabled once enabled
+- Access to tables / API / DAX using IAM
+- DynamoDB Streams do not support encryption
+- VPC Endpoint is provided through a Gateway
 ### Security - RDS
-VPC provides network isolation
-Security Groups control network access to DB Instances
-KMS provides encryption at rest
-SSL provides encryption in-flight
-IAM policies provide protection for the RDS API
-IAM authentication is supported by PostgreSQL and MySQL
-Must manage user permissions within the database itself
-MSSQL Server and Oracle support TDE (Transparent Data Encryption)
+- VPC provides network isolation
+- Security Groups control network access to DB Instances
+- KMS provides encryption at rest
+- SSL provides encryption in-flight
+- IAM policies provide protection for the RDS API
+- IAM authentication is supported by PostgreSQL and MySQL
+- Must manage user permissions within the database itself
+- MSSQL Server and Oracle support TDE (Transparent Data Encryption)
 ### Security - Aurora
-(very similar to RDS)
-VPC provides network isolation
-Security Groups control network access to DB Instances
-KMS provides encryption at rest
-SSL provides encryption in-flight
-IAM authentication is supported by PostgreSQL and MySQL
-Must manage user permissions within the database itself
+- (very similar to RDS)
+- VPC provides network isolation
+- Security Groups control network access to DB Instances
+- KMS provides encryption at rest
+- SSL provides encryption in-flight
+- IAM authentication is supported by PostgreSQL and MySQL
+- Must manage user permissions within the database itself
 ### Security - Lambda
-IAM roles attached to each Lambda function
-Sources
-Targets
-KMS encryption for secrets
-SSM parameter store for configurations
-CloudWatch Logs
-Deploy in VPC to access private resources
+- IAM roles attached to each Lambda function
+- Sources
+- Targets
+- KMS encryption for secrets
+- SSM parameter store for configurations
+- CloudWatch Logs
+- Deploy in VPC to access private resources
 ### Security - Glue
-IAM policies for the Glue service
-Configure Glue to only access JDBC through SSL
-Data Catalog:
-Encrypted by KMS
-Resource Policies to protect Data Catalog resources (similar to S3 bucket policy)
-Connection passwords: Encrypted by KMS
-Data written by AWS Glue – Security Configurations:
-S3 encryption mode: SSE-S3 or SSE-KMS
-CloudWatch encryption mode
-Job bookmark encryption mode
+- IAM policies for the Glue service
+- Configure Glue to only access JDBC through SSL
+- Data Catalog:
+- Encrypted by KMS
+- Resource Policies to protect Data Catalog resources (similar to S3 bucket policy)
+- Connection passwords: Encrypted by KMS
+- Data written by AWS Glue – Security Configurations:
+- S3 encryption mode: SSE-S3 or SSE-KMS
+- CloudWatch encryption mode
+- Job bookmark encryption mode
 ### Security - EMR
-Using Amazon EC2 key pair for SSH credentials
-Attach IAM roles to EC2 instances for:
-proper S3 access
-for EMRFS requests to S3
-DynamoDB scans through Hive
-EC2 Security Groups
-One for master node
-Another one for cluster node (core node or task node)
-Encrypts data at-rest: EBS encryption, Open Source HDFS Encryption, LUKS + EMRFS for S3
-In-transit encryption: node to node communication, EMRFS, TLS
-Data is encrypted before uploading to S3
-Kerberos authentication (provide authentication from Active Directory)
-Apache Ranger: Centralized Authorization (RBAC – Role Based Access) – setup on external EC2
-https://aws.amazon.com/blogs/big-data/best-practices-for-securing-amazon-emr/
+- Using Amazon EC2 key pair for SSH credentials
+- Attach IAM roles to EC2 instances for:
+- proper S3 access
+- for EMRFS requests to S3
+- DynamoDB scans through Hive
+- EC2 Security Groups
+- One for master node
+- Another one for cluster node (core node or task node)
+- Encrypts data at-rest: EBS encryption, Open Source HDFS Encryption, LUKS + EMRFS for S3
+- In-transit encryption: node to node communication, EMRFS, TLS
+- Data is encrypted before uploading to S3
+- Kerberos authentication (provide authentication from Active Directory)
+- Apache Ranger: Centralized Authorization (RBAC – Role Based Access) – setup on external EC2
+- https://aws.amazon.com/blogs/big-data/best-practices-for-securing-amazon-emr/
 ### Security – EMR Encryption (security config)
-At-rest data encryption for EMRFS:
-Encryption in Amazon S3
-(SSE-S3, SSE-KMS, Client-Side encryption)
-Encryption in Local Disks
-At-rest data encryption for local disks:
-Open-source HDFS encryption
-EC2 Instance Store encryption: NVMe encryption, or LUKS encryption
-EBS volumes:
-EBS encryption (KMS) – works with root volume LUKS encryption – does not work with root
-In-transit encryption:
-Node to node communication
-For EMRFS traffic between S3 and cluster nodes
-TLS encryption
-https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption-options.html
+- At-rest data encryption for EMRFS:
+- Encryption in Amazon S3
+- (SSE-S3, SSE-KMS, Client-Side encryption)
+- Encryption in Local Disks
+- At-rest data encryption for local disks:
+- Open-source HDFS encryption
+- EC2 Instance Store encryption: NVMe encryption, or LUKS encryption
+- EBS volumes:
+- EBS encryption (KMS) – works with root volume LUKS encryption – does not work with root
+- In-transit encryption:
+- Node to node communication
+- For EMRFS traffic between S3 and cluster nodes
+- TLS encryption
+- https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption-options.html
 ### Security – ElasticSearch Service
-Amazon VPC provides network isolation
-ElasticSearch policy to manage security further
-Data security by encrypting data at-rest using KMS
-Encryption in-transit using SSL
-IAM or Cognito based authentication
-Amazon Cognito allow end-users to log-in to Kibana through enterprise identity providers such as Microsoft Active Directory using SAML
+- Amazon VPC provides network isolation
+- ElasticSearch policy to manage security further
+- Data security by encrypting data at-rest using KMS
+- Encryption in-transit using SSL
+- IAM or Cognito based authentication
+- Amazon Cognito allow end-users to log-in to Kibana through enterprise identity providers such as Microsoft Active Directory using SAML
 ### Security - Redshift
-VPC provides network isolation
-Cluster security groups
-Encryption in flight using the JDBC driver enabled with SSL
-Encryption at rest using KMS or an HSM device (establish a connection)
-Supports S3 SSE using default managed key
-Use IAM Roles for Redshift
-To access other AWS Resources (example S3 or KMS)
-Must be referenced in the COPY or UNLOAD command (alternatively paste access key and secret key creds)
+- VPC provides network isolation
+- Cluster security groups
+- Encryption in flight using the JDBC driver enabled with SSL
+- Encryption at rest using KMS or an HSM device (establish a connection)
+- Supports S3 SSE using default managed key
+- Use IAM Roles for Redshift
+- To access other AWS Resources (example S3 or KMS)
+- Must be referenced in the COPY or UNLOAD command (alternatively paste access key and secret key creds)
 ### Security - Athena
-IAM policies to control access to the service
-Data is in S3: IAM policies, bucket policies & ACLs
-Encryption of data according to S3 standards: SSE-S3, SSE-
-KMS, CSE-KMS
-Encryption in transit using TLS between Athena and S3 and
-JDBC
-Fine grained access using the AWS Glue Catalog
+- IAM policies to control access to the service
+- Data is in S3: IAM policies, bucket policies & ACLs
+- Encryption of data according to S3 standards: SSE-S3, SSE-
+- KMS, CSE-KMS
+- Encryption in transit using TLS between Athena and S3 and
+- JDBC
+- Fine grained access using the AWS Glue Catalog
 ### Security - Quicksight
-Standard edition:
-IAM users
-Email based accounts
-Enterprise edition:
-Active Directory
-Federated Login
-Supports MFA (Multi Factor Authentication)
-Encryption at rest and in SPICE
-Row Level Security to control which users can see which rows
+- Standard edition:
+- IAM users
+- Email based accounts
+- Enterprise edition:
+- Active Directory
+- Federated Login
+- Supports MFA (Multi Factor Authentication)
+- Encryption at rest and in SPICE
+- Row Level Security to control which users can see which rows
 ### AWS STS – Security Token Service
 - Allows to grant limited and TEMPORARY access to AWS resources.
 - Token is valid for up to one hour (must be refreshed)
