@@ -6,48 +6,44 @@ date: 2020-10-01
 ---
 ## Lambda
 - Serverless data processing
-A way to run code snippets “in the cloud”
-Serverless
-Continuous scaling
-Often used to process data as it’s moved around
-Why not just run a server?
-Server management (patches, monitoring, hardware failures, etc.)
-Servers can be cheap, but scaling gets expensive really fast
-You don’t pay for processing time you don’t use
-Easier to split up development between front-end and back-end
+- A way to run code snippets “in the cloud”
+- Serverless
+- Continuous scaling
+- Often used to process data as it’s moved around
+- Why not just run a server?
+- Server management (patches, monitoring, hardware failures, etc.)
+- Servers can be cheap, but scaling gets expensive really fast
+- You don’t pay for processing time you don’t use
+- Easier to split up development between front-end and back-end
 ### Main uses of Lambda
-Real-time file processing
-
-Real-time stream processing
-
-ETL
-
-Cron replacement
-
-Process AWS events
+- Real-time file processing
+- Real-time stream processing
+- ETL
+- Cron replacement
+- Process AWS events
 ### Lambda + Kinesis 
-Your Lambda code receives an event with a batch of stream records
-You specify a batch size when setting up the trigger (up to 10,000 records)
-Too large a batch size can cause timeouts!
-Batches may also be split beyond Lambda’s payload limit (6 MB)
-Lambda will retry the batch until it succeeds or the data expires
-This can stall the shard if you don’t handle errors properly
-Use more shards to ensure processing isn’t totally held up by errors
-Lambda processes shard data synchronously
+- Your Lambda code receives an event with a batch of stream records
+- You specify a batch size when setting up the trigger (up to 10,000 records)
+- Too large a batch size can cause timeouts!
+- Batches may also be split beyond Lambda’s payload limit (6 MB)
+- Lambda will retry the batch until it succeeds or the data expires
+- This can stall the shard if you don’t handle errors properly
+- Use more shards to ensure processing isn’t totally held up by errors
+- Lambda processes shard data synchronously
 ### Cost Model
-“Pay for what you use”
-Generous free tier (1M requests / month, 400K GB-seconds compute time)
-$0.20 / million requests
-$.00001667 per GB/second
+- “Pay for what you use”
+- Generous free tier (1M requests / month, 400K GB-seconds compute time)
+- $0.20 / million requests
+- $.00001667 per GB/second
 ### Other promises
-High availability
-Unlimited scalability*
-High performance
-But you do specify a timeout! This can cause problems. Max is 900 seconds.
+- High availability
+- Unlimited scalability*
+- High performance
+- But you do specify a timeout! This can cause problems. Max is 900 seconds.
 ### Anti-patterns
-Long-running applications
-Dynamic websites
-Stateful applications
+- Long-running applications
+- Dynamic websites
+- Stateful applications
 ### Questions
 - You are going to be working with objects arriving in S3. Once they arrive you want to use AWS Lambda as a part of an AWS Data Pipeline to process and transform the data. 
 How can you easily configure Lambda to know the data has arrived in a bucket?:Configure S3 bucket notifications to lambda.Lambda functions are generally invoked by some sort of trigger. S3 has the ability to trigger a Lambda function whenever a new object appears in a bucket.
