@@ -73,7 +73,7 @@ by Kinesis after ingestion
 ### Kinesis Producers
 - Kinesis SDK
 - Kinesis Producer
-Library (KPL)
+- Library (KPL)
 - Kinesis Agent
 - 3rd party libraries:Spark, Log4J Appenders, Flume,Kafka Connect, Nifi ..
 ### AWS Kinesis API-Exceptions
@@ -82,7 +82,7 @@ Library (KPL)
 shard)
 • Make sure you don’t have a hot shard (such as your partition key is bad
 and too much data goes to that partition)
--Solution:
+- Solution:
 • Retries with backoff
 • Increase shards (scaling)
 • Ensure your partition key is a good one
@@ -104,7 +104,7 @@ cost:
 delay with RecordMaxBufferedTime (default
 ### Kinesis Agent
 - Monitor Log files and sends them to Kinesis Data Streams
--Java based agent, built on top of KPL
+- Java based agent, built on top of KPL
 - Install in Linux based server environments
 - Features:
 • Write from multiple directories and write to multiple streams
