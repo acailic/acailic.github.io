@@ -290,11 +290,8 @@ throughput
 - Limitation of 256KB per message sent
 ### SQS-Producing Messages
 - Define Body
-- Add message
-attributes
-(metadata optional)
-- Provide Delay
-Delivery (optional)
+- Add message attributes (metadata optional)
+- Provide Delay Delivery (optional)
 - Get back
 - Message identifier
 - MD5 hash of the body
@@ -305,32 +302,24 @@ Delivery (optional)
 ### AWS SQS-FIFO Queue
 - Newer offering (First In First out) not available in all regions!
 - Name of the queue must end in . fifo
-- Lower throughput (up to 3,000 per second
-with batching, 300/s without)
-- Messages are processed in order by the
-consumer
+- Lower throughput (up to 3,000 per second with batching, 300/s without)
+- Messages are processed in order by the consumer
 - Messages are sent exactly once
 - 5 minute interval de duplication using
-“Duplication
 ### SQS Extended Client
 - Message size limit is 256KB, how to send large messages?
 - Using the SQS Extended Client (Java Library)
 ### AWS SQS Use Cases
-- Decouple applications
-(for example to handle payments
-- Buffer writes to a database
-(for example a voting
-- Handle large loads of messages coming in
-(for example an email
+- Decouple applications (for example to handle payments)
+- Buffer writes to a database(for example a voting)
+- Handle large loads of messages coming in (for example an email)
 - SQS can be integrated with Auto Scaling through CloudWatch!
 ### SQS Limits
-- Maximum of 120,000 in flight messages being processed by
-consumers
+- Maximum of 120,000 in flight messages being processed by consumers
 - Batch Request has a maximum of 10 messages max 256KB
 - Message content is XML, JSON, Unformatted text
 - Standard queues have an unlimited TPS
-- FIFO queues support up to 3,000 messages per second (using
-batching)
+- FIFO queues support up to 3,000 messages per second (using batching)
 - Max message size is 256KB (or use Extended Client)
 - Data retention from 1 minute to 14 days
 - Pricing:
@@ -340,8 +329,7 @@ batching)
 - Encryption in flight using the HTTPS endpoint
 - Can enable SSE (Server Side Encryption) using KMS
 • Can set the CMK (Customer Master Key) we want to use
-• SSE only encrypts the body, not the metadata
-(message ID, timestamp,
+• SSE only encrypts the body, not the metadata (message ID, timestamp)
 - IAM policy must allow usage of SQS
 - SQS queue access policy
 • Finer grained control over IP
@@ -349,27 +337,18 @@ batching)
 ### Kinesis Data Stream vs SQS
 - Kinesis Data Stream:
 • Data can be consumed many times
-• Data is deleted after the retention
-period
-• Ordering of records is preserved (at
-the shard level) even during
-replays
-• Build multiple applications reading
-from the same stream
-independently (Pub/Sub)
-• “Streaming MapReduce” querying
-capability
-• Checkpointing needed to track
-progress of consumption
+• Data is deleted after the retention period
+• Ordering of records is preserved (at the shard level) even during replays
+• Build multiple applications reading from the same stream independently (Pub/Sub)
+• “Streaming MapReduce” querying capability
+• Checkpointing needed to track progress of consumption
 • Shards (capacity) must be provided ahead of time
 - SQS:
 • Queue, decouple applications
 • One application per queue
 • Records are deleted after
 consumption (ack / fail)
-• Messages are processed
-independently for standard
-queue
+• Messages are processed independently for standard queue
 • Ordering for FIFO queues
 • Capability to “delay” messages
 • Dynamic scaling of load (no ops)
