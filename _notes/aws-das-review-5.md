@@ -55,49 +55,49 @@ proxy
 • VPC Direct Connect
 • VPN On-Premise
 ### Amazon ES anti-patterns
-OLTP
-No transactions
-RDS or DynamoDB is better
-Ad-hoc data querying
-Athena is better
-Remember Amazon ES is primarily for search & analytics
+- OLTP
+- No transactions
+- RDS or DynamoDB is better
+- Ad-hoc data querying
+- Athena is better
+- Remember Amazon ES is primarily for search & analytics
 ###  Amazon Athena
 - Serverless interactive queries of S3 data
-Interactive query service for S3 (SQL)
-No need to load data, it stays in S3
-Presto under the hood
-Serverless!
-Supports many data formats
-CSV (human readable)
-JSON (human readable)
-ORC (columnar, splittable)
-Parquet (columnar, splittable)
-Avro (splittable)
-Unstructured, semi-structured, or structured
+- Interactive query service for S3 (SQL)
+- No need to load data, it stays in S3
+- Presto under the hood
+- Serverless!
+- Supports many data formats
+- CSV (human readable)
+- JSON (human readable)
+- ORC (columnar, splittable)
+- Parquet (columnar, splittable)
+- Avro (splittable)
+- Unstructured, semi-structured, or structured
 ### Athena cost model
-Pay-as-you-go
-$5 per TB scanned
-Successful or cancelled queries count, failed queries do not.
-No charge for DDL (CREATE/ALTER/DROP etc.)
-Save LOTS of money by using columnar formats
-ORC, Parquet
-Save 30-90%, and get better performance
-Glue and S3 have their own charges
+- Pay-as-you-go
+- $5 per TB scanned
+- Successful or cancelled queries count, failed queries do not.
+- No charge for DDL (CREATE/ALTER/DROP etc.)
+- Save LOTS of money by using columnar formats
+- ORC, Parquet
+- Save 30-90%, and get better performance
+- Glue and S3 have their own charges
 ### Athena Security
-Access control
-IAM, ACLs, S3 bucket policies
-AmazonAthenaFullAccess / AWSQuicksightAthenaAccess
-Encrypt results at rest in S3 staging directory
-Server-side encryption with S3-managed key (SSE-S3)
-Server-side encryption with KMS key (SSE-KMS)
-Client-side encryption with KMS key (CSE-KMS)
-Cross-account access in S3 bucket policy possible
-Transport Layer Security (TLS) encrypts in-transit (between Athena and S3)
+- Access control
+- IAM, ACLs, S3 bucket policies
+- AmazonAthenaFullAccess / AWSQuicksightAthenaAccess
+- Encrypt results at rest in S3 staging directory
+- Server-side encryption with S3-managed key (SSE-S3)
+- Server-side encryption with KMS key (SSE-KMS)
+- Client-side encryption with KMS key (CSE-KMS)
+- Cross-account access in S3 bucket policy possible
+- Transport Layer Security (TLS) encrypts in-transit (between Athena and S3)
 ### Athena anti-patterns
-Highly formatted reports / visualization
-That’s what QuickSight is for
-ETL
-Use Glue instead
+- Highly formatted reports / visualization
+- That’s what QuickSight is for
+- ETL
+- Use Glue instead
 ### Questions Athena
 - As a Big Data analyst, you need to query/analyze data from a set of CSV files stored in S3. Which of the following serverless services helps you with this?:AWS Athena
 - What are two columnar data formats supported by Athena?:Parquet and ORC
