@@ -58,7 +58,7 @@ shard.
 for each records put in shards. Added
 by Kinesis after ingestion
 #### Kinesis Data Streams Limits to know
--Producer:
+- Producer:
 • 1MB/s or 1000 messages/s at write PER SHARD
 • ProvisionedThroughputException  otherwise
 - Consumer Classic:
