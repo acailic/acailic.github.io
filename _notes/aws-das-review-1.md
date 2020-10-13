@@ -17,15 +17,15 @@ date: 2020-10-01
 • Data Pipeline
 
 ###  AWS Kinesis Overview
-• Kinesis is a managed alternative to Apache Kafka
+- Kinesis is a managed alternative to Apache Kafka
 • Great for application logs, metrics, IoT, clickstreams
 • Great for “real-time” big data
 • Great for streaming processing frameworks (Spark, NiFi, etc…)
-• Data is automatically replicated synchronously to 3 AZ
-• Kinesis Streams: low latency streaming ingest at scale
-• Kinesis Analytics: perform real-time analytics on streams using
+- Data is automatically replicated synchronously to 3 AZ
+- Kinesis Streams: low latency streaming ingest at scale
+- Kinesis Analytics: perform real-time analytics on streams using
 SQL
-• Kinesis Firehose: load streams into S3, Redshift, ElasticSearch &
+- Kinesis Firehose: load streams into S3, Redshift, ElasticSearch &
 Splunk
 
 #### Kinesis Streams Overview
