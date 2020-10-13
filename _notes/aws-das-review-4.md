@@ -5,6 +5,49 @@ tags: [aws, das, glue, lambda, hive, spark, flume]
 date: 2020-10-01
 ---
 ## Lambda
+- Serverless data processing
+A way to run code snippets “in the cloud”
+Serverless
+Continuous scaling
+Often used to process data as it’s moved around
+Why not just run a server?
+Server management (patches, monitoring, hardware failures, etc.)
+Servers can be cheap, but scaling gets expensive really fast
+You don’t pay for processing time you don’t use
+Easier to split up development between front-end and back-end
+### Main uses of Lambda
+Real-time file processing
+
+Real-time stream processing
+
+ETL
+
+Cron replacement
+
+Process AWS events
+### Lambda + Kinesis 
+Your Lambda code receives an event with a batch of stream records
+You specify a batch size when setting up the trigger (up to 10,000 records)
+Too large a batch size can cause timeouts!
+Batches may also be split beyond Lambda’s payload limit (6 MB)
+Lambda will retry the batch until it succeeds or the data expires
+This can stall the shard if you don’t handle errors properly
+Use more shards to ensure processing isn’t totally held up by errors
+Lambda processes shard data synchronously
+### Cost Model
+“Pay for what you use”
+Generous free tier (1M requests / month, 400K GB-seconds compute time)
+$0.20 / million requests
+$.00001667 per GB/second
+### Other promises
+High availability
+Unlimited scalability*
+High performance
+But you do specify a timeout! This can cause problems. Max is 900 seconds.
+### Anti-patterns
+Long-running applications
+Dynamic websites
+Stateful applications
 ### Questions
 - You are going to be working with objects arriving in S3. Once they arrive you want to use AWS Lambda as a part of an AWS Data Pipeline to process and transform the data. 
 How can you easily configure Lambda to know the data has arrived in a bucket?:Configure S3 bucket notifications to lambda.Lambda functions are generally invoked by some sort of trigger. S3 has the ability to trigger a Lambda function whenever a new object appears in a bucket.
@@ -14,6 +57,84 @@ How can you easily configure Lambda to know the data has arrived in a bucket?:Co
 How does Lambda know there has been changes / updates to the Kinesis stream ? Lambda polls Kinesis streams. Although you think of a trigger as "pushing" events, Lambda actually polls your Kinesis streams for new activity.
 - When using an Amazon Redshift database loader, how does Lambda keep track of files arriving in S3 to be processed and sent to Redshift ?:In a DynamoDB table
 ## Glue
+### AWS Glue
+- Serverless discovery and definition of table definitions and schema
+- S3 “data lakes”
+- RDS
+- Redshift
+- Most other SQL databases
+- Custom ETL jobs
+- Trigger-driven, on a schedule, or on demand
+- Fully  managed
+### Glue and S3 Partitions
+- Glue crawler will extract partitions based on how your S3 data is organized
+- Think up front about how you will be querying your data lake in S3
+- Example: devices send sensor data every hour
+- Do you query primarily by time ranges?
+- If so, organize your buckets as yyyy/mm/dd/device
+- Do you query primarily by device?
+- If so, organize your buckets as device/yyyy/mm/dd
+### Glue ETL
+- Automatic code generation
+- Scala or Python
+- Encryption
+- Server-side (at rest)
+- SSL (in transit)
+- Can be event-driven
+- Can provision additional “DPU’s” (data processing units) to increase performance of underlying Spark jobs
+- Errors reported to CloudWatch
+- Transform data, Clean Data, Enrich Data (before doing analysis)
+- Generate ETL code in Python or Scala, you can modify the code
+- Can provide your own Spark or PySpark scripts
+- Target can be S3, JDBC (RDS, Redshift), or in Glue Data Catalog
+- Fully managed, cost effective, pay only for the resources consumed
+- Jobs are run on a serverless Spark platform
+- Glue Scheduler to schedule the jobs
+- Glue Triggers to automate job runs based on “events”
+### Glue ETL - Transformations
+- Bundled Transformations:
+- DropFields, DropNullFields – remove (null) fields
+- Filter – specify a function to filter records
+- Join – to enrich data
+- Map - add fields, delete fields, perform external lookups
+- Machine Learning Transformations:
+- FindMatches ML: identify duplicate or matching records in your dataset, even when the records do not have a common unique identifier and no fields match exactly.
+- Format conversions: CSV, JSON, Avro, Parquet, ORC, XML
+- Apache Spark transformations (example: K-Means)
+### AWS Glue Development Endpoints
+- Develop ETL scripts using a notebook
+- Then create an ETL job that runs your script (using Spark and Glue)
+- Endpoint is in a VPC controlled by security groups, connect via:
+- Apache Zeppelin on your local machine
+- Zeppelin notebook server on EC2 (via Glue console)
+- SageMaker notebook
+- Terminal window
+- PyCharm professional edition
+- Use Elastic IP’s to access a private endpoint address
+### Running Glue jobs
+- Time-based schedules (cron style)
+- Job bookmarks
+- Persists state from the job run
+- Prevents reprocessing of old data
+- Allows you to process new data only when re-running on a schedule
+- Works with S3 sources in a variety of formats
+- Works with relational databases via JDBC (if PK’s are in sequential order)
+- Only handles new rows, not updated rows
+- CloudWatch Events
+- Fire off a Lambda function or SNS notification when ETL succeeds or fails
+- Invoke EC2 run, send event to Kinesis, activate a Step Function
+### Glue cost model
+- Billed by the minute for crawler and ETL jobs
+- First million objects stored and accesses are free for the Glue Data Catalog
+- Development endpoints for developing ETL code charged by the minute
+### Glue Anti-patterns
+- Multiple ETL engines
+### No longer an anti-pattern: streaming
+- As of April 2020, Glue ETL supports serverless streaming ETL
+- Consumes from Kinesis or Kafka
+- Clean & transform in-flight
+- Store results into S3 or other data stores
+- Runs on Apache Spark Structured Streaming
 ### Questions
 - You want to load data from a MySQL server installed in an EC2 t2.micro instance to be processed by AWS Glue. What applies the best here?:Instance should be in your VPC.Although we didn't really discuss access controls, you could arrive at this answer through process of elimination. You'll find yourself doing that on the exam a lot. This isn't really a Glue specific question; it's more about how to connect an AWS service such as Glue to EC2.
 - What is the simplest way to make sure the metadata under Glue Data Catalog is always up-to-date and in-sync with the underlying data without your intervention each time?:Crawlers may be easily scheduled to run periodically while defining them.
