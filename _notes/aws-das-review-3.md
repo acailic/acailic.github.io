@@ -507,3 +507,17 @@ Items are retrieved in parallel to minimize latency
 - Cache often accessed objects
 - Overall, Redis has largely grown in popularity and has better feature sets than Memcached.
 - I would personally only use Redis for caching needs.
+
+### questions
+- Your big data application is taking a lot of files from your local on-premise NFS storage and inserting them into S3.
+ As part of the data integrity verification process, the application downloads the files right after they've been uploaded. What will happen?:The application will receive a 200 as S3 for new PUT is strongly consistent. S3 is eventually consistent only for DELETE or overwrite PUT
+- You are gathering various files from providers and plan on analyzing them once every month using Athena, which must return the query results immediately. You do not want to run a high risk of losing files and want to minimise costs. Which storage type do you recommend?:S3 Infrequent Access.
+- As part of your compliance as a bank, you must archive all logs created by all applications and ensure they cannot be modified or deleted for at least 7 years. Which solution should you use?:
+-
+-
+-
+-
+-
+-
+-
+-
