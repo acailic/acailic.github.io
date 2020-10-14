@@ -514,10 +514,18 @@ Items are retrieved in parallel to minimize latency
 - You are gathering various files from providers and plan on analyzing them once every month using Athena, which must return the query results immediately. You do not want to run a high risk of losing files and want to minimise costs. Which storage type do you recommend?:S3 Infrequent Access.
 - As part of your compliance as a bank, you must archive all logs created by all applications and ensure they cannot be modified or deleted for at least 7 years. Which solution should you use?:Glacier with a Vault Lock Policy
 - You are generating thumbnails in S3 from images. Images are in the images/ directory while thumbnails in the thumbnails/ directory. After running some analytics, you realized that images are rarely read and you could optimise your costs by moving them to another S3 storage tiers. What do you recommend that requires the least amount of changes?:Create a Lifecycle Rule for the images/ prefix
-- In order to perform fast big data analytics, it has been recommended by your analysts in Japan to continuously copy data from your S3 bucket in us-east-1. How do you recommend doing this at a minimal cost?
--
--
--
--
--
--
+- In order to perform fast big data analytics, it has been recommended by your analysts in Japan to continuously copy data from your S3 bucket in us-east-1. How do you recommend doing this at a minimal cost?: Enable cross region replication.
+- Your big data application is taking a lot of files from your local on-premise NFS storage and inserting them into S3. As part of the data integrity verification process, you would like to ensure the files have been properly uploaded at minimal cost. How do you proceed?:Compute the local ETag for each file and compare them with AWS S3's ETag
+- Your application plans to have 15,000 reads and writes per second to S3 from thousands of device ids. Which naming convention do you recommend?:<device-id>/yyyy-mm-dd/. you get about 3k reads per second per prefix, so using the device-id will help having many prefixes and parallelize your writes.
+- You are looking to have your files encrypted in S3 and do not want to manage the encryption yourself. You would like to have control over the encryption keys and ensure they're securely stored in AWS. What encryption do you recommend?:SSE-KMS
+- Your website is deployed and sources its images from an S3 bucket. Everything works fine on the internet, but when you start the website locally to do some development, the images are not getting loaded. What's the problem?:S3 CORS
+- What's the maximum number of fields that can make a primary key in DynamoDB?:partition key + sort key. So 2.
+- What's the maximum size of a row in DynamoDB ?400KB
+- You are writing item of 8 KB in size at the rate of 12 per seconds. What WCU do you need? 8*12
+- You are doing strongly consistent read of 10 KB items at the rate of 10 per second. What RCU do you need?10 KB gets rounded to 12 KB, divided by 4KB = 3, times 10 per second = 30
+- You are doing 12 eventually consistent reads per second, and each item has a size of 16 KB. What RCU do you need?: we can do 2 eventually consistent reads per seconds for items of 4 KB with 1 RCU. 12/2*16/4
+- We are getting a ProvisionedThroughputExceededExceptions but after checking the metrics, we see we haven't exceeded the total RCU we had provisioned. What happened?:We have a hot partition / hot key.remember RCU and WCU are spread across all partitions.
+- You are about to enter the Christmas sale and you know a few items in your website are very popular and will be read often. Last year you had a ProvisionedThroughputExceededException. What should you do this year?:Create a DAX cluster.
+- You would like to react in real-time to users de-activating their account and send them an email to try to bring them back. The best way of doing it is to:Integrate Lambda with a DynamoDB stream.
+- You would like to have DynamoDB automatically delete old data for you. What should you use?:Use TTL.
+- You are looking to improve the performance of your RDS database by caching some of the most common rows and queries. Which technology do you recommend?:ElastiCache
