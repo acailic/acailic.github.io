@@ -62,11 +62,11 @@ proxy
 - Athena is better
 - Remember Amazon ES is primarily for search & analytics
 ### Questions
--
--
--
--
--
+- How can you ensure maximum security for your Amazon ES cluster?: Bind with VPC, Use security group, use IAM policies, use acces policies associated with Elasticsearch
+- As recommended by AWS, you are going to ensure you have dedicated master nodes for high performance. As a user, what can you configure for the master nodes?:The count and instance types of the master nodes.
+- Which are supported ways to import data into your Amazon ES domain?:Kinesis, DynamoDB, Logstash / Beats, and Elasticsearch's native API's offer means to import data into Amazon ES.
+- What can you do to prevent data loss due to nodes within your ES domain failing?:Maintain snapshots of the Elasticsearch Service domain. Amazon ES created daily snapshots to S3 by default, and you can create them more often if you wish.
+- You are going to setup an Amazon ES cluster and have it configured in your VPC. You want  your customers outside your VPC to visualize the logs reaching the ES using Kibana. How can this be achieved?:Use a reverse proxy or VPN or VPC direct connect 
 ###  Amazon Athena
 - Serverless interactive queries of S3 data
 - Interactive query service for S3 (SQL)
