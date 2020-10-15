@@ -61,6 +61,12 @@ proxy
 - Ad-hoc data querying
 - Athena is better
 - Remember Amazon ES is primarily for search & analytics
+### Questions
+-
+-
+-
+-
+-
 ###  Amazon Athena
 - Serverless interactive queries of S3 data
 - Interactive query service for S3 (SQL)
