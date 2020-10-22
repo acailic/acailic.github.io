@@ -24,10 +24,10 @@ Which of the following Elastic Beanstalk environment should you choose to meet t
  - You have deployed a traditional 3-tier web application architecture with a Classic Load Balancer, an Auto Scaling group, and an Amazon Relational Database Service (RDS) database. Users are reporting that they have to re-authenticate into the website often.
  What should you do to make the application tier stateless and outsource the session information?Add an ElastiCache Cluster.
  
- ### Deployment
- - AWS CloudFormation helps model and provision all the cloud infrastructure resources needed for your business.
+### Deployment
+- AWS CloudFormation helps model and provision all the cloud infrastructure resources needed for your business.
  Which of the following services rely on CloudFormation to provision resources (Select two)?AWS Elastic Beanstalk.AWS Serverless Application Model (AWS SAM).
  
- ### Security
- ### Refactoring
- ### Development with AWS
+### Security
+### Refactoring
+### Development with AWS
