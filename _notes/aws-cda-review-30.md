@@ -27,7 +27,16 @@ Which of the following Elastic Beanstalk environment should you choose to meet t
 ### Deployment
 - AWS CloudFormation helps model and provision all the cloud infrastructure resources needed for your business.
  Which of the following services rely on CloudFormation to provision resources (Select two)?AWS Elastic Beanstalk.AWS Serverless Application Model (AWS SAM).
- 
+
 ### Security
+
 ### Refactoring
+- You company runs business logic on smaller software components that perform various functions. Some functions process information in a few seconds while others seem to take a long time to complete. Your manager asked you to decouple components that take a long time to ensure software applications stay responsive under load. You decide to configure Amazon Simple Queue Service (SQS) to work with your Elastic Beanstalk configuration.
+Which of the following Elastic Beanstalk environment should you choose to meet this requirement?Dedicated worker environment.
+- As a Senior Developer, you manage 10 Amazon EC2 instances that make read-heavy database requests to the Amazon RDS for PostgreSQL. You need to make this architecture resilient for disaster recovery.
+Which of the following features will help you prepare for database disaster recovery? (Select two)Enable the automated backup feature of Amazon RDS in a multi-AZ deployment that creates backups in a single AWS Region. Use cross-Region Read Replicas.
+- An organization with online transaction processing (OLTP) workloads have successfully moved to DynamoDB after having many issues with traditional database systems. However, a few months into production, DynamoDB tables are consistently recording high latency.
+As a Developer Associate, which of the following would you suggest to reduce the latency? (Select two) Use eventually consistent reads in place of strongly consistent reads whenever possible. Consider using Global tables if your application is accessed by globally distributed users
+- You have deployed a traditional 3-tier web application architecture with a Classic Load Balancer, an Auto Scaling group, and an Amazon Relational Database Service (RDS) database. Users are reporting that they have to re-authenticate into the website often.
+What should you do to make the application tier stateless and outsource the session information?Add an ElastiCache Cluster.
 ### Development with AWS
