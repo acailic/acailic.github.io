@@ -25,7 +25,9 @@ Which of the following Elastic Beanstalk environment should you choose to meet t
  What should you do to make the application tier stateless and outsource the session information?Add an ElastiCache Cluster.
  
  ### Deployment
- AWS CloudFormation helps model and provision all the cloud infrastructure resources needed for your business.
+ - AWS CloudFormation helps model and provision all the cloud infrastructure resources needed for your business.
  Which of the following services rely on CloudFormation to provision resources (Select two)?AWS Elastic Beanstalk.AWS Serverless Application Model (AWS SAM).
  
- ### 
+ ### Security
+ ### Refactoring
+ ### Development with AWS
