@@ -51,3 +51,18 @@ As a Developer Associate, which of the following would you suggest to reduce the
 - You have deployed a traditional 3-tier web application architecture with a Classic Load Balancer, an Auto Scaling group, and an Amazon Relational Database Service (RDS) database. Users are reporting that they have to re-authenticate into the website often.
 What should you do to make the application tier stateless and outsource the session information?Add an ElastiCache Cluster.
 ### Development with AWS
+- Amazon S3 achieves high availability by replicating data across multiple servers within AWS data centers. This implies, information about the changes must be replicated across Amazon S3, which can take some time. One gets to observe certain behavior of S3 because of this lag.
+ Which of the following is an INCORRECT statement about Amazon S3 data consistency model?:Amazon S3 supports object locking for concurrent updates
+- You have been asked by your Team Lead to enable detailed monitoring of the Amazon EC2 instances your team uses. As a Developer working on AWS CLI, which of the below command will you run?:aws ec2 monitor-instances --instance-ids i-1234567890abcdef0 
+- Your company has a three-year contract with a healthcare provider. The contract states that monthly database backups must be retained for the duration of the contract for compliance purposes. Currently, the limit on backup retention for automated backups, on Amazon Relational Database Service (RDS), does not meet your requirements.
+ Which of the following solutions can help you meet your requirements?:Create a cron event in CloudWatch, which triggers an AWS Lambda function that triggers the database snapshot
+- You have migrated an on-premise SQL Server database to an Amazon Relational Database Service (RDS) database attached to a VPC inside a private subnet. Also, the related Java application, hosted on-premise, has been moved to an Amazon Lambda function.
+ Which of the following should you implement to connect AWS Lambda function to its RDS instance?:Configure Lambda to connect to VPC with private subnet and Security Group needed to access RDS
+- A company uses Amazon RDS as its database. For improved user experience, it has been decided that a highly reliable fully-managed caching layer has to be configured in front of RDS.
+ Which of the following is the right choice, keeping in mind that cache content regeneration is a costly activity?: Implement Amazon ElastiCache Redis in Cluster Mode
+- A media company uses Amazon Simple Queue Service (SQS) queue to manage their transactions. With changing business needs, the payload size of the messages is increasing. The Team Lead of the project is worried about the 256 KB message size limit that SQS has.
+ What can be done to make the queue accept messages of a larger size?:Use the SQS Extended Client
+- A new member of your team is working on creating Dead Letter Queue (DLQ) for AWS Lambda functions.
+ As a Developer Associate, can you help him identify the use cases, wherein AWS Lambda will add a message into a DLQ after being processed? (Select two):1)The event fails all processing attempts.2)The Lambda function invocation is asynchronous
+ - The development team at a social media company is considering using Amazon ElastiCache to boost the performance of their existing databases.
+  As a Developer Associate, which of the following use-cases would you recommend as the BEST fit for ElastiCache? (Select two)1)Use ElastiCache to improve latency and throughput for read-heavy application workloads.2)Use ElastiCache to improve performance of compute-intensive workloads.
