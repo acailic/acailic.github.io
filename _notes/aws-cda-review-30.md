@@ -29,7 +29,17 @@ Which of the following Elastic Beanstalk environment should you choose to meet t
  Which of the following services rely on CloudFormation to provision resources (Select two)?AWS Elastic Beanstalk.AWS Serverless Application Model (AWS SAM).
 
 ### Security
-
+- A Company uses a large set of EBS volumes for their fleet of Amazon EC2 instances. As an AWS Certified Developer Associate, your help has been requested to understand the security features of the EBS volumes. The company does not want to build or maintain their own encryption key management infrastructure.
+Can you help them understand what works for Amazon EBS encryption? (Select two)1)Encryption by default is a Region-specific setting. If you enable it for a Region, you cannot disable it for individual volumes or snapshots in that Region. 2)A volume restored from an encrypted snapshot, or a copy of an encrypted snapshot is always encrypted.
+- A financial services company wants to ensure that the customer data is always kept encrypted on Amazon S3 but wants a fully managed solution to create, rotate and remove the encryption keys.
+ As a Developer Associate, which of the following would you recommend to address the given use-case? 
+- A recruit has created an Amazon Simple Storage Service (S3) bucket. He needs assistance in getting the security principles right for this bucket. Which of the following is NOT a security practice for access control to S3 buckets?:Use of Security Groups
+- Your application is deployed automatically using AWS Elastic Beanstalk. Your YAML configuration files are stored in the folder .ebextensions and new files are added or updated often. The DevOps team does not want to re-deploy the application every time there are configuration changes, instead, they would rather manage configuration externally, securely, and have it load dynamically into the application at runtime.
+ What option allows you to do this? Use SSM Parameter Store.
+- A company has a workload that requires 14,000 consistent IOPS for data that must be durable and secure. The compliance standards of the company state that the data should be secure at every stage of its lifecycle on all of the EBS volumes they use.
+ Which of the following statements are true regarding data security on EBS?:EBS volumes support both in-flight encryption and encryption at rest using KMS.
+- Two policies are attached to an IAM user. The first policy states that the user has explicitly been denied all access to EC2 instances. The second policy states that the user has been allowed permission for EC2:Describe action.
+When the user tries to use 'Describe' action on an EC2 instance using the CLI, what will be the output?The user will be denied access because one of the policies has an explicit deny on it
 ### Refactoring
 - You company runs business logic on smaller software components that perform various functions. Some functions process information in a few seconds while others seem to take a long time to complete. Your manager asked you to decouple components that take a long time to ensure software applications stay responsive under load. You decide to configure Amazon Simple Queue Service (SQS) to work with your Elastic Beanstalk configuration.
 Which of the following Elastic Beanstalk environment should you choose to meet this requirement?Dedicated worker environment.
