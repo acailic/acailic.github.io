@@ -27,7 +27,8 @@ Which of the following Elastic Beanstalk environment should you choose to meet t
 ### Deployment
 - AWS CloudFormation helps model and provision all the cloud infrastructure resources needed for your business.
  Which of the following services rely on CloudFormation to provision resources (Select two)?AWS Elastic Beanstalk.AWS Serverless Application Model (AWS SAM).
-
+- An organization is moving its on-premises resources to the cloud. Source code will be moved to AWS CodeCommit and AWS CodeBuild will be used for compiling the source code using Apache Maven as a build tool. The organization wants the build environment should allow for scaling and running builds in parallel.
+Which of the following options should the organization choose for their requirement?:CodeBuild scales automatically, the organization does not have to do anything for scaling or for parallel builds.
 ### Security
 - A Company uses a large set of EBS volumes for their fleet of Amazon EC2 instances. As an AWS Certified Developer Associate, your help has been requested to understand the security features of the EBS volumes. The company does not want to build or maintain their own encryption key management infrastructure.
 Can you help them understand what works for Amazon EBS encryption? (Select two)1)Encryption by default is a Region-specific setting. If you enable it for a Region, you cannot disable it for individual volumes or snapshots in that Region. 2)A volume restored from an encrypted snapshot, or a copy of an encrypted snapshot is always encrypted.
