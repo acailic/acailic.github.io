@@ -6,7 +6,7 @@ date: 2020-08-17
 --- 
 
 ### Deployment
--Your client wants to deploy a service on EC2 instances, and as EC2 instances are added into an ASG, each EC2 instance should be running 3 different Docker Containers simultaneously.
+- Your client wants to deploy a service on EC2 instances, and as EC2 instances are added into an ASG, each EC2 instance should be running 3 different Docker Containers simultaneously.
 What Elastic Beanstalk platform should they choose?:Docker multi-container platform. Docker is a container platform that allows you to define your software stack and store it in an image that can be downloaded from a remote repository. Use the Multicontainer Docker platform if you need to run multiple containers on each instance. The Multicontainer Docker platform does not include a proxy server. Elastic Beanstalk uses Amazon Elastic Container Service (Amazon ECS) to coordinate container deployments to multi-container Docker environments.
 - You have created a test environment in Elastic Beanstalk and as part of that environment, you have created an RDS database. How can you make sure the database can be explored after the environment is destroyed?:Make a snapshot of the database before it gets deleted. Use an Elastic Beanstalk blue (environment A)/green (environment B) deployment to decouple an RDS DB instance from environment.
 ### Refactoring
@@ -24,8 +24,6 @@ In this case, data that is actively requested by users will be cached in ElastiC
 AWS X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture. With X-Ray, you can understand how your application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors. X-Ray provides an end-to-end view of requests as they travel through your application, and shows a map of your application’s underlying components. 
 - You would like to run the X-Ray daemon for your Docker containers deployed using AWS Fargate.  What do you need to do to ensure the setup will work? (Select two)Deploy the X-Ray daemon agent as a sidecar container. Provide the correct IAM task role to the X-Ray container
 ### Security
--
--
+ 
 ### Development with AWS
--
--
+ 
