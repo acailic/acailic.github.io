@@ -29,6 +29,6 @@ date: 2021-04-02
 #### continual small investments (10-20%)
 #### new code- careful desing, good documentation
 ### when changing code
-#### improve somingt
+#### improve somethings
 #### dont settle at fewest modified lines of code
-#### after change, system is the way it would have been if defisned that way from start
+#### after change, system is the way it would have been if designed that way from start
