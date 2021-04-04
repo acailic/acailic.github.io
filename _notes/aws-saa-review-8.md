@@ -2,7 +2,7 @@
 title: AWS SAA Practise test 8
 layout: post
 tags: [aws, saa, test]
-date: 2020-08-17
+date: 2021-04-18
 --- 
 -
 - Elastic Fabric Adapter

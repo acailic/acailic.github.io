@@ -2,7 +2,7 @@
 title: AWS SAA Practise test 7
 layout: post
 tags: [aws, saa, test]
-date: 2020-08-17
+date: 2021-04-17
 --- 
  
 - Setup another fleet of EC2 instances for the web tier in the eu-west-1 region. Enable latency routing policy in Route 53 - Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. Use latency based routing when you have resources in multiple AWS Regions and you want to route traffic to the region that provides the lowest latency. To use latency-based routing, you create latency records for your resources in multiple AWS Regions. When Route 53 receives a DNS query for your domain or subdomain (example.com or acme.example.com), it determines which AWS Regions you've created latency records for, determines which region gives the user the lowest latency, and then selects a latency record for that region. Route 53 responds with the value from the selected record, such as the IP address for a web server.

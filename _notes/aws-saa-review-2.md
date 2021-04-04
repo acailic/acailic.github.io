@@ -2,7 +2,7 @@
 title: AWS SAA Practise test 2
 layout: post
 tags: [aws, saa, test]
-date: 2020-08-17
+date: 2021-04-07
 ---  
 
 -  you can't modify an existing unencrypted Amazon RDS DB instance to make the instance encrypted, and you can't create an encrypted read replica from an unencrypted instance.

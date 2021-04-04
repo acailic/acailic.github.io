@@ -2,7 +2,7 @@
 title: AWS SAA Practise test 1
 layout: post
 tags: [aws, saa, test]
-date: 2020-08-17
+date: 2021-03-17
 --- 
  
 - Scaling based on a schedule allows you to set your own scaling schedule for predictable load changes. To configure your Auto Scaling group to scale based on a schedule, you create a scheduled action. This is ideal for situations where you know when and for how long you are going to need the additional capacity.

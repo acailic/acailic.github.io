@@ -2,7 +2,7 @@
 title: AWS SAA Practise test 6
 layout: post
 tags: [aws, saa, test]
-date: 2020-08-17
+date: 2021-04-17
 --- 
 - Setup Site-to-Site VPN to establish connectivity between the on-premises data center and AWS Cloud
   

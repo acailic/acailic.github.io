@@ -2,7 +2,7 @@
 title: AWS SAA Practise test 9
 layout: post
 tags: [aws, saa, test]
-date: 2020-08-17
+date: 2021-03-11
 --- 
 
 - NAT Gateways deployed in your public subnet - You can use a network address translation (NAT) gateway to enable instances in a private subnet to connect to the internet or other AWS services, but prevent the internet from initiating a connection with those instances. A NAT gateway has the following characteristics and limitations:
