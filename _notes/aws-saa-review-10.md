@@ -4,10 +4,6 @@ layout: post
 tags: [aws, saa, test]
 date: 2021-04-04
 --- 
--
--
--
--
 - Throttling is the process of limiting the number of requests an authorized program can submit to a given operation in a given amount of time.
 
 Amazon API Gateway, Amazon SQS and Amazon Kinesis - To prevent your API from being overwhelmed by too many requests, Amazon API Gateway throttles requests to your API using the token bucket algorithm, where a token counts for a request. Specifically, API Gateway sets a limit on a steady-state rate and a burst of request submissions against all APIs in your account. In the token bucket algorithm, the burst is the maximum bucket size.
