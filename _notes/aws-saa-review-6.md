@@ -4,25 +4,16 @@ layout: post
 tags: [aws, saa, test]
 date: 2021-04-17
 ---
-- If using an ELB it is best to enable ELB health checks as otherwise EC2 status checks may show an instance as being healthy that the ELB has determined is unhealthy. In this case the instance will be removed from service by the ELB but will not be terminated by Auto Scaling
-
+- If using an ELB it is best to enable ELB health checks as otherwise EC2 status checks may show an instance as being healthy that the ELB has determined is unhealthy. In this case the instance will be removed from service by the ELB but will not be terminated by Auto Scaling 
 More information on ASG health checks:
-
-- By default uses EC2 status checks.
-
-- Can also use ELB health checks and custom health checks.
-
-- ELB health checks are in addition to the EC2 status checks.
-
-- If any health check returns an unhealthy status the instance will be terminated.
-
-- With ELB an instance is marked as unhealthy if ELB reports it as OutOfService
-
-- A healthy instance enters the InService state.
-
-- If an instance is marked as unhealthy it will be scheduled for replacement.
-
-- If connection draining is enabled, Auto Scaling waits for in-flight requests to complete or timeout before terminating instances.
+  By default uses EC2 status checks.
+  Can also use ELB health checks and custom health checks.
+  ELB health checks are in addition to the EC2 status checks.
+  If any health check returns an unhealthy status the instance will be terminated.
+  With ELB an instance is marked as unhealthy if ELB reports it as OutOfService
+  A healthy instance enters the InService state.
+  If an instance is marked as unhealthy it will be scheduled for replacement.
+  If connection draining is enabled, Auto Scaling waits for in-flight requests to complete or timeout before terminating instances.
 
 - The health check grace period allows a period of time for a new instance to warm up before performing a health check (300 seconds by default).
 - A VPC automatically comes with a default network ACL which allows all inbound/outbound traffic. A custom NACL denies all traffic both inbound and outbound by default.
