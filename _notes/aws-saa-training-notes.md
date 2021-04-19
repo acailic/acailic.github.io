@@ -60,9 +60,18 @@ Amazon EC2 usage of Amazon Linux-and Ubuntu-based instances that are launched in
 
 ## Database layer
 #### RDS scalling is push the button
-
+#### Security RDS
+- Acces  to DB. Encryption at rest, in transit.
+- Event notification. such as whether the instance was shut down, a backup was started, a failover occurred, the security group was changed, or your storage space is low.
 ### DynamoDB
 - Amazon DynamoDB transactions simplify the developer experience of making coordinated, all-or-nothing changes to multiple items both within and across tables. Transactions provide atomicity, consistency, isolation, and durability (ACID) in DynamoDB, enabling you to maintain data correctness in your applications easily.
 - if item is bigger greater than 250kb, dynamodb is a lot expenssive.
 - Behind Cloudfront is memcached
 - Behind s3 is DynamoDB 
+
+#### Security
+- Define acess permissions on table and items. 
+- Customer managed keys
+- SSL, Encryption at rest 
+
+## AWS DMS - Database Migration service
