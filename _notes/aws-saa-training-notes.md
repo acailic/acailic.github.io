@@ -75,3 +75,7 @@ Amazon EC2 usage of Amazon Linux-and Ubuntu-based instances that are launched in
 - SSL, Encryption at rest 
 
 ## AWS DMS - Database Migration service
+- Use snowball egde if conneciton is bad, privacy and security concerns.
+- Snowball edge device
+- While migrating these multi-terabyte and multi-petabyte databases to AWS, your on-premises databases remain online. They can be decommissioned when the AWS Snowball Edge appliance is shipped back to AWS and is automatically loaded onto your target Amazon RDS–or Amazon EC2–based database. You can migrate existing data (one time) or optionally perform ongoing data replication to the target database.
+- https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html
