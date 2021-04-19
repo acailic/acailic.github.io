@@ -1,4 +1,3 @@
-
 ---
 title: AWS SAA Training notes
 layout: post
@@ -10,4 +9,5 @@ date: 2021-05-19
 - no snapshot for ephemeral storages
 - EBS is only attaches to one instance
 - S3 is option
-- EFS is scalable , shared. Across zones, regions, vpc account.
+- EFS is scalable , shared. Across zones, regions, vpc account. EFS is just for linux.
+- 
