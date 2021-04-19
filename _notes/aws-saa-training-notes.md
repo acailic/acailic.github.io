@@ -63,4 +63,6 @@ Amazon EC2 usage of Amazon Linux-and Ubuntu-based instances that are launched in
 
 ### DynamoDB
 - Amazon DynamoDB transactions simplify the developer experience of making coordinated, all-or-nothing changes to multiple items both within and across tables. Transactions provide atomicity, consistency, isolation, and durability (ACID) in DynamoDB, enabling you to maintain data correctness in your applications easily.
-- if item is bigger greater than 250kb, is a lot expenssive.
+- if item is bigger greater than 250kb, dynamodb is a lot expenssive.
+- Behind Cloudfront is memcached
+- Behind s3 is DynamoDB 
