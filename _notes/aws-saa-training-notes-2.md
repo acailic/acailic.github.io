@@ -17,5 +17,12 @@ For example, in a subnet with CIDR block 10.0.0.0/24, the following five IP addr
 
 - stop at routes.
 ### Subnets
+- AWS reserves the first four IP addresses and the last IP address in each subnet CIDR block.
 ### Gateway 
+- An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet. 
 ### Network Security
+- By default, a security group includes an outbound rule that allows all outbound traffic. You can remove the rule and add outbound rules that allow specific outbound traffic only. If your security group has no outbound rules, no outbound traffic originating from your instance is allow
+- You can create a custom network ACL and associate it with a subnet. By default, each custom network ACL denies all inbound and outbound traffic until you add rules
+- Route table, Network ACL, Subnet, SG, 
+
+- VPN, Direct Connect, VPC Peering
