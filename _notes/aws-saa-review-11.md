@@ -5,26 +5,18 @@ tags: [aws, saa, test]
 date: 2021-04-04
 --- 
 - Throttling is the process of limiting the number of requests an authorized program can submit to a given operation in a given amount of time.
-
 Amazon API Gateway, Amazon SQS and Amazon Kinesis - To prevent your API from being overwhelmed by too many requests, Amazon API Gateway throttles requests to your API using the token bucket algorithm, where a token counts for a request. Specifically, API Gateway sets a limit on a steady-state rate and a burst of request submissions against all APIs in your account. In the token bucket algorithm, the burst is the maximum bucket size.
-
 Amazon SQS - Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. Amazon SQS offers buffer capabilities to smooth out temporary volume spikes without losing messages or increasing latency.
-
 Amazon Kinesis - Amazon Kinesis is a fully managed, scalable service that can ingest, buffer, and process streaming data in real-time.
 - Set up a Route 53 active-passive failover configuration. If Route 53 health check determines the ALB endpoint as unhealthy, the traffic will be diverted to a static error page, hosted on Amazon S3 bucket
-
 Use an active-passive failover configuration when you want a primary resource or group of resources to be available the majority of the time and you want a secondary resource or group of resources to be on standby in case all the primary resources become unavailable. When responding to queries, Route 53 includes only healthy primary resources. If all the primary resources are unhealthy, Route 53 begins to include only the healthy secondary resources in response to DNS queries.
 - Use Access Advisor to determine the permissions the developers have used in the last few months and only give those permissions (with new IAM roles) while reverting the rest
-
 Access advisor will determine the permissions your developers have used by analyzing the last timestamp when an IAM entity (for example, a user, role, or group) accessed an AWS service. This information helps you audit service access, remove unnecessary permissions, and set appropriate permissions across different environments (To view the last accessed information in the AWS Management Console, you must have a policy that grants the necessary permissions).
-
 For example, you can grant broad access to services in development accounts and then reduce permissions for access to specific services in production accounts. Finally, as you manage more IAM entities and AWS accounts, you need a way to scale these processes through automation. To help you achieve this automation, you can now use IAM access advisor APIs with the AWS Command Line Interface (AWS CLI) or a programmatic client.
+
 - Use an Amazon Aurora Global Database for the games table and use Amazon Aurora for the users and games_played tables
-
 Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud, that combines the performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness of open source databases. Amazon Aurora features a distributed, fault-tolerant, self-healing storage system that auto-scales up to 64TB per database instance. Aurora is not an in-memory database.
-
 Amazon Aurora Global Database is designed for globally distributed applications, allowing a single Amazon Aurora database to span multiple AWS regions. It replicates your data with no impact on database performance, enables fast local reads with low latency in each region, and provides disaster recovery from region-wide outages. Amazon Aurora Global Database is the correct choice for the given use-case.
-
 For the given use-case, we, therefore, need to have two Aurora clusters, one for the global table (games table) and the other one for the local tables (users and games_played tables).
 - Use Amazon EventBridge, which is a serverless event bus that makes it easy to connect applications and is event-based, works asynchronously to decouple the system architecture - Both Amazon EventBridge and Amazon SNS can be used to develop event-driven applications, and in this use case, EventBridge alone works.
 
