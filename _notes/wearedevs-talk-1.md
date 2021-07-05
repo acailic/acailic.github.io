@@ -25,6 +25,7 @@ developed and tested in isolation from its eventual run-time devices and databas
 It is called dept because you have to “pay interest” with every change you make.
 ```
 
+
 ### Notes
 Move fast and break things - Cukenberg
 Break strategically things, specify things.
