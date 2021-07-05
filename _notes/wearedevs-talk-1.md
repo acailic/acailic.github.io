@@ -20,10 +20,11 @@ Suggested that Software Architects compare better to Town Planners with informat
 It should allow an application to equally be driven by users, programs, automated test or batch scripts, and to be
 developed and tested in isolation from its eventual run-time devices and databases.
 ```
-``` About tecnical debt:
-It feels like a messy kitchen that rarely gets cleaned. There are many reasons for technical dept. 
+
+``` About tecnical debt:It feels like a messy kitchen that rarely gets cleaned. There are many reasons for technical dept. 
 It is called dept because you have to “pay interest” with every change you make.
 ```
+
 ### Notes
 Move fast and break things - Cukenberg
 Break strategically things, specify things.
