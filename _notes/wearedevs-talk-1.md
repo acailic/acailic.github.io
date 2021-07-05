@@ -7,19 +7,16 @@ date: 2020-06-25
 
 ## Move fast with Architecture
 ### by Simon Lasselberger
-
 ```
 Software Architecture is the mindset that helps you to move fast, break fewer things, and isolate the consequences of
-decisions. In most successful software projects, the
-expert developers working on that project have a shared understanding of the system design. Architecture is the decisions
-that you wish you could get right early in a project and hard to change later.
-```
+decisions. In most successful software projects, the expert developers working on that project have a shared understanding of
+the system design. Architecture is the decisions that you wish you could get right early in a project and hard to change
+later.
 
-```
-Suggested that Software Architects compare better to Town Planners with information from many perspectives
-, optimization of layout, respect current and future requirements.
-It should allow an application to equally be driven by users, programs, automated test or batch scripts, and to be
-developed and tested in isolation from its eventual run-time devices and databases.
+Suggested that Software Architects compare better to Town Planners with information from many perspectives , optimization of
+layout, respect current and future requirements. It should allow an application to equally be driven by users, programs,
+automated test or batch scripts, and to be developed and tested in isolation from its eventual run-time devices and
+databases.
 ```
 
 ``` About tecnical debt:It feels like a messy kitchen that rarely gets cleaned. There are many reasons for technical dept. 
