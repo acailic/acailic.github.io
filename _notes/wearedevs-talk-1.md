@@ -14,6 +14,7 @@ decisions. In most successful software projects, the
 expert developers working on that project have a shared understanding of the system design. Architecture is the decisions
 that you wish you could get right early in a project and hard to change later.
 ```
+
 ```
 Suggested that Software Architects compare better to Town Planners with information from many perspectives
 , optimization of layout, respect current and future requirements.
@@ -24,7 +25,6 @@ developed and tested in isolation from its eventual run-time devices and databas
 ``` About tecnical debt:It feels like a messy kitchen that rarely gets cleaned. There are many reasons for technical dept. 
 It is called dept because you have to “pay interest” with every change you make.
 ```
-
 
 ### Notes
 Move fast and break things - Cukenberg
