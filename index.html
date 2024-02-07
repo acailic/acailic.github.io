@@ -18,6 +18,8 @@ title: browse
       <div class="category">
         <h3>{{   collection.label   }}</h3>
         <ul>
+          {% if collection.docs %}
+          Docs exists.
           {% for note in collection.docs %}
             <li>
               <a href="{{ note.url | absolute_url }}">
@@ -27,6 +29,9 @@ title: browse
               </a>
             </li>
           {% endfor %}
+            {% else %}
+            No docs.
+            {% endif %}
         </ul>
       </div>
     {% endfor %}
