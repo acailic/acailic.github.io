@@ -16,19 +16,7 @@ baseurl: /sveska
 
 # build
 collections:
-  java:
-    output: true
-  aws:
-    output: true
-  communication:
-    output: true
-  fe:
-    output: true
-  big-data:
-    output: true
-  scala:
-    output: true
-  software-design:
+  notes:
     output: true
 
 # Markdown

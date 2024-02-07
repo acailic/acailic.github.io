@@ -7,13 +7,11 @@ permalink: /tags/
 <p>All sveska notes sorted by tag:</p>
 
 {% assign site_tags = "" | split: "," %}
-{% for collection in site.collections %}
-  {% for note in collection[1] %}
-    {% for t in note.tags %}
-      {% if t != "samplepost" %}
-        {% assign site_tags = site_tags | push: t %}
-      {% endif %}
-    {% endfor %}
+{% for note in site.notes %}
+  {% for t in note.tags %}
+    {% if t != "samplepost" %}
+      {% assign site_tags = site_tags | push: t %}
+    {% endif %}
   {% endfor %}
 {% endfor %}
 {% assign unique_tags = site_tags | uniq | sort %}
@@ -40,15 +38,12 @@ permalink: /tags/
   {{ item }}
 </div>
 <ul>
-  <!--  so go throgh each catogory of notes-->
-  {% for collection in site.collections %}
-  <h2>{{ collection.label }}</h2>
-  {% for note in collection.docs %}
-  {% if nt == item %}
-  <li class="tag-post"><a href="{{ note.url | absolute_url }}"><span class="tag-post-title">{{ note.title }}</span><span
-          class="date archive-list-post-date"> | <time>{{ note.date | date: "%Y-%m-%d" }}</time></span></a></li>
-  {% endif %}
-  {% endfor %}
+  {% for note in site.notes %}
+    {% for nt in note.tags %}
+      {% if nt == item %}
+      <li class="tag-post"><a href="{{ note.url | absolute_url }}"><span class="tag-post-title">{{ note.title }}</span><span class="date archive-list-post-date"> | <time>{{ note.date | date: "%Y-%m-%d" }}</time></span></a></li>
+      {% endif %}
+    {% endfor %}
   {% endfor %}
 </ul>
 {% endfor %}
