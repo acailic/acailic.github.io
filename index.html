@@ -20,6 +20,8 @@ title: browse
         <ul>
           {% if collection.docs %}
           Docs exists.
+          {% if collection.docs.size > 0 %}
+          Docs is not empty.
           {% for note in collection.docs %}
             <li>
               <a href="{{ note.url | absolute_url }}">
@@ -29,9 +31,13 @@ title: browse
               </a>
             </li>
           {% endfor %}
+          {% else %}
+            Docs is empty.
+            {% endif %}
             {% else %}
             No docs.
-            {% endif %}
+          {% endif %}
+
         </ul>
       </div>
     {% endfor %}
