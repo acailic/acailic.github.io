@@ -55,6 +55,23 @@ date: 2023-02-07
 - **CRIB**: Four steps to find a mutual purpose when you have conflicting goals or interests: Commit to seek a mutual purpose, Recognize the purpose behind the strategy, Invent a mutual purpose, and Brainstorm new strategies. It helps create a win-win situation and show that you respect the other person's views.
 - **Applying the Skills**: The chapter provides some tips and examples to help you apply the skills in different situations, such as when you are accused of something, when you are misunderstood, or when you disagree with someone.
 - **Humorous Story**: The chapter ends with a humorous story of how the authors used the skills to deal with a difficult neighbor who was playing loud music at night. They were able to turn a potential conflict into a friendly conversation and a peaceful solution.
+## Chapter 6: Master My Stories
+
+- **Mastering My Stories**: This chapter is about learning how to control our emotions and thoughts during crucial conversations.
+- **Creating Our Own Emotions**: We create our own emotions by the stories we tell ourselves about what we see and hear. These stories are often based on assumptions, judgments, and biases that may not be accurate or helpful.
+- **Retracing Our Path to Action**: The process of going from observing facts to telling stories to feeling emotions to acting. By separating facts from stories, we can examine our stories and test them for validity and usefulness.
+- **Three Clever Stories**: The Victim Story, the Villain Story, and the Helpless Story. These stories make us feel self-righteous, blame others, and avoid responsibility.
+- **Telling the Rest of the Story**: We can ask ourselves three questions: What am I pretending not to know about my role in the problem? Why would a reasonable, rational, and decent person do what the other person is doing? What should I do right now to move toward what I really want?
+- **Tips from Chapter 6**:
+  - **Don't confuse stories with facts**: Facts are observable and verifiable, while stories are interpretations and explanations. Facts can be shared and agreed upon, while stories can be challenged and changed.
+  - **Watch for hot buttons**: Hot buttons are words or actions that trigger strong emotional reactions in us. They often indicate that we are telling ourselves a clever story that is making us angry, hurt, or defensive.
+  - **Turn victims into actors**: Acknowledge our role in the problem and our ability to influence the situation. Focus on what we really want and what we can do to achieve it.
+  - **Turn villains into humans**: Try to understand their perspective and motives. Look for common ground and mutual purpose. Avoid labels and judgments that dehumanize them.
+  - **Turn the helpless into the able**: Explore our options and resources. Be creative and proactive. Seek help and advice from others if needed.
+- **Funny Mentions**:
+  - The humorous example of a husband who tells himself a victim story when his wife asks him to take out the trash. He thinks she is nagging and controlling him, and he feels resentful and rebellious. He then tells himself a villain story about her, and a helpless story about himself. He ends up doing nothing and making the situation worse.
+  - The funny analogy of a skunk to illustrate how our stories can stink up our conversations. They say that when we tell ourselves clever stories, we spray a foul odor that drives others away or makes them defensive. They suggest that we can avoid this by washing our stories with the truth.
+
 ## Chapter 12: Change Your Life
 
 - **Applying Crucial Conversations**: This chapter is about how to change your life by applying the skills and principles of crucial conversations to your everyday situations.
