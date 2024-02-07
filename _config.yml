@@ -16,8 +16,28 @@ baseurl: /sveska
 
 # build
 collections:
-  notes:
+  java:
     output: true
+    permalink: /:collection/:path/
+  aws:
+    output: true
+    permalink: /:collection/:path/
+  communication:
+    output: true
+    permalink: /:collection/:path/
+  fe:
+    output: true
+    permalink: /:collection/:path/
+  big-data:
+    output: true
+    permalink: /:collection/:path/
+  scala:
+    output: true
+    permalink: /:collection/:path/
+  software-design:
+    output: true
+    permalink: /:collection/:path/
+
 
 # Markdown
 markdown: kramdown

@@ -12,19 +12,23 @@ title: browse
     <button class="sort" data-sort="tags">tags</button>
   </div>
 
+<!--  so go throgh each catogory of notes-->
   <div class="listjs">
-    {% for post in site.notes reversed %}
-    <div class="archive-list-post">
-      <a href="{{ post.url | absolute_url }}">  
-      <span class="title archive-list-post-title">
-        {{ post.title }}
-      </span>
-      <span class="date archive-list-post-date"> | 
-        <time>{{ post.date | date: "%Y-%m-%d" }}</time> | 
-      </span>
-      <span class="tags">{{ post.tags | join: ', ' }}</span>
-      </a>
-    </div>
+    {% for item in site.categories %}
+      <div class="category">
+        <h3>{{ item[0] }}</h3>
+        <ul>
+          {% for note in item[1] %}
+            <li>
+              <a href="{{ note.url | absolute_url }}">
+                <span class="title">{{ note.title }}</span>
+                <span class="date">{{ note.date | date: "%Y-%m-%d" }}</span>
+                <span class="tags">{{ note.tags | join: ", " }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     {% endfor %}
   </div>
 
