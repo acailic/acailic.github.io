@@ -38,6 +38,13 @@ date: 2023-02-07
   - The example of a husband who wants to watch a football game while his wife wants to go shopping, and how they can avoid the Sucker's Choice by finding a third alternative.
   - The story of how one of the authors learned to start with heart by realizing that he was more interested in being right than in solving a problem with his wife.
   - The analogy of a car with a dead battery to illustrate how we sometimes try to jump-start crucial conversations without checking our own motives first.
+## Chapter 4: Learn to Look
+
+- **Learning to Look**: This chapter is about how to look for signs that a conversation is becoming crucial, that safety is at risk, and that you or others are moving away from dialogue.
+- **Pool of Shared Meaning**: Dialogue requires a pool of shared meaning, where people openly and honestly express their opinions, feelings, theories, and experiences.
+- **Silence and Violence**: When the pool is shallow or empty, people don't have enough information to make good decisions, and they may resort to silence or violence to avoid or win the conversation.
+- **Style Under Stress**: Silence and violence are forms of style under stress, which are counterproductive behaviors that people use when they feel threatened or unsafe. Examples of silence are masking, avoiding, and withdrawing. Examples of violence are controlling, labeling, and attacking.
+- **Making It Safe**: To prevent or overcome silence and violence, you need to make it safe for everyone to contribute to the pool. You can do this by apologizing when appropriate, using contrast to fix misunderstandings, and finding a mutual purpose.
 
 ## Chapter 12: Change Your Life
 
