@@ -26,6 +26,18 @@ date: 2023-02-07
 - **Tools for Dialogue**: Apologizing, contrasting, and using the CRIB skills (Commit to seek mutual purpose, Recognize the purpose behind the strategy, Invent a mutual purpose, and Brainstorm new strategies).
 - **Starting with Heart**: Focusing on what you really want, refusing the sucker's choice, and staying in dialogue. Starting with heart helps you avoid falling into silence or violence when stakes are high, opinions vary, and emotions run strong.
 
+## Chapter 3: Start with Heart
+- **Starting with Heart**: This chapter is about how to start with heart, which means to focus on what you really want and avoid falling into the trap of the Sucker's Choice.
+- **The Sucker's Choice**: A false dilemma that makes you think you have to choose between two bad options, such as winning or losing, being honest or keeping a friend, etc.
+- **Refusing the Sucker's Choice**: To refuse the Sucker's Choice, you need to clarify your own motives and goals, and then find a way to achieve them without compromising your values or relationships.
+- **Tips for Starting with Heart**:
+  - **Work on me first, us second**: Before you try to change others, examine your own role in the problem and how you can improve.
+  - **Focus on what you really want**: Don't get sidetracked by your emotions, impulses, or ego. Ask yourself what you want for yourself, others, and the relationship, and act accordingly.
+  - **Refuse the fool's choice**: Don't settle for either/or solutions when you can look for and/or options. Expand your options by asking yourself, "How can I do both?"
+- **Funny Mentions**:
+  - The example of a husband who wants to watch a football game while his wife wants to go shopping, and how they can avoid the Sucker's Choice by finding a third alternative.
+  - The story of how one of the authors learned to start with heart by realizing that he was more interested in being right than in solving a problem with his wife.
+  - The analogy of a car with a dead battery to illustrate how we sometimes try to jump-start crucial conversations without checking our own motives first.
 
 ## Chapter 12: Change Your Life
 
