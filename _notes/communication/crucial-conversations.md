@@ -51,3 +51,19 @@ date: 2023-02-07
   - The analogy of an anaconda swallowing a warthog to describe the feeling of digesting a lot of information (p. 180).
   - The story of a Vietnam War prisoner who played golf in his head and improved his score (p. 222).
   - The example of a fast-food restaurant script that goes wrong when the customer orders a salad (p. 217).
+
+## Coaching for Crucial Conversations
+
+The **Coaching for Crucial Conversations** table is a powerful tool to help you coach yourself or others through crucial conversations. It provides specific guidance on applying the skills associated with each dialogue principle.
+
+| **Dialogue Principle** | **Associated Skills** | **Coaching Questions** |
+|------------------------|------------------------|------------------------|
+| **Start with Heart**   | - Clarify intentions and goals<br>- Refuse the Sucker's Choice | - What do I really want for myself, others, and the relationship?<br>- How can I avoid falling into either/or thinking?<br>- How can I create a shared purpose? |
+| **Learn to Look**      | - Observe content and conditions<br>- Monitor safety<br>- Watch for fear | - What signs indicate this conversation is crucial?<br>- How can I ensure safety for everyone?<br>- What fear-based behaviors am I noticing? |
+| **Make It Safe**       | - Create safety<br>- Use CRIB skills (Commit, Recognize, Invent, Brainstorm) | - How can I apologize or contrast to restore safety?<br>- How can I make it safe for others to share their meaning? |
+| **Master My Stories**  | - Retrace path to action<br>- Separate facts from stories | - What stories am I telling myself about this situation?<br>- How can I question and challenge my stories? |
+| **STATE My Path**      | - Share views confidently<br>- Encourage testing | - How can I express my perspective without being abrasive?<br>- How can I invite others to share their views? |
+| **Explore Others' Paths** | - Ask questions to get things rolling<br>- Use mirroring, paraphrasing, and priming | - What questions can I ask to understand their perspective?<br>- How can I acknowledge their feelings and story? |
+| **Move to Action**     | - Decide how to decide (Command, Consult, Vote, Consensus)<br>- Ensure clarity and commitment | - What decision-making method will work best?<br>- How can we follow up on commitments? |
+
+Remember, coaching yourself through these questions can help you apply specific skills to your crucial conversations. Feel free to use this table as a reference to enhance your communication and achieve better outcomes!
