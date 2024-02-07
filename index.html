@@ -14,11 +14,11 @@ title: browse
 
 <!--  so go throgh each catogory of notes-->
   <div class="listjs">
-    {% for item in site.categories %}
+    {% for collection in site.collections %}
       <div class="category">
-        <h3>{{ item[0] }}</h3>
+        <h3>{{   collection.label   }}</h3>
         <ul>
-          {% for note in item[1] %}
+          {% for note in collections.docs %}
             <li>
               <a href="{{ note.url | absolute_url }}">
                 <span class="title">{{ note.title }}</span>

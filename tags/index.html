@@ -7,7 +7,7 @@ permalink: /tags/
 <p>All sveska notes sorted by tag:</p>
 
 {% assign site_tags = "" | split: "," %}
-{% for category in site.categories %}
+{% for collection in site.collections %}
   {% for note in category[1] %}
     {% for t in note.tags %}
       {% if t != "samplepost" %}
