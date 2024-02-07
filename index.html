@@ -18,7 +18,7 @@ title: browse
       <div class="category">
         <h3>{{   collection.label   }}</h3>
         <ul>
-          {% for note in collections.docs %}
+          {% for note in collection.docs %}
             <li>
               <a href="{{ note.url | absolute_url }}">
                 <span class="title">{{ note.title }}</span>
