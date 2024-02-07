@@ -55,6 +55,7 @@ date: 2023-02-07
 - **CRIB**: Four steps to find a mutual purpose when you have conflicting goals or interests: Commit to seek a mutual purpose, Recognize the purpose behind the strategy, Invent a mutual purpose, and Brainstorm new strategies. It helps create a win-win situation and show that you respect the other person's views.
 - **Applying the Skills**: The chapter provides some tips and examples to help you apply the skills in different situations, such as when you are accused of something, when you are misunderstood, or when you disagree with someone.
 - **Humorous Story**: The chapter ends with a humorous story of how the authors used the skills to deal with a difficult neighbor who was playing loud music at night. They were able to turn a potential conflict into a friendly conversation and a peaceful solution.
+
 ## Chapter 6: Master My Stories
 
 - **Mastering My Stories**: This chapter is about learning how to control our emotions and thoughts during crucial conversations.
@@ -72,6 +73,29 @@ date: 2023-02-07
   - The humorous example of a husband who tells himself a victim story when his wife asks him to take out the trash. He thinks she is nagging and controlling him, and he feels resentful and rebellious. He then tells himself a villain story about her, and a helpless story about himself. He ends up doing nothing and making the situation worse.
   - The funny analogy of a skunk to illustrate how our stories can stink up our conversations. They say that when we tell ourselves clever stories, we spray a foul odor that drives others away or makes them defensive. They suggest that we can avoid this by washing our stories with the truth.
 
+## Chapter 7: STATE Your Path
+
+- **STATE Your Path**: This chapter teaches you how to STATE your path when you want to share your views in a crucial conversation.
+- **STATE**: An acronym that stands for Share your facts, Tell your story, Ask for others' paths, Talk tentatively, and Encourage testing.
+- **Share Your Facts**: Start with the most objective and least controversial information you have. 
+- **Tell Your Story**: Explain your conclusions and how you arrived at them.
+- **Ask for Others' Paths**: Invite them to share their facts, stories, and feelings as well.
+- **Talk Tentatively**: Express your views in a way that shows you are open to other perspectives and feedback.
+- **Encourage Testing**: Invite others to challenge your views and provide additional information that could change your mind.
+- **Benefits of STATE**: Helps you speak persuasively, not abrasively, and creates a safe environment for dialogue.
+- **Tips for Applying STATE**:
+  - Don't confuse facts with stories. Facts are observable and verifiable, stories are interpretations and judgments.
+  - Don't assume you have all the facts. Be curious and humble about what you don't know or might be wrong about.
+  - Don't lead with your story. Start with facts and then explain how you connected them.
+  - Don't make your story a disguised fact. Use tentative language and acknowledge that it is your opinion or perspective.
+  - Don't pile on. Share only the facts and stories that are relevant to the conversation and the purpose you want to achieve.
+  - Don't answer your own questions. When you ask for others' paths, listen genuinely and attentively, and avoid interrupting or rebutting.
+  - Don't make statements that sound like questions. When you talk tentatively, avoid using a rising tone or adding a question mark at the end of your sentences.
+  - Don't sugarcoat or water down your views. When you encourage testing, be honest and direct about what you think and why, and invite others to do the same.
+- **Funny Mentions**:
+  - The analogy of a "Path to Action" to explain how we move from facts to stories to feelings to actions. This is not to be confused with the "Path to Enlightenment" or the "Path to the Dark Side".
+  - The example of a boss who tells his employee "You're doing a great job, but ..." to illustrate how not to talk tentatively. This is like saying "You're not a complete idiot, but ..."
+  - The example of a spouse who says "Do you really think that shirt goes with those pants?" to illustrate how not to encourage testing. This is like saying "Are you really that stupid?"
 ## Chapter 12: Change Your Life
 
 - **Applying Crucial Conversations**: This chapter is about how to change your life by applying the skills and principles of crucial conversations to your everyday situations.
