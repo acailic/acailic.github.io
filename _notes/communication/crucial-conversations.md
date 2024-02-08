@@ -2,7 +2,7 @@
 title: Note on Crucial Conversations  Tools for Talking When Stakes Are High
 layout: post
 tags: [communication, book]
-date: 2023-02-07
+date: 2024-02-08
 ---
 ## Crucial Conversations
  

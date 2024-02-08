@@ -2,7 +2,7 @@
 title: Note on Difficult Conversations
 layout: post
 tags: [communication, book]
-date: 2023-02-07
+date: 2024-02-08
 ---
 ## Difficult Conversations: How to Discuss What Matters Most
 
