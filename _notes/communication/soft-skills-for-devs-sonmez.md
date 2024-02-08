@@ -39,3 +39,46 @@ Here are some notes to help you learn from the book, based on the parts you spec
     - **Learn how to learn**. Learning how to learn means developing the skills and strategies that enable you to acquire new knowledge and abilities effectively and efficiently. Learning how to learn can help you improve your performance, enhance your creativity, and adapt to changing situations. Learning how to learn involves understanding how your brain works, how you process information, and how you retain and recall it.
     - **Use a 10-step process to learn anything quickly**. The 10-step process is a method for learning anything quickly and deeply. The 10 steps are: 1) Get the big picture. 2) Determine the scope. 3) Define success. 4) Find resources. 5) Create a learning plan. 6) Filter resources. 7) Learn enough to get started. 8) Play around. 9) Learn enough to do something useful. 10) Teach someone else.
     - **Do the first six steps once**. The first six steps of the 10-step process are meant to be done once, before you start learning. They are designed to help you get a clear overview of what you want to learn, why you want to learn it, and how you're going to learn it. They are also designed to
+    - **Do the last four steps repeatedly**. The last four steps of the 10-step process are meant to be done repeatedly, as you're learning. They are designed to help you deepen your understanding, practice your skills, and apply your knowledge. They are also designed to help you retain what you've learned and share it with others.
+
+- Section 4: Productivity 
+## Section 7: Mindset
+
+### How the mind influences the body
+- Learn how your beliefs, attitudes, and self-image can affect your physical health, performance, and well-being.
+- Use techniques like visualization, affirmations, and positive thinking to shape your reality and achieve your goals.
+
+### It starts with a positive mindset
+- Learn how to cultivate a positive mindset that will help you overcome challenges, cope with stress, and attract opportunities.
+- Use gratitude, optimism, and humor to deal with negative emotions and situations.
+
+### How to change your self-image
+- Learn how to change the way you see yourself and how others see you.
+- Use the power of your subconscious mind to create a new self-image that aligns with your desired outcomes.
+- Use feedback, self-talk, and role models to reinforce your new self-image.
+
+### Love and relationships
+- Learn how to improve your social skills and build meaningful relationships with others.
+- Use empathy, communication, and trust to connect with people and avoid conflicts.
+- Use your soft skills to network, collaborate, and influence others.
+
+### My personal success book list
+- Learn from some of the best books on personal development, success, and mindset.
+- Read books like Think and Grow Rich, Psycho-Cybernetics, Breaking the Habit of Being Yourself, Atlas Shrugged, and Seneca's Letters to Lucius.
+- Apply the principles and lessons from these books to your own life and career.
+
+### Stop fearing failure
+- Learn how to overcome your fear of failure and embrace it as a learning opportunity.
+- Use failure as a feedback mechanism to improve your skills and strategies.
+- Use persistence, resilience, and courage to face your challenges and pursue your dreams.
+
+### Getting out of your comfort zone
+- Learn how to expand your comfort zone and try new things.
+- Use curiosity, experimentation, and adventure to discover new possibilities and opportunities.
+- Use discomfort as a sign of growth and progress.
+
+### Stoic philosophy and how it can change your life
+- Learn how to apply the ancient wisdom of Stoicism to your modern life.
+- Use Stoicism to develop self-control, rationality, and virtue.
+- Use Stoicism to cope with adversity, pain, and loss.
+- Use Stoicism to live a happy and meaningful life.
