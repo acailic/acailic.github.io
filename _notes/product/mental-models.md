@@ -1,5 +1,5 @@
 ---
-title: Mental Models
+title: Notes on Mental Models
 layout: post
 tags: [product, mental-models]
 date: 2024-02-08
