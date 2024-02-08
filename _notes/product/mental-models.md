@@ -1,7 +1,7 @@
 ---
 title: Mental Models
 layout: post
-tags: [career]
+tags: [product, mental-models]
 date: 2024-02-08
 ---
 
