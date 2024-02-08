@@ -1,7 +1,7 @@
 ---
 title: Note on Drive  
 layout: post
-tags: [ownership, motivation, book,]
+tags: [ownership, motivation, book]
 date: 2024-02-09
 ---
 
