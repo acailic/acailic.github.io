@@ -26,5 +26,3 @@ date: 2024-02-09
 ### Self-Determination
 - **Design Your Environment**: Create an environment that supports autonomy, mastery, and purpose. Eliminate unnecessary constraints and encourage exploration.
 - **Surround Yourself**: Connect with people who share similar values and encourage your growth. Collaborate with those who appreciate your autonomy and purpose-driven mindset.
-
-Remember, these insights aren't just for the workplace—they apply to hobbies, relationships, and personal development. Embrace autonomy, seek mastery, and find purpose in everything you do! 🌟🚀
