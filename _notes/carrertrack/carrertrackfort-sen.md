@@ -1,7 +1,7 @@
 ---
 title: Career track senior
 layout: post
-tags: [career]
+tags: [career, senior]
 date: 2024-02-08
 ---
 
