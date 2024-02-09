@@ -22,7 +22,9 @@ date: 2024-02-08
 ### Chapter 5
 ### Chapter 6
 ### Chapter 7
-### Chapter 8
+### Chapter 8 Making Things Happen
+- Aspire
+
 ### Chapter 9 Leading a growing team
 # Leading a Growing Team Guide
 
