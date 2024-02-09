@@ -26,7 +26,6 @@ date: 2024-02-08
 - Aspire
 
 ### Chapter 9 Leading a growing team
-# Leading a Growing Team Guide
 
 ## Challenges and Opportunities
 - **Growing Pains**: Leading a team that is expanding presents unique challenges. As your team grows, you’ll encounter complexities related to communication, coordination, and maintaining a cohesive culture.
