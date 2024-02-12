@@ -1,5 +1,5 @@
 ---
-title: Note on MindsetThe New Psychology of Success
+title: Note on Mindset The New Psychology of Success
 layout: post
 tags: [competition, book, todo]
 date: 2024-02-12
