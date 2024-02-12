@@ -42,3 +42,25 @@ person, he or she still has the freedom to choose how to respond to the situatio
 is the basis of human dignity and that it enables us to shape our own destiny.
 
 ## Postscript: The Case for a Tragic Optimism
+
+- The meaning of life is unique and personal. Frankl argues that there is no general answer to the question of what the
+meaning of life is, but rather each individual has to find his or her own specific meaning in every situation. This
+meaning can be fulfilled by creating a work, by loving someone, or by rising above suffering.
+The will to meaning is the primary motivation of human beings. Frankl rejects the idea that human behavior is driven by
+instincts or unconscious forces, and instead proposes that humans are motivated by the desire to find a meaning in their
+lives. He also criticizes the notion that meaning is a mere defense mechanism or rationalization, and asserts that
+meaning is a genuine and authentic value that can be discovered and realized by anyone.
+- Logotherapy is a form of existential analysis that helps people find meaning in life. Frankl developed logotherapy as a
+psychotherapeutic method that focuses on the future, on the meanings to be fulfilled by the patient in his or her
+future. Logotherapy also helps people cope with existential frustration, noögenic neurosis, and existential vacuum,
+which are states of meaninglessness that can lead to depression, aggression, or addiction.
+- Conscience is a manifestation of the human spirit that guides us to find meaning. Frankl conceives of conscience as a
+voice that tells us what our specific meaning in a given situation is. He believes that conscience is based on a
+biological and spiritual heritage that contains a set of values and potentialities that are unique to each person. He
+also warns against the dangers of conformism and totalitarianism that can silence or distort our conscience.
+- Life can retain its meaning even in the most difficult circumstances. Frankl illustrates this point by sharing his
+experiences in the concentration camps, where he was able to find meaning in his suffering, in his love for his wife,
+and in his work on his manuscript. He also provides examples of other people who were able to overcome their despair and
+find a reason to live, such as a mother who lost her son, a scientist who had an unfinished work, and a prisoner who had
+a child waiting for him. He advises us to live as if we were living for the second time and had to correct the mistakes
+we made the first time.
