@@ -1,7 +1,7 @@
 ---
 title: Note on Communication Skills for Engineers, Second Edition
 layout: post
-tags: [communication, book]
+tags: [communication, book, todo]
 date: 2024-02-08
 ---
 

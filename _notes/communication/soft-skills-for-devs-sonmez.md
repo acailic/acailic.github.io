@@ -1,7 +1,7 @@
 ---
 title: Note on Soft Skills for Developers, Sonmez
 layout: post
-tags: [communication, book]
+tags: [communication, book, todo]
 date: 2024-02-08
 ---
 Here are some notes to help you learn from the book, based on the parts you specified:
