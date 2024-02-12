@@ -44,3 +44,19 @@ date: 2024-02-12
 
 ### Chapter 6: Relationships: Mindsets in Love (or Not)
 ### Chapter 7: Parents, Teachers, and Coaches: Where Do Mindsets Come From?
+
+- The messages parents and teachers send to children affect their mindsets.1 Praising children’s intelligence or talent
+  can make them develop a fixed mindset, while praising their efforts and strategies can foster a growth mindset.
+  Real-life advice: Be mindful of the words you use to encourage or motivate children, and focus on the process rather
+  than the outcome.
+- The growth mindset can help children overcome challenges and cope with failures. Children with a growth mindset are
+  more likely to seek help, try new strategies, and persist when they face difficulties. They also view failures as
+  opportunities to learn and improve. Real-life advice: Help children see failures as feedback, not as verdicts on their
+  abilities. Teach them that they can grow their brains and skills with effort and practice.
+- The growth mindset can also help adults achieve their goals and improve their relationships. Adults with a growth
+  mindset are more likely to embrace challenges, learn from criticism, and seek feedback. They also have more positive
+  and constructive interactions with their partners, friends, and colleagues. Real-life advice: Adopt a growth mindset
+  for yourself and your loved ones. Challenge yourself to learn new things, welcome feedback, and celebrate the growth
+  of others.
+
+### Chapter 8: Changing Mindsets: A Workshop
