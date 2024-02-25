@@ -1,8 +1,8 @@
 ---
 title: Note on Staff Engineer
 layout: post
-tags: [staff, book]
-date: 2024-02-26
+tags: [ staff, book ]
+date: 2024-02-25
 ---
 # Staff Engineer
 ## Overview
@@ -35,6 +35,12 @@ date: 2024-02-26
 - Diversity of paths and perspectives - The stories illustrate the variety of ways that engineers can attain and perform in Staff-plus roles, as well as the different challenges and opportunities they face depending on their background, identity, company, and personal goals.
 - Common themes and lessons - Despite the diversity of stories, some common themes and lessons emerge, such as the importance of mentorship, communication, alignment, strategy, impact, and learning. The stories also offer practical tips and resources for developing the skills and mindset needed for technical leadership.
 - Inspiration and guidance - The stories aim to inspire and guide engineers who are interested in pursuing or advancing in Staff-plus roles, as well as managers and executives who want to support and empower their technical leaders. The stories also highlight the value and potential of Staff-plus engineers in shaping the future of the technology industry.
+### Advices
+- Seek out mentors who can guide you, inspire you, and challenge you in your career journey. Learn from their experiences and perspectives, and don’t be afraid to ask for help or feedback.
+- Be open to different paths and opportunities that may lead you to a Staff-plus role. Sometimes you may need to switch companies, teams, or domains to find the right fit and recognition for your skills and impact.
+- Find your niche and passion within the technical leadership track. Whether it’s solving complex problems, designing scalable systems, mentoring others, or influencing strategy, focus on what energizes you and aligns with your goals.
+- Communicate effectively and proactively with your peers, managers, and stakeholders. Share your vision, ideas, and challenges, and seek alignment and buy-in from others. Use various channels and formats to reach your audience and tailor your message accordingly.
+- Invest in quality and leverage points that can have a lasting and positive impact on your company’s technology and culture. Identify and advocate for best practices, standards, and improvements that can benefit the whole organization.
 
 ## Resources
 ### 
