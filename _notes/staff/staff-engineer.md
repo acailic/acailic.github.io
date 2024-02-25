@@ -4,7 +4,6 @@ layout: post
 tags: [staff, book]
 date: 2024-02-26
 ---
-
 # Staff Engineer
 ## Overview
 - Staff engineer archetypes are recurring patterns of roles and responsibilities that Staff-plus engineers fulfill in different companies. They are Tech Lead, Architect, Solver, and Right Hand.
@@ -21,6 +20,11 @@ date: 2024-02-26
 - Learn to never be wrong: Use data and evidence to back up your claims and arguments. Be humble and curious, and seek to learn from others. Avoid jumping to conclusions or making assumptions. Test your ideas and hypotheses before implementing them.
 - Create space for others: Share your knowledge and expertise with others, and help them grow and succeed. Sponsor and advocate for other engineers, especially those from underrepresented groups. Recognize and celebrate the achievements and contributions of others.
 ## Getting the title where you are
+- Use a promotion packet as a guide. A promotion packet is a document that summarizes your achievements, impact, and readiness for the next level. Writing one can help you identify your strengths, gaps, and goals, as well as communicate them to your manager and sponsors. You can start working on your packet long before you are ready for promotion, and use it as a map to navigate your career progression.
+- Find and activate your sponsors. Sponsors are senior leaders who can advocate for your promotion and influence the decision-makers. You need to find sponsors who are familiar with your work, value your contributions, and have the credibility and power to support you. You also need to activate your sponsors by keeping them updated on your progress, asking for feedback, and soliciting their advice.
+- Work on high-leverage projects. High-leverage projects are those that have a clear and significant impact on the business, the organization, or the industry. They also align with your strengths, interests, and career goals. Working on high-leverage projects can help you demonstrate your skills, showcase your leadership, and increase your visibility and reputation.
+- Be visible and vocal. Visibility and vocalness are not about bragging or self-promotion, but about sharing your work, insights, and opinions with the relevant stakeholders and audiences. You can increase your visibility and vocalness by writing blog posts, giving presentations, participating in discussions, providing feedback, and mentoring others. This can help you build your network, establish your credibility, and raise your profile.
+- Consider switching roles or companies. Sometimes, the best way to get the title you want is to switch roles or companies. This can be the case if you face structural barriers, such as a lack of opportunities, support, or recognition, in your current role or company. Switching roles or companies can give you a fresh start, a new perspective, and a different set of challenges and expectations. However, you should also weigh the risks and trade-offs of leaving behind your existing network, reputation, and comfort zone
 ## Deciding to switch companies
 - Know your reasons for switching: Are you looking for more impact, more learning, more recognition, more compensation, or something else? Be honest with yourself and prioritize your needs and wants.
 - Research the company and role: Find out as much as you can about the company’s culture, values, vision, strategy, engineering practices, and expectations for the role. Use sources like Glassdoor, LinkedIn, Twitter, blogs, podcasts, and your network to get a balanced perspective.
