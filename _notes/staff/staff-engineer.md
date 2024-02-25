@@ -7,6 +7,11 @@ date: 2024-02-26
 
 # Staff Engineer
 ## Overview
+- Staff engineer archetypes are recurring patterns of roles and responsibilities that Staff-plus engineers fulfill in different companies. They are Tech Lead, Architect, Solver, and Right Hand.
+- Choose an archetype that suits you based on the kind of work that energizes you, the impact you want to have, and the availability of the role in your company. You can also try different archetypes over your career to find your best fit.
+- Understand the expectations and trade-offs of each archetype. For example, Tech Leads and Architects tend to work on long-term projects with a stable team, while Solvers and Right Hands tend to work on short-term problems with a variety of stakeholders.
+- Learn from the stories of other Staff-plus engineers who have shared their experiences of reaching and operating in different archetypes. You can find some of these stories in this document and on staffeng.com.
+- Be flexible and adaptable as the needs of your company and your team may change over time. You may have to switch archetypes or combine aspects of different ones depending on the situation. Be open to feedback and learning opportunities to grow as a technical leader.
 ## Operating at Staff
 - Work on what matters: Avoid low-impact and easy tasks, and focus on the high-impact and hard ones. Align your work with the company’s goals and priorities, and communicate your impact clearly and frequently.
 - Writing engineering strategy: Write clear and concise documents that articulate the problem, the solution, and the rationale behind your technical decisions. Use a structure like SCQA (Situation, Complication, Question, Answer) to guide your readers through your logic.
