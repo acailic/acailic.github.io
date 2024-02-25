@@ -1,5 +1,5 @@
 ---
-title: Note on Staff Engineer  
+title: Note on Staff Engineer
 layout: post
 tags: [staff, book]
 date: 2024-02-26
