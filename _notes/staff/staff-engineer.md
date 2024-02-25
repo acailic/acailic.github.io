@@ -41,6 +41,8 @@ date: 2024-02-25
 - Find your niche and passion within the technical leadership track. Whether it’s solving complex problems, designing scalable systems, mentoring others, or influencing strategy, focus on what energizes you and aligns with your goals.
 - Communicate effectively and proactively with your peers, managers, and stakeholders. Share your vision, ideas, and challenges, and seek alignment and buy-in from others. Use various channels and formats to reach your audience and tailor your message accordingly.
 - Invest in quality and leverage points that can have a lasting and positive impact on your company’s technology and culture. Identify and advocate for best practices, standards, and improvements that can benefit the whole organization.
-
+## Ending words
+- Seek feedback and mentorship from other Staff-plus engineers. The chapter emphasizes the importance of learning from the examples of others who have reached or operated in Staff-plus roles. You can benefit from their experiences, insights, and perspectives, as well as their support and sponsorship. Find ways to connect with other Staff-plus engineers, either within your company or outside of it, and ask for feedback and mentorship on your work and career goals.
+- Be intentional about your impact and growth. The chapter suggests that you need to take more deliberate control of your progression and work on what matters to you and your organization1. You should not rely on the promotion and performance system to guide your career, but rather set your own vision and strategy for your technical leadership. You should also seek opportunities to expand your skills, network, and influence, and measure your impact by the outcomes you deliver and the value you create.
 ## Resources
 ### 
