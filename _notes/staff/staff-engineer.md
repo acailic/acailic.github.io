@@ -1,7 +1,7 @@
 ---
 title: Note on Staff Engineer
 layout: post
-tags: [ staff, book ]
+tags: [ staff, book, todo ]
 date: 2024-02-25
 ---
 # Staff Engineer
