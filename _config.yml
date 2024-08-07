@@ -12,7 +12,7 @@ author: acailic
 github_username: acailic
 
 url: https://acailic.github.io
-baseurl: /sveska
+baseurl: /
 
 # build
 collections:
