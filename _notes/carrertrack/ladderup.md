@@ -1,4 +1,5 @@
 ---
+---
 title: Ladder up by Rob Dance 
 layout: post
 tags: [career]
