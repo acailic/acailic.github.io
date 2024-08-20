@@ -1,5 +1,5 @@
 ---
-title: Note on Cracking leadirship code
+title: Note on Cracking leadership code
 layout: post
 tags: [communication, book, todo]
 date: 2024-05-01
