@@ -25,3 +25,10 @@ date: 2024-02-12
 | **System Design Primer on GitHub** | [System Design Primer](https://github.com/donnemartin/system-design-primer) |
 | **Awesome System Design on GitHub** | [Awesome System Design](https://github.com/topics/system-design-interview) |
 | **25 Essential System Design Interview Questions (2024)** | [Educative Blog](https://www.educative.io/blog/system-design-interview-questions) |
+
+
+### FANG links
+| **Title**                      | **URL**                                                                                                                                                                                                                                                 |
+|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Amazon Library**             | [Amazon Library](https://aws.amazon.com/architecture/?cards-all.sort-by=item.additionalFields.sortDate&cards-all.sort-order=desc&awsf.content-type=*all&awsf.methodology=*all&awsf.tech-category=*all&awsf.industries=*all&awsf.business-category=*all) |
+| **Microsoft Engineering Blog** | [Microsoft Engineering](https://learn.microsoft.com/en-us/azure/architecture/browse/)                                                                                                                                                                   |
