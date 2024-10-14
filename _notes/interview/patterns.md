@@ -1,8 +1,8 @@
 ---
 title: Patterns for Coding Interview
 layout: post
-tags: [patterns]
-date: 2024-10-12
+tags: [article, patterns]
+date: 2024-10-14
 ---
 
 
