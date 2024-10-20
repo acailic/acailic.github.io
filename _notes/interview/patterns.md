@@ -28,3 +28,5 @@ date: 2024-10-14
 | "Recursion banned" | Iterative Approaches | Use a stack to simulate recursion | Stack |
 | "General problem" | Hash Table, Sorting | Use Map/Set for O(1) time & O(n) space; Sort input for O(nlogn) time and O(1) space | HashMap, Array |
 
+Sidenotes: 
+DFS- can be used to explore all possible combinations of a problem by going deep, choosing a path, and backtracking when a dead-end is reached. Supports backtracking, which is useful for exploring all possible combinations without storing them explicitly
