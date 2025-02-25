@@ -2,7 +2,7 @@
 title: Prevent Overflow
 layout: post
 tags: [coding, todo]
-date: 2024-02-25
+date: 2025-02-25
 ---
 
 # Preventing Integer Overflow in Numeric Operations: A Developer's Guide
