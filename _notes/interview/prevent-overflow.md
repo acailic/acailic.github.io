@@ -2,7 +2,7 @@
 title: Prevent Overflow
 layout: post
 tags: [coding, todo]
-date: 2024-02-12
+date: 2024-02-25
 ---
 
 # Preventing Integer Overflow in Numeric Operations: A Developer's Guide
@@ -38,7 +38,7 @@ In JavaScript, all numbers are double-precision floating-point by default, but i
 // JavaScript using BigInt for large integers
 const a = BigInt(Number.MAX_SAFE_INTEGER);
 const b = BigInt(10);
-const sum = a + b;  // Safe addition
+const sum = a + b; // Safe addition
 ```
 
 ### 2. Pre-check Before Operations
