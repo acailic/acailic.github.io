@@ -1,5 +1,5 @@
 ---
-title: Summary of the article "A primer on strategy for software engineers":
+title: Summary of the article "A primer on strategy for software engineers"
 layout: post
 tags: [article, strategy]
 date: 2025-02-28
