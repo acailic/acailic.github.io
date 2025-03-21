@@ -15,6 +15,7 @@ date: 2025-03-20
 2. "If success was guaranteed, what would you throw yourself into with your whole life and career?"
 3. "Where do I want to be going with my life? What's important to me in this world?"
 4. "When should you quit something vs. when should you persist through difficulty?"
+5. "I want to become _____. What are 3 things I can do today to move towards that goal?"
 
 ## Practical Tips
 - Recognize when you're living on autopilot (unconscious routines without intention)
