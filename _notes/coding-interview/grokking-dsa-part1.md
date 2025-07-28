@@ -2,7 +2,7 @@
 title: Grokking DSA Part 1  Core Patterns Explained
 layout: post
 tags: [grokking, dsa, architecture, patterns]
-date: 2024-06-28
+date: 2025-06-28
 ---
 
 Here are fundamental data structure and algorithm patterns, explained in simple terms for practical application in software design and problem-solving.

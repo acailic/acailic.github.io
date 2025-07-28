@@ -2,7 +2,7 @@
 title: Grokking DSA Part 2: Advanced Patterns Explained
 layout: post
 tags: [grokking, dsa, architecture, patterns, dynamic-programming]
-date: 2024-06-28
+date: 2025-06-28
 ---
 
 This section covers more advanced patterns, including several key dynamic programming concepts, essential for solving complex optimization and combinatorial problems.
