@@ -1,5 +1,5 @@
 ---
-title: Grokking DSA Part 2: Advanced Patterns Explained
+title: Grokking DSA Part 2 Advanced Patterns Explained
 layout: post
 tags: [grokking, dsa, architecture, patterns, dynamic-programming]
 date: 2025-06-28
